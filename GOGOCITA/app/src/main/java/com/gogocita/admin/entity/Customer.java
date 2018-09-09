@@ -1,11 +1,17 @@
 package com.gogocita.admin.entity;
 
+import com.gogocita.admin.Constant.EntityStatus;
+import com.gogocita.admin.helper.QueryFirebase;
+import com.google.firebase.database.Exclude;
+
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Customer {
-    private int CustomerID;
+    private String CustomerID;
     private String Status;
-    private int FK_UserID;
+    private String FK_UserID;
     private String CustomerName;
     private Date CustomerBirthDay;
     private String CustomerPhone;
@@ -18,9 +24,32 @@ public class Customer {
     private String CustomerAddressLine;
     private String CustomerAddressCountry;
     private String CustomerAddressCity;
-    private int FK_EmployeeID;
+    private String FK_EmployeeID;
+    private boolean CustomerIsActive;
+    private long CustomerAmount;
 
-    public Customer(int customerID, String status, int FK_UserID, String customerName, Date customerBirthDay, String customerPhone, String customerGender, String customerJob, String customerNationality, String customerPassportNumber, String customerEmail, String customerAvatar, String customerAddressLine, String customerAddressCountry, String customerAddressCity, int FK_EmployeeID, boolean customerIsActive) {
+    public Customer(String status, String FK_UserID, String customerName, Date customerBirthDay, String customerPhone, String customerGender, String customerJob, String customerNationality, String customerPassportNumber, String customerEmail, String customerAvatar, String customerAddressLine, String customerAddressCountry, String customerAddressCity, String FK_EmployeeID, boolean customerIsActive, long customerAmount) {
+        CustomerID = id();
+        Status = status;
+        this.FK_UserID = FK_UserID;
+        CustomerName = customerName;
+        CustomerBirthDay = customerBirthDay;
+        CustomerPhone = customerPhone;
+        CustomerGender = customerGender;
+        CustomerJob = customerJob;
+        CustomerNationality = customerNationality;
+        CustomerPassportNumber = customerPassportNumber;
+        CustomerEmail = customerEmail;
+        CustomerAvatar = customerAvatar;
+        CustomerAddressLine = customerAddressLine;
+        CustomerAddressCountry = customerAddressCountry;
+        CustomerAddressCity = customerAddressCity;
+        this.FK_EmployeeID = FK_EmployeeID;
+        CustomerIsActive = customerIsActive;
+        CustomerAmount = customerAmount;
+    }
+
+    public Customer(String customerID, String status, String FK_UserID, String customerName, Date customerBirthDay, String customerPhone, String customerGender, String customerJob, String customerNationality, String customerPassportNumber, String customerEmail, String customerAvatar, String customerAddressLine, String customerAddressCountry, String customerAddressCity, String FK_EmployeeID, boolean customerIsActive, long customerAmount) {
         CustomerID = customerID;
         Status = status;
         this.FK_UserID = FK_UserID;
@@ -38,13 +67,14 @@ public class Customer {
         CustomerAddressCity = customerAddressCity;
         this.FK_EmployeeID = FK_EmployeeID;
         CustomerIsActive = customerIsActive;
+        CustomerAmount = customerAmount;
     }
 
-    public int getCustomerID() {
+    public String getCustomerID() {
         return CustomerID;
     }
 
-    public void setCustomerID(int customerID) {
+    public void setCustomerID(String customerID) {
         CustomerID = customerID;
     }
 
@@ -56,11 +86,11 @@ public class Customer {
         Status = status;
     }
 
-    public int getFK_UserID() {
+    public String getFK_UserID() {
         return FK_UserID;
     }
 
-    public void setFK_UserID(int FK_UserID) {
+    public void setFK_UserID(String FK_UserID) {
         this.FK_UserID = FK_UserID;
     }
 
@@ -160,11 +190,11 @@ public class Customer {
         CustomerAddressCity = customerAddressCity;
     }
 
-    public int getFK_EmployeeID() {
+    public String getFK_EmployeeID() {
         return FK_EmployeeID;
     }
 
-    public void setFK_EmployeeID(int FK_EmployeeID) {
+    public void setFK_EmployeeID(String FK_EmployeeID) {
         this.FK_EmployeeID = FK_EmployeeID;
     }
 
@@ -176,6 +206,51 @@ public class Customer {
         CustomerIsActive = customerIsActive;
     }
 
-    private boolean CustomerIsActive;
+    public long getCustomerAmount() {
+        return CustomerAmount;
+    }
 
+    public void setCustomerAmount(long customerAmount) {
+        CustomerAmount = customerAmount;
+    }
+
+    public String id() {
+        QueryFirebase firebase = new QueryFirebase("Customers");
+        return firebase.getNewKey();
+    }
+
+    @Override
+    public String toString() {
+        return "Customers";
+    }
+
+    @Exclude
+    public Map<String, Object> toMapUpdate() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("status", Status);
+        result.put("fK_UserID", FK_UserID);
+        result.put("customerName", CustomerName);
+        result.put("customerBirthDay", CustomerBirthDay);
+        result.put("customerPhone", CustomerPhone);
+        result.put("customerGender", CustomerGender);
+        result.put("customerJob", CustomerJob);
+        result.put("customerNationality", CustomerNationality);
+        result.put("customerPassportNumber", CustomerPassportNumber);
+        result.put("customerEmail", CustomerEmail);
+        result.put("customerAvatar", CustomerAvatar);
+        result.put("customerAddressCountry", CustomerAddressCountry);
+        result.put("fK_EmployeeID", FK_EmployeeID);
+        result.put("customerAmount", CustomerAmount);
+        result.put("customerIsActive", CustomerIsActive);
+
+        return result;
+    }
+
+    @Exclude
+    public Map<String, Object> toMapDelete() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("status", EntityStatus.Delete);
+
+        return result;
+    }
 }

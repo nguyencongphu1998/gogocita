@@ -1,16 +1,23 @@
 package com.gogocita.admin.entity;
 
+import com.gogocita.admin.Constant.EntityStatus;
+import com.gogocita.admin.helper.QueryFirebase;
+import com.google.firebase.database.Exclude;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class Booking {
-    private int BookingID;
+    private String BookingID;
     private String Status;
-    private int FK_CustomerID;
-    private int FK_PartnerServiceDateID;
+    private String FK_CustomerID;
+    private String FK_PartnerServiceDateID;
     private String BookingStatus;
     //private String BookingPaymentMethod;
     private String BookingComment;
     private int BookingEvalution;
 
-    public Booking(int bookingID, String status, int FK_CustomerID, int FK_PartnerServiceDateID, String bookingStatus, String bookingComment, int bookingEvalution) {
+    public Booking(String bookingID, String status, String FK_CustomerID, String FK_PartnerServiceDateID, String bookingStatus, String bookingComment, int bookingEvalution) {
         BookingID = bookingID;
         Status = status;
         this.FK_CustomerID = FK_CustomerID;
@@ -20,11 +27,21 @@ public class Booking {
         BookingEvalution = bookingEvalution;
     }
 
-    public int getBookingID() {
+    public Booking(String status, String FK_CustomerID, String FK_PartnerServiceDateID, String bookingStatus, String bookingComment, int bookingEvalution) {
+        BookingID = id();
+        Status = status;
+        this.FK_CustomerID = FK_CustomerID;
+        this.FK_PartnerServiceDateID = FK_PartnerServiceDateID;
+        BookingStatus = bookingStatus;
+        BookingComment = bookingComment;
+        BookingEvalution = bookingEvalution;
+    }
+
+    public String getBookingID() {
         return BookingID;
     }
 
-    public void setBookingID(int bookingID) {
+    public void setBookingID(String bookingID) {
         BookingID = bookingID;
     }
 
@@ -36,19 +53,19 @@ public class Booking {
         Status = status;
     }
 
-    public int getFK_CustomerID() {
+    public String getFK_CustomerID() {
         return FK_CustomerID;
     }
 
-    public void setFK_CustomerID(int FK_CustomerID) {
+    public void setFK_CustomerID(String FK_CustomerID) {
         this.FK_CustomerID = FK_CustomerID;
     }
 
-    public int getFK_PartnerServiceDateID() {
+    public String getFK_PartnerServiceDateID() {
         return FK_PartnerServiceDateID;
     }
 
-    public void setFK_PartnerServiceDateID(int FK_PartnerServiceDateID) {
+    public void setFK_PartnerServiceDateID(String FK_PartnerServiceDateID) {
         this.FK_PartnerServiceDateID = FK_PartnerServiceDateID;
     }
 
@@ -74,5 +91,35 @@ public class Booking {
 
     public void setBookingEvalution(int bookingEvalution) {
         BookingEvalution = bookingEvalution;
+    }
+
+    public String id() {
+        QueryFirebase firebase = new QueryFirebase("Bookings");
+        return firebase.getNewKey();
+    }
+
+    @Override
+    public String toString() {
+        return "Bookings";
+    }
+
+    @Exclude
+    public Map<String, Object> toMapUpdate() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("status", Status);
+        result.put("fK_CustomerID", FK_CustomerID);
+        result.put("bookingStatus", BookingStatus);
+        result.put("bookingComment", BookingComment);
+        result.put("bookingEvalution", BookingEvalution);
+
+        return result;
+    }
+
+    @Exclude
+    public Map<String, Object> toMapDelete() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("status", EntityStatus.Delete);
+
+        return result;
     }
 }

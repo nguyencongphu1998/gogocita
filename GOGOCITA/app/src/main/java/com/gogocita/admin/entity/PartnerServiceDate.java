@@ -9,80 +9,83 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PartnerServiceDate {
-    private String PartnerServiceDateID;
-    private String FK_PartnerServiceID;
-    private String Status;
-    private Date PartnerServiceDateFrom;
-    private Date PartnerServiceDateTo;
-    private String PartnerServiceDateStatus;
+    private String partnerServiceDateID;
+    private String fk_PartnerServiceID;
+    private String status;
+    private Date partnerServiceDateFrom;
+    private Date partnerServiceDateTo;
+    private String partnerServiceDateStatus;
 
-    public PartnerServiceDate(String FK_PartnerServiceID, String status, Date partnerServiceDateFrom, Date partnerServiceDateTo, String partnerServiceDateStatus) {
-        PartnerServiceDateID = id();
-        this.FK_PartnerServiceID = FK_PartnerServiceID;
-        Status = status;
-        PartnerServiceDateFrom = partnerServiceDateFrom;
-        PartnerServiceDateTo = partnerServiceDateTo;
-        PartnerServiceDateStatus = partnerServiceDateStatus;
+    public PartnerServiceDate() {
     }
 
-    public PartnerServiceDate(String partnerServiceDateID, String FK_PartnerServiceID, String status, Date partnerServiceDateFrom, Date partnerServiceDateTo, String partnerServiceDateStatus) {
-        PartnerServiceDateID = partnerServiceDateID;
-        this.FK_PartnerServiceID = FK_PartnerServiceID;
-        Status = status;
-        PartnerServiceDateFrom = partnerServiceDateFrom;
-        PartnerServiceDateTo = partnerServiceDateTo;
-        PartnerServiceDateStatus = partnerServiceDateStatus;
+    public PartnerServiceDate(String partnerServiceDateID, String fk_PartnerServiceID, String status, Date partnerServiceDateFrom, Date partnerServiceDateTo, String partnerServiceDateStatus) {
+        this.partnerServiceDateID = partnerServiceDateID;
+        this.fk_PartnerServiceID = fk_PartnerServiceID;
+        this.status = status;
+        this.partnerServiceDateFrom = partnerServiceDateFrom;
+        this.partnerServiceDateTo = partnerServiceDateTo;
+        this.partnerServiceDateStatus = partnerServiceDateStatus;
+    }
+
+    public PartnerServiceDate(String fk_PartnerServiceID, Date partnerServiceDateFrom, Date partnerServiceDateTo, String partnerServiceDateStatus) {
+        this.partnerServiceDateID = generateId();
+        this.fk_PartnerServiceID = fk_PartnerServiceID;
+        this.status = EntityStatus.Alive;
+        this.partnerServiceDateFrom = partnerServiceDateFrom;
+        this.partnerServiceDateTo = partnerServiceDateTo;
+        this.partnerServiceDateStatus = partnerServiceDateStatus;
     }
 
     public String getPartnerServiceDateID() {
-        return PartnerServiceDateID;
+        return partnerServiceDateID;
     }
 
     public void setPartnerServiceDateID(String partnerServiceDateID) {
-        PartnerServiceDateID = partnerServiceDateID;
+        this.partnerServiceDateID = partnerServiceDateID;
     }
 
-    public String getFK_PartnerServiceID() {
-        return FK_PartnerServiceID;
+    public String getFk_PartnerServiceID() {
+        return fk_PartnerServiceID;
     }
 
-    public void setFK_PartnerServiceID(String FK_PartnerServiceID) {
-        this.FK_PartnerServiceID = FK_PartnerServiceID;
+    public void setFk_PartnerServiceID(String fk_PartnerServiceID) {
+        this.fk_PartnerServiceID = fk_PartnerServiceID;
     }
 
     public String getStatus() {
-        return Status;
+        return status;
     }
 
     public void setStatus(String status) {
-        Status = status;
+        this.status = status;
     }
 
     public Date getPartnerServiceDateFrom() {
-        return PartnerServiceDateFrom;
+        return partnerServiceDateFrom;
     }
 
     public void setPartnerServiceDateFrom(Date partnerServiceDateFrom) {
-        PartnerServiceDateFrom = partnerServiceDateFrom;
+        this.partnerServiceDateFrom = partnerServiceDateFrom;
     }
 
     public Date getPartnerServiceDateTo() {
-        return PartnerServiceDateTo;
+        return partnerServiceDateTo;
     }
 
     public void setPartnerServiceDateTo(Date partnerServiceDateTo) {
-        PartnerServiceDateTo = partnerServiceDateTo;
+        this.partnerServiceDateTo = partnerServiceDateTo;
     }
 
     public String getPartnerServiceDateStatus() {
-        return PartnerServiceDateStatus;
+        return partnerServiceDateStatus;
     }
 
     public void setPartnerServiceDateStatus(String partnerServiceDateStatus) {
-        PartnerServiceDateStatus = partnerServiceDateStatus;
+        this.partnerServiceDateStatus = partnerServiceDateStatus;
     }
 
-    public String id() {
+    public String generateId() {
         QueryFirebase firebase = new QueryFirebase("PartnerServiceDates");
         return firebase.getNewKey();
     }
@@ -95,11 +98,11 @@ public class PartnerServiceDate {
     @Exclude
     public Map<String, Object> toMapUpdate() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("fK_PartnerServiceID", FK_PartnerServiceID);
-        result.put("status", Status);
-        result.put("partnerServiceDateFrom", PartnerServiceDateFrom);
-        result.put("partnerServiceDateTo", PartnerServiceDateTo);
-        result.put("partnerServiceDateStatus", PartnerServiceDateStatus);
+        result.put("fK_PartnerServiceID", fk_PartnerServiceID);
+        result.put("status", status);
+        result.put("partnerServiceDateFrom", partnerServiceDateFrom);
+        result.put("partnerServiceDateTo", partnerServiceDateTo);
+        result.put("partnerServiceDateStatus", partnerServiceDateStatus);
 
         return result;
     }

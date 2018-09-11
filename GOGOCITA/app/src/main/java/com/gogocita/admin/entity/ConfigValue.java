@@ -6,51 +6,61 @@ import com.google.firebase.database.IgnoreExtraProperties;
 
 @IgnoreExtraProperties
 public class ConfigValue{
-    private String ConfigValueID;
-    private String ConfigValueKey;
-    private String ConfigValueText;
-    private String ConfigValueGroup;
+    private String configValueID;
+    private String configValueKey;
+    private String configValueText;
+    private String configValueGroup;
+
+    public ConfigValue() {
+    }
 
     public ConfigValue(String configValueKey, String configValueText, String configValueGroup) {
-        ConfigValueID = Id();
-        ConfigValueKey = configValueKey;
-        ConfigValueText = configValueText;
-        ConfigValueGroup = configValueGroup;
+        this.configValueID = generateId();
+        this.configValueKey = configValueKey;
+        this.configValueText = configValueText;
+        this.configValueGroup = configValueGroup;
+    }
+
+    public ConfigValue(String configValueID, String configValueKey, String configValueText, String configValueGroup) {
+        this.configValueID = configValueID;
+        this.configValueKey = configValueKey;
+        this.configValueText = configValueText;
+        this.configValueGroup = configValueGroup;
     }
 
     public String getConfigValueID() {
-        return ConfigValueID;
+        return configValueID;
     }
 
     public void setConfigValueID(String configValueID) {
-        ConfigValueID = configValueID;
+        this.configValueID = configValueID;
     }
 
     public String getConfigValueKey() {
-        return ConfigValueKey;
+        return configValueKey;
     }
 
     public void setConfigValueKey(String configValueKey) {
-        ConfigValueKey = configValueKey;
+        this.configValueKey = configValueKey;
     }
 
     public String getConfigValueText() {
-        return ConfigValueText;
+        return configValueText;
     }
 
     public void setConfigValueText(String configValueText) {
-        ConfigValueText = configValueText;
+        this.configValueText = configValueText;
     }
 
     public String getConfigValueGroup() {
-        return ConfigValueGroup;
+        return configValueGroup;
     }
 
     public void setConfigValueGroup(String configValueGroup) {
-        ConfigValueGroup = configValueGroup;
+        this.configValueGroup = configValueGroup;
     }
 
-    public String Id() {
+    public String generateId() {
         QueryFirebase firebase = new QueryFirebase("ConfigValues");
         return firebase.getNewKey();
     }

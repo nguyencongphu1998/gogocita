@@ -8,92 +8,94 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Booking {
-    private String BookingID;
-    private String Status;
-    private String FK_CustomerID;
-    private String FK_PartnerServiceDateID;
-    private String BookingStatus;
-    //private String BookingPaymentMethod;
-    private String BookingComment;
-    private int BookingEvalution;
+    private String bookingID;
+    private String status;
+    private String fK_CustomerID;
+    private String fK_PartnerServiceDateID;
+    private String bookingStatus;
+    private String bookingComment;
+    private int bookingEvalution;
 
-    public Booking(String bookingID, String status, String FK_CustomerID, String FK_PartnerServiceDateID, String bookingStatus, String bookingComment, int bookingEvalution) {
-        BookingID = bookingID;
-        Status = status;
-        this.FK_CustomerID = FK_CustomerID;
-        this.FK_PartnerServiceDateID = FK_PartnerServiceDateID;
-        BookingStatus = bookingStatus;
-        BookingComment = bookingComment;
-        BookingEvalution = bookingEvalution;
+    public Booking() {
     }
 
-    public Booking(String status, String FK_CustomerID, String FK_PartnerServiceDateID, String bookingStatus, String bookingComment, int bookingEvalution) {
-        BookingID = id();
-        Status = status;
-        this.FK_CustomerID = FK_CustomerID;
-        this.FK_PartnerServiceDateID = FK_PartnerServiceDateID;
-        BookingStatus = bookingStatus;
-        BookingComment = bookingComment;
-        BookingEvalution = bookingEvalution;
+    public Booking(String fK_CustomerID, String fK_PartnerServiceDateID, String bookingStatus, String bookingComment, int bookingEvalution) {
+        this.bookingID = generateId();
+        this.status = EntityStatus.Alive;
+        this.fK_CustomerID = fK_CustomerID;
+        this.fK_PartnerServiceDateID = fK_PartnerServiceDateID;
+        this.bookingStatus = bookingStatus;
+        this.bookingComment = bookingComment;
+        this.bookingEvalution = bookingEvalution;
+    }
+
+    public Booking(String bookingID, String status, String fK_CustomerID, String fK_PartnerServiceDateID, String bookingStatus, String bookingComment, int bookingEvalution) {
+        this.bookingID = bookingID;
+        this.status = status;
+        this.fK_CustomerID = fK_CustomerID;
+        this.fK_PartnerServiceDateID = fK_PartnerServiceDateID;
+        this.bookingStatus = bookingStatus;
+        this.bookingComment = bookingComment;
+        this.bookingEvalution = bookingEvalution;
     }
 
     public String getBookingID() {
-        return BookingID;
+        return bookingID;
     }
 
     public void setBookingID(String bookingID) {
-        BookingID = bookingID;
+        this.bookingID = bookingID;
     }
 
     public String getStatus() {
-        return Status;
+        return status;
     }
 
     public void setStatus(String status) {
-        Status = status;
+        this.status = status;
     }
 
-    public String getFK_CustomerID() {
-        return FK_CustomerID;
+    public String getfK_CustomerID() {
+        return fK_CustomerID;
     }
 
-    public void setFK_CustomerID(String FK_CustomerID) {
-        this.FK_CustomerID = FK_CustomerID;
+    public void setfK_CustomerID(String fK_CustomerID) {
+        this.fK_CustomerID = fK_CustomerID;
     }
 
-    public String getFK_PartnerServiceDateID() {
-        return FK_PartnerServiceDateID;
+    public String getfK_PartnerServiceDateID() {
+        return fK_PartnerServiceDateID;
     }
 
-    public void setFK_PartnerServiceDateID(String FK_PartnerServiceDateID) {
-        this.FK_PartnerServiceDateID = FK_PartnerServiceDateID;
+    public void setfK_PartnerServiceDateID(String fK_PartnerServiceDateID) {
+        this.fK_PartnerServiceDateID = fK_PartnerServiceDateID;
     }
 
     public String getBookingStatus() {
-        return BookingStatus;
+        return bookingStatus;
     }
 
     public void setBookingStatus(String bookingStatus) {
-        BookingStatus = bookingStatus;
+        this.bookingStatus = bookingStatus;
     }
 
     public String getBookingComment() {
-        return BookingComment;
+        return bookingComment;
     }
 
     public void setBookingComment(String bookingComment) {
-        BookingComment = bookingComment;
+        this.bookingComment = bookingComment;
     }
 
     public int getBookingEvalution() {
-        return BookingEvalution;
+        return bookingEvalution;
     }
 
     public void setBookingEvalution(int bookingEvalution) {
-        BookingEvalution = bookingEvalution;
+        this.bookingEvalution = bookingEvalution;
     }
 
-    public String id() {
+    public String generateId() {
         QueryFirebase firebase = new QueryFirebase("Bookings");
         return firebase.getNewKey();
     }
@@ -106,11 +108,11 @@ public class Booking {
     @Exclude
     public Map<String, Object> toMapUpdate() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("status", Status);
-        result.put("fK_CustomerID", FK_CustomerID);
-        result.put("bookingStatus", BookingStatus);
-        result.put("bookingComment", BookingComment);
-        result.put("bookingEvalution", BookingEvalution);
+        result.put("status", status);
+        result.put("fK_CustomerID", fK_CustomerID);
+        result.put("bookingStatus", bookingStatus);
+        result.put("bookingComment", bookingComment);
+        result.put("bookingEvalution", bookingEvalution);
 
         return result;
     }

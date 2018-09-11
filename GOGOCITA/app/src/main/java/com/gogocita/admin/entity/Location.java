@@ -1,36 +1,40 @@
 package com.gogocita.admin.entity;
 
 public class Location {
-    private String LocationID;
-    private String LocationType;
-    private String LocationName;
+    private String locationID;
+    private String locationType;
+    private String locationName;
+
+    public Location() {
+    }
+
     public Location(String locationID, String locationType, String locationName) {
-        LocationID = locationID;
-        LocationType = locationType;
-        LocationName = locationName;
+        this.locationID = locationID;
+        this.locationType = locationType;
+        this.locationName = locationName;
     }
 
     public String getLocationID() {
-        return LocationID;
+        return locationID;
     }
 
     public void setLocationID(String locationID) {
-        LocationID = locationID;
+        this.locationID = locationID;
     }
 
     public String getLocationType() {
-        return LocationType;
+        return locationType;
     }
 
     public void setLocationType(String locationType) {
-        LocationType = locationType;
+        this.locationType = locationType;
     }
 
     public String getLocationName() {
-        return LocationName;
+        return locationName;
     }
 
     public void setLocationName(String locationName) {
-        LocationName = locationName;
+        this.locationName = locationName;
     }
 }

@@ -8,69 +8,72 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PartnerServiceImage {
-    private String PartnerServiceImageID;
-    private String Status;
-    private String FK_PartnerServiceID;
-    private String PartnerServiceImageLink;
-    private String PartnerServiceImageType;
+    private String partnerServiceImageID;
+    private String status;
+    private String fk_PartnerServiceID;
+    private String partnerServiceImageLink;
+    private String partnerServiceImageType;
 
-    public PartnerServiceImage(String partnerServiceImageID, String status, String FK_PartnerServiceID, String partnerServiceImageLink, String partnerServiceImageType) {
-        PartnerServiceImageID = partnerServiceImageID;
-        Status = status;
-        this.FK_PartnerServiceID = FK_PartnerServiceID;
-        PartnerServiceImageLink = partnerServiceImageLink;
-        PartnerServiceImageType = partnerServiceImageType;
+    public PartnerServiceImage() {
     }
 
-    public PartnerServiceImage(String status, String FK_PartnerServiceID, String partnerServiceImageLink, String partnerServiceImageType) {
-        PartnerServiceImageID = id();
-        Status = status;
-        this.FK_PartnerServiceID = FK_PartnerServiceID;
-        PartnerServiceImageLink = partnerServiceImageLink;
-        PartnerServiceImageType = partnerServiceImageType;
+    public PartnerServiceImage(String partnerServiceImageID, String status, String fk_PartnerServiceID, String partnerServiceImageLink, String partnerServiceImageType) {
+        this.partnerServiceImageID = partnerServiceImageID;
+        this.status = status;
+        this.fk_PartnerServiceID = fk_PartnerServiceID;
+        this.partnerServiceImageLink = partnerServiceImageLink;
+        this.partnerServiceImageType = partnerServiceImageType;
+    }
+
+    public PartnerServiceImage(String fk_PartnerServiceID, String partnerServiceImageLink, String partnerServiceImageType) {
+        this.partnerServiceImageID = generateId();
+        this.status = EntityStatus.Alive;
+        this.fk_PartnerServiceID = fk_PartnerServiceID;
+        this.partnerServiceImageLink = partnerServiceImageLink;
+        this.partnerServiceImageType = partnerServiceImageType;
     }
 
     public String getPartnerServiceImageID() {
-        return PartnerServiceImageID;
+        return partnerServiceImageID;
     }
 
     public void setPartnerServiceImageID(String partnerServiceImageID) {
-        PartnerServiceImageID = partnerServiceImageID;
+        this.partnerServiceImageID = partnerServiceImageID;
     }
 
     public String getStatus() {
-        return Status;
+        return status;
     }
 
     public void setStatus(String status) {
-        Status = status;
+        this.status = status;
     }
 
-    public String getFK_PartnerServiceID() {
-        return FK_PartnerServiceID;
+    public String getFk_PartnerServiceID() {
+        return fk_PartnerServiceID;
     }
 
-    public void setFK_PartnerServiceID(String FK_PartnerServiceID) {
-        this.FK_PartnerServiceID = FK_PartnerServiceID;
+    public void setFk_PartnerServiceID(String fk_PartnerServiceID) {
+        this.fk_PartnerServiceID = fk_PartnerServiceID;
     }
 
     public String getPartnerServiceImageLink() {
-        return PartnerServiceImageLink;
+        return partnerServiceImageLink;
     }
 
     public void setPartnerServiceImageLink(String partnerServiceImageLink) {
-        PartnerServiceImageLink = partnerServiceImageLink;
+        this.partnerServiceImageLink = partnerServiceImageLink;
     }
 
     public String getPartnerServiceImageType() {
-        return PartnerServiceImageType;
+        return partnerServiceImageType;
     }
 
     public void setPartnerServiceImageType(String partnerServiceImageType) {
-        PartnerServiceImageType = partnerServiceImageType;
+        this.partnerServiceImageType = partnerServiceImageType;
     }
 
-    public String id() {
+    public String generateId() {
         QueryFirebase firebase = new QueryFirebase("PartnerServiceImages");
         return firebase.getNewKey();
     }
@@ -83,10 +86,10 @@ public class PartnerServiceImage {
     @Exclude
     public Map<String, Object> toMapUpdate() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("status", Status);
-        result.put("fK_PartnerServiceID", FK_PartnerServiceID);
-        result.put("partnerServiceImageLink", PartnerServiceImageLink);
-        result.put("partnerServiceImageType", PartnerServiceImageType);
+        result.put("status", status);
+        result.put("fK_PartnerServiceID", fk_PartnerServiceID);
+        result.put("partnerServiceImageLink", partnerServiceImageLink);
+        result.put("partnerServiceImageType", partnerServiceImageType);
 
         return result;
     }

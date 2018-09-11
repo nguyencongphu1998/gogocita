@@ -8,58 +8,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class User {
-    private String UserID;
-    private String UserName;
-    private String Password;
-    private String UserType;
+    private String userID;
+    private String userName;
+    private String userPassword;
+    private String userType;
 
-    public User(String userName, String password, String userType) {
-        UserID = id();
-        UserName = userName;
-        Password = password;
-        UserType = userType;
+    public User() {
     }
 
-    public User(String userID, String userName, String password, String userType) {
-        UserID = userID;
-        UserName = userName;
-        Password = password;
-        UserType = userType;
+    public User(String userID, String userName, String userPassword, String userType) {
+        this.userID = userID;
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.userType = userType;
     }
 
-    public String getUserID() {
-        return UserID;
+    public User(String userName, String userPassword, String userType) {
+        this.userID = generateId();
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.userType = userType;
     }
 
-    public void setUserID(String userID) {
-        UserID = userID;
-    }
-
-    public String getUserName() {
-        return UserName;
-    }
-
-    public void setUserName(String userName) {
-        UserName = userName;
-    }
-
-    public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String password) {
-        Password = password;
-    }
-
-    public String getUserType() {
-        return UserType;
-    }
-
-    public void setUserType(String userType) {
-        UserType = userType;
-    }
-
-    public String id() {
+    public String generateId() {
         QueryFirebase firebase = new QueryFirebase("Users");
         return firebase.getNewKey();
     }
@@ -72,9 +43,9 @@ public class User {
     @Exclude
     public Map<String, Object> toMapUpdate() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("userName", UserName);
-        result.put("password", Password);
-        result.put("userType", UserType);
+        result.put("userName", userName);
+        result.put("password", userPassword);
+        result.put("userType", userType);
 
         return result;
     }

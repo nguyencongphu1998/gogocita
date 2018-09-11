@@ -1,5 +1,7 @@
 package com.gogocita.admin.entity;
 
+import android.provider.ContactsContract;
+
 import com.gogocita.admin.Constant.EntityStatus;
 import com.gogocita.admin.helper.QueryFirebase;
 import com.google.firebase.database.Exclude;
@@ -8,80 +10,83 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PartnerServicesConvenience {
-    private String PSCID;
-    private String Status;
-    private String FK_PartnerServiceID;
-    private String PSCType;
-    private String PSCName;
-    private String PSCDesc;
+    private String pSCID;
+    private String status;
+    private String fk_PartnerServiceID;
+    private String pSCType;
+    private String pSCName;
+    private String pSCDesc;
 
-    public PartnerServicesConvenience(String status, String FK_PartnerServiceID, String PSCType, String PSCName, String PSCDesc) {
-        this.PSCID = id();
-        Status = status;
-        this.FK_PartnerServiceID = FK_PartnerServiceID;
-        this.PSCType = PSCType;
-        this.PSCName = PSCName;
-        this.PSCDesc = PSCDesc;
+    public PartnerServicesConvenience() {
     }
 
-    public PartnerServicesConvenience(String PSCID, String status, String FK_PartnerServiceID, String PSCType, String PSCName, String PSCDesc) {
-        this.PSCID = PSCID;
-        Status = status;
-        this.FK_PartnerServiceID = FK_PartnerServiceID;
-        this.PSCType = PSCType;
-        this.PSCName = PSCName;
-        this.PSCDesc = PSCDesc;
+    public PartnerServicesConvenience(String pSCID, String status, String fk_PartnerServiceID, String pSCType, String pSCName, String pSCDesc) {
+        this.pSCID = pSCID;
+        this.status = status;
+        this.fk_PartnerServiceID = fk_PartnerServiceID;
+        this.pSCType = pSCType;
+        this.pSCName = pSCName;
+        this.pSCDesc = pSCDesc;
     }
 
-    public String getPSCID() {
-        return PSCID;
+    public PartnerServicesConvenience(String fk_PartnerServiceID, String pSCType, String pSCName, String pSCDesc) {
+        this.pSCID = generateId();
+        this.status = EntityStatus.Alive;
+        this.fk_PartnerServiceID = fk_PartnerServiceID;
+        this.pSCType = pSCType;
+        this.pSCName = pSCName;
+        this.pSCDesc = pSCDesc;
     }
 
-    public void setPSCID(String PSCID) {
-        this.PSCID = PSCID;
+    public String getpSCID() {
+        return pSCID;
+    }
+
+    public void setpSCID(String pSCID) {
+        this.pSCID = pSCID;
     }
 
     public String getStatus() {
-        return Status;
+        return status;
     }
 
     public void setStatus(String status) {
-        Status = status;
+        this.status = status;
     }
 
-    public String getFK_PartnerServiceID() {
-        return FK_PartnerServiceID;
+    public String getFk_PartnerServiceID() {
+        return fk_PartnerServiceID;
     }
 
-    public void setFK_PartnerServiceID(String FK_PartnerServiceID) {
-        this.FK_PartnerServiceID = FK_PartnerServiceID;
+    public void setFk_PartnerServiceID(String fk_PartnerServiceID) {
+        this.fk_PartnerServiceID = fk_PartnerServiceID;
     }
 
-    public String getPSCType() {
-        return PSCType;
+    public String getpSCType() {
+        return pSCType;
     }
 
-    public void setPSCType(String PSCType) {
-        this.PSCType = PSCType;
+    public void setpSCType(String pSCType) {
+        this.pSCType = pSCType;
     }
 
-    public String getPSCName() {
-        return PSCName;
+    public String getpSCName() {
+        return pSCName;
     }
 
-    public void setPSCName(String PSCName) {
-        this.PSCName = PSCName;
+    public void setpSCName(String pSCName) {
+        this.pSCName = pSCName;
     }
 
-    public String getPSCDesc() {
-        return PSCDesc;
+    public String getpSCDesc() {
+        return pSCDesc;
     }
 
-    public void setPSCDesc(String PSCDesc) {
-        this.PSCDesc = PSCDesc;
+    public void setpSCDesc(String pSCDesc) {
+        this.pSCDesc = pSCDesc;
     }
 
-    public String id() {
+    public String generateId() {
         QueryFirebase firebase = new QueryFirebase("PartnerServicesConveniences");
         return firebase.getNewKey();
     }
@@ -94,11 +99,11 @@ public class PartnerServicesConvenience {
     @Exclude
     public Map<String, Object> toMapUpdate() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("status", Status);
-        result.put("fK_PartnerServiceID", FK_PartnerServiceID);
-        result.put("pSCType", PSCType);
-        result.put("pSCName", PSCName);
-        result.put("pSCDesc", PSCDesc);
+        result.put("status", status);
+        result.put("fK_PartnerServiceID", fk_PartnerServiceID);
+        result.put("pSCType", pSCType);
+        result.put("pSCName", pSCName);
+        result.put("pSCDesc", pSCDesc);
 
         return result;
     }

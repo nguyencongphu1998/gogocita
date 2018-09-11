@@ -8,170 +8,173 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PartnerService {
-    private String PartnerServiceID;
-    private String Status;
-    private String FK_PartnerID;
-    private String PartnerServiceName;
-    private int PartnerServiceEvalution;
-    private String PartnerServiceAddressLine;
-    private String FK_LocationCountryID;
-    private String FK_LocationCityID;
-    private String FK_LocationDistrictID;
-    private boolean PartnerServiceIsActive;
-    private String FK_EmployeeID;
-    private String PartnerServiceDesc;
-    private double PartnerServicePrice;
-    private float PartnerServiceDiscount;
+    private String partnerServiceID;
+    private String status;
+    private String fk_PartnerID;
+    private String partnerServiceName;
+    private int partnerServiceEvalution;
+    private String partnerServiceAddressLine;
+    private String fk_LocationCountryID;
+    private String fk_LocationCityID;
+    private String fk_LocationDistrictID;
+    private boolean partnerServiceIsActive;
+    private String fk_EmployeeID;
+    private String partnerServiceDesc;
+    private double partnerServicePrice;
+    private float partnerServiceDiscount;
 
-    public PartnerService(String status, String FK_PartnerID, String partnerServiceName, int partnerServiceEvalution, String partnerServiceAddressLine, String FK_LocationCountryID, String FK_LocationCityID, String FK_LocationDistrictID, boolean partnerServiceIsActive, String FK_EmployeeID, String partnerServiceDesc, double partnerServicePrice, float partnerServiceDiscount) {
-        PartnerServiceID = id();
-        Status = status;
-        this.FK_PartnerID = FK_PartnerID;
-        PartnerServiceName = partnerServiceName;
-        PartnerServiceEvalution = partnerServiceEvalution;
-        PartnerServiceAddressLine = partnerServiceAddressLine;
-        this.FK_LocationCountryID = FK_LocationCountryID;
-        this.FK_LocationCityID = FK_LocationCityID;
-        this.FK_LocationDistrictID = FK_LocationDistrictID;
-        PartnerServiceIsActive = partnerServiceIsActive;
-        this.FK_EmployeeID = FK_EmployeeID;
-        PartnerServiceDesc = partnerServiceDesc;
-        PartnerServicePrice = partnerServicePrice;
-        PartnerServiceDiscount = partnerServiceDiscount;
+    public PartnerService() {
     }
 
-    public PartnerService(String partnerServiceID, String status, String FK_PartnerID, String partnerServiceName, int partnerServiceEvalution, String partnerServiceAddressLine, String FK_LocationCountryID, String FK_LocationCityID, String FK_LocationDistrictID, boolean partnerServiceIsActive, String FK_EmployeeID, String partnerServiceDesc, double partnerServicePrice, float partnerServiceDiscount) {
-        PartnerServiceID = partnerServiceID;
-        Status = status;
-        this.FK_PartnerID = FK_PartnerID;
-        PartnerServiceName = partnerServiceName;
-        PartnerServiceEvalution = partnerServiceEvalution;
-        PartnerServiceAddressLine = partnerServiceAddressLine;
-        this.FK_LocationCountryID = FK_LocationCountryID;
-        this.FK_LocationCityID = FK_LocationCityID;
-        this.FK_LocationDistrictID = FK_LocationDistrictID;
-        PartnerServiceIsActive = partnerServiceIsActive;
-        this.FK_EmployeeID = FK_EmployeeID;
-        PartnerServiceDesc = partnerServiceDesc;
-        PartnerServicePrice = partnerServicePrice;
-        PartnerServiceDiscount = partnerServiceDiscount;
+    public PartnerService(String partnerServiceID, String status, String fk_PartnerID, String partnerServiceName, int partnerServiceEvalution, String partnerServiceAddressLine, String fk_LocationCountryID, String fk_LocationCityID, String fk_LocationDistrictID, boolean partnerServiceIsActive, String fk_EmployeeID, String partnerServiceDesc, double partnerServicePrice, float partnerServiceDiscount) {
+        this.partnerServiceID = partnerServiceID;
+        this.status = status;
+        this.fk_PartnerID = fk_PartnerID;
+        this.partnerServiceName = partnerServiceName;
+        this.partnerServiceEvalution = partnerServiceEvalution;
+        this.partnerServiceAddressLine = partnerServiceAddressLine;
+        this.fk_LocationCountryID = fk_LocationCountryID;
+        this.fk_LocationCityID = fk_LocationCityID;
+        this.fk_LocationDistrictID = fk_LocationDistrictID;
+        this.partnerServiceIsActive = partnerServiceIsActive;
+        this.fk_EmployeeID = fk_EmployeeID;
+        this.partnerServiceDesc = partnerServiceDesc;
+        this.partnerServicePrice = partnerServicePrice;
+        this.partnerServiceDiscount = partnerServiceDiscount;
+    }
+
+    public PartnerService(String fk_PartnerID, String partnerServiceName, int partnerServiceEvalution, String partnerServiceAddressLine, String fk_LocationCountryID, String fk_LocationCityID, String fk_LocationDistrictID, boolean partnerServiceIsActive, String fk_EmployeeID, String partnerServiceDesc, double partnerServicePrice, float partnerServiceDiscount) {
+        this.partnerServiceID = generateId();
+        this.status = EntityStatus.Alive;
+        this.fk_PartnerID = fk_PartnerID;
+        this.partnerServiceName = partnerServiceName;
+        this.partnerServiceEvalution = partnerServiceEvalution;
+        this.partnerServiceAddressLine = partnerServiceAddressLine;
+        this.fk_LocationCountryID = fk_LocationCountryID;
+        this.fk_LocationCityID = fk_LocationCityID;
+        this.fk_LocationDistrictID = fk_LocationDistrictID;
+        this.partnerServiceIsActive = partnerServiceIsActive;
+        this.fk_EmployeeID = fk_EmployeeID;
+        this.partnerServiceDesc = partnerServiceDesc;
+        this.partnerServicePrice = partnerServicePrice;
+        this.partnerServiceDiscount = partnerServiceDiscount;
+    }
+
+    public String generateId() {
+        QueryFirebase firebase = new QueryFirebase("PartnerServices");
+        return firebase.getNewKey();
     }
 
     public String getPartnerServiceID() {
-        return PartnerServiceID;
+        return partnerServiceID;
     }
 
     public void setPartnerServiceID(String partnerServiceID) {
-        PartnerServiceID = partnerServiceID;
+        this.partnerServiceID = partnerServiceID;
     }
 
     public String getStatus() {
-        return Status;
+        return status;
     }
 
     public void setStatus(String status) {
-        Status = status;
+        this.status = status;
     }
 
-    public String getFK_PartnerID() {
-        return FK_PartnerID;
+    public String getFk_PartnerID() {
+        return fk_PartnerID;
     }
 
-    public void setFK_PartnerID(String FK_PartnerID) {
-        this.FK_PartnerID = FK_PartnerID;
+    public void setFk_PartnerID(String fk_PartnerID) {
+        this.fk_PartnerID = fk_PartnerID;
     }
 
     public String getPartnerServiceName() {
-        return PartnerServiceName;
+        return partnerServiceName;
     }
 
     public void setPartnerServiceName(String partnerServiceName) {
-        PartnerServiceName = partnerServiceName;
+        this.partnerServiceName = partnerServiceName;
     }
 
     public int getPartnerServiceEvalution() {
-        return PartnerServiceEvalution;
+        return partnerServiceEvalution;
     }
 
     public void setPartnerServiceEvalution(int partnerServiceEvalution) {
-        PartnerServiceEvalution = partnerServiceEvalution;
+        this.partnerServiceEvalution = partnerServiceEvalution;
     }
 
     public String getPartnerServiceAddressLine() {
-        return PartnerServiceAddressLine;
+        return partnerServiceAddressLine;
     }
 
     public void setPartnerServiceAddressLine(String partnerServiceAddressLine) {
-        PartnerServiceAddressLine = partnerServiceAddressLine;
+        this.partnerServiceAddressLine = partnerServiceAddressLine;
     }
 
-    public String getFK_LocationCountryID() {
-        return FK_LocationCountryID;
+    public String getFk_LocationCountryID() {
+        return fk_LocationCountryID;
     }
 
-    public void setFK_LocationCountryID(String FK_LocationCountryID) {
-        this.FK_LocationCountryID = FK_LocationCountryID;
+    public void setFk_LocationCountryID(String fk_LocationCountryID) {
+        this.fk_LocationCountryID = fk_LocationCountryID;
     }
 
-    public String getFK_LocationCityID() {
-        return FK_LocationCityID;
+    public String getFk_LocationCityID() {
+        return fk_LocationCityID;
     }
 
-    public void setFK_LocationCityID(String FK_LocationCityID) {
-        this.FK_LocationCityID = FK_LocationCityID;
+    public void setFk_LocationCityID(String fk_LocationCityID) {
+        this.fk_LocationCityID = fk_LocationCityID;
     }
 
-    public String getFK_LocationDistrictID() {
-        return FK_LocationDistrictID;
+    public String getFk_LocationDistrictID() {
+        return fk_LocationDistrictID;
     }
 
-    public void setFK_LocationDistrictID(String FK_LocationDistrictID) {
-        this.FK_LocationDistrictID = FK_LocationDistrictID;
+    public void setFk_LocationDistrictID(String fk_LocationDistrictID) {
+        this.fk_LocationDistrictID = fk_LocationDistrictID;
     }
 
     public boolean isPartnerServiceIsActive() {
-        return PartnerServiceIsActive;
+        return partnerServiceIsActive;
     }
 
     public void setPartnerServiceIsActive(boolean partnerServiceIsActive) {
-        PartnerServiceIsActive = partnerServiceIsActive;
+        this.partnerServiceIsActive = partnerServiceIsActive;
     }
 
-    public String getFK_EmployeeID() {
-        return FK_EmployeeID;
+    public String getFk_EmployeeID() {
+        return fk_EmployeeID;
     }
 
-    public void setFK_EmployeeID(String FK_EmployeeID) {
-        this.FK_EmployeeID = FK_EmployeeID;
+    public void setFk_EmployeeID(String fk_EmployeeID) {
+        this.fk_EmployeeID = fk_EmployeeID;
     }
 
     public String getPartnerServiceDesc() {
-        return PartnerServiceDesc;
+        return partnerServiceDesc;
     }
 
     public void setPartnerServiceDesc(String partnerServiceDesc) {
-        PartnerServiceDesc = partnerServiceDesc;
+        this.partnerServiceDesc = partnerServiceDesc;
     }
 
     public double getPartnerServicePrice() {
-        return PartnerServicePrice;
+        return partnerServicePrice;
     }
 
     public void setPartnerServicePrice(double partnerServicePrice) {
-        PartnerServicePrice = partnerServicePrice;
+        this.partnerServicePrice = partnerServicePrice;
     }
 
     public float getPartnerServiceDiscount() {
-        return PartnerServiceDiscount;
+        return partnerServiceDiscount;
     }
 
     public void setPartnerServiceDiscount(float partnerServiceDiscount) {
-        PartnerServiceDiscount = partnerServiceDiscount;
-    }
-
-    public String id() {
-        QueryFirebase firebase = new QueryFirebase("PartnerServices");
-        return firebase.getNewKey();
+        this.partnerServiceDiscount = partnerServiceDiscount;
     }
 
     @Override
@@ -182,19 +185,19 @@ public class PartnerService {
     @Exclude
     public Map<String, Object> toMapUpdate() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("status", Status);
-        result.put("fK_PartnerID", FK_PartnerID);
-        result.put("partnerServiceName", PartnerServiceName);
-        result.put("partnerServiceEvalution", PartnerServiceEvalution);
-        result.put("partnerServiceAddressLine", PartnerServiceAddressLine);
-        result.put("fK_LocationCountryID", FK_LocationCountryID);
-        result.put("fK_LocationCityID", FK_LocationCityID);
-        result.put("fK_LocationDistrictID", FK_LocationDistrictID);
-        result.put("partnerServiceIsActive", PartnerServiceIsActive);
-        result.put("fK_EmployeeID", FK_EmployeeID);
-        result.put("partnerServicePrice", PartnerServicePrice);
-        result.put("partnerServiceDiscount", PartnerServiceDiscount);
-        result.put("partnerServiceDesc", PartnerServiceDesc);
+        result.put("status", status);
+        result.put("fK_PartnerID", fk_PartnerID);
+        result.put("partnerServiceName", partnerServiceName);
+        result.put("partnerServiceEvalution", partnerServiceEvalution);
+        result.put("partnerServiceAddressLine", partnerServiceAddressLine);
+        result.put("fK_LocationCountryID", fk_LocationCountryID);
+        result.put("fK_LocationCityID", fk_LocationCityID);
+        result.put("fK_LocationDistrictID", fk_LocationDistrictID);
+        result.put("partnerServiceIsActive", partnerServiceIsActive);
+        result.put("fK_EmployeeID", fk_EmployeeID);
+        result.put("partnerServicePrice", partnerServicePrice);
+        result.put("partnerServiceDiscount", partnerServiceDiscount);
+        result.put("partnerServiceDesc", partnerServiceDesc);
 
         return result;
     }

@@ -1,6 +1,7 @@
 package com.gogocita.admin.entity;
 
-import com.gogocita.admin.Constant.EntityStatus;
+import com.gogocita.admin.constant.EntityName;
+import com.gogocita.admin.constant.EntityStatus;
 import com.gogocita.admin.helper.QueryFirebase;
 import com.google.firebase.database.Exclude;
 
@@ -96,13 +97,8 @@ public class Booking {
     }
 
     public String generateId() {
-        QueryFirebase firebase = new QueryFirebase("Bookings");
+        QueryFirebase firebase = new QueryFirebase(EntityName.Bookings);
         return firebase.getNewKey();
-    }
-
-    @Override
-    public String toString() {
-        return "Bookings";
     }
 
     @Exclude

@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Adapter;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 
 import com.gogocita.admin.entity.ConfigValue;
 import com.google.firebase.database.ChildEventListener;
@@ -14,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -21,25 +23,16 @@ import java.util.Map;
 import static com.facebook.login.widget.ProfilePictureView.TAG;
 
 public class QueryFirebase<T>{
-    private static DatabaseReference mDatabase;
-    private static String entity;
-    private static QueryFirebase queryFirebase = null;
-
-    private QueryFirebase() {
-        this.entity = entity;
-    }
-
-    public static QueryFirebase getInstance(){
-        if (queryFirebase == null){
-            queryFirebase = new QueryFirebase();
-        }
-        return queryFirebase;
+    private DatabaseReference mDatabase;
+    private String entityName;
+    public QueryFirebase(String entityName) {
+        this.entityName = entityName;
     }
 
 
     private void getReference()
     {
-        mDatabase = FirebaseDatabase.getInstance().getReference(entity);
+        mDatabase = FirebaseDatabase.getInstance().getReference(entityName);
     }
 
     public String getNewKey(){
@@ -49,6 +42,7 @@ public class QueryFirebase<T>{
 
     //Quan hệ 1 - n , 1 - 1
     public void InsertChildren(T newObject ,String[] parentIds, String objectId){
+        getReference();
         for (String parentId : parentIds) {
             mDatabase = mDatabase.child(parentId);
         }
@@ -61,6 +55,7 @@ public class QueryFirebase<T>{
     }
 
     public void UpdateChildren(Map<String, Object> updatedObject ,String[] parentIds, String objectId){
+        getReference();
         for (String i : parentIds) {
             mDatabase = mDatabase.child(i);
         }
@@ -73,14 +68,13 @@ public class QueryFirebase<T>{
         mDatabase.child(objectId).updateChildren(updatedObject);
     }
 
-    public List<T> getAll(){
+    public void getAll(final ArrayList<T> objects, final ArrayAdapter adapter){
         getReference();
-        final List<T> objects = new ArrayList<T>();
         mDatabase.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                T object = (T)dataSnapshot.getValue();
-                objects.add(object);
+                objects.add((T)dataSnapshot.getValue());
+                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -103,8 +97,5 @@ public class QueryFirebase<T>{
 
             }
         });
-        return objects;
     }
-
-
 }

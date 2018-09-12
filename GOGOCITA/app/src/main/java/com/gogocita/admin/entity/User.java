@@ -1,6 +1,7 @@
 package com.gogocita.admin.entity;
 
 
+import com.gogocita.admin.constant.EntityName;
 import com.gogocita.admin.helper.QueryFirebase;
 import com.google.firebase.database.Exclude;
 
@@ -31,13 +32,8 @@ public class User {
     }
 
     public String generateId() {
-        QueryFirebase firebase = new QueryFirebase("Users");
+        QueryFirebase firebase = new QueryFirebase(EntityName.Users);
         return firebase.getNewKey();
-    }
-
-    @Override
-    public String toString() {
-        return "Users";
     }
 
     @Exclude

@@ -1,6 +1,7 @@
 package com.gogocita.admin.entity;
 
-import com.gogocita.admin.Constant.EntityStatus;
+import com.gogocita.admin.constant.EntityName;
+import com.gogocita.admin.constant.EntityStatus;
 import com.gogocita.admin.helper.QueryFirebase;
 import com.google.firebase.database.Exclude;
 
@@ -74,13 +75,8 @@ public class PartnerServiceImage {
     }
 
     public String generateId() {
-        QueryFirebase firebase = new QueryFirebase("PartnerServiceImages");
+        QueryFirebase firebase = new QueryFirebase(EntityName.PartnerServiceImages);
         return firebase.getNewKey();
-    }
-
-    @Override
-    public String toString() {
-        return "PartnerServiceImages";
     }
 
     @Exclude

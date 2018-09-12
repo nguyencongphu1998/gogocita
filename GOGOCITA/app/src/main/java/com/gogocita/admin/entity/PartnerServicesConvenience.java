@@ -1,8 +1,7 @@
 package com.gogocita.admin.entity;
 
-import android.provider.ContactsContract;
-
-import com.gogocita.admin.Constant.EntityStatus;
+import com.gogocita.admin.constant.EntityName;
+import com.gogocita.admin.constant.EntityStatus;
 import com.gogocita.admin.helper.QueryFirebase;
 import com.google.firebase.database.Exclude;
 
@@ -87,13 +86,8 @@ public class PartnerServicesConvenience {
     }
 
     public String generateId() {
-        QueryFirebase firebase = new QueryFirebase("PartnerServicesConveniences");
+        QueryFirebase firebase = new QueryFirebase(EntityName.PartnerServiceConveniences);
         return firebase.getNewKey();
-    }
-
-    @Override
-    public String toString() {
-        return "PartnerServicesConveniences";
     }
 
     @Exclude

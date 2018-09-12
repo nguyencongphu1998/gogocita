@@ -1,6 +1,7 @@
 package com.gogocita.admin.entity;
 
-import com.gogocita.admin.Constant.EntityStatus;
+import com.gogocita.admin.constant.EntityName;
+import com.gogocita.admin.constant.EntityStatus;
 import com.gogocita.admin.helper.QueryFirebase;
 import com.google.firebase.database.Exclude;
 
@@ -61,7 +62,7 @@ public class PartnerService {
     }
 
     public String generateId() {
-        QueryFirebase firebase = new QueryFirebase("PartnerServices");
+        QueryFirebase firebase = new QueryFirebase(EntityName.PartnerServices);
         return firebase.getNewKey();
     }
 
@@ -175,11 +176,6 @@ public class PartnerService {
 
     public void setPartnerServiceDiscount(float partnerServiceDiscount) {
         this.partnerServiceDiscount = partnerServiceDiscount;
-    }
-
-    @Override
-    public String toString() {
-        return "PartnerServices";
     }
 
     @Exclude

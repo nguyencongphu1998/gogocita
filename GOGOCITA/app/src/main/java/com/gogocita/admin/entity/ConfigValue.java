@@ -1,5 +1,6 @@
 package com.gogocita.admin.entity;
 
+import com.gogocita.admin.constant.EntityName;
 import com.gogocita.admin.helper.QueryFirebase;
 import com.google.firebase.database.IgnoreExtraProperties;
 
@@ -61,12 +62,7 @@ public class ConfigValue{
     }
 
     public String generateId() {
-        QueryFirebase firebase = new QueryFirebase("ConfigValues");
+        QueryFirebase firebase = new QueryFirebase(EntityName.ConfigValues);
         return firebase.getNewKey();
-    }
-
-    @Override
-    public String toString() {
-        return "ConfigValues";
     }
 }

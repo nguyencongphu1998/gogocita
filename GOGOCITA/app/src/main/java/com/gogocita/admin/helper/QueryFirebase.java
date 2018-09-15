@@ -13,6 +13,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.lang.reflect.Array;
@@ -33,6 +34,11 @@ public class QueryFirebase<T>{
     private void getReference()
     {
         mDatabase = FirebaseDatabase.getInstance().getReference(entityName);
+    }
+
+    public Query getReference1()
+    {
+        return FirebaseDatabase.getInstance().getReference(entityName);
     }
 
     public String getNewKey(){
@@ -68,34 +74,34 @@ public class QueryFirebase<T>{
         mDatabase.child(objectId).updateChildren(updatedObject);
     }
 
-    public void getAll(final ArrayList<T> objects, final ArrayAdapter adapter){
-        getReference();
-        mDatabase.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                objects.add((T)dataSnapshot.getValue());
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }
+//    public void getAll(final ArrayList<T> objects, final ArrayAdapter adapter){
+//        getReference();
+//        mDatabase.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                objects.add((T)dataSnapshot.getValue());
+//                adapter.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//                Log.e("FirebaseListAdapter", "Listen was cancelled, no more updates will occur");
+//            }
+//        });
+//    }
 }

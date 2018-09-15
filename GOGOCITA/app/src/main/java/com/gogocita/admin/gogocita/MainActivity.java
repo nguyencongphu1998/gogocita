@@ -2,17 +2,8 @@ package com.gogocita.admin.gogocita;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-
-import com.gogocita.admin.constant.EntityName;
-import com.gogocita.admin.entity.ConfigValue;
-import com.gogocita.admin.helper.QueryFirebase;
-import com.google.firebase.database.DatabaseReference;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -21,18 +12,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.signup);
 
-        listView = (ListView)findViewById(R.id.listView);
-
-        QueryFirebase<ConfigValue> a = new QueryFirebase<>(EntityName.ConfigValues);
-        ArrayList<ConfigValue> list = new ArrayList<>();
-
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,list);
-
-        a.getAll(list,adapter);
-
-        listView.setAdapter(adapter);
-
+//        listView = (ListView)findViewById(R.id.listView);
+//
+//        QueryFirebase<ConfigValue> a = new QueryFirebase<>(EntityName.ConfigValues);
+//
+//
+//        FirebaseListAdapter<ConfigValue> b = new FirebaseListAdapter(a.getReference1(),ConfigValue.class,android.R.layout.simple_list_item_1,this) {
+//            @Override
+//            protected void populateView(View v, Object model) {
+//                TextView tv = (TextView) v;
+//                ((TextView) v).setText(((ConfigValue)model).getConfigValueText());
+//            }
+//
+//            @Override
+//            protected List modifyArrayAdapter(List models) {
+//                return models;
+//            }
+//        };
+//        listView.setAdapter(b);
     }
 }

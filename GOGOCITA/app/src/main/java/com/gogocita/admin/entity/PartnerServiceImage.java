@@ -8,7 +8,7 @@ import com.google.firebase.database.Exclude;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PartnerServiceImage {
+public class PartnerServiceImage extends GenerateId{
     private String partnerServiceImageID;
     private String status;
     private String fk_PartnerServiceID;
@@ -27,7 +27,7 @@ public class PartnerServiceImage {
     }
 
     public PartnerServiceImage(String fk_PartnerServiceID, String partnerServiceImageLink, String partnerServiceImageType) {
-        this.partnerServiceImageID = generateId();
+        this.partnerServiceImageID = generateId(EntityName.PartnerServiceImages);
         this.status = EntityStatus.Alive;
         this.fk_PartnerServiceID = fk_PartnerServiceID;
         this.partnerServiceImageLink = partnerServiceImageLink;
@@ -72,11 +72,6 @@ public class PartnerServiceImage {
 
     public void setPartnerServiceImageType(String partnerServiceImageType) {
         this.partnerServiceImageType = partnerServiceImageType;
-    }
-
-    public String generateId() {
-        QueryFirebase firebase = new QueryFirebase(EntityName.PartnerServiceImages);
-        return firebase.getNewKey();
     }
 
     @Exclude

@@ -21,13 +21,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import static android.view.View.combineMeasuredStates;
 import static com.facebook.login.widget.ProfilePictureView.TAG;
 
 public class QueryFirebase<T>{
     private DatabaseReference mDatabase;
     private String entityName;
-    public QueryFirebase(String entityName) {
+    private static QueryFirebase queryFirebase = null;
+
+    private QueryFirebase(String entityName)
+    {
         this.entityName = entityName;
+    }
+
+
+
+    public static QueryFirebase getInstance(String entityName)
+    {
+        if (queryFirebase == null) {
+            queryFirebase = new QueryFirebase(entityName);
+        }
+        return queryFirebase;
     }
 
 
@@ -36,9 +50,17 @@ public class QueryFirebase<T>{
         mDatabase = FirebaseDatabase.getInstance().getReference(entityName);
     }
 
-    public Query getReference1()
+    public Query getReferenceToSearch(String[] parentIds,String orderByChild,String equalTo)
     {
-        return FirebaseDatabase.getInstance().getReference(entityName);
+        getReference();
+        if(parentIds != null)
+        {
+            for (String parentId : parentIds)
+            {
+                mDatabase = mDatabase.child(parentId);
+            }
+        }
+        return mDatabase.orderByChild(orderByChild).equalTo(equalTo);
     }
 
     public String getNewKey(){

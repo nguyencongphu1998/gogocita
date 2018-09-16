@@ -8,7 +8,7 @@ import com.google.firebase.database.Exclude;
 import java.util.HashMap;
 import java.util.Map;
 
-public class User {
+public class User extends GenerateId {
     private String userID;
     private String userName;
     private String userPassword;
@@ -17,23 +17,47 @@ public class User {
     public User() {
     }
 
-    public User(String userID, String userName, String userPassword, String userType) {
+    public User(String userID, String userName, String userType) {
         this.userID = userID;
         this.userName = userName;
-        this.userPassword = userPassword;
         this.userType = userType;
     }
 
-    public User(String userName, String userPassword, String userType) {
-        this.userID = generateId();
+    public User(String userID, String userType) {
+        this.userID = userID;
+        this.userType = userType;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
         this.userName = userName;
-        this.userPassword = userPassword;
-        this.userType = userType;
     }
 
-    public String generateId() {
-        QueryFirebase firebase = new QueryFirebase(EntityName.Users);
-        return firebase.getNewKey();
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 
     @Exclude

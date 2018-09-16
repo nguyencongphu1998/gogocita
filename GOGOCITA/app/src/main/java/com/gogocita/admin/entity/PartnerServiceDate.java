@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PartnerServiceDate {
+public class PartnerServiceDate extends GenerateId{
     private String partnerServiceDateID;
     private String fk_PartnerServiceID;
     private String status;
@@ -30,7 +30,7 @@ public class PartnerServiceDate {
     }
 
     public PartnerServiceDate(String fk_PartnerServiceID, Date partnerServiceDateFrom, Date partnerServiceDateTo, String partnerServiceDateStatus) {
-        this.partnerServiceDateID = generateId();
+        this.partnerServiceDateID = generateId(EntityName.PartnerServiceDates);
         this.fk_PartnerServiceID = fk_PartnerServiceID;
         this.status = EntityStatus.Alive;
         this.partnerServiceDateFrom = partnerServiceDateFrom;
@@ -84,11 +84,6 @@ public class PartnerServiceDate {
 
     public void setPartnerServiceDateStatus(String partnerServiceDateStatus) {
         this.partnerServiceDateStatus = partnerServiceDateStatus;
-    }
-
-    public String generateId() {
-        QueryFirebase firebase = new QueryFirebase(EntityName.PartnerServiceDates);
-        return firebase.getNewKey();
     }
 
     @Exclude

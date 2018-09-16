@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Partner {
+public class Partner extends GenerateId{
     private String partnerID;
     private String status;
     private String fk_UserID;
@@ -34,7 +34,7 @@ public class Partner {
     }
 
     public Partner(String fk_UserID, String partnerType, Date partnerBirthDay, String partnerJob, String partnerPhone, String partnerGender, String partnerIDNumber, String partnerEmail, int fk_EmployeeID, String partnerAvatar, String partnerAddressLine, String fk_LocationCountryID, String fk_LocationCityID, String fk_LocationDistrictID, boolean partnerIsActive, String partnerName, long partnerAmount) {
-        this.partnerID = generateId();
+        this.partnerID = generateId(EntityName.Partners);
         this.status = EntityStatus.Alive;
         this.fk_UserID = fk_UserID;
         this.partnerType = partnerType;
@@ -227,11 +227,6 @@ public class Partner {
 
     public void setPartnerAmount(long partnerAmount) {
         this.partnerAmount = partnerAmount;
-    }
-
-    public String generateId() {
-        QueryFirebase firebase = new QueryFirebase(EntityName.Partners);
-        return firebase.getNewKey();
     }
 
     @Exclude

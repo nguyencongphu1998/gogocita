@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Customer {
+public class Customer extends GenerateId{
     private String customerID;
     private String status;
     private String fk_UserID;
@@ -33,7 +33,7 @@ public class Customer {
     }
 
     public Customer(String fk_UserID, String customerName, Date customerBirthDay, String customerPhone, String customerGender, String customerJob, String customerNationality, String customerPassportNumber, String customerEmail, String customerAvatar, String customerAddressLine, String customerAddressCountry, String customerAddressCity, String fk_EmployeeID, boolean customerIsActive, long customerAmount) {
-        this.customerID = generateId();
+        this.customerID = generateId(EntityName.Customers);
         this.status = EntityStatus.Alive;
         this.fk_UserID = fk_UserID;
         this.customerName = customerName;
@@ -216,11 +216,6 @@ public class Customer {
 
     public void setCustomerAmount(long customerAmount) {
         this.customerAmount = customerAmount;
-    }
-
-    public String generateId() {
-        QueryFirebase firebase = new QueryFirebase(EntityName.Customers);
-        return firebase.getNewKey();
     }
 
     @Exclude

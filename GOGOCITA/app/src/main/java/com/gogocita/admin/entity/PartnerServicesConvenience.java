@@ -8,7 +8,7 @@ import com.google.firebase.database.Exclude;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PartnerServicesConvenience {
+public class PartnerServicesConvenience extends GenerateId{
     private String pSCID;
     private String status;
     private String fk_PartnerServiceID;
@@ -29,7 +29,7 @@ public class PartnerServicesConvenience {
     }
 
     public PartnerServicesConvenience(String fk_PartnerServiceID, String pSCType, String pSCName, String pSCDesc) {
-        this.pSCID = generateId();
+        this.pSCID = generateId(EntityName.PartnerServiceConveniences);
         this.status = EntityStatus.Alive;
         this.fk_PartnerServiceID = fk_PartnerServiceID;
         this.pSCType = pSCType;
@@ -83,11 +83,6 @@ public class PartnerServicesConvenience {
 
     public void setpSCDesc(String pSCDesc) {
         this.pSCDesc = pSCDesc;
-    }
-
-    public String generateId() {
-        QueryFirebase firebase = new QueryFirebase(EntityName.PartnerServiceConveniences);
-        return firebase.getNewKey();
     }
 
     @Exclude

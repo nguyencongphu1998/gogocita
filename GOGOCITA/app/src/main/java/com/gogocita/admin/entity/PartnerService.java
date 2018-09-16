@@ -8,7 +8,7 @@ import com.google.firebase.database.Exclude;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PartnerService {
+public class PartnerService extends GenerateId{
     private String partnerServiceID;
     private String status;
     private String fk_PartnerID;
@@ -45,7 +45,7 @@ public class PartnerService {
     }
 
     public PartnerService(String fk_PartnerID, String partnerServiceName, int partnerServiceEvalution, String partnerServiceAddressLine, String fk_LocationCountryID, String fk_LocationCityID, String fk_LocationDistrictID, boolean partnerServiceIsActive, String fk_EmployeeID, String partnerServiceDesc, double partnerServicePrice, float partnerServiceDiscount) {
-        this.partnerServiceID = generateId();
+        this.partnerServiceID = generateId(EntityName.PartnerServices);
         this.status = EntityStatus.Alive;
         this.fk_PartnerID = fk_PartnerID;
         this.partnerServiceName = partnerServiceName;
@@ -59,11 +59,6 @@ public class PartnerService {
         this.partnerServiceDesc = partnerServiceDesc;
         this.partnerServicePrice = partnerServicePrice;
         this.partnerServiceDiscount = partnerServiceDiscount;
-    }
-
-    public String generateId() {
-        QueryFirebase firebase = new QueryFirebase(EntityName.PartnerServices);
-        return firebase.getNewKey();
     }
 
     public String getPartnerServiceID() {

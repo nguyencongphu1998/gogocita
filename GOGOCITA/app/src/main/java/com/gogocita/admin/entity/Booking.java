@@ -8,7 +8,7 @@ import com.google.firebase.database.Exclude;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Booking {
+public class Booking extends GenerateId{
     private String bookingID;
     private String status;
     private String fK_CustomerID;
@@ -21,7 +21,7 @@ public class Booking {
     }
 
     public Booking(String fK_CustomerID, String fK_PartnerServiceDateID, String bookingStatus, String bookingComment, int bookingEvalution) {
-        this.bookingID = generateId();
+        this.bookingID = generateId(EntityName.Bookings);
         this.status = EntityStatus.Alive;
         this.fK_CustomerID = fK_CustomerID;
         this.fK_PartnerServiceDateID = fK_PartnerServiceDateID;
@@ -94,11 +94,6 @@ public class Booking {
 
     public void setBookingEvalution(int bookingEvalution) {
         this.bookingEvalution = bookingEvalution;
-    }
-
-    public String generateId() {
-        QueryFirebase firebase = new QueryFirebase(EntityName.Bookings);
-        return firebase.getNewKey();
     }
 
     @Exclude

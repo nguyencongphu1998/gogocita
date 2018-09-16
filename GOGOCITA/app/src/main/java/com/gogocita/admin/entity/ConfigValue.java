@@ -6,7 +6,7 @@ import com.google.firebase.database.IgnoreExtraProperties;
 
 
 @IgnoreExtraProperties
-public class ConfigValue{
+public class ConfigValue extends GenerateId{
     private String configValueID;
     private String configValueKey;
     private String configValueText;
@@ -16,7 +16,7 @@ public class ConfigValue{
     }
 
     public ConfigValue(String configValueKey, String configValueText, String configValueGroup) {
-        this.configValueID = generateId();
+        this.configValueID = generateId(EntityName.ConfigValues);
         this.configValueKey = configValueKey;
         this.configValueText = configValueText;
         this.configValueGroup = configValueGroup;
@@ -61,8 +61,8 @@ public class ConfigValue{
         this.configValueGroup = configValueGroup;
     }
 
-    public String generateId() {
-        QueryFirebase firebase = new QueryFirebase(EntityName.ConfigValues);
-        return firebase.getNewKey();
+    @Override
+    public String toString() {
+        return EntityName.ConfigValues;
     }
 }

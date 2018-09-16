@@ -37,9 +37,9 @@
             android:layout_below="@+id/tv_commingsoom"
             android:text="We will develop this functionally as quickly as possible"
             android:textSize="@dimen/text_size_small"
-            android:textStyle="bold"
             android:gravity="center_vertical|center_horizontal"
-            android:textColor="@color/black" />
+            android:textColor="@color/grey"
+            android:textStyle="bold"/>
         <Button
             android:id="@+id/bt_goback"
             android:layout_width="match_parent"

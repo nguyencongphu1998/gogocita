@@ -11,7 +11,7 @@
             android:id="@+id/imageView_success"
             android:layout_width="match_parent"
             android:layout_height="223dp"
-            android:background="@drawable/Sign_up_success" />
+            android:background="@drawable/sign_up_success" />
         <TextView
             android:id="@+id/tv_success"
             android:text="Hi username ! Your sign up has been successful"
@@ -28,6 +28,7 @@
             android:textColor="@color/black"
             />
         <Button
+            android:id="@+id/btn_return"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"

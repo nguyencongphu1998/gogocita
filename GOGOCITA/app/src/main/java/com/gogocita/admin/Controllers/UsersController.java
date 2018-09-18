@@ -1,6 +1,7 @@
 package com.gogocita.admin.Controllers;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 
@@ -10,6 +11,8 @@ import android.view.View;
 
 import com.gogocita.admin.entity.User;
 import com.gogocita.admin.gogocita.MainActivity;
+import com.gogocita.admin.gogocita.SingUpActivity;
+import com.gogocita.admin.gogocita.SingUpSuccessActivity;
 import com.gogocita.admin.helper.QueryFirebase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,23 +29,25 @@ public class UsersController extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseUser user = null;
     private ProgressBar progressBar;
+    private final Activity activity;
     private static UsersController usersController = null;
 
-    private UsersController(ProgressBar progressBar)
+    private UsersController(ProgressBar progressBar,Activity activity)
     {
         auth = FirebaseAuth.getInstance();
         this.progressBar = progressBar;
         user = FirebaseAuth.getInstance().getCurrentUser();
+        this.activity = activity;
     }
 
-    public static UsersController getInstance(Activity activity,ProgressBar progressBar){
+    public static UsersController getInstance(Activity activity, ProgressBar progressBar){
         if (usersController == null){
-            usersController = new UsersController(progressBar);
+            usersController = new UsersController(progressBar,activity);
         }
         return usersController;
     }
 
-    public void CheckAuthorize(final Activity activity)
+    public void CheckAuthorize()
     {
         authListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -58,21 +63,31 @@ public class UsersController extends AppCompatActivity {
         };
     }
 
-    public void singUp(final Activity activity, final String email, final String password, final String userType)
+    public void singUp(final String email, final String password, String repassword,final String userType)
     {
 
         if (TextUtils.isEmpty(email)) {
-            Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Enter email address!", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (TextUtils.isEmpty(password)) {
-            Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Enter password!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(repassword)) {
+            Toast.makeText(activity, "Enter rePassword!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!repassword.equals(password)) {
+            Toast.makeText(activity, "Password is not the same as RePassword!", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (password.length() < 6) {
-            Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -82,7 +97,7 @@ public class UsersController extends AppCompatActivity {
                 .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Toast.makeText(activity, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(activity, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                         progressBar.setVisibility(View.GONE);
                         // If sign in fails, display a message to the user. If sign in succeeds
                         // the auth state listener will be notified and logic to handle the
@@ -93,10 +108,10 @@ public class UsersController extends AppCompatActivity {
                         } else {
 
                             user = FirebaseAuth.getInstance().getCurrentUser();
-                            QueryFirebase<User> queryFirebase = QueryFirebase.getInstance(com.gogocita.admin.constant.EntityName.Users);
+                            QueryFirebase<User> queryFirebase = QueryFirebase.getInstance(com.gogocita.admin.Constant.EntityName.Users);
                             queryFirebase.Insert(new User(user.getUid(),email,userType) ,user.getUid());
 
-                            //startActivity(new Intent(activity, MainActivity.class));
+                            startActivity(new Intent(activity, SingUpSuccessActivity.class));
                             finish();
                         }
                     }
@@ -105,7 +120,7 @@ public class UsersController extends AppCompatActivity {
     }
 
 
-    public void singIn(final Activity activity, String email, final String password)
+    public void singIn(String email, final String password)
     {
         if (auth.getCurrentUser() != null) {
             startActivity(new Intent(activity, MainActivity.class));
@@ -113,12 +128,12 @@ public class UsersController extends AppCompatActivity {
         }
 
         if (TextUtils.isEmpty(email)) {
-            Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Enter email address!", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (TextUtils.isEmpty(password)) {
-            Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Enter password!", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -142,15 +157,15 @@ public class UsersController extends AppCompatActivity {
                                 Toast.makeText(activity, "Password is wrong", Toast.LENGTH_LONG).show();
                             }
                         } else {
-                            //Intent intent = new Intent(activity, MainActivity.class);
-                            //startActivity(intent);
+                            Intent intent = new Intent(activity, MainActivity.class);
+                            startActivity(intent);
                             finish();
                         }
                     }
                 });
     }
 
-    public void changePassword(final Activity activity, String newPassword)
+    public void changePassword(String newPassword)
     {
         progressBar.setVisibility(View.VISIBLE);
         if (user != null && !newPassword.trim().equals(""))
@@ -181,7 +196,7 @@ public class UsersController extends AppCompatActivity {
         }
     }
 
-    public void forgotPassword(final Activity activity, String email)
+    public void forgotPassword(String email)
     {
         progressBar.setVisibility(View.VISIBLE);
         if (!email.trim().equals("")) {

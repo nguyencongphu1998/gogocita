@@ -1,4 +1,4 @@
-package com.gogocita.admin.constant;
+package com.gogocita.admin.Constant;
 
 public class EntityStatus {
     public static final String Delete = "Delete";

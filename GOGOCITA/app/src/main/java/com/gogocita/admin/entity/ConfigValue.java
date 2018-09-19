@@ -1,7 +1,6 @@
 package com.gogocita.admin.entity;
 
-import com.gogocita.admin.Constant.EntityName;
-import com.gogocita.admin.helper.QueryFirebase;
+import com.gogocita.admin.constant.EntityName;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 

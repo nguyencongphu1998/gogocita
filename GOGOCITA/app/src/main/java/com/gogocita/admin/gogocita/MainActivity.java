@@ -2,19 +2,8 @@ package com.gogocita.admin.gogocita;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
-
-import com.gogocita.admin.Controllers.UsersController;
-import com.gogocita.admin.Constant.EntityName;
-import com.gogocita.admin.entity.ConfigValue;
-import com.gogocita.admin.entity.User;
-import com.gogocita.admin.helper.FirebaseListAdapter;
-import com.gogocita.admin.helper.QueryFirebase;
-
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {

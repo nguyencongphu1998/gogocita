@@ -1,8 +1,6 @@
 package com.gogocita.admin.entity;
 
 
-import com.gogocita.admin.Constant.EntityName;
-import com.gogocita.admin.helper.QueryFirebase;
 import com.google.firebase.database.Exclude;
 
 import java.util.HashMap;

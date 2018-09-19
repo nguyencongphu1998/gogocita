@@ -1,6 +1,4 @@
 package com.gogocita.admin.gogocita;
-import android.app.Activity;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -12,8 +10,8 @@ import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.gogocita.admin.Constant.UserType;
-import com.gogocita.admin.Controllers.UsersController;
+import com.gogocita.admin.constant.UserType;
+import com.gogocita.admin.controllers.UsersController;
 import com.google.firebase.auth.FirebaseAuth;
 
 /**

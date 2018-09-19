@@ -1,4 +1,4 @@
-package com.gogocita.admin.Constant;
+package com.gogocita.admin.constant;
 
 public class EntityName {
     public static final String Bookings = "Bookings";

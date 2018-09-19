@@ -1,7 +1,6 @@
-package com.gogocita.admin.Controllers;
+package com.gogocita.admin.controllers;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 
@@ -11,7 +10,6 @@ import android.view.View;
 
 import com.gogocita.admin.entity.User;
 import com.gogocita.admin.gogocita.MainActivity;
-import com.gogocita.admin.gogocita.SingUpActivity;
 import com.gogocita.admin.gogocita.SingUpSuccessActivity;
 import com.gogocita.admin.helper.QueryFirebase;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -108,7 +106,7 @@ public class UsersController extends AppCompatActivity {
                         } else {
 
                             user = FirebaseAuth.getInstance().getCurrentUser();
-                            QueryFirebase<User> queryFirebase = QueryFirebase.getInstance(com.gogocita.admin.Constant.EntityName.Users);
+                            QueryFirebase<User> queryFirebase = QueryFirebase.getInstance(com.gogocita.admin.constant.EntityName.Users);
                             queryFirebase.Insert(new User(user.getUid(),email,userType) ,user.getUid());
 
                             startActivity(new Intent(activity, SingUpSuccessActivity.class));

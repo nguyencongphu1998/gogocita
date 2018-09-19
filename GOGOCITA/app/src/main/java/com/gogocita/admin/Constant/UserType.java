@@ -1,7 +1,7 @@
-package com.gogocita.admin.Constant;
+package com.gogocita.admin.constant;
 
 public class UserType {
-    public static final String HomeStay = "HomeStay";
-    public static final String TourisGuider = "TourisGuider";
-    public static final String Customer = "Customer";
+    public static final String homeStay = "HomeStay";
+    public static final String tourisGuider = "TourisGuider";
+    public static final String customer = "customer";
 }

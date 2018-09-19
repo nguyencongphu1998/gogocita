@@ -15,8 +15,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/img_login"
-
-
             />
         <EditText
             android:id="@+id/et_user"
@@ -53,8 +51,6 @@
             android:text="@string/Login"
             android:textAllCaps="false"
             android:textSize="20dp"
-
-
             />
         <TextView
             android:id="@+id/tv_forgot_password"
@@ -66,6 +62,7 @@
             android:layout_marginRight="@dimen/edit_margin_right"
             android:text="@string/Forgot_passord"
             android:textAlignment="center"
+            android:onClick="btn_forgotpassword"
             />
 
         <LinearLayout
@@ -74,7 +71,6 @@
             android:layout_below="@id/tv_forgot_password"
             android:orientation="horizontal"
             android:layout_centerHorizontal="true"
-
             >
 
             <TextView
@@ -90,6 +86,7 @@
                 tools:layout_editor_absoluteY="522dp"
                 android:layout_alignParentBottom="true"/>
             <Button
+                android:id="@+id/create_account"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -102,7 +99,9 @@
                 android:text="@string/Creat"
                 android:textColor="@color/colorWhite"
                 android:background="@color/coloraaaaaa"
-                android:layout_alignParentBottom="true"/>
+                android:onClick="btn_create"
+                android:layout_alignParentBottom="true"
+                    />
         </LinearLayout>
 
 

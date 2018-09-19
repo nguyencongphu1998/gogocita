@@ -1,7 +1,10 @@
 package com.gogocita.admin.gogocita;
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -45,27 +48,56 @@ public class SingUpActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(!checkBox.isChecked())
                 {
-                    Toast.makeText(SingUpActivity.this,"Please approve out conditions!!!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SingUpActivity.this,"Please approve our conditions!!!",Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if (TextUtils.isEmpty(inputEmail.getText().toString())) {
+                    Toast.makeText(SingUpActivity.this, "Enter email address!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(inputPassword.getText().toString())) {
+                    Toast.makeText(SingUpActivity.this, "Enter password!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(inputRePassword.getText().toString())) {
+                    Toast.makeText(SingUpActivity.this, "Enter rePassword!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (!inputPassword.getText().toString().equals(inputRePassword.getText().toString())) {
+                    Toast.makeText(SingUpActivity.this, "Password is not the same as RePassword!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (inputPassword.getText().toString().length() < 6) {
+                    Toast.makeText(SingUpActivity.this, "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                progressBar.setVisibility(View.VISIBLE);
+
                 int idChecked = radioGroup.getCheckedRadioButtonId();
                 String userType = null;
                 switch (idChecked)
                 {
                     case R.id.radioButton_customer:
-                        userType = UserType.Customer;
+                        userType = UserType.customer;
                         break;
                     case R.id.radioButton_homestay:
-                        userType = UserType.HomeStay;
+                        userType = UserType.homeStay;
                         break;
                     case R.id.radioButton_tourisguider:
-                        userType = UserType.TourisGuider;
+                        userType = UserType.tourisGuider;
                         break;
                 }
                 usersController.singUp(inputEmail.getText().toString(),inputPassword.getText().toString(),inputRePassword.getText().toString(),userType);
+
+                startActivity(new Intent(SingUpActivity.this,SingUpSuccessActivity.class));
+                finish();
             }
         });
-
     }
 
     @Override

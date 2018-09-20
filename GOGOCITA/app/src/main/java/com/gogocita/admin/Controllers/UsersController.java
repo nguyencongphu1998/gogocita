@@ -1,6 +1,7 @@
 package com.gogocita.admin.controllers;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 
 import android.text.TextUtils;
@@ -8,7 +9,11 @@ import android.widget.Toast;
 import android.view.View;
 
 import com.gogocita.admin.entity.User;
+import com.gogocita.admin.gogocita.CommingSoonActivity;
+import com.gogocita.admin.gogocita.ForgetPasswordAccessMail;
+import com.gogocita.admin.gogocita.LoginActivity;
 import com.gogocita.admin.gogocita.SingUpActivity;
+import com.gogocita.admin.gogocita.SingUpSuccessActivity;
 import com.gogocita.admin.helper.QueryFirebase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -49,10 +54,11 @@ public class UsersController {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user == null) {
-                    // user auth state is changed - user is null
-                    // launch login activity
-                    //startActivity(new Intent(activity, LoginActivity.class)); Miss LoginActivity
-                    //finish();
+                    activity.startActivity(new Intent(activity, LoginActivity.class));
+                    activity.finish();
+                }else {
+                    activity.startActivity(new Intent(activity, CommingSoonActivity.class));
+                    activity.finish();
                 }
             }
         };
@@ -60,16 +66,13 @@ public class UsersController {
 
     public void singUp(final String email, final String password, String repassword,final String userType)
     {
-        //create user
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        //Toast.makeText(activity, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+
                         progressBar.setVisibility(View.GONE);
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
+
                         if (!task.isSuccessful())
                         {
                             Toast.makeText(activity, "Authentication failed." + task.getException(),
@@ -79,53 +82,36 @@ public class UsersController {
                             user = FirebaseAuth.getInstance().getCurrentUser();
                             QueryFirebase<User> queryFirebase = QueryFirebase.getInstance(com.gogocita.admin.constant.EntityName.Users);
                             queryFirebase.Insert(new User(user.getUid(),email,userType) ,user.getUid());
+
+                            activity.startActivity(new Intent(activity,SingUpSuccessActivity.class));
+                            activity.finish();
                         }
                     }
                 });
-
     }
 
 
     public void singIn(String email, final String password)
     {
         if (auth.getCurrentUser() != null) {
-//            startActivity(new Intent(activity, MainActivity.class));
-//            finish();
-        }
-
-        if (TextUtils.isEmpty(email)) {
-            Toast.makeText(activity, "Enter email address!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (TextUtils.isEmpty(password)) {
-            Toast.makeText(activity, "Enter password!", Toast.LENGTH_SHORT).show();
-            return;
+            activity.startActivity(new Intent(activity, CommingSoonActivity.class));
+            activity.finish();
         }
 
         progressBar.setVisibility(View.VISIBLE);
 
-        //authenticate user
         auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
+
                         progressBar.setVisibility(View.GONE);
                         if (!task.isSuccessful()) {
-                            // there was an error
-                            if (password.length() < 6) {
-                                Toast.makeText(activity, "Password too short!." + task.getException(),
-                                        Toast.LENGTH_LONG).show();
-                            } else {
-                                Toast.makeText(activity, "Password is wrong", Toast.LENGTH_LONG).show();
-                            }
-                        } else {
-//                            Intent intent = new Intent(activity, MainActivity.class);
-//                            startActivity(intent);
-//                            finish();
+                            Toast.makeText(activity, "Password is wrong", Toast.LENGTH_LONG).show();
+                        }
+                        else {
+                            activity.startActivity(new Intent(activity, CommingSoonActivity.class));
+                            activity.finish();
                         }
                     }
                 });
@@ -173,8 +159,10 @@ public class UsersController {
                             if (task.isSuccessful()) {
                                 Toast.makeText(activity, "Reset password email is sent!", Toast.LENGTH_SHORT).show();
                                 progressBar.setVisibility(View.GONE);
+                                activity.startActivity(new Intent(activity,ForgetPasswordAccessMail.class));
+                                activity.finish();
                             } else {
-                                Toast.makeText(activity, "Failed to send reset email!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(activity, "Account is not exist!", Toast.LENGTH_SHORT).show();
                                 progressBar.setVisibility(View.GONE);
                             }
                         }

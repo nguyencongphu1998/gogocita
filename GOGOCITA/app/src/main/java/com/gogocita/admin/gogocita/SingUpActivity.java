@@ -93,9 +93,6 @@ public class SingUpActivity extends AppCompatActivity {
                         break;
                 }
                 usersController.singUp(inputEmail.getText().toString(),inputPassword.getText().toString(),inputRePassword.getText().toString(),userType);
-
-                startActivity(new Intent(SingUpActivity.this,SingUpSuccessActivity.class));
-                finish();
             }
         });
     }

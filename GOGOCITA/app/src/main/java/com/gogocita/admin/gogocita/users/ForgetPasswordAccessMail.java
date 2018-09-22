@@ -1,10 +1,12 @@
-package com.gogocita.admin.gogocita;
+package com.gogocita.admin.gogocita.users;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import com.gogocita.admin.gogocita.R;
 
 public class ForgetPasswordAccessMail extends AppCompatActivity {
     @Override

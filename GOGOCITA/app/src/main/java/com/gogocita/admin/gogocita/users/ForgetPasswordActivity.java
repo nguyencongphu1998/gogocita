@@ -1,4 +1,4 @@
-package com.gogocita.admin.gogocita;
+package com.gogocita.admin.gogocita.users;
 
 
 import android.os.Bundle;
@@ -10,7 +10,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.gogocita.admin.controllers.UsersController;
+import com.gogocita.admin.controllers.user.UsersController;
+import com.gogocita.admin.gogocita.R;
 
 public class ForgetPasswordActivity extends AppCompatActivity {
     private Button btnSendMail;

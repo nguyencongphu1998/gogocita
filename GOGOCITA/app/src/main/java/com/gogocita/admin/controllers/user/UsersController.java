@@ -1,19 +1,17 @@
-package com.gogocita.admin.controllers;
+package com.gogocita.admin.controllers.user;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 
-import android.text.TextUtils;
 import android.widget.Toast;
 import android.view.View;
 
 import com.gogocita.admin.entity.User;
 import com.gogocita.admin.gogocita.CommingSoonActivity;
-import com.gogocita.admin.gogocita.ForgetPasswordAccessMail;
-import com.gogocita.admin.gogocita.LoginActivity;
-import com.gogocita.admin.gogocita.SingUpActivity;
-import com.gogocita.admin.gogocita.SingUpSuccessActivity;
+import com.gogocita.admin.gogocita.users.ForgetPasswordAccessMail;
+import com.gogocita.admin.gogocita.users.LoginActivity;
+import com.gogocita.admin.gogocita.users.SingUpSuccessActivity;
 import com.gogocita.admin.helper.QueryFirebase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -120,13 +118,14 @@ public class UsersController {
     public void changePassword(String newPassword)
     {
         progressBar.setVisibility(View.VISIBLE);
-        if (user != null && !newPassword.trim().equals(""))
+        if (user != null)
         {
             if (newPassword.length() < 6)
             {
                 Toast.makeText(activity, "Password too short, enter minimum 6 characters", Toast.LENGTH_LONG).show();
                 progressBar.setVisibility(View.GONE);
-            } else {
+            }
+            else {
                 user.updatePassword(newPassword.trim())
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
@@ -141,10 +140,6 @@ public class UsersController {
                             }
                         });
             }
-        } else if (newPassword.equals(""))
-        {
-            Toast.makeText(activity, "Enter your password", Toast.LENGTH_LONG).show();
-            progressBar.setVisibility(View.GONE);
         }
     }
 

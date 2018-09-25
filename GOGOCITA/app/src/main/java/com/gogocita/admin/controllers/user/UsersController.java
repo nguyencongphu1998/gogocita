@@ -8,10 +8,12 @@ import android.widget.Toast;
 import android.view.View;
 
 import com.gogocita.admin.entity.User;
+import com.gogocita.admin.entity.UserDetail;
 import com.gogocita.admin.gogocita.CommingSoonActivity;
 import com.gogocita.admin.gogocita.users.ForgetPasswordAccessMail;
 import com.gogocita.admin.gogocita.users.LoginActivity;
 import com.gogocita.admin.gogocita.users.SingUpSuccessActivity;
+import com.gogocita.admin.gogocita.users.UserDetailActivity;
 import com.gogocita.admin.helper.QueryFirebase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,13 +26,16 @@ import android.widget.ProgressBar;
 
 public class UsersController {
     private FirebaseAuth auth;
-    private FirebaseAuth.AuthStateListener authListener;
     private FirebaseUser user = null;
     private ProgressBar progressBar;
     private final Activity activity;
     private static UsersController usersController = null;
 
-    private UsersController(ProgressBar progressBar,Activity activity)
+    public FirebaseUser getUser() {
+        return user;
+    }
+
+    private UsersController(ProgressBar progressBar, Activity activity)
     {
         auth = FirebaseAuth.getInstance();
         this.progressBar = progressBar;
@@ -45,9 +50,23 @@ public class UsersController {
         return usersController;
     }
 
-    public void CheckAuthorize()
+    public void checkAuthorize()
     {
-        authListener = new FirebaseAuth.AuthStateListener() {
+        FirebaseAuth.AuthStateListener authListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user == null) {
+                    activity.startActivity(new Intent(activity, LoginActivity.class));
+                    activity.finish();
+                }
+            }
+        };
+    }
+
+    public void checkAuthorizeLogin()
+    {
+        FirebaseAuth.AuthStateListener authListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -55,7 +74,7 @@ public class UsersController {
                     activity.startActivity(new Intent(activity, LoginActivity.class));
                     activity.finish();
                 }else {
-                    activity.startActivity(new Intent(activity, CommingSoonActivity.class));
+                    activity.startActivity(new Intent(activity, UserDetail.class));
                     activity.finish();
                 }
             }
@@ -91,10 +110,7 @@ public class UsersController {
 
     public void singIn(String email, final String password)
     {
-        if (auth.getCurrentUser() != null) {
-            activity.startActivity(new Intent(activity, CommingSoonActivity.class));
-            activity.finish();
-        }
+        checkAuthorizeLogin();
 
         progressBar.setVisibility(View.VISIBLE);
 
@@ -102,13 +118,13 @@ public class UsersController {
                 .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-
                         progressBar.setVisibility(View.GONE);
                         if (!task.isSuccessful()) {
-                            Toast.makeText(activity, "Password is wrong", Toast.LENGTH_LONG).show();
+                            Toast.makeText(activity, "Password or email is wrong", Toast.LENGTH_LONG).show();
                         }
                         else {
-                            activity.startActivity(new Intent(activity, CommingSoonActivity.class));
+                            user = FirebaseAuth.getInstance().getCurrentUser();
+                            activity.startActivity(new Intent(activity, UserDetailActivity.class));
                             activity.finish();
                         }
                     }

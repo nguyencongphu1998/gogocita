@@ -25,11 +25,12 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.login);
 
         btnLogin = (Button) findViewById(R.id.btn_login);
-        inputEmail = (EditText) findViewById(R.id.et_email);
+        inputEmail = (EditText) findViewById(R.id.et_user_login);
         progressBar = (ProgressBar) findViewById(R.id.progressBar_login);
-        inputPassword = (EditText) findViewById(R.id.et_password);
+        inputPassword = (EditText) findViewById(R.id.et_password_login);
 
         final UsersController usersController = UsersController.getInstance(LoginActivity.this ,progressBar);
+        usersController.checkAuthorizeLogin();
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override

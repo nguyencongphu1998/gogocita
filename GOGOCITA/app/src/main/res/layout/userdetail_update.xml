@@ -6,8 +6,14 @@
     android:layout_height="match_parent"
     android:layout_margin="15dp"
     android:stretchColumns="0,1"
-    tools:context="com.gogocita.admin.gogocita.users.UserDetailActivity">
-
+    tools:context="com.gogocita.admin.gogocita.users.UpdateUserDetailActivity">
+    <ProgressBar
+        android:id="@+id/progressBar_updateinformation"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="20dp"
+        android:visibility="gone" />
     <TableRow>
         <TextView
             android:text="UPDATE YOUR PROFILE"
@@ -90,6 +96,7 @@
         </Spinner>
     </TableRow>
     <Button
+        android:id="@+id/button_updateprofile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ff586c"

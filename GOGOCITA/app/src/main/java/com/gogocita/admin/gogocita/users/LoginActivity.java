@@ -54,10 +54,12 @@ public class LoginActivity extends AppCompatActivity {
     public void btn_create(View v){
         Intent intent = new Intent(this, SingUpActivity.class);
         startActivity(intent);
+        finish();
     }
 
     public void btn_forgotpassword(View v){
         Intent intent = new Intent(this, ForgetPasswordActivity.class);
         startActivity(intent);
+        finish();
     }
 }

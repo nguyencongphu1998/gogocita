@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="15dp"
+
+    android:stretchColumns="0,1">
+    <TableRow>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:textSize="20dp"
+            android:text="First name"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textview_firstname"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textColor="#ff586c"
+            android:textSize="20dp"
+            android:layout_weight="1" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_height="40dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:inputType="text"
+            android:textSize="20dp"
+            android:text="Last name"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textview_lastname"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="20dp"
+            android:textColor="#ff586c"
+            android:layout_weight="1" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_height="40dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textSize="20dp"
+            android:text="BirthDay"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textview_birthday"
+            android:layout_width="0dp"
+            android:textSize="20dp"
+            android:layout_height="match_parent"
+            android:textColor="#ff586c"
+            android:layout_weight="1" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_height="40dp"
+            android:layout_width="0dp"
+            android:textSize="20dp"
+            android:layout_weight="1"
+            android:text="Phone"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textview_phone"
+            android:layout_width="0dp"
+            android:textSize="20dp"
+            android:layout_height="match_parent"
+            android:textColor="#ff586c"
+            android:layout_weight="1" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_height="40dp"
+            android:layout_width="0dp"
+            android:textSize="20dp"
+            android:layout_weight="1"
+            android:text="Gender"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textview_gender"
+            android:layout_width="0dp"
+            android:textSize="20dp"
+            android:layout_height="match_parent"
+            android:textColor="#ff586c"
+            android:layout_weight="1" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_height="40dp"
+            android:layout_width="0dp"
+            android:textSize="20dp"
+            android:layout_weight="1"
+            android:text="Job"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textview_job"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="20dp"
+            android:textColor="#ff586c"
+            android:layout_weight="1" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_height="40dp"
+            android:textSize="20dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Identity Card"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textview_idnumber"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="20dp"
+            android:textColor="#ff586c"
+            android:layout_weight="1" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_height="40dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textSize="20dp"
+            android:text="Address"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textview_address"
+            android:layout_width="0dp"
+            android:textSize="20dp"
+            android:textColor="#ff586c"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_height="40dp"
+            android:layout_width="0dp"
+            android:textSize="20dp"
+            android:layout_weight="1"
+            android:text="Country"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textview_country"
+            android:layout_width="0dp"
+            android:textSize="20dp"
+            android:layout_height="match_parent"
+            android:textColor="#ff586c"
+            android:layout_weight="1" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_height="40dp"
+            android:textSize="20dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="City"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textview_city"
+            android:layout_width="0dp"
+            android:textSize="20dp"
+            android:layout_height="match_parent"
+            android:textColor="#ff586c"
+            android:layout_weight="1" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_height="40dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textSize="20dp"
+            android:text="District"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textview_district"
+            android:layout_width="0dp"
+            android:textSize="20dp"
+            android:layout_height="match_parent"
+            android:textColor="#ff586c"
+            android:layout_weight="1" />
+    </TableRow>
+
+</TableLayout>

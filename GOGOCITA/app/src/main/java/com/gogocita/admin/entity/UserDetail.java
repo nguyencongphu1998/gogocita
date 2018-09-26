@@ -12,7 +12,8 @@ public class UserDetail extends GenerateId {
     private String userDetailID;
     private String status;
     private String fk_UserID;
-    private String userDetailName;
+    private String userDetailFirstName;
+    private String userDetailLastName;
     private Date userDetailBirthDay;
     private String userDetailPhone;
     private String userDetailGender;
@@ -31,11 +32,34 @@ public class UserDetail extends GenerateId {
     public UserDetail() {
     }
 
-    public UserDetail(String fk_UserID, String userDetailName, Date userDetailBirthDay, String userDetailPhone, String userDetailGender, String userDetailJob, String userDetailPassportNumber, String userDetailEmail, String userDetailAvatar, String userDetailAddressLine, String userDetailAddressCountry, String userDetailAddressCity, String userDetailAddressDistrict, String fk_EmployeeID, boolean userDetailIsActive) {
+    public UserDetail(String fk_UserID, String userDetailEmail) {
         this.userDetailID = generateId(EntityName.UserDetails);
         this.status = EntityStatus.Alive;
         this.fk_UserID = fk_UserID;
-        this.userDetailName = userDetailName;
+        this.userDetailLastName = "";
+        this.userDetailFirstName = "";
+        this.userDetailBirthDay = new Date();
+        this.userDetailPhone = "";
+        this.userDetailGender = "";
+        this.userDetailJob = "";
+        this.userDetailPassportNumber = "";
+        this.userDetailEmail = userDetailEmail;
+        this.userDetailAvatar = "";
+        this.userDetailAddressLine = "";
+        this.userDetailAddressCountry = "";
+        this.userDetailAddressCity = "";
+        this.userDetailAddressDistrict = "";
+        this.fk_EmployeeID = "";
+        this.userDetailIsActive = true;
+        this.userDetailAmount = 0;
+    }
+
+    public UserDetail(String fk_UserID, String userDetailLastName, String userDetaiFirstlName, Date userDetailBirthDay, String userDetailPhone, String userDetailGender, String userDetailJob, String userDetailPassportNumber, String userDetailEmail, String userDetailAvatar, String userDetailAddressLine, String userDetailAddressCountry, String userDetailAddressCity, String userDetailAddressDistrict, boolean userDetailIsActive) {
+        this.userDetailID = generateId(EntityName.UserDetails);
+        this.status = EntityStatus.Alive;
+        this.fk_UserID = fk_UserID;
+        this.userDetailLastName = userDetailLastName;
+        this.userDetailFirstName = userDetaiFirstlName;
         this.userDetailBirthDay = userDetailBirthDay;
         this.userDetailPhone = userDetailPhone;
         this.userDetailGender = userDetailGender;
@@ -47,16 +71,17 @@ public class UserDetail extends GenerateId {
         this.userDetailAddressCountry = userDetailAddressCountry;
         this.userDetailAddressCity = userDetailAddressCity;
         this.userDetailAddressDistrict = userDetailAddressDistrict;
-        this.fk_EmployeeID = fk_EmployeeID;
+        this.fk_EmployeeID = "";
         this.userDetailIsActive = userDetailIsActive;
         this.userDetailAmount = 0;
     }
 
-    public UserDetail(String userDetailID, String status, String fk_UserID, String userDetailName, Date userDetailBirthDay, String userDetailPhone, String userDetailGender, String userDetailJob, String userDetailPassportNumber, String userDetailEmail, String userDetailAvatar, String userDetailAddressLine, String userDetailAddressCountry, String userDetailAddressCity, String userDetailAddressDistrict, String fk_EmployeeID, boolean userDetailIsActive, long userDetailAmount) {
+    public UserDetail(String userDetailID, String status, String fk_UserID, String userDetailLastName,String userDetaiFirstlName, Date userDetailBirthDay, String userDetailPhone, String userDetailGender, String userDetailJob, String userDetailPassportNumber, String userDetailEmail, String userDetailAvatar, String userDetailAddressLine, String userDetailAddressCountry, String userDetailAddressCity, String userDetailAddressDistrict, String fk_EmployeeID, boolean userDetailIsActive, long userDetailAmount) {
         this.userDetailID = userDetailID;
         this.status = status;
         this.fk_UserID = fk_UserID;
-        this.userDetailName = userDetailName;
+        this.userDetailLastName = userDetailLastName;
+        this.userDetailFirstName = userDetaiFirstlName;
         this.userDetailBirthDay = userDetailBirthDay;
         this.userDetailPhone = userDetailPhone;
         this.userDetailGender = userDetailGender;
@@ -97,12 +122,20 @@ public class UserDetail extends GenerateId {
         this.fk_UserID = fk_UserID;
     }
 
-    public String getUserDetailName() {
-        return userDetailName;
+    public String getUserDetailFirstName() {
+        return userDetailFirstName;
     }
 
-    public void setUserDetailName(String userDetailName) {
-        this.userDetailName = userDetailName;
+    public void setUserDetailFirstName(String userDetaiFirstlName) {
+        this.userDetailFirstName = userDetaiFirstlName;
+    }
+
+    public String getUserDetailLastName() {
+        return userDetailLastName;
+    }
+
+    public void setUserDetailLastName(String userDetailLastName) {
+        this.userDetailLastName = userDetailLastName;
     }
 
     public Date getUserDetailBirthDay() {
@@ -220,16 +253,17 @@ public class UserDetail extends GenerateId {
     @Exclude
     public Map<String, Object> toMapUpdate() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("customerName", userDetailName);
-        result.put("customerBirthDay", userDetailBirthDay);
-        result.put("customerPhone", userDetailPhone);
-        result.put("customerGender", userDetailGender);
-        result.put("customerJob", userDetailJob);
-        result.put("customerPassportNumber", userDetailPassportNumber);
+        result.put("userDetailFirstName", userDetailFirstName);
+        result.put("userDetailLastName", userDetailLastName);
+        result.put("userDetailBirthDay", userDetailBirthDay);
+        result.put("userDetailPhone", userDetailPhone);
+        result.put("userDetailGender", userDetailGender);
+        result.put("userDetailJob", userDetailJob);
+        result.put("userDetailPassportNumber", userDetailPassportNumber);
         result.put("userDetailAddressLine", userDetailAddressLine);
-        result.put("customerAddressCountry", userDetailAddressCountry);
-        result.put("customerAddressCity", userDetailAddressCity);
-        result.put("customerAddressDistrict", userDetailAddressDistrict);
+        result.put("userDetailAddressCountry", userDetailAddressCountry);
+        result.put("userDetailAddressCity", userDetailAddressCity);
+        result.put("userDetailAddressDistrict", userDetailAddressDistrict);
 
         return result;
     }

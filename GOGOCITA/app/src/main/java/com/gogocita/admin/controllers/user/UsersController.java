@@ -7,12 +7,13 @@ import android.support.annotation.NonNull;
 import android.widget.Toast;
 import android.view.View;
 
+import com.gogocita.admin.constant.EntityName;
 import com.gogocita.admin.entity.User;
 import com.gogocita.admin.entity.UserDetail;
-import com.gogocita.admin.gogocita.CommingSoonActivity;
 import com.gogocita.admin.gogocita.users.ForgetPasswordAccessMail;
 import com.gogocita.admin.gogocita.users.LoginActivity;
 import com.gogocita.admin.gogocita.users.SingUpSuccessActivity;
+import com.gogocita.admin.gogocita.users.UpdateUserDetailActivity;
 import com.gogocita.admin.gogocita.users.UserDetailActivity;
 import com.gogocita.admin.helper.QueryFirebase;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,7 +29,7 @@ public class UsersController {
     private FirebaseAuth auth;
     private FirebaseUser user = null;
     private ProgressBar progressBar;
-    private final Activity activity;
+    private Activity activity;
     private static UsersController usersController = null;
 
     public FirebaseUser getUser() {
@@ -47,6 +48,8 @@ public class UsersController {
         if (usersController == null){
             usersController = new UsersController(progressBar,activity);
         }
+
+        usersController.activity = activity;
         return usersController;
     }
 
@@ -99,6 +102,9 @@ public class UsersController {
                             user = FirebaseAuth.getInstance().getCurrentUser();
                             QueryFirebase<User> queryFirebase = QueryFirebase.getInstance(com.gogocita.admin.constant.EntityName.Users);
                             queryFirebase.Insert(new User(user.getUid(),email,userType) ,user.getUid());
+
+                            QueryFirebase<UserDetail> queryFirebaseUserDetail = QueryFirebase.getInstance(EntityName.UserDetails);
+                            queryFirebaseUserDetail.Insert(new UserDetail(user.getUid(),user.getEmail()),user.getUid());
 
                             activity.startActivity(new Intent(activity,SingUpSuccessActivity.class));
                             activity.finish();

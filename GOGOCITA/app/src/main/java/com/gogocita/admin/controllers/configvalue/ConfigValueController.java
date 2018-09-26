@@ -2,7 +2,9 @@ package com.gogocita.admin.controllers.configvalue;
 
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -38,7 +40,6 @@ public class ConfigValueController {
         FirebaseListAdapter<ConfigValue> genderAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(null,"configValueGroup","GenderType"),ConfigValue.class, R.layout.custom_spinner,context) {
             @Override
             protected void populateView(View v, Object model) {
-                TextView tv = (TextView) v;
                 ((TextView) v).setText(((ConfigValue)model).getConfigValueText());
             }
 
@@ -49,6 +50,7 @@ public class ConfigValueController {
         };
 
         spinner_gender.setAdapter(genderAdapter);
+
     }
 
     public void getCountry(Spinner spinner_country){
@@ -56,7 +58,6 @@ public class ConfigValueController {
         FirebaseListAdapter<Location> locationCountryAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(null,"locationType","Country"),Location.class,R.layout.custom_spinner,context) {
             @Override
             protected void populateView(View v, Object model) {
-                TextView tv = (TextView) v;
                 ((TextView) v).setText(((Location)model).getLocationName());
             }
 
@@ -74,7 +75,6 @@ public class ConfigValueController {
         FirebaseListAdapter<Location> locationDistrictAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(new String[]{countryId,cityId},"locationType","District"),Location.class,R.layout.custom_spinner,context) {
             @Override
             protected void populateView(View v, Object model) {
-                TextView tv = (TextView) v;
                 ((TextView) v).setText(((Location)model).getLocationName());
             }
 
@@ -92,7 +92,6 @@ public class ConfigValueController {
         FirebaseListAdapter<Location> locationCityAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(new String[]{countryId},"locationType","City"),Location.class,R.layout.custom_spinner,context) {
             @Override
             protected void populateView(View v, Object model) {
-                TextView tv = (TextView) v;
                 ((TextView) v).setText(((Location)model).getLocationName());
             }
 
@@ -104,4 +103,6 @@ public class ConfigValueController {
 
         spinner_city.setAdapter(locationCityAdapter);
     }
+
+
 }

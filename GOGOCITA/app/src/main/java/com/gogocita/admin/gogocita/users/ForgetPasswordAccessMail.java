@@ -17,5 +17,6 @@ public class ForgetPasswordAccessMail extends AppCompatActivity {
     public void btn_returnlogin(View v){
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
+        finish();
     }
 }

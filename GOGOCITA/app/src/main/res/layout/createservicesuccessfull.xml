@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Great! Your creat your service successful"
-                android:textSize="@dimen/text_size_large"
+                android:textSize="@dimen/text_size_small"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:layout_centerHorizontal="true"
@@ -42,7 +42,7 @@
                 android:background="@drawable/border_button"
                 android:text="RETURN DASHBOARD"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_size_large"
+                android:textSize="@dimen/text_size_small"
                 />
         </LinearLayout>
 

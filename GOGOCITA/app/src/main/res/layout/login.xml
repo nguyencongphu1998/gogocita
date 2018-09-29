@@ -8,6 +8,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorWhite"
         android:orientation="vertical"
         android:background="@color/colorWhite">
         <ProgressBar
@@ -22,19 +23,19 @@
             android:id="@+id/iv_logo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/img_login"
-            />
+            android:background="@drawable/img_login" />
+
         <EditText
             android:id="@+id/et_user_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/iv_logo"
-            android:layout_marginTop="5dp"
             android:layout_marginLeft="@dimen/edit_margin_left"
             android:layout_marginRight="@dimen/edit_margin_right"
+            android:layout_marginTop="5dp"
             android:hint="@string/User_name"
-            android:inputType="textEmailAddress"
-            />
+            android:inputType="textEmailAddress" />
+
         <EditText
             android:id="@+id/et_password_login"
             android:layout_width="match_parent"
@@ -43,9 +44,10 @@
             android:layout_marginTop="@dimen/edit_margin_top"
             android:layout_marginLeft="@dimen/edit_margin_left"
             android:layout_marginRight="@dimen/edit_margin_right"
+            android:layout_marginTop="@dimen/edit_margin_top"
             android:hint="@string/Password"
-            android:inputType="textPassword"
-            />
+            android:inputType="textPassword" />
+
         <Button
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
@@ -54,62 +56,54 @@
             android:layout_marginTop="20dp"
             android:layout_marginLeft="@dimen/edit_margin_left"
             android:layout_marginRight="@dimen/edit_margin_right"
-            android:textColor="#ffffff"
+            android:layout_marginTop="20dp"
             android:background="@color/colorRed"
             android:text="@string/Login"
             android:textAllCaps="false"
-            android:textSize="20dp"
-            />
+            android:textColor="#ffffff"
+            android:textSize="20dp" />
+
         <TextView
             android:id="@+id/tv_forgot_password"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_below="@id/btn_login"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="@dimen/edit_margin_left"
             android:layout_marginRight="@dimen/edit_margin_right"
-            android:text="@string/Forgot_passord"
-            android:textAlignment="center"
+            android:layout_marginTop="15dp"
             android:onClick="btn_forgotpassword"
-            />
+            android:text="@string/Forgot_passord"
+            android:textAlignment="center" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_forgot_password"
-            android:orientation="horizontal"
-            android:layout_centerHorizontal="true"
-            >
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="0dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/tv_dont"
                 android:layout_width="wrap_content"
-                android:layout_weight="3"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/edit_margin_left"
-                android:text="Don't have an account?"
-                tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="522dp"
-                android:layout_alignParentBottom="true"/>
+                android:layout_weight="3"
+                android:text="Don't have an account?" />
+
             <Button
                 android:id="@+id/create_account"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
-                tools:layout_editor_absoluteX="134dp"
-                android:layout_weight="1"
-                tools:layout_editor_absoluteY="228dp"
                 android:layout_marginRight="@dimen/edit_margin_right"
-                android:textAllCaps="false"
-                android:text="@string/Creat"
-                android:textColor="@color/colorWhite"
+                android:layout_weight="1"
                 android:background="@color/coloraaaaaa"
-                android:onClick="btn_create"
-                android:layout_alignParentBottom="true"
-                    />
+                android:text="Creat"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite" />
         </LinearLayout>
 
 

@@ -41,6 +41,10 @@ public class QueryFirebase<T>{
         if (queryFirebase == null) {
             queryFirebase = new QueryFirebase(entityName);
         }
+
+        if (queryFirebase.entityName != entityName){
+            queryFirebase = new QueryFirebase(entityName);
+        }
         return queryFirebase;
     }
 
@@ -53,14 +57,27 @@ public class QueryFirebase<T>{
     public Query getReferenceToSearch(String[] parentIds,String orderByChild,String equalTo)
     {
         getReference();
+
         if(parentIds != null)
         {
             for (String parentId : parentIds)
             {
+                if(parentId != null)
                 mDatabase = mDatabase.child(parentId);
             }
         }
-        return mDatabase.orderByChild(orderByChild).equalTo(equalTo);
+
+        Query query = mDatabase;
+
+        if(orderByChild != null){
+            query = query.orderByChild(orderByChild);
+        }
+
+        if(orderByChild != null){
+            query = query.equalTo(equalTo);
+        }
+
+        return query;
     }
 
     public String getNewKey(){
@@ -95,6 +112,26 @@ public class QueryFirebase<T>{
         getReference();
         mDatabase.child(objectId).updateChildren(updatedObject);
     }
+
+//    public void getFirstOrDeFault(){
+//        getReference();
+//        mDatabase.addValueEventListener( new ValueEventListener() {
+//            T modelClass = null;
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                // Get Post object and use the values to update the UI
+//                modelClass = (T) dataSnapshot.getValue();
+//                // ...
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//                // Getting Post failed, log a message
+//                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+//                // ...
+//            }
+//        });
+//    }
 
 //    public void getAll(final ArrayList<T> objects, final ArrayAdapter adapter){
 //        getReference();

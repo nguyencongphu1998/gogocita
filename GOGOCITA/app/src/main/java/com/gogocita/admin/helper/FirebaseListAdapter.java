@@ -77,7 +77,7 @@ public abstract class FirebaseListAdapter<T> extends BaseAdapter {
                 T newModel = dataSnapshot.getValue(FirebaseListAdapter.this.modelClass);
                 int index = models.indexOf(oldModel);
 
-                models.set(index, newModel);
+                models.set(index , newModel);
                 modelNames.put(modelName, newModel);
 
                 notifyChanged();

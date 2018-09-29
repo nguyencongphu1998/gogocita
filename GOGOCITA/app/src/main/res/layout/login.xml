@@ -4,15 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
+    tools:context=".users.LoginActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorWhite"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="39dp">
+        android:background="@color/colorWhite">
+        <ProgressBar
+            android:id="@+id/progressBar_login"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone" />
 
         <ImageView
             android:id="@+id/iv_logo"
@@ -21,7 +26,7 @@
             android:background="@drawable/img_login" />
 
         <EditText
-            android:id="@+id/et_user"
+            android:id="@+id/et_user_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/iv_logo"
@@ -32,10 +37,11 @@
             android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/et_password"
+            android:id="@+id/et_password_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/et_user"
+            android:layout_below="@id/et_user_login"
+            android:layout_marginTop="@dimen/edit_margin_top"
             android:layout_marginLeft="@dimen/edit_margin_left"
             android:layout_marginRight="@dimen/edit_margin_right"
             android:layout_marginTop="@dimen/edit_margin_top"
@@ -46,7 +52,8 @@
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/et_password"
+            android:layout_below="@id/et_password_login"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="@dimen/edit_margin_left"
             android:layout_marginRight="@dimen/edit_margin_right"
             android:layout_marginTop="20dp"

@@ -1,6 +1,8 @@
 package com.gogocita.admin.entity;
 
-public class Location {
+import com.gogocita.admin.constant.EntityName;
+
+public class Location extends GenerateId {
     private String locationID;
     private String locationType;
     private String locationName;
@@ -10,6 +12,12 @@ public class Location {
 
     public Location(String locationID, String locationType, String locationName) {
         this.locationID = locationID;
+        this.locationType = locationType;
+        this.locationName = locationName;
+    }
+
+    public Location(String locationType, String locationName) {
+        this.locationID = generateId(EntityName.Locations);
         this.locationType = locationType;
         this.locationName = locationName;
     }

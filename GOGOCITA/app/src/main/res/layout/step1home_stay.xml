@@ -47,14 +47,14 @@
             android:layout_height="wrap_content"
             android:background="@drawable/next_page_homestay1" />
         <Button
+            android:id="@+id/btn_step1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:text="@string/Next"
             android:background="@color/colorRed"
             android:textColor="@color/colorWhite"
-
-
+            android:onClick="nextStep2"
             />
 
     </RelativeLayout>

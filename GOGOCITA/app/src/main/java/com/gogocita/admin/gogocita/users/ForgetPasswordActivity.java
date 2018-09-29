@@ -1,6 +1,7 @@
 package com.gogocita.admin.gogocita.users;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -38,5 +39,11 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                 usersController.forgotPassword(inputEmail.getText().toString());
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this,LoginActivity.class));
+        finish();
     }
 }

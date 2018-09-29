@@ -3,6 +3,7 @@ package com.gogocita.admin.controllers.user;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -51,7 +52,7 @@ public class UserDetailsController {
     public void getDetail(ListView listView,String userID){
         queryFirebase = QueryFirebase.getInstance(EntityName.UserDetails);
         user = FirebaseAuth.getInstance().getCurrentUser();
-        FirebaseListAdapter<UserDetail> locationCountryAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(null,"fk_UserID",user.getUid()),UserDetail.class,R.layout.custom_listview_userdetail,activity) {
+        FirebaseListAdapter<UserDetail> userDetailAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(null,"fk_UserID",user.getUid()),UserDetail.class,R.layout.custom_listview_userdetail,activity) {
             @Override
             protected void populateView(View v, Object model) {
                 ((TextView) v.findViewById(R.id.textview_firstname)).setText(((UserDetail)model).getUserDetailFirstName());
@@ -66,6 +67,26 @@ public class UserDetailsController {
                 ((TextView) v.findViewById(R.id.textview_city)).setText(((UserDetail)model).getUserDetailAddressCity());
                 ((TextView) v.findViewById(R.id.textview_district)).setText(((UserDetail)model).getUserDetailAddressDistrict());
             }
+
+            @Override
+            protected List modifyArrayAdapter(List models)
+            {
+                return models;
+            }
+        };
+        listView.setAdapter(userDetailAdapter);
+    }
+
+    public void getDetailToUpdate(ListView listView,String userID){
+        queryFirebase = QueryFirebase.getInstance(EntityName.UserDetails);
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseListAdapter<UserDetail> locationCountryAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(null,"fk_UserID",user.getUid()),UserDetail.class,R.layout.test,activity) {
+            @Override
+            protected void populateView(View v, Object model) {
+                ((EditText) v.findViewById(R.id.mEditText_Firstname)).setText(((UserDetail)model).getUserDetailFirstName());
+                ((EditText) v.findViewById(R.id.mEditText_Lastname)).setText(((UserDetail)model).getUserDetailLastName());
+                ((EditText) v.findViewById(R.id.mEditText_Birthday)).setText(new SimpleDateFormat("MM-dd-yyyy").format(((UserDetail)model).getUserDetailBirthDay()));
+                            }
 
             @Override
             protected List modifyArrayAdapter(List models)

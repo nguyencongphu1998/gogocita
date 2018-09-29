@@ -53,7 +53,7 @@
             android:text="@string/Next"
             android:background="@color/colorRed"
             android:textColor="@color/colorWhite"
-
+            android:onClick="createNewService"
 
             />
 

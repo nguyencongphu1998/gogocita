@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -44,6 +45,8 @@ public class UpdateUserDetailActivity extends AppCompatActivity {
     private String districtName;
     private Button btnUpdate;
 
+    private ListView listView;
+
     private ConfigValueController configValueController;
     private UsersController usersController;
     private UserDetailsController userDetailController;
@@ -51,7 +54,10 @@ public class UpdateUserDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.userdetail_update);
+        setContentView(R.layout.test_update_user);
+
+
+        listView = (ListView) findViewById(R.id.listview_update_informationuser);
 
         spinner_gender = (Spinner) findViewById(R.id.spinner_Gender);
         spinner_country = (Spinner) findViewById(R.id.spinner_Nationality);
@@ -74,6 +80,9 @@ public class UpdateUserDetailActivity extends AppCompatActivity {
 
         usersController.checkAuthorize();
         user = usersController.getUser();
+
+        userDetailController.getDetailToUpdate(listView,user.getUid());
+
 
         configValueController.getGenders(spinner_gender);
 

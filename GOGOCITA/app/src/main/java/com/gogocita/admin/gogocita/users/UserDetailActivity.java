@@ -45,4 +45,10 @@ public class UserDetailActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this,UserMenuActivity.class));
+        finish();
+    }
+
 }

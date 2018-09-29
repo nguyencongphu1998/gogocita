@@ -1,5 +1,6 @@
 package com.gogocita.admin.gogocita.users;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -50,6 +51,11 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
             }
         });
+    }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this,UserMenuActivity.class));
+        finish();
     }
 }

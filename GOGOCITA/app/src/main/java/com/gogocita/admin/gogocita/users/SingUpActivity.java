@@ -1,4 +1,5 @@
 package com.gogocita.admin.gogocita.users;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -100,5 +101,11 @@ public class SingUpActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this,LoginActivity.class));
+        fileList();
     }
 }

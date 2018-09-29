@@ -23,23 +23,23 @@
     </TableRow>
     <TableRow>
         <EditText
-            android:id="@+id/mEditText_Firstname"
+            android:id="@+id/EditText_Firstname"
             android:hint="First name"
             android:inputType="text"/>
         <EditText
-            android:id="@+id/mEditText_Lastname"
+            android:id="@+id/EditText_Lastname"
             android:inputType="text"
             android:hint="Last name"/>
     </TableRow>
     <TableRow>
         <EditText
-            android:id="@+id/mEditText_Birthday"
+            android:id="@+id/EditText_Birthday"
             android:inputType="date"
             android:hint="Birthday"/>
     </TableRow>
     <TableRow>
         <EditText
-            android:id="@+id/mEditText_Handphone"
+            android:id="@+id/EditText_Handphone"
             android:inputType="phone"
             android:hint="Handphone"/>
     </TableRow>
@@ -95,13 +95,4 @@
             android:id="@+id/spinner_Nationality">
         </Spinner>
     </TableRow>
-    <Button
-        android:id="@+id/button_updateprofile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ff586c"
-        android:text="UPDATE"
-        android:textSize="25sp"
-        android:textColor="#ffffff"
-        android:layout_marginTop="30dp"/>
 </TableLayout>

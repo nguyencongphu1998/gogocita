@@ -15,6 +15,7 @@ import com.gogocita.admin.gogocita.users.LoginActivity;
 import com.gogocita.admin.gogocita.users.SingUpSuccessActivity;
 import com.gogocita.admin.gogocita.users.UpdateUserDetailActivity;
 import com.gogocita.admin.gogocita.users.UserDetailActivity;
+import com.gogocita.admin.gogocita.users.UserMenuActivity;
 import com.gogocita.admin.helper.QueryFirebase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -77,7 +78,7 @@ public class UsersController {
                     activity.startActivity(new Intent(activity, LoginActivity.class));
                     activity.finish();
                 }else {
-                    activity.startActivity(new Intent(activity, UserDetail.class));
+                    activity.startActivity(new Intent(activity, UserMenuActivity.class));
                     activity.finish();
                 }
             }
@@ -130,7 +131,7 @@ public class UsersController {
                         }
                         else {
                             user = FirebaseAuth.getInstance().getCurrentUser();
-                            activity.startActivity(new Intent(activity, UserDetailActivity.class));
+                            activity.startActivity(new Intent(activity, UserMenuActivity.class));
                             activity.finish();
                         }
                     }
@@ -193,6 +194,8 @@ public class UsersController {
     public void signOut()
     {
         auth.signOut();
+        activity.startActivity(new Intent(activity,LoginActivity.class));
+        activity.finish();
     }
 
 

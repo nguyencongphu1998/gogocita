@@ -1,25 +1,41 @@
 package com.gogocita.admin.gogocita.users;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ProgressBar;
 
+import com.gogocita.admin.constant.EntityName;
+import com.gogocita.admin.controllers.user.UserDetailsController;
 import com.gogocita.admin.controllers.user.UsersController;
+import com.gogocita.admin.entity.UserDetail;
 import com.gogocita.admin.gogocita.R;
 import com.gogocita.admin.gogocita.service.Step1Activity;
+import com.gogocita.admin.helper.FirebaseListAdapter;
+import com.gogocita.admin.helper.QueryFirebase;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 public class UserMenuActivity extends AppCompatActivity{
+    private UserDetailsController userDetailsController;
+    private ProgressBar progressBar;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_user);
+        progressBar = (ProgressBar)  findViewById(R.id.progressBar_userMenu);
+        userDetailsController = UserDetailsController.getInstance(this,progressBar);
     }
 
     public void myProfile(View v){
-        startActivity(new Intent(this, UserDetailActivity.class));
-        finish();
+        progressBar.setVisibility(View.VISIBLE);
+        userDetailsController.getUserDetail(UserDetailActivity.class);
     }
 
     public void changePassword(View v){
@@ -28,8 +44,8 @@ public class UserMenuActivity extends AppCompatActivity{
     }
 
     public void updateMyProfile(View v){
-        startActivity(new Intent(this, UpdateUserDetailActivity.class));
-        finish();
+        progressBar.setVisibility(View.VISIBLE);
+        userDetailsController.getUserDetail(UpdateUserDetailActivity.class);
     }
 
     public void nextStep1(View v){

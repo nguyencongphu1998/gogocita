@@ -4,11 +4,12 @@ import com.gogocita.admin.constant.EntityName;
 import com.gogocita.admin.constant.EntityStatus;
 import com.google.firebase.database.Exclude;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserDetail extends GenerateId {
+public class UserDetail extends GenerateId implements Serializable{
     private String userDetailID;
     private String status;
     private String fk_UserID;

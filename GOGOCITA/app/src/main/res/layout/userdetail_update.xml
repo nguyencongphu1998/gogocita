@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.gogocita.admin.gogocita.users.UpdateUserDetailActivity">
+<ProgressBar
+android:id="@+id/progressBar_updateinformation"
+android:layout_width="100dp"
+android:layout_height="100dp"
+android:layout_centerInParent="true"
+android:layout_marginBottom="20dp"
+android:visibility="gone" />
+<TableLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layout_margin="15dp"
     android:stretchColumns="0,1"
-    tools:context="com.gogocita.admin.gogocita.users.UpdateUserDetailActivity">
-    <ProgressBar
-        android:id="@+id/progressBar_updateinformation"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="20dp"
-        android:visibility="gone" />
+    >
     <TableRow>
         <TextView
             android:text="UPDATE YOUR PROFILE"
@@ -23,23 +28,23 @@
     </TableRow>
     <TableRow>
         <EditText
-            android:id="@+id/mEditText_Firstname"
+            android:id="@+id/EditText_Firstname"
             android:hint="First name"
             android:inputType="text"/>
         <EditText
-            android:id="@+id/mEditText_Lastname"
+            android:id="@+id/EditText_Lastname"
             android:inputType="text"
             android:hint="Last name"/>
     </TableRow>
     <TableRow>
         <EditText
-            android:id="@+id/mEditText_Birthday"
+            android:id="@+id/EditText_Birthday"
             android:inputType="date"
             android:hint="Birthday"/>
     </TableRow>
     <TableRow>
         <EditText
-            android:id="@+id/mEditText_Handphone"
+            android:id="@+id/EditText_Handphone"
             android:inputType="phone"
             android:hint="Handphone"/>
     </TableRow>
@@ -91,9 +96,10 @@
         <EditText
             android:enabled="false"
             android:hint="Your nationality"/>
+
         <Spinner
-            android:id="@+id/spinner_Nationality">
-        </Spinner>
+            android:id="@+id/spinner_Nationality"
+            android:layout_height="match_parent"></Spinner>
     </TableRow>
     <Button
         android:id="@+id/button_updateprofile"
@@ -105,3 +111,4 @@
         android:textColor="#ffffff"
         android:layout_marginTop="30dp"/>
 </TableLayout>
+</RelativeLayout>

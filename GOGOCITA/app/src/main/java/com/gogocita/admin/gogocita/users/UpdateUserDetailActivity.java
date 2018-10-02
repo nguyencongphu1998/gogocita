@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.gogocita.admin.constant.EntityName;
 import com.gogocita.admin.controllers.configvalue.ConfigValueController;
 import com.gogocita.admin.controllers.user.UserDetailsController;
 import com.gogocita.admin.controllers.user.UsersController;
@@ -21,6 +22,7 @@ import com.gogocita.admin.entity.UserDetail;
 import com.gogocita.admin.gogocita.R;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class UpdateUserDetailActivity extends AppCompatActivity {
@@ -49,15 +51,13 @@ public class UpdateUserDetailActivity extends AppCompatActivity {
 
     private ConfigValueController configValueController;
     private UsersController usersController;
-    private UserDetailsController userDetailController;
+    private UserDetailsController userDetailsController;
     private FirebaseUser user = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.test_update_user);
+        setContentView(R.layout.userdetail_update);
 
-
-        listView = (ListView) findViewById(R.id.listview_update_informationuser);
 
         spinner_gender = (Spinner) findViewById(R.id.spinner_Gender);
         spinner_country = (Spinner) findViewById(R.id.spinner_Nationality);
@@ -76,13 +76,21 @@ public class UpdateUserDetailActivity extends AppCompatActivity {
 
         configValueController = ConfigValueController.getInstance(this);
         usersController = UsersController.getInstance(this,progressBar);
-        userDetailController = UserDetailsController.getInstance(this);
+        userDetailsController = UserDetailsController.getInstance(this,progressBar);
 
         usersController.checkAuthorize();
         user = usersController.getUser();
 
-        userDetailController.getDetailToUpdate(listView,user.getUid());
+        Intent intent = getIntent();
+        UserDetail userDetail = (UserDetail) intent.getSerializableExtra(EntityName.UserDetails);
 
+        editText_firstName.setText(userDetail.getUserDetailFirstName());
+        editText_lastName.setText(userDetail.getUserDetailLastName());
+        editText_addressline.setText(userDetail.getUserDetailAddressLine());
+        editText_idNumber.setText(userDetail.getUserDetailPassportNumber());
+        editText_job.setText(userDetail.getUserDetailJob());
+        editText_phone.setText(userDetail.getUserDetailPhone());
+        editText_birthDay.setText(new SimpleDateFormat("MM/dd/yyyy").format(userDetail.getUserDetailBirthDay()));
 
         configValueController.getGenders(spinner_gender);
 
@@ -172,7 +180,7 @@ public class UpdateUserDetailActivity extends AppCompatActivity {
                         cityName,
                         districtName,
                         true);
-                userDetailController.updateOrInsert(userDetail,progressBar);
+                userDetailsController.updateOrInsert(userDetail);
             }
         });
     }

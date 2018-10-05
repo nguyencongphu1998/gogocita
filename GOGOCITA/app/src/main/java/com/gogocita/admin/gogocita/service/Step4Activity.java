@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.gogocita.admin.gogocita.R;
-import com.gogocita.admin.gogocita.users.LoginActivity;
 
 public class Step4Activity extends AppCompatActivity {
     @Override
@@ -17,7 +16,7 @@ public class Step4Activity extends AppCompatActivity {
     }
 
     public void createNewService(View v){
-        startActivity(new Intent(this,CreateNewService.class));
+        startActivity(new Intent(this,CreateNewServiceActivity.class));
     }
 
     @Override

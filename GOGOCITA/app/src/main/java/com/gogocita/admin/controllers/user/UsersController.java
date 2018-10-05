@@ -10,6 +10,7 @@ import android.view.View;
 import com.gogocita.admin.constant.EntityName;
 import com.gogocita.admin.entity.User;
 import com.gogocita.admin.entity.UserDetail;
+import com.gogocita.admin.gogocita.service.ServiceOptionActivity;
 import com.gogocita.admin.gogocita.users.ForgetPasswordAccessMail;
 import com.gogocita.admin.gogocita.users.LoginActivity;
 import com.gogocita.admin.gogocita.users.SingUpSuccessActivity;
@@ -131,7 +132,7 @@ public class UsersController {
                         }
                         else {
                             user = FirebaseAuth.getInstance().getCurrentUser();
-                            activity.startActivity(new Intent(activity, UserMenuActivity.class));
+                            activity.startActivity(new Intent(activity, ServiceOptionActivity.class));
                             activity.finish();
                         }
                     }

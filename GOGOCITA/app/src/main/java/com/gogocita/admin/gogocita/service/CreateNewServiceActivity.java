@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.gogocita.admin.gogocita.R;
 
-public class CreateNewService extends AppCompatActivity{
+public class CreateNewServiceActivity extends AppCompatActivity{
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

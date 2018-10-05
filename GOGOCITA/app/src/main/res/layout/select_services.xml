@@ -16,7 +16,8 @@
             android:textColor="@color/colorWhite"
             android:text="TOUR GUIDER"
             android:padding="20dp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:onClick="btnTourisGuid"/>
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/relative_homestay"
@@ -33,6 +34,7 @@
             android:textColor="@color/colorWhite"
             android:text="HOMESTAY"
             android:padding="20dp"
+            android:onClick="btnHomeStay"
             android:gravity="center"/>
     </RelativeLayout>
 </RelativeLayout>

@@ -1,11 +1,14 @@
 package com.gogocita.admin.gogocita.users;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.gogocita.admin.gogocita.CommingSoonActivity;
 import com.gogocita.admin.gogocita.R;
+import com.gogocita.admin.gogocita.service.ServiceOptionActivity;
 
 
 public class SingUpSuccessActivity extends AppCompatActivity {
@@ -20,7 +23,8 @@ public class SingUpSuccessActivity extends AppCompatActivity {
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(getApplicationContext(),ServiceOptionActivity.class));
+                finish();
             }
         });
 

@@ -4,10 +4,11 @@ import com.gogocita.admin.constant.EntityName;
 import com.gogocita.admin.constant.EntityStatus;
 import com.google.firebase.database.Exclude;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PartnerService extends GenerateId{
+public class PartnerService extends GenerateId implements Serializable{
     private String partnerServiceID;
     private String status;
     private String fk_PartnerID;
@@ -22,11 +23,14 @@ public class PartnerService extends GenerateId{
     private String partnerServiceDesc;
     private double partnerServicePrice;
     private float partnerServiceDiscount;
+    private String partnerServiceConvinience;
+    private String serviceType;
 
     public PartnerService() {
     }
 
-    public PartnerService(String partnerServiceID, String status, String fk_PartnerID, String partnerServiceName, int partnerServiceEvalution, String partnerServiceAddressLine, String fk_LocationCountryID, String fk_LocationCityID, String fk_LocationDistrictID, boolean partnerServiceIsActive, String fk_EmployeeID, String partnerServiceDesc, double partnerServicePrice, float partnerServiceDiscount) {
+    public PartnerService(String partnerServiceID, String status, String fk_PartnerID, String partnerServiceName, int partnerServiceEvalution, String partnerServiceAddressLine, String fk_LocationCountryID, String fk_LocationCityID, String fk_LocationDistrictID, boolean partnerServiceIsActive, String fk_EmployeeID, String partnerServiceDesc, double partnerServicePrice, float partnerServiceDiscount, String partnerServiceConvinience,String serviceType)
+    {
         this.partnerServiceID = partnerServiceID;
         this.status = status;
         this.fk_PartnerID = fk_PartnerID;
@@ -41,9 +45,12 @@ public class PartnerService extends GenerateId{
         this.partnerServiceDesc = partnerServiceDesc;
         this.partnerServicePrice = partnerServicePrice;
         this.partnerServiceDiscount = partnerServiceDiscount;
+        this.partnerServiceConvinience = partnerServiceConvinience;
+        this.serviceType = serviceType;
     }
 
-    public PartnerService(String fk_PartnerID, String partnerServiceName, int partnerServiceEvalution, String partnerServiceAddressLine, String fk_LocationCountryID, String fk_LocationCityID, String fk_LocationDistrictID, boolean partnerServiceIsActive, String fk_EmployeeID, String partnerServiceDesc, double partnerServicePrice, float partnerServiceDiscount) {
+    public PartnerService(String fk_PartnerID, String partnerServiceName, int partnerServiceEvalution, String partnerServiceAddressLine, String fk_LocationCountryID, String fk_LocationCityID, String fk_LocationDistrictID, boolean partnerServiceIsActive, String fk_EmployeeID, String partnerServiceDesc, double partnerServicePrice, float partnerServiceDiscount, String partnerServiceConvinience,String serviceType)
+    {
         this.partnerServiceID = generateId(EntityName.PartnerServices);
         this.status = EntityStatus.Alive;
         this.fk_PartnerID = fk_PartnerID;
@@ -58,6 +65,8 @@ public class PartnerService extends GenerateId{
         this.partnerServiceDesc = partnerServiceDesc;
         this.partnerServicePrice = partnerServicePrice;
         this.partnerServiceDiscount = partnerServiceDiscount;
+        this.partnerServiceConvinience = partnerServiceConvinience;
+        this.serviceType = serviceType;
     }
 
     public String getPartnerServiceID() {
@@ -172,6 +181,22 @@ public class PartnerService extends GenerateId{
         this.partnerServiceDiscount = partnerServiceDiscount;
     }
 
+    public String getPartnerServiceConvinience() {
+        return partnerServiceConvinience;
+    }
+
+    public void setPartnerServiceConvinience(String partnerServiceConvinience) {
+        this.partnerServiceConvinience = partnerServiceConvinience;
+    }
+
+    public String getServiceType() {
+        return serviceType;
+    }
+
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
+    }
+
     @Exclude
     public Map<String, Object> toMapUpdate() {
         HashMap<String, Object> result = new HashMap<>();
@@ -188,6 +213,8 @@ public class PartnerService extends GenerateId{
         result.put("partnerServicePrice", partnerServicePrice);
         result.put("partnerServiceDiscount", partnerServiceDiscount);
         result.put("partnerServiceDesc", partnerServiceDesc);
+        result.put("partnerServiceConvinience", partnerServiceConvinience);
+        result.put("serviceType", serviceType);
 
         return result;
     }

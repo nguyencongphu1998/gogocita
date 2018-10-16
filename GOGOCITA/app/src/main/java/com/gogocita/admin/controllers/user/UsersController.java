@@ -57,16 +57,12 @@ public class UsersController {
 
     public void checkAuthorize()
     {
-        FirebaseAuth.AuthStateListener authListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user == null) {
-                    activity.startActivity(new Intent(activity, LoginActivity.class));
-                    activity.finish();
-                }
-            }
-        };
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user == null) {
+            activity.startActivity(new Intent(activity, LoginActivity.class));
+            activity.finish();
+        }
+
     }
 
     public void checkAuthorizeLogin()

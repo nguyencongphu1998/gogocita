@@ -9,10 +9,12 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import com.gogocita.admin.constant.EntityName;
+import com.gogocita.admin.controllers.service.ServiceController;
 import com.gogocita.admin.controllers.user.UserDetailsController;
 import com.gogocita.admin.controllers.user.UsersController;
 import com.gogocita.admin.entity.UserDetail;
 import com.gogocita.admin.gogocita.R;
+import com.gogocita.admin.gogocita.service.CreateNewServiceActivity;
 import com.gogocita.admin.gogocita.service.Step1Activity;
 import com.gogocita.admin.helper.FirebaseListAdapter;
 import com.gogocita.admin.helper.QueryFirebase;
@@ -24,6 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class UserMenuActivity extends AppCompatActivity{
     private UserDetailsController userDetailsController;
+    private ServiceController serviceController;
     private ProgressBar progressBar;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,6 +34,7 @@ public class UserMenuActivity extends AppCompatActivity{
         setContentView(R.layout.menu_user);
         progressBar = (ProgressBar)  findViewById(R.id.progressBar_userMenu);
         userDetailsController = UserDetailsController.getInstance(this,progressBar);
+        serviceController = ServiceController.getInstance(this,progressBar);
     }
 
     public void myProfile(View v){
@@ -49,8 +53,8 @@ public class UserMenuActivity extends AppCompatActivity{
     }
 
     public void nextStep1(View v){
-        startActivity(new Intent(this, Step1Activity.class));
-        finish();
+        progressBar.setVisibility(View.VISIBLE);
+        serviceController.getServiceDetail(CreateNewServiceActivity.class);
     }
 
     public void singOut(View v){

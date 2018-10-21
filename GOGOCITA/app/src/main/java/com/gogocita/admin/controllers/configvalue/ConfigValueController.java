@@ -2,9 +2,8 @@ package com.gogocita.admin.controllers.configvalue;
 
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.CheckedTextView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -14,6 +13,7 @@ import com.gogocita.admin.entity.Location;
 import com.gogocita.admin.gogocita.R;
 import com.gogocita.admin.helper.FirebaseListAdapter;
 import com.gogocita.admin.helper.QueryFirebase;
+import com.gogocita.admin.helper.ViewHolder;
 
 
 import java.util.List;
@@ -39,8 +39,13 @@ public class ConfigValueController {
         queryFirebase = QueryFirebase.getInstance(EntityName.ConfigValues);
         FirebaseListAdapter<ConfigValue> genderAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(null,"configValueGroup","GenderType"),ConfigValue.class, R.layout.custom_spinner,context) {
             @Override
-            protected void populateView(View v, Object model) {
-                ((TextView) v).setText(((ConfigValue)model).getConfigValueText());
+            protected void populateView(ViewHolder vh, Object model) {
+                vh.getCheckedTextViewSpinner().setText(((ConfigValue)model).getConfigValueText());
+            }
+
+            @Override
+            protected void setViewHolder(ViewHolder vh, View v) {
+                vh.setCheckedTextViewSpinner((CheckedTextView) v.findViewById(R.id.checktextviewspnner));
             }
 
             @Override
@@ -57,9 +62,15 @@ public class ConfigValueController {
         queryFirebase = QueryFirebase.getInstance(EntityName.Locations);
         FirebaseListAdapter<Location> locationCountryAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(null,"locationType","Country"),Location.class,R.layout.custom_spinner,context) {
             @Override
-            protected void populateView(View v, Object model) {
-                ((TextView) v).setText(((Location)model).getLocationName());
+            protected void populateView(ViewHolder vh, Object model) {
+                vh.getCheckedTextViewSpinner().setText(((Location)model).getLocationName());
             }
+
+            @Override
+            protected void setViewHolder(ViewHolder vh, View v) {
+                vh.setCheckedTextViewSpinner((CheckedTextView) v.findViewById(R.id.checktextviewspnner));
+            }
+
 
             @Override
             protected List modifyArrayAdapter(List models) {
@@ -74,9 +85,15 @@ public class ConfigValueController {
         queryFirebase = QueryFirebase.getInstance(EntityName.Locations);
         FirebaseListAdapter<Location> locationDistrictAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(new String[]{countryId,cityId},"locationType","District"),Location.class,R.layout.custom_spinner,context) {
             @Override
-            protected void populateView(View v, Object model) {
-                ((TextView) v).setText(((Location)model).getLocationName());
+            protected void populateView(ViewHolder vh, Object model) {
+                vh.getCheckedTextViewSpinner().setText(((Location)model).getLocationName());
             }
+
+            @Override
+            protected void setViewHolder(ViewHolder vh, View v) {
+                vh.setCheckedTextViewSpinner((CheckedTextView) v.findViewById(R.id.checktextviewspnner));
+            }
+
 
             @Override
             protected List modifyArrayAdapter(List models) {
@@ -91,9 +108,15 @@ public class ConfigValueController {
         queryFirebase = QueryFirebase.getInstance(EntityName.Locations);
         FirebaseListAdapter<Location> locationCityAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(new String[]{countryId},"locationType","City"),Location.class,R.layout.custom_spinner,context) {
             @Override
-            protected void populateView(View v, Object model) {
-                ((TextView) v).setText(((Location)model).getLocationName());
+            protected void populateView(ViewHolder vh, Object model) {
+                vh.getCheckedTextViewSpinner().setText(((Location)model).getLocationName());
             }
+
+            @Override
+            protected void setViewHolder(ViewHolder vh, View v) {
+                vh.setCheckedTextViewSpinner((CheckedTextView) v.findViewById(R.id.checktextviewspnner));
+            }
+
 
             @Override
             protected List modifyArrayAdapter(List models) {

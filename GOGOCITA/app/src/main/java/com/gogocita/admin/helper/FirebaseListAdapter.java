@@ -154,15 +154,27 @@ public abstract class FirebaseListAdapter<T> extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
+        ViewHolder viewHolder;
         if (view == null) {
+            // inflate the layout
             view = inflater.inflate(layout, null);
+            // set up the ViewHolder
+
+            viewHolder = new ViewHolder();
+            setViewHolder(viewHolder,view);
+
+            // store the holder with the view
+            view.setTag(viewHolder);
+        }else {
+            viewHolder = (ViewHolder) view.getTag();
         }
         T model = models.get(i);
         // Call out to subclass to marshall this model into the provided view
-        populateView(view, model);
+        populateView(viewHolder, model);
         return view;
     }
 
-    protected abstract void populateView(View v, T model);
+    protected abstract void populateView(ViewHolder vh, T model);
+    protected abstract void setViewHolder(ViewHolder vh,View v);
     protected abstract List<T> modifyArrayAdapter(List<T> models); //Used for modifying the model list before populating
 }

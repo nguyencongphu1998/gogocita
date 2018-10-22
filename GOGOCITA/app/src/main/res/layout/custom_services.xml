@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_height="wrap_content"
+<LinearLayout
+    android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <TextView
+        android:id="@+id/tv_listservice_name"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:paddingTop="150dp"
@@ -31,6 +33,7 @@
                 android:src="@drawable/rate"
                 android:layout_marginRight="5dp"/>
             <TextView
+                android:id="@+id/tv_listservice_evalution"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4.5"
@@ -51,6 +54,7 @@
                 android:src="@drawable/heart"
                 android:layout_marginRight="5dp"/>
             <TextView
+                android:id="@+id/tv_listservice_heart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="122"
@@ -59,6 +63,7 @@
                 android:textColor="@color/white"/>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/tv_listservice_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -80,13 +85,13 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="match_parent"
         android:background="#ededed">
         <TextView
-            android:padding="16dp"
+            android:id="@+id/tv_listservice_description"
             android:textSize="13dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="Lorem isum Lorem isum Lorem isum Lorem isum Lorem isum"/>
     </LinearLayout>
 </LinearLayout>

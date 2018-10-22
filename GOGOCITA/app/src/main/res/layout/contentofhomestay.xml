@@ -31,7 +31,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
-                        android:background="@drawable/bghomestay" />
+                        android:background="@drawable/bghomestay"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -39,36 +39,39 @@
                         android:background="@color/pink"
                         android:gravity="center_horizontal|center_vertical">
 
-                        <Button
+                        <TextView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:background="@drawable/rate" />
+                            android:background="@drawable/rate"/>
 
                         <TextView
+                            android:id="@+id/tv_servicedetail_evalution"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="20dp"
                             android:text="4.5"
                             android:textColor="@color/white" />
 
-                        <Button
+                        <TextView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:background="@drawable/heart" />
 
                         <TextView
+                            android:id="@+id/tv_servicedetail_heart"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="20dp"
                             android:text="120"
                             android:textColor="@color/white" />
 
-                        <Button
+                        <TextView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:background="@drawable/comment" />
 
                         <TextView
+                            android:id="@+id/tv_servicedetail_comment"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="15dp"
@@ -77,6 +80,7 @@
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/tv_servicedetail_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical|center_horizontal"
@@ -93,6 +97,7 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/tv_servicedetail_desc"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="25dp"
@@ -111,26 +116,31 @@
                         android:orientation="horizontal">
 
                         <ImageView
+                            android:id="@+id/tv_servicedetail_start1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/star" />
 
                         <ImageView
+                            android:id="@+id/tv_servicedetail_start2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/star" />
 
                         <ImageView
+                            android:id="@+id/tv_servicedetail_start3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/star" />
 
                         <ImageView
+                            android:id="@+id/tv_servicedetail_start4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/star" />
 
                         <ImageView
+                            android:id="@+id/tv_servicedetail_start5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/starhalf" />
@@ -143,6 +153,7 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/tv_servicedetail_vote"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="22"
@@ -160,6 +171,7 @@
                 </LinearLayout>
             </ScrollView>
             <Button
+                android:id="@+id/btn_servicedetail_book"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

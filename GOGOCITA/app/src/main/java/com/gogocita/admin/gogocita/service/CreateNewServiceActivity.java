@@ -62,6 +62,91 @@ public class CreateNewServiceActivity extends AppCompatActivity{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.createnewservice);
+
+        init();
+        setData();
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this,Step4Activity.class));
+        finish();
+    }
+
+    public void uploadImage(View v)
+    {
+        //startActivity(new Intent(this,));
+    }
+
+    public void createdService(View v)
+    {
+        progressBar.setVisibility(View.VISIBLE);
+
+        if(TextUtils.isEmpty(edtServiceName.getText())){
+            Toast.makeText(getApplicationContext(),"ServiceName is required!!!",Toast.LENGTH_SHORT).show();
+            progressBar.setVisibility(View.GONE);
+            return;
+        }
+
+        if(TextUtils.isEmpty(edtServiceAddress.getText())){
+            Toast.makeText(getApplicationContext(),"ServiceAddress is required!!!",Toast.LENGTH_SHORT).show();
+            progressBar.setVisibility(View.GONE);
+            return;
+        }
+
+        if(TextUtils.isEmpty(edtServiceDesc.getText())){
+            Toast.makeText(getApplicationContext(),"ServiceDescription is required!!!",Toast.LENGTH_SHORT).show();
+            progressBar.setVisibility(View.GONE);
+            return;
+        }
+
+        if(TextUtils.isEmpty(edtServicePrice.getText())){
+            Toast.makeText(getApplicationContext(),"ServicePrice is required!!!",Toast.LENGTH_SHORT).show();
+            progressBar.setVisibility(View.GONE);
+            return;
+        }
+
+        int idChecked = rdgServiceType.getCheckedRadioButtonId();
+        String serviceType = null;
+        switch (idChecked)
+        {
+            case R.id.radioButton_bungalow:
+                serviceType = ServiceType.bungalow;
+                break;
+            case R.id.radioButton_villa:
+                serviceType = ServiceType.villa;
+                break;
+            case R.id.radioButton_groundHouse:
+                serviceType = ServiceType.groundHouse;
+                break;
+        }
+
+        String convinience  = "";
+        if(cbAc.isChecked()) convinience = convinience + ServiceConvinience.ac + "-";
+        if(cbBreakfast.isChecked()) convinience = convinience + ServiceConvinience.freeBreakfast + "-";
+        if(cbSwimming.isChecked()) convinience = convinience + ServiceConvinience.swimmingPool + "-";
+        if(cbWifi.isChecked()) convinience = convinience + ServiceConvinience.wifi + "-";
+
+        PartnerService userDetail = new PartnerService(
+                user.getUid(),
+                edtServiceName.getText().toString(),
+                0,
+                edtServiceAddress.getText().toString(),
+                countryName,
+                cityName,
+                districtName,
+                false,
+                "",
+                edtServiceDesc.getText().toString(),
+                Double.parseDouble(edtServicePrice.getText().toString()),
+                0,
+                convinience,
+                serviceType);
+        serviceController.updateOrInsert(userDetail);
+    }
+
+    private void init()
+    {
         edtServiceDesc = (EditText) findViewById(R.id.edt_createservice_desciption);
         edtServiceName = (EditText) findViewById(R.id.edt_createservice_name);
         edtServicePrice = (EditText) findViewById(R.id.edt_createservice_price);
@@ -87,17 +172,20 @@ public class CreateNewServiceActivity extends AppCompatActivity{
 
         usersController.checkAuthorize();
         user = usersController.getUser();
+    }
 
+    private void setData()
+    {
         Intent intent = getIntent();
         PartnerService partnerService = (PartnerService) intent.getSerializableExtra(EntityName.PartnerServices);
         if(partnerService != null){
-        edtServiceName.setText(partnerService.getPartnerServiceName());
-        edtServiceAddress.setText(partnerService.getPartnerServiceAddressLine());
-        edtServiceDesc.setText(partnerService.getPartnerServiceDesc());
-        edtServicePrice.setText(partnerService.getPartnerServicePrice()+"");
-        if(partnerService.getPartnerServiceConvinience() != null)
-        {
-            String[] serviceConviniences = partnerService.getPartnerServiceConvinience().split("-");
+            edtServiceName.setText(partnerService.getPartnerServiceName());
+            edtServiceAddress.setText(partnerService.getPartnerServiceAddressLine());
+            edtServiceDesc.setText(partnerService.getPartnerServiceDesc());
+            edtServicePrice.setText(partnerService.getPartnerServicePrice()+"");
+            if(partnerService.getPartnerServiceConvinience() != null)
+            {
+                String[] serviceConviniences = partnerService.getPartnerServiceConvinience().split("-");
                 for (String serviceConvinience: serviceConviniences)
                 {
                     if(serviceConvinience.equals(ServiceConvinience.ac))
@@ -120,133 +208,54 @@ public class CreateNewServiceActivity extends AppCompatActivity{
                         cbSwimming.setChecked(true);
                     }
                 }
-        }
+            }
 
             if(partnerService.getServiceType().equals(ServiceType.bungalow)) rdbServiceTypeBungalow.setChecked(true);
             if(partnerService.getServiceType().equals(ServiceType.villa)) rdbServiceTypeVilla.setChecked(true);
             if(partnerService.getServiceType().equals(ServiceType.groundHouse)) rdbServiceTypeGroundHouse.setChecked(true);
+
+            configValueController.getCountry(spCountry);
+
+            spCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    countryId = ((Location) spCountry.getSelectedItem()).getLocationID();
+                    countryName = ((Location) spCountry.getSelectedItem()).getLocationName();
+                    configValueController.getCitys(countryId,spCity);
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+
+                }
+            });
+
+            spCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    cityId = ((Location) spCity.getSelectedItem()).getLocationID();
+                    cityName = ((Location) spCity.getSelectedItem()).getLocationName();
+                    configValueController.getDistricts(countryId,cityId,spDistrict);
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+
+                }
+            });
+
+            spDistrict.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    districtId = ((Location) spDistrict.getSelectedItem()).getLocationID();
+                    districtName = ((Location) spDistrict.getSelectedItem()).getLocationName();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+
+                }
+            });
         }
-        configValueController.getCountry(spCountry);
-
-        spCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                countryId = ((Location) spCountry.getSelectedItem()).getLocationID();
-                countryName = ((Location) spCountry.getSelectedItem()).getLocationName();
-                configValueController.getCitys(countryId,spCity);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
-        spCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                cityId = ((Location) spCity.getSelectedItem()).getLocationID();
-                cityName = ((Location) spCity.getSelectedItem()).getLocationName();
-                configValueController.getDistricts(countryId,cityId,spDistrict);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
-        spDistrict.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                districtId = ((Location) spDistrict.getSelectedItem()).getLocationID();
-                districtName = ((Location) spDistrict.getSelectedItem()).getLocationName();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
-        btnCreate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                progressBar.setVisibility(View.VISIBLE);
-
-                if(TextUtils.isEmpty(edtServiceName.getText())){
-                    Toast.makeText(getApplicationContext(),"ServiceName is required!!!",Toast.LENGTH_SHORT).show();
-                    progressBar.setVisibility(View.GONE);
-                    return;
-                }
-
-                if(TextUtils.isEmpty(edtServiceAddress.getText())){
-                    Toast.makeText(getApplicationContext(),"ServiceAddress is required!!!",Toast.LENGTH_SHORT).show();
-                    progressBar.setVisibility(View.GONE);
-                    return;
-                }
-
-                if(TextUtils.isEmpty(edtServiceDesc.getText())){
-                    Toast.makeText(getApplicationContext(),"ServiceDescription is required!!!",Toast.LENGTH_SHORT).show();
-                    progressBar.setVisibility(View.GONE);
-                    return;
-                }
-
-                if(TextUtils.isEmpty(edtServicePrice.getText())){
-                    Toast.makeText(getApplicationContext(),"ServicePrice is required!!!",Toast.LENGTH_SHORT).show();
-                    progressBar.setVisibility(View.GONE);
-                    return;
-                }
-
-                int idChecked = rdgServiceType.getCheckedRadioButtonId();
-                String serviceType = null;
-                switch (idChecked)
-                {
-                    case R.id.radioButton_bungalow:
-                        serviceType = ServiceType.bungalow;
-                        break;
-                    case R.id.radioButton_villa:
-                        serviceType = ServiceType.villa;
-                        break;
-                    case R.id.radioButton_groundHouse:
-                        serviceType = ServiceType.groundHouse;
-                        break;
-                }
-
-                String convinience  = "";
-                if(cbAc.isChecked()) convinience = convinience + ServiceConvinience.ac + "-";
-                if(cbBreakfast.isChecked()) convinience = convinience + ServiceConvinience.freeBreakfast + "-";
-                if(cbSwimming.isChecked()) convinience = convinience + ServiceConvinience.swimmingPool + "-";
-                if(cbWifi.isChecked()) convinience = convinience + ServiceConvinience.wifi + "-";
-
-                PartnerService userDetail = new PartnerService(
-                        user.getUid(),
-                        edtServiceName.getText().toString(),
-                        0,
-                        edtServiceAddress.getText().toString(),
-                        countryName,
-                        cityName,
-                        districtName,
-                        false,
-                        "",
-                        edtServiceDesc.getText().toString(),
-                        Double.parseDouble(edtServicePrice.getText().toString()),
-                        0,
-                        convinience,
-                        serviceType);
-                serviceController.updateOrInsert(userDetail);
-            }
-        });
-    }
-
-    @Override
-    public void onBackPressed() {
-        startActivity(new Intent(this,Step4Activity.class));
-        finish();
-    }
-
-    public void uploadImage(View v)
-    {
-        //startActivity(new Intent(this,));
     }
 }

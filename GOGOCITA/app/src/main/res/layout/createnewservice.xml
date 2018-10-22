@@ -266,6 +266,7 @@
             android:layout_height="wrap_content"
             android:background="@color/pink"
             android:text="COMPLETE"
+            android:onClick="createdService"
             android:gravity="center"
             android:textColor="@color/white"
             android:textSize="20sp"/>

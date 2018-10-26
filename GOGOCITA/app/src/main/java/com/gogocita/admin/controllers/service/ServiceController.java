@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -40,6 +42,9 @@ public class ServiceController {
     public static ServiceController getInstance(Activity activity, ProgressBar progressBar){
         if (serviceController == null){
             serviceController = new ServiceController(activity,progressBar);
+        }else {
+            serviceController.progressBar = progressBar;
+            serviceController.activity = activity;
         }
         return serviceController;
     }
@@ -52,11 +57,16 @@ public class ServiceController {
         Toast.makeText(activity,"Update Success!!!",Toast.LENGTH_SHORT).show();
     }
 
+    public void updateCoverPhoto(PartnerService partnerService,String partnerId){
+        QueryFirebase<PartnerService> queryFirebase = QueryFirebase.getInstance(EntityName.PartnerServices);
+        queryFirebase.Update(partnerService.toMapUpdateCoverPhoto(),partnerId);
+    }
+
     public void getServiceDetail(final Class activityClass){
         QueryFirebase<PartnerService> queryFirebase = QueryFirebase.getInstance(EntityName.PartnerServices);
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        queryFirebase.getReferenceToSearch(null,"fK_PartnerID",user.getUid()).addValueEventListener(new ValueEventListener() {
+        queryFirebase.getReferenceToSearch(null,"fk_PartnerID",user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 PartnerService model = dataSnapshot.child(user.getUid()).getValue(PartnerService.class);
@@ -79,7 +89,7 @@ public class ServiceController {
         });
     }
 
-    public void getAllServices(ListView listView, Context context){
+    public void getAllServices(ListView listView, final Context context){
         QueryFirebase<PartnerService> queryFirebase = QueryFirebase.getInstance(EntityName.PartnerServices);
         FirebaseListAdapter<PartnerService> serviceAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(null,null,null),PartnerService.class,R.layout.custom_services,context) {
             @Override
@@ -87,6 +97,12 @@ public class ServiceController {
                 vh.getTextViewServiceDescription().setText(((PartnerService)model).getPartnerServiceDesc());
                 vh.getTextViewServiceName().setText(((PartnerService)model).getPartnerServiceName());
                 vh.getTextViewServiceEvalution().setText(((PartnerService)model).getPartnerServiceEvalution() +"");
+                Picasso.with(context)
+                        .load(((PartnerService)model).getPartnerserviceCoverPhotoLink())
+                        .placeholder(R.mipmap.ic_launcher)
+                        .fit()
+                        .centerCrop()
+                        .into(vh.getImageViewServiceCoverPhoto());
             }
 
             @Override
@@ -94,6 +110,8 @@ public class ServiceController {
                 vh.setTextViewServiceName((TextView) v.findViewById(R.id.tv_listservice_name));
                 vh.setTextViewServiceDescription((TextView) v.findViewById(R.id.tv_listservice_description));
                 vh.setTextViewServiceEvalution((TextView) v.findViewById(R.id.tv_listservice_evalution));
+                vh.setTextViewServiceEvalution((TextView) v.findViewById(R.id.tv_listservice_evalution));
+                vh.setImageViewServiceCoverPhoto((ImageView) v.findViewById(R.id.iv_listservice_coverphoto));
             }
 
 

@@ -49,6 +49,9 @@ public class UsersController {
     public static UsersController getInstance(Activity activity, ProgressBar progressBar){
         if (usersController == null){
             usersController = new UsersController(progressBar,activity);
+        }else {
+            usersController.progressBar = progressBar;
+            usersController.activity = activity;
         }
 
         usersController.activity = activity;

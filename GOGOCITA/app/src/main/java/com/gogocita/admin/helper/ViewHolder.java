@@ -1,6 +1,7 @@
 package com.gogocita.admin.helper;
 
 import android.widget.CheckedTextView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ViewHolder {
@@ -8,6 +9,7 @@ public class ViewHolder {
     private TextView textViewServiceName;
     private TextView textViewServiceEvalution;
     private TextView textViewServiceDescription;
+    private ImageView imageViewServiceCoverPhoto;
 
     public ViewHolder(){
 
@@ -43,5 +45,13 @@ public class ViewHolder {
 
     public void setTextViewServiceDescription(TextView textViewServiceDescription) {
         this.textViewServiceDescription = textViewServiceDescription;
+    }
+
+    public ImageView getImageViewServiceCoverPhoto() {
+        return imageViewServiceCoverPhoto;
+    }
+
+    public void setImageViewServiceCoverPhoto(ImageView imageViewServiceCoverPhoto) {
+        this.imageViewServiceCoverPhoto = imageViewServiceCoverPhoto;
     }
 }

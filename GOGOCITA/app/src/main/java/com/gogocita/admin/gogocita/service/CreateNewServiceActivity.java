@@ -56,12 +56,13 @@ public class CreateNewServiceActivity extends AppCompatActivity{
     private String countryName;
     private String cityName;
     private String districtName;
+    private static PartnerService currentPartnerService;
 
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.createnewservice);
+        setContentView(R.layout.create_new_service);
 
         init();
         setData();
@@ -75,7 +76,17 @@ public class CreateNewServiceActivity extends AppCompatActivity{
 
     public void uploadImage(View v)
     {
-        //startActivity(new Intent(this,));
+        if(btnUpload.getText().equals("Your Service Images"))
+        {
+            Intent i = new Intent(this,ServiceImagesActivity.class);
+            i.putExtra(EntityName.PartnerServices,currentPartnerService.getPartnerServiceID());
+            startActivity(i);
+        }else {
+            Intent i = new Intent(this,UploadServiceImageActivity.class);
+            i.putExtra(EntityName.PartnerServices,currentPartnerService.getPartnerServiceID());
+            startActivity(i);
+        }
+        //finish();
     }
 
     public void createdService(View v)
@@ -127,7 +138,7 @@ public class CreateNewServiceActivity extends AppCompatActivity{
         if(cbSwimming.isChecked()) convinience = convinience + ServiceConvinience.swimmingPool + "-";
         if(cbWifi.isChecked()) convinience = convinience + ServiceConvinience.wifi + "-";
 
-        PartnerService userDetail = new PartnerService(
+        PartnerService partnerService = new PartnerService(
                 user.getUid(),
                 edtServiceName.getText().toString(),
                 0,
@@ -142,7 +153,16 @@ public class CreateNewServiceActivity extends AppCompatActivity{
                 0,
                 convinience,
                 serviceType);
-        serviceController.updateOrInsert(userDetail);
+
+        if(currentPartnerService != null){
+            partnerService.setPartnerServiceID(currentPartnerService.getPartnerServiceID());
+            partnerService.setFk_PartnerID(currentPartnerService.getFk_PartnerID());
+        }else {
+            currentPartnerService = partnerService;
+        }
+
+        serviceController.updateOrInsert(partnerService);
+        btnUpload.setEnabled(true);
     }
 
     private void init()
@@ -178,42 +198,44 @@ public class CreateNewServiceActivity extends AppCompatActivity{
     {
         Intent intent = getIntent();
         PartnerService partnerService = (PartnerService) intent.getSerializableExtra(EntityName.PartnerServices);
-        if(partnerService != null){
+        if(partnerService != null) {
             edtServiceName.setText(partnerService.getPartnerServiceName());
             edtServiceAddress.setText(partnerService.getPartnerServiceAddressLine());
             edtServiceDesc.setText(partnerService.getPartnerServiceDesc());
-            edtServicePrice.setText(partnerService.getPartnerServicePrice()+"");
-            if(partnerService.getPartnerServiceConvinience() != null)
-            {
+            edtServicePrice.setText(partnerService.getPartnerServicePrice() + "");
+            if (partnerService.getPartnerServiceConvinience() != null) {
                 String[] serviceConviniences = partnerService.getPartnerServiceConvinience().split("-");
-                for (String serviceConvinience: serviceConviniences)
-                {
-                    if(serviceConvinience.equals(ServiceConvinience.ac))
-                    {
+                for (String serviceConvinience : serviceConviniences) {
+                    if (serviceConvinience.equals(ServiceConvinience.ac)) {
                         cbAc.setChecked(true);
                     }
 
-                    if(serviceConvinience.equals(ServiceConvinience.freeBreakfast))
-                    {
+                    if (serviceConvinience.equals(ServiceConvinience.freeBreakfast)) {
                         cbBreakfast.setChecked(true);
                     }
 
-                    if(serviceConvinience.equals(ServiceConvinience.wifi))
-                    {
+                    if (serviceConvinience.equals(ServiceConvinience.wifi)) {
                         cbWifi.setChecked(true);
                     }
 
-                    if(serviceConvinience.equals(ServiceConvinience.swimmingPool))
-                    {
+                    if (serviceConvinience.equals(ServiceConvinience.swimmingPool)) {
                         cbSwimming.setChecked(true);
                     }
                 }
             }
 
-            if(partnerService.getServiceType().equals(ServiceType.bungalow)) rdbServiceTypeBungalow.setChecked(true);
-            if(partnerService.getServiceType().equals(ServiceType.villa)) rdbServiceTypeVilla.setChecked(true);
-            if(partnerService.getServiceType().equals(ServiceType.groundHouse)) rdbServiceTypeGroundHouse.setChecked(true);
+            if (partnerService.getServiceType().equals(ServiceType.bungalow))
+                rdbServiceTypeBungalow.setChecked(true);
+            if (partnerService.getServiceType().equals(ServiceType.villa))
+                rdbServiceTypeVilla.setChecked(true);
+            if (partnerService.getServiceType().equals(ServiceType.groundHouse))
+                rdbServiceTypeGroundHouse.setChecked(true);
 
+            btnUpload.setText("Your Service Images");
+            btnUpload.setEnabled(true);
+
+            currentPartnerService = partnerService;
+        }
             configValueController.getCountry(spCountry);
 
             spCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -256,6 +278,5 @@ public class CreateNewServiceActivity extends AppCompatActivity{
 
                 }
             });
-        }
     }
 }

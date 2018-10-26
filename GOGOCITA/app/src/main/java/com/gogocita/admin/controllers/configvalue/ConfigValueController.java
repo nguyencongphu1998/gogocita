@@ -31,8 +31,33 @@ public class ConfigValueController {
     public static ConfigValueController getInstance(Context context){
         if (configValueController == null){
             configValueController = new ConfigValueController(context);
+        }else {
+            configValueController.context = context;
         }
         return configValueController;
+    }
+
+    public void getServiceImageTypes(Spinner spinner_serviceImageType){
+        queryFirebase = QueryFirebase.getInstance(EntityName.ConfigValues);
+        FirebaseListAdapter<ConfigValue> genderAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(null,"configValueGroup","PartnerServiceImageType"),ConfigValue.class, R.layout.custom_spinner,context) {
+            @Override
+            protected void populateView(ViewHolder vh, Object model) {
+                vh.getCheckedTextViewSpinner().setText(((ConfigValue)model).getConfigValueText());
+            }
+
+            @Override
+            protected void setViewHolder(ViewHolder vh, View v) {
+                vh.setCheckedTextViewSpinner((CheckedTextView) v.findViewById(R.id.checktextviewspnner));
+            }
+
+            @Override
+            protected List modifyArrayAdapter(List models) {
+                return models;
+            }
+        };
+
+        spinner_serviceImageType.setAdapter(genderAdapter);
+
     }
 
     public void getGenders(Spinner spinner_gender){

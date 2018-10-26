@@ -24,7 +24,8 @@ public class PartnerService extends GenerateId implements Serializable{
     private double partnerServicePrice;
     private float partnerServiceDiscount;
     private String partnerServiceConvinience;
-    private String serviceType;
+    private String partnerserviceType;
+    private String partnerserviceCoverPhotoLink;
 
     public PartnerService() {
     }
@@ -46,7 +47,7 @@ public class PartnerService extends GenerateId implements Serializable{
         this.partnerServicePrice = partnerServicePrice;
         this.partnerServiceDiscount = partnerServiceDiscount;
         this.partnerServiceConvinience = partnerServiceConvinience;
-        this.serviceType = serviceType;
+        this.partnerserviceType = serviceType;
     }
 
     public PartnerService(String fk_PartnerID, String partnerServiceName, int partnerServiceEvalution, String partnerServiceAddressLine, String fk_LocationCountryID, String fk_LocationCityID, String fk_LocationDistrictID, boolean partnerServiceIsActive, String fk_EmployeeID, String partnerServiceDesc, double partnerServicePrice, float partnerServiceDiscount, String partnerServiceConvinience,String serviceType)
@@ -66,7 +67,7 @@ public class PartnerService extends GenerateId implements Serializable{
         this.partnerServicePrice = partnerServicePrice;
         this.partnerServiceDiscount = partnerServiceDiscount;
         this.partnerServiceConvinience = partnerServiceConvinience;
-        this.serviceType = serviceType;
+        this.partnerserviceType = serviceType;
     }
 
     public String getPartnerServiceID() {
@@ -189,32 +190,57 @@ public class PartnerService extends GenerateId implements Serializable{
         this.partnerServiceConvinience = partnerServiceConvinience;
     }
 
+    public String getPartnerserviceType() {
+        return partnerserviceType;
+    }
+
+    public void setPartnerserviceType(String partnerserviceType) {
+        this.partnerserviceType = partnerserviceType;
+    }
+
+    public String getPartnerserviceCoverPhotoLink() {
+        return partnerserviceCoverPhotoLink;
+    }
+
+    public void setPartnerserviceCoverPhotoLink(String partnerserviceCoverPhotoLink) {
+        this.partnerserviceCoverPhotoLink = partnerserviceCoverPhotoLink;
+    }
+
     public String getServiceType() {
-        return serviceType;
+        return partnerserviceType;
     }
 
     public void setServiceType(String serviceType) {
-        this.serviceType = serviceType;
+        this.partnerserviceType = serviceType;
     }
 
     @Exclude
     public Map<String, Object> toMapUpdate() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("status", status);
-        result.put("fK_PartnerID", fk_PartnerID);
+        result.put("partnerServiceID", partnerServiceID);
+        result.put("fk_PartnerID", fk_PartnerID);
         result.put("partnerServiceName", partnerServiceName);
         result.put("partnerServiceEvalution", partnerServiceEvalution);
         result.put("partnerServiceAddressLine", partnerServiceAddressLine);
-        result.put("fK_LocationCountryID", fk_LocationCountryID);
-        result.put("fK_LocationCityID", fk_LocationCityID);
-        result.put("fK_LocationDistrictID", fk_LocationDistrictID);
+        result.put("fk_LocationCountryID", fk_LocationCountryID);
+        result.put("fk_LocationCityID", fk_LocationCityID);
+        result.put("fk_LocationDistrictID", fk_LocationDistrictID);
         result.put("partnerServiceIsActive", partnerServiceIsActive);
-        result.put("fK_EmployeeID", fk_EmployeeID);
+        result.put("fk_EmployeeID", fk_EmployeeID);
         result.put("partnerServicePrice", partnerServicePrice);
         result.put("partnerServiceDiscount", partnerServiceDiscount);
         result.put("partnerServiceDesc", partnerServiceDesc);
         result.put("partnerServiceConvinience", partnerServiceConvinience);
-        result.put("serviceType", serviceType);
+        result.put("partnerserviceType", partnerserviceType);
+
+        return result;
+    }
+
+    @Exclude
+    public Map<String, Object> toMapUpdateCoverPhoto() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("partnerserviceCoverPhotoLink", partnerserviceCoverPhotoLink);
 
         return result;
     }

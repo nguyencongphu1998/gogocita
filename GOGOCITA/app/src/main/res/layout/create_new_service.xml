@@ -214,6 +214,7 @@
                     <Button
                         android:id="@+id/btn_uploadimage"
                         android:onClick="uploadImage"
+                        android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/layout_facility2"

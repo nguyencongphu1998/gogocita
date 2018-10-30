@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView_success"
+            android:layout_width="match_parent"
+            android:layout_height="223dp"
+            android:background="@drawable/sign_up_success" />
+        <TextView
+            android:id="@+id/tv_success"
+            android:text="Hi username ! Your sign up has been successful"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_below="@+id/imageView_success"
+            android:layout_marginTop="@dimen/edit_margin_top"
+            android:layout_marginBottom="@dimen/edit_margin_bottom"
+            android:layout_marginRight="@dimen/edit_margin_right"
+            android:layout_marginLeft="@dimen/edit_margin_left"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            />
+        <Button
+            android:id="@+id/btn_return"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_marginBottom="@dimen/edit_margin_bottom"
+            android:layout_marginRight="@dimen/edit_margin_right"
+            android:layout_marginLeft="@dimen/edit_margin_left"
+            android:background="@drawable/border_button"
+            android:layout_below="@+id/tv_success"
+            android:layout_marginTop="150dp"
+            android:text="Return Dashboard"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_large"
+            />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

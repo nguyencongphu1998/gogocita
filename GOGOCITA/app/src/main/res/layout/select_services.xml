@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:id="@+id/relative_tourist_guider"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:gravity="center"
+        android:background="@drawable/bgtouristguid">
+        <Button
+            android:id="@+id/button_tourist_guider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/pink"
+            android:textColor="@color/colorWhite"
+            android:text="TOUR GUIDER"
+            android:padding="20dp"
+            android:gravity="center"
+            android:onClick="btnTourisGuid"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relative_homestay"
+        android:layout_below="@+id/relative_tourist_guider"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:gravity="center"
+        android:background="@drawable/bghomestay">
+        <Button
+            android:id="@+id/button_homestay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/pink"
+            android:textColor="@color/colorWhite"
+            android:text="HOMESTAY"
+            android:padding="20dp"
+            android:onClick="btnHomeStay"
+            android:gravity="center"/>
+    </RelativeLayout>
+</RelativeLayout>

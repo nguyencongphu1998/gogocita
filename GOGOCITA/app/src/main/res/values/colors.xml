@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    //theme mau dung trong app
+    <color name="pink">#ff586c</color>
+    <color name="black">#454545</color>
+    <color name="grey">#aaaaaa</color>
+    <color name="white">#ffffff</color>
+    <color name="colorRed">#ff586c</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="color555555">#555555</color>
+    <color name="color9098a2">#9098a2</color>
+    <color name="coloraaaaaa">#aaaaaa</color>
+    <color name="color454545">#454545</color>
+
+    <color name="md_teal_500_primary">#009688</color>
+    <color name="md_teal_700">#00796B</color>
+    <color name="md_teal_900">#004D40</color>
+</resources>

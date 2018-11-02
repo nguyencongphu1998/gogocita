@@ -1,111 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-        <Button
-            android:layout_margin="10dp"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:background="@drawable/menu"/>
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:weightSum="10">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/bghomestay"/>
             <ScrollView
                 android:layout_weight="9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="vertical"
                 >
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:background="@drawable/bghomestay"/>
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:background="@color/pink"
-                        android:gravity="center_horizontal|center_vertical">
-
-                        <TextView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="@drawable/rate"/>
-
-                        <TextView
-                            android:id="@+id/tv_servicedetail_evalution"
-                            android:layout_width="wrap_content"
+                        android:weightSum="3">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="30dp">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="60dp"
+                                android:src="@drawable/rate"
+                                android:layout_marginRight="3dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="60dp"
+                                android:text="4.5"
+                                android:textColor="@color/white"
+                                android:textSize="20sp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:layout_marginLeft="3dp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="20dp"
-                            android:text="4.5"
-                            android:textColor="@color/white" />
-
-                        <TextView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="@drawable/heart" />
-
-                        <TextView
-                            android:id="@+id/tv_servicedetail_heart"
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="30dp">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="60dp"
+                                android:src="@drawable/heart"
+                                android:layout_marginRight="3dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="60dp"
+                                android:text="120"
+                                android:textColor="@color/white"
+                                android:textSize="20sp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:layout_marginLeft="3dp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="20dp"
-                            android:text="120"
-                            android:textColor="@color/white" />
-
-                        <TextView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="@drawable/comment" />
-
-                        <TextView
-                            android:id="@+id/tv_servicedetail_comment"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="15dp"
-                            android:text="15"
-                            android:textColor="@color/white" />
+                            android:layout_weight="1"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="30dp">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="60dp"
+                                android:src="@drawable/comment"
+                                android:layout_marginRight="3dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="60dp"
+                                android:text="15"
+                                android:textColor="@color/white"
+                                android:textSize="20sp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:layout_marginLeft="3dp"/>
+                        </LinearLayout>
                     </LinearLayout>
-
                     <TextView
                         android:id="@+id/tv_servicedetail_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical|center_horizontal"
-                        android:padding="@dimen/text_padding"
-                        android:text="Name of homestay"
+                        android:padding="13dp"
+                        android:text="NAME OF HOMESTAY"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/text_size_small"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
-
                     <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:background="@color/grey"
-                        android:orientation="vertical">
-
+                        android:padding="16dp">
                         <TextView
                             android:id="@+id/tv_servicedetail_desc"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="25dp"
-                            android:layout_marginRight="25dp"
-                            android:layout_marginTop="15dp"
-                            android:text="những phụ thuộc như vậy được gọi là tầm thường. Một cách hình thức, một phụ thuộc hàm X → Y là tầm thường những phụ thuộc như vậy được gọi là tầm thường. Một cách hình thức, một phụ thuộc hàm X → Y là tầm thường những phụ thuộc như vậy được gọi là tầm thường. Một cách hình thức, một phụ thuộc hàm X → Y là tầm thường những phụ thuộc như vậy được gọi là tầm thường. Một cách hình thức, một phụ thuộc hàm X → Y là tầm thường những phụ thuộc như vậy được gọi là tầm thường. Một cách hình thức, một phụ thuộc hàm X → Y là tầm thường những phụ thuộc như vậy được gọi là tầm thường. Một cách hình thức, một phụ thuộc hàm X → Y là tầm thường nếu X Y, ngược lại, nó được gọi là không tầm thường. Quy tắc tăng nói rằng việc thêm cùng một tập thuộc tính vào cả hai vế của một phụ thuộc hàm sẽ tạo ra một phụ thuộc hàm đúng đắn. Theo quy tắc 3, các phụ thuộc hàm là bắc cầu. Quy tắc chiếu (QT4) nói rằng chúng ta có thể bỏ bớt các thuộc tính ra khỏi vế phải của phụ thuộc  "
+                            android:text="Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here"
                             android:textColor="@color/black"
-                            android:textStyle="bold" />
+                            android:textSize="16sp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -113,44 +123,47 @@
                         android:layout_height="match_parent"
                         android:background="@color/black"
                         android:gravity="center"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        android:weightSum="3">
 
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/avatarbig"
+                            android:layout_weight="1"/>
                         <ImageView
                             android:id="@+id/tv_servicedetail_start1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/star" />
-
                         <ImageView
                             android:id="@+id/tv_servicedetail_start2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/star" />
-
                         <ImageView
                             android:id="@+id/tv_servicedetail_start3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/star" />
-
                         <ImageView
                             android:id="@+id/tv_servicedetail_start4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/star" />
-
                         <ImageView
                             android:id="@+id/tv_servicedetail_start5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/starhalf" />
-
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/edit_margin_left"
                             android:gravity="center"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:layout_weight="1">
 
                             <TextView
                                 android:id="@+id/tv_servicedetail_vote"
@@ -158,32 +171,40 @@
                                 android:layout_height="wrap_content"
                                 android:text="22"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/text_size_small" />
-
+                                android:textSize="35sp" />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Votes"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/text_size_small" />
+                                android:textSize="18sp" />
                         </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ListView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/black">
+                            //Comment here
+                        </ListView>
                     </LinearLayout>
                 </LinearLayout>
             </ScrollView>
-            <Button
-                android:id="@+id/btn_servicedetail_book"
-                android:layout_weight="1"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:background="@color/pink"
-                android:text="BOOK NOW"
-                android:textSize="@dimen/text_size_small"
-                />
+                >
+                <Button
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="BOOK NOW"
+                    android:textSize="21sp"
+                    android:background="@color/pink"
+                    android:textColor="@color/white"/>
+            </RelativeLayout>
         </LinearLayout>
-
-
     </RelativeLayout>
-
-
 </android.support.constraint.ConstraintLayout>

@@ -25,21 +25,22 @@
             android:text="MY CALENDAR"
             android:textStyle="bold"
             android:gravity="center"
-            android:textSize="25dp"
+            android:textSize="20sp"
             />
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/relative_calendar"
         android:layout_below="@+id/relative_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:padding="16dp">
         <TableLayout
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:stretchColumns="*"
             android:gravity="center"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp">
+            >
             <TableRow>
                 <TextView
                     android:id="@+id/textview_checkin"
@@ -59,23 +60,27 @@
                     android:text="Check-in"
                     android:textColor="#ab0800"
                     android:textStyle="bold"
+                    android:textSize="16sp"
                     />
                 <TextView
                     android:text="* days"
                     android:layout_gravity="center"
                     android:textColor="#ab0800"
                     android:textStyle="bold"
+                    android:textSize="16sp"
                     />
                 <TextView
                     android:text="Check-out"
                     android:textAlignment="textEnd"
                     android:textColor="#ab0800"
                     android:textStyle="bold"
+                    android:textSize="16sp"
                     />
             </TableRow>
             <TableRow>
                 <TextView
                     android:text="Customer:"
+                    android:textSize="16sp"
                     />
                 <EditText
                     android:id="@+id/edit_name"
@@ -87,6 +92,7 @@
             <TableRow>
                 <TextView
                     android:text="Age:"
+                    android:textSize="16sp"
                     />
                 <EditText
                     android:layout_width="match_parent"
@@ -99,6 +105,7 @@
             <TableRow>
                 <TextView
                     android:text="Nationality:"
+                    android:textSize="16sp"
                     />
                 <EditText
                     android:id="@+id/edit_nationality"
@@ -110,10 +117,12 @@
             <TableRow>
                 <TextView
                     android:text="Total:"
+                    android:textSize="16sp"
                     />
                 <EditText
                     android:id="@+id/edit_total"
                     android:enabled="false"
+                    android:textSize="16sp"
                     android:text="****** VND"
                     android:layout_span="2"
                     />

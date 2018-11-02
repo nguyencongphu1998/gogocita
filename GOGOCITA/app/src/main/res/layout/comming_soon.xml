@@ -5,41 +5,35 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-        <ImageView
-            android:id="@+id/imageView_logo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/logo" />
+        android:orientation="vertical"
+        android:background="@drawable/comingsoon">
         <TextView
             android:id="@+id/tv_commingsoom"
-            android:layout_below="@+id/imageView_logo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/edit_margin_top"
+            android:layout_marginTop="150dp"
             android:layout_marginBottom="@dimen/edit_margin_bottom"
             android:layout_marginRight="@dimen/edit_margin_right"
             android:layout_marginLeft="@dimen/edit_margin_left"
             android:text="COMMING SOON"
-            android:textSize="@dimen/text_size_large"
+            android:textSize="35sp"
             android:textStyle="bold"
             android:gravity="center_vertical|center_horizontal"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="280dp"
             android:layout_marginBottom="@dimen/edit_margin_bottom"
             android:layout_marginRight="@dimen/edit_margin_right"
             android:layout_marginLeft="@dimen/edit_margin_left"
             android:id="@+id/tv"
             android:layout_below="@+id/tv_commingsoom"
             android:text="We will develop this functionally as quickly as possible"
-            android:textSize="@dimen/text_size_small"
+            android:textSize="20sp"
             android:gravity="center_vertical|center_horizontal"
-            android:textColor="@color/grey"
-            android:textStyle="bold"/>
+            android:textColor="@color/grey" />
         <Button
             android:id="@+id/bt_goback"
             android:layout_width="match_parent"

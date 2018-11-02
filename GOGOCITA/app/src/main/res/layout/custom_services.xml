@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:text="NAME OF HOMESTAY"
         android:textSize="25sp"
+        android:padding="16dp"
         />
     <LinearLayout
         android:layout_width="match_parent"
@@ -87,7 +88,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ededed">
+        android:background="#ededed"
+        android:padding="16dp">
         <TextView
             android:id="@+id/tv_listservice_description"
             android:textSize="13dp"

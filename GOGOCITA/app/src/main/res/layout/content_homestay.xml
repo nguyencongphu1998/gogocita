@@ -29,7 +29,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:background="@color/pink"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:layout_gravity="center"
+                        android:gravity="center">
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="60dp"
@@ -117,6 +119,57 @@
                             android:textColor="@color/black"
                             android:textSize="16sp"/>
                     </LinearLayout>
+                    <EditText
+                        android:id="@+id/edt_createservice_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:hint="Address"
+                        android:textColorHint="@color/black" />
+                    <LinearLayout
+                        android:id="@+id/layout_facility"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:weightSum="2">
+                        <CheckBox
+                            android:id="@+id/checkbox_wifi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Wifi" />
+                        <CheckBox
+                            android:id="@+id/checkbox_freebreakfast"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Free breakfast" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/layout_facility2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="2">
+                        <CheckBox
+                            android:id="@+id/checkbox_ac"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="AC" />
+                        <CheckBox
+                            android:id="@+id/checkbox_swimmingpool"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Swimming pool" />
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -195,15 +248,18 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
                 >
                 <Button
                     android:id="@+id/btn_servicedetail_book"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="65dp"
                     android:text="BOOK NOW"
                     android:textSize="21sp"
                     android:background="@color/pink"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white"
+                    android:gravity="center"/>
             </RelativeLayout>
         </LinearLayout>
     </RelativeLayout>

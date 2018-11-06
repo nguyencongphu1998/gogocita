@@ -65,7 +65,8 @@ public class CreateNewServiceActivity extends AppCompatActivity{
         setContentView(R.layout.create_new_service);
 
         init();
-        setData();
+        getWidget();
+        setWidget();
     }
 
     @Override
@@ -167,6 +168,16 @@ public class CreateNewServiceActivity extends AppCompatActivity{
 
     private void init()
     {
+        configValueController = ConfigValueController.getInstance(this);
+        usersController = UsersController.getInstance(this,progressBar);
+        serviceController = ServiceController.getInstance(this,progressBar);
+
+        usersController.checkAuthorize();
+        user = usersController.getUser();
+    }
+
+    private void getWidget()
+    {
         edtServiceDesc = (EditText) findViewById(R.id.edt_createservice_desciption);
         edtServiceName = (EditText) findViewById(R.id.edt_createservice_name);
         edtServicePrice = (EditText) findViewById(R.id.edt_createservice_price);
@@ -185,16 +196,9 @@ public class CreateNewServiceActivity extends AppCompatActivity{
         cbSwimming = (CheckBox) findViewById(R.id.checkbox_swimmingpool);
         cbWifi = (CheckBox) findViewById(R.id.checkbox_wifi);
         cbBreakfast = (CheckBox) findViewById(R.id.checkbox_freebreakfast);
-
-        configValueController = ConfigValueController.getInstance(this);
-        usersController = UsersController.getInstance(this,progressBar);
-        serviceController = ServiceController.getInstance(this,progressBar);
-
-        usersController.checkAuthorize();
-        user = usersController.getUser();
     }
 
-    private void setData()
+    private void setWidget()
     {
         Intent intent = getIntent();
         PartnerService partnerService = (PartnerService) intent.getSerializableExtra(EntityName.PartnerServices);

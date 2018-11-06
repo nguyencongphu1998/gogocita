@@ -17,18 +17,24 @@ public class ServiceDetailActivity extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_service);
+        setContentView(R.layout.content_homestay);
         init();
+        getWidget();
+        setWidget();
+    }
+
+    private void getWidget()
+    {
+        btnbook = (Button) findViewById(R.id.btn_servicedetail_book);
+    }
+    private void setWidget()
+    {
+        Intent intent = getIntent();
+        PartnerService partnerService = (PartnerService) intent.getSerializableExtra(EntityName.PartnerServices);
     }
 
     private void init()
     {
-        btnbook = (Button) findViewById(R.id.btn_servicedetail_book);
-    }
 
-    private void setData()
-    {
-        Intent intent = getIntent();
-        PartnerService partnerService = (PartnerService) intent.getSerializableExtra(EntityName.PartnerServices);
     }
 }

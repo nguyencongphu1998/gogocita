@@ -24,7 +24,10 @@ public class ServicesActivity extends AppCompatActivity {
         setContentView(R.layout.list_service);
         init();
         setData();
+        addListener();
+    }
 
+    private void addListener() {
         listView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {

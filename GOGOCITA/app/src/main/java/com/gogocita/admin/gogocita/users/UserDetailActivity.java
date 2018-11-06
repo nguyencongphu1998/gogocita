@@ -36,31 +36,59 @@ public class UserDetailActivity extends AppCompatActivity {
     private UserDetailsController userDetailsController;
     private Button btnUpdate;
     private ProgressBar progressBar;
+    private UserDetail userDetail;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.userdetail);
-        progressBar = findViewById(R.id.progressBar_userDetail);
 
-        userDetailsController = UserDetailsController.getInstance(this,progressBar);
+        init();
+        getWidget();
+        setWidget();
+        addListener();
+    }
 
+    private void init()
+    {
         Intent intent = getIntent();
-        UserDetail userDetail = (UserDetail) intent.getSerializableExtra(EntityName.UserDetails);
+        userDetail = (UserDetail) intent.getSerializableExtra(EntityName.UserDetails);
+    }
 
+    private void getWidget()
+    {
+        progressBar = findViewById(R.id.progressBar_userDetail);
         btnUpdate = (Button) findViewById(R.id.button_updateuser);
-        tv_firstName = (TextView) findViewById(R.id.textview_firstname); tv_firstName.setText(userDetail.getUserDetailFirstName());
-        tv_lastName = (TextView) findViewById(R.id.textview_lastname); tv_lastName.setText(userDetail.getUserDetailLastName());
-        tv_birthDay = (TextView) findViewById(R.id.textview_birthday); tv_birthDay.setText(new SimpleDateFormat("MM-dd-yyyy").format(userDetail.getUserDetailBirthDay()));
-        tv_phone = (TextView) findViewById(R.id.textview_phone); tv_phone.setText(userDetail.getUserDetailPhone());
-        tv_gender = (TextView) findViewById(R.id.textview_gender); tv_gender.setText(userDetail.getUserDetailGender());
-        tv_job = (TextView) findViewById(R.id.textview_job); tv_job.setText(userDetail.getUserDetailJob());
-        tv_idnumber = (TextView) findViewById(R.id.textview_idnumber); tv_idnumber.setText(userDetail.getUserDetailPassportNumber());
-        tv_address = (TextView) findViewById(R.id.textview_address); tv_address.setText(userDetail.getUserDetailAddressLine());
-        tv_country = (TextView) findViewById(R.id.textview_country); tv_country.setText(userDetail.getUserDetailAddressCountry());
-        tv_city = (TextView) findViewById(R.id.textview_city); tv_city.setText(userDetail.getUserDetailAddressCity());
-        tv_district = (TextView) findViewById(R.id.textview_district); tv_district.setText(userDetail.getUserDetailAddressDistrict());
+        tv_firstName = (TextView) findViewById(R.id.textview_firstname);
+        tv_lastName = (TextView) findViewById(R.id.textview_lastname);
+        tv_birthDay = (TextView) findViewById(R.id.textview_birthday);
+        tv_phone = (TextView) findViewById(R.id.textview_phone);
+        tv_gender = (TextView) findViewById(R.id.textview_gender);
+        tv_job = (TextView) findViewById(R.id.textview_job);
+        tv_idnumber = (TextView) findViewById(R.id.textview_idnumber);
+        tv_address = (TextView) findViewById(R.id.textview_address);
+        tv_country = (TextView) findViewById(R.id.textview_country);
+        tv_city = (TextView) findViewById(R.id.textview_city);
+        tv_district = (TextView) findViewById(R.id.textview_district);
+    }
 
+    private void setWidget()
+    {
+        userDetailsController = UserDetailsController.getInstance(this,progressBar);
+        tv_firstName.setText(userDetail.getUserDetailFirstName());
+        tv_lastName.setText(userDetail.getUserDetailLastName());
+        tv_birthDay.setText(new SimpleDateFormat("MM-dd-yyyy").format(userDetail.getUserDetailBirthDay()));
+        tv_phone.setText(userDetail.getUserDetailPhone());
+        tv_gender.setText(userDetail.getUserDetailGender());
+        tv_job.setText(userDetail.getUserDetailJob());
+        tv_idnumber.setText(userDetail.getUserDetailPassportNumber());
+        tv_address.setText(userDetail.getUserDetailAddressLine());
+        tv_country.setText(userDetail.getUserDetailAddressCountry());
+        tv_city.setText(userDetail.getUserDetailAddressCity());
+        tv_district.setText(userDetail.getUserDetailAddressDistrict());
+    }
 
+    private void addListener()
+    {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

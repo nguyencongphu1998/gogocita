@@ -51,8 +51,11 @@ public class UploadServiceImageActivity extends AppCompatActivity {
 
         init();
         setData();
+        addListener();
+    }
 
-
+    private void addListener()
+    {
         spinner_imageType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {

@@ -41,7 +41,10 @@ public class ServiceImagesActivity extends AppCompatActivity implements ImageAda
 
         init();
         setData();
+        addListener();
+    }
 
+    private void addListener() {
         spinner_Type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {

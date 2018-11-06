@@ -17,9 +17,7 @@ import com.gogocita.admin.controllers.user.UsersController;
 import com.gogocita.admin.gogocita.R;
 import com.google.firebase.auth.FirebaseAuth;
 
-/**
- * A login screen that offers login via email/password.
- */
+
 public class SingUpActivity extends AppCompatActivity {
     private EditText inputEmail, inputPassword, inputRePassword;
     private Button btnSignUp;
@@ -27,12 +25,20 @@ public class SingUpActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private RadioGroup radioGroup;
     private CheckBox checkBox;
+    private UsersController usersController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.singup);
 
+        getWidget();
+        setWidget();
+        addListener();
+    }
+
+    private void getWidget()
+    {
         btnSignUp = (Button) findViewById(R.id.button_singup);
         inputEmail = (EditText) findViewById(R.id.editView_email);
         inputPassword = (EditText) findViewById(R.id.editView_password);
@@ -40,9 +46,15 @@ public class SingUpActivity extends AppCompatActivity {
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup_usertype);
         checkBox = (CheckBox) findViewById(R.id.checkbox_conditions);
+    }
 
-        final UsersController usersController = UsersController.getInstance(SingUpActivity.this ,progressBar);
+    private void setWidget()
+    {
+        usersController = UsersController.getInstance(SingUpActivity.this ,progressBar);
+    }
 
+    private void addListener()
+    {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,6 +107,7 @@ public class SingUpActivity extends AppCompatActivity {
                 usersController.singUp(inputEmail.getText().toString(),inputPassword.getText().toString(),inputRePassword.getText().toString(),userType);
             }
         });
+
     }
 
     @Override

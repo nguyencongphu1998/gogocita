@@ -75,7 +75,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Villa" />
+                            android:text="Villa"
+
+
+                            />
                         <RadioButton
                             android:id="@+id/radioButton_bungalow"
                             android:layout_width="match_parent"
@@ -89,6 +92,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="4dp"
                         android:layout_marginRight="4dp"
+                        android:layout_marginTop="7dp"
                         >
                         <TextView
                             android:layout_width="match_parent"
@@ -109,6 +113,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="4dp"
                         android:layout_marginRight="4dp"
+                        android:layout_marginTop="7dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -131,6 +136,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="4dp"
                         android:layout_marginRight="4dp"
+                        android:layout_marginTop="7dp"
                         android:orientation="horizontal">
                         <TextView
                             android:layout_width="match_parent"
@@ -154,6 +160,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
                         android:background="@color/grey"
+                        android:layout_marginTop="7dp"
                         android:padding="8dp">
                         <EditText
                             android:id="@+id/edt_createservice_desciption"
@@ -172,6 +179,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
+                        android:layout_marginTop="7dp"
                         android:weightSum="2">
                         <CheckBox
                             android:id="@+id/checkbox_wifi"

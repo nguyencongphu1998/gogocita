@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <Button
+                android:layout_margin="10dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/menu"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="FORM BOOK"
+                android:layout_gravity= "center_horizontal|center_vertical"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_size_small"/>
+            <TableLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:stretchColumns="*"
+                >
+                <TableRow>
+                    <TextView
+                        android:layout_span="4"
+                        android:text="Check in"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"/>
+                    <EditText
+                        android:id="@+id/et_checkin_date"
+                        android:layout_span="3"
+                        android:gravity="center"
+                        android:hint="xx"
+                        android:textColorHint="@color/com_facebook_blue"/>
+                    <TextView
+                        android:gravity="center"
+                        android:text=" / "/>
+                    <EditText
+                        android:id="@+id/et_checkin_month"
+                        android:layout_span="3"
+                        android:gravity="center"
+                        android:hint = "xx"
+                        android:textColorHint="@color/com_facebook_blue"/>
+                    <TextView
+                        android:gravity="center"
+                        android:text=" / "/>
+                    <EditText
+                        android:id="@+id/et_checkin_year"
+                        android:layout_span="3"
+                        android:hint="xxxx"
+                        android:gravity="center"
+                        android:textColorHint="@color/com_facebook_blue"></EditText>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_span="4"
+                        android:text="Check out"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"/>
+                    <EditText
+                        android:id="@+id/et_checkout_date"
+                        android:layout_span="3"
+                        android:gravity="center"
+                        android:hint="xx"
+                        android:textColorHint="@color/com_facebook_blue"/>
+                    <TextView
+                        android:gravity="center"
+                        android:text=" / "/>
+                    <EditText
+                        android:id="@+id/et_checkout_month"
+                        android:layout_span="3"
+                        android:gravity="center"
+                        android:hint = "xx"
+                        android:textColorHint="@color/com_facebook_blue"/>
+                    <TextView
+                        android:gravity="center"
+                        android:text=" / "/>
+                    <EditText
+                        android:id="@+id/et_checkout_year"
+                        android:layout_span="3"
+                        android:hint="xxxx"
+                        android:gravity="center"
+                        android:textColorHint="@color/com_facebook_blue"></EditText>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_span="4"
+                        android:text="Homestay: "
+                        android:textColor="@color/black"
+                        android:textStyle="bold"/>
+                    <EditText
+                        android:id="@+id/et_homestay"
+                        android:layout_span="11"
+                        android:text="Green Hill Villa"/>
+
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_span="4"
+                        android:text="Price: "
+                        android:textColor="@color/black"
+                        android:textStyle="bold"/>
+                    <EditText
+                        android:id="@+id/et_price"
+                        android:layout_span="5"
+                        android:text="450000"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_span="6"
+                        android:text="VND/room/night"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+            </TableLayout>
+            <View
+                android:layout_margin="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
+            <TextView
+                android:layout_margin="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="CALANDER OF HOMESTAY"
+                android:layout_gravity= "center_horizontal|center_vertical"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_size_small"/>
+            <TableLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:stretchColumns="*"
+                android:gravity="center">
+                <TableRow>
+                    <TextView
+                        android:text="**/**/2018"
+                        />
+                    <TextView
+                        android:layout_column="2"
+                        android:text="**/**/2018"
+                        android:textAlignment="textEnd"
+                        />
+                </TableRow>
+                <ImageView
+                    android:src="@drawable/line"/>
+                <TableRow>
+                    <Space
+                        />
+                    <TextView
+                        android:text="BOOKED"
+                        android:layout_gravity="center"
+                        android:textColor="#ab0800"
+                        android:textStyle="bold"
+                        />
+                    <Space
+                        />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:text="**/**/2018"
+                        />
+                    <TextView
+                        android:layout_column="2"
+                        android:text="**/**/2018"
+                        android:textAlignment="textEnd"
+                        />
+                </TableRow>
+                <ImageView
+                    android:src="@drawable/line"/>
+                <TableRow>
+                    <Space
+                        />
+                    <TextView
+                        android:text="BOOKED"
+                        android:layout_gravity="center"
+                        android:textColor="#ab0800"
+                        android:textStyle="bold"
+                        />
+                    <Space
+                        />
+                </TableRow>
+            </TableLayout>
+            <View
+                android:layout_margin="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Total: "
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/et_total"
+                    android:layout_weight="3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="900 VND"
+                    android:gravity="center"/>
+            </LinearLayout>
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn-booknow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_button"
+            android:layout_alignParentBottom="true"
+            android:text="@string/book_now"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_small"/>
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

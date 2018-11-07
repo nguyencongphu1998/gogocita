@@ -12,6 +12,7 @@
             android:orientation="vertical"
             android:weightSum="10">
             <ImageView
+                android:id="@+id/image_contenofhomestay_avatar"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:background="@drawable/bghomestay"/>
@@ -44,6 +45,7 @@
                                 android:src="@drawable/rate"
                                 android:layout_marginRight="3dp"/>
                             <TextView
+                                android:id="@+id/tv_contenofhomestay_evaluation"
                                 android:layout_width="wrap_content"
                                 android:layout_height="60dp"
                                 android:text="4.5"
@@ -97,7 +99,7 @@
                         </LinearLayout>
                     </LinearLayout>
                     <TextView
-                        android:id="@+id/tv_servicedetail_name"
+                        android:id="@+id/tv_contenofhomestay_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical|center_horizontal"
@@ -112,7 +114,7 @@
                         android:background="@color/grey"
                         android:padding="16dp">
                         <TextView
-                            android:id="@+id/tv_servicedetail_desc"
+                            android:id="@+id/tv_contenofhomestay_desc"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here"
@@ -120,12 +122,13 @@
                             android:textSize="16sp"/>
                     </LinearLayout>
                     <EditText
-                        android:id="@+id/edt_createservice_address"
+                        android:id="@+id/tv_contenofhomestay_address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
                         android:hint="Address"
+                        android:enabled="false"
                         android:textColorHint="@color/black" />
                     <LinearLayout
                         android:id="@+id/layout_facility"
@@ -136,13 +139,13 @@
                         android:layout_marginRight="20dp"
                         android:weightSum="2">
                         <CheckBox
-                            android:id="@+id/checkbox_wifi"
+                            android:id="@+id/cb_contenofhomestay_wifi"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Wifi" />
                         <CheckBox
-                            android:id="@+id/checkbox_freebreakfast"
+                            android:id="@+id/cb_contenofhomestay_freebreakfast"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -158,13 +161,13 @@
                         android:layout_marginBottom="5dp"
                         android:weightSum="2">
                         <CheckBox
-                            android:id="@+id/checkbox_ac"
+                            android:id="@+id/cb_contenofhomestay_ac"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="AC" />
                         <CheckBox
-                            android:id="@+id/checkbox_swimmingpool"
+                            android:id="@+id/cb_contenofhomestay_swimmingpool"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -252,7 +255,7 @@
                 android:gravity="center"
                 >
                 <Button
-                    android:id="@+id/btn_servicedetail_book"
+                    android:id="@+id/btn_contenofhomestay_book"
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
                     android:text="BOOK NOW"

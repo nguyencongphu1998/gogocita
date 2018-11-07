@@ -158,8 +158,8 @@ public abstract class FirebaseListAdapter<T> extends BaseAdapter {
         if (view == null) {
             // inflate the layout
             view = inflater.inflate(layout, null);
-            // set up the ViewHolder
 
+            // set up the ViewHolder
             viewHolder = new ViewHolder();
             setViewHolder(viewHolder,view);
 

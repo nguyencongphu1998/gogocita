@@ -15,6 +15,7 @@ import com.gogocita.admin.controllers.user.UsersController;
 import com.gogocita.admin.entity.UserDetail;
 import com.gogocita.admin.gogocita.R;
 import com.gogocita.admin.gogocita.service.CreateNewServiceActivity;
+import com.gogocita.admin.gogocita.service.ServicesActivity;
 import com.gogocita.admin.gogocita.service.Step1Activity;
 import com.gogocita.admin.helper.FirebaseListAdapter;
 import com.gogocita.admin.helper.QueryFirebase;
@@ -35,6 +36,11 @@ public class UserMenuActivity extends AppCompatActivity{
         progressBar = (ProgressBar)  findViewById(R.id.progressBar_userMenu);
         userDetailsController = UserDetailsController.getInstance(this,progressBar);
         serviceController = ServiceController.getInstance(this,progressBar);
+    }
+
+    public void gotoDashboard(View v){
+        startActivity(new Intent(this,ServicesActivity.class));
+        finish();
     }
 
     public void myProfile(View v){

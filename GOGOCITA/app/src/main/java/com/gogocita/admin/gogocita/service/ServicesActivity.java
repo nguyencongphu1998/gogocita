@@ -28,17 +28,12 @@ public class ServicesActivity extends AppCompatActivity {
     }
 
     private void addListener() {
-        listView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getApplication(),ServiceDetailActivity.class);
-                intent.putExtra(EntityName.PartnerServices,(PartnerService)listView.getSelectedItem());
-                getApplication().startActivity(intent);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getApplicationContext(),ServiceDetailActivity.class);
+                intent.putExtra(EntityName.PartnerServices,(PartnerService)(adapterView.getAdapter()).getItem(i));
+                getApplicationContext().startActivity(intent);
             }
         });
     }
@@ -54,17 +49,5 @@ public class ServicesActivity extends AppCompatActivity {
         serviceController = ServiceController.getInstance(this,progressBar);
 
         serviceController.getAllServices(listView,this);
-
-        listView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                //gender = ((ConfigValue) spinner_gender.getSelectedItem()).getConfigValueKey();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
     }
 }

@@ -18,17 +18,31 @@ public class ForgetPasswordActivity extends AppCompatActivity {
     private Button btnSendMail;
     private EditText inputEmail;
     private ProgressBar progressBar;
+    private UsersController usersController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.forget_password);
 
+        getWidget();
+        setWidget();
+        addListener();
+    }
+
+    private void getWidget()
+    {
         btnSendMail = (Button) findViewById(R.id.bt_sendmail);
         inputEmail = (EditText) findViewById(R.id.et_email);
         progressBar = (ProgressBar) findViewById(R.id.progressBar_forgetpassword);
+    }
 
-        final UsersController usersController = UsersController.getInstance(ForgetPasswordActivity.this ,progressBar);
+    private void setWidget()
+    {
+        usersController = UsersController.getInstance(ForgetPasswordActivity.this ,progressBar);
+    }
 
+    private void addListener()
+    {
         btnSendMail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

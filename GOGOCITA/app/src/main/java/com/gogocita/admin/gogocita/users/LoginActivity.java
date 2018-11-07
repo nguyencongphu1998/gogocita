@@ -18,20 +18,33 @@ public class LoginActivity extends AppCompatActivity {
     private EditText inputPassword;
     private Button btnLogin;
     private ProgressBar progressBar;
-
+    private UsersController usersController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
+        getWidget();
+        setWidget();
+        addListener();
+    }
+
+    private void getWidget()
+    {
         btnLogin = (Button) findViewById(R.id.btn_login);
         inputEmail = (EditText) findViewById(R.id.et_user_login);
         progressBar = (ProgressBar) findViewById(R.id.progressBar_login);
         inputPassword = (EditText) findViewById(R.id.et_password_login);
+    }
 
-        final UsersController usersController = UsersController.getInstance(LoginActivity.this ,progressBar);
+    private void setWidget()
+    {
+        usersController = UsersController.getInstance(LoginActivity.this ,progressBar);
         usersController.checkAuthorizeLogin();
+    }
 
+    private void addListener()
+    {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

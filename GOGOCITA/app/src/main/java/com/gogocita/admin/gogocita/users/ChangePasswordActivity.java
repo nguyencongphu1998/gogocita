@@ -18,17 +18,32 @@ public class ChangePasswordActivity extends AppCompatActivity {
     private EditText inputNewPassword, inputReNewPassword;
     private ProgressBar progressBar;
     private Button btnResetPassword;
+    private UsersController usersController;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.changepassword);
+
+        getWidget();
+        setWidget();
+        addListener();
+    }
+
+    private void getWidget()
+    {
         inputNewPassword = (EditText) findViewById(R.id.editView_password);
         inputReNewPassword = (EditText) findViewById(R.id.editView_repassword);
         progressBar = (ProgressBar) findViewById(R.id.progressBar_changepassword);
         btnResetPassword = (Button) findViewById(R.id.btn_resetpassword);
+    }
 
-        final UsersController usersController = UsersController.getInstance(ChangePasswordActivity.this ,progressBar);
+    private void setWidget()
+    {
+        usersController = UsersController.getInstance(ChangePasswordActivity.this ,progressBar);
+    }
 
+    private void addListener()
+    {
         btnResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

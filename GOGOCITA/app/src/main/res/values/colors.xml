@@ -4,9 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     //theme mau dung trong app
-    <color name="pink">#ff586c</color>
+    <color name="pink">#ff3333</color>
     <color name="black">#454545</color>
-    <color name="grey">#aaaaaa</color>
+    <color name="grey">#e6e6e6</color>
     <color name="white">#ffffff</color>
     <color name="colorRed">#ff586c</color>
     <color name="colorWhite">#ffffff</color>

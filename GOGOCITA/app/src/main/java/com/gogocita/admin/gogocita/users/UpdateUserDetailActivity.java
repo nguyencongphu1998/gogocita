@@ -58,7 +58,13 @@ public class UpdateUserDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.userdetail_update);
 
+        getWidget();
+        setWidget();
+        addListener();
+    }
 
+    private void getWidget()
+    {
         spinner_gender = (Spinner) findViewById(R.id.spinner_Gender);
         spinner_country = (Spinner) findViewById(R.id.spinner_Nationality);
         spinner_city = (Spinner) findViewById(R.id.spinner_City);
@@ -72,8 +78,10 @@ public class UpdateUserDetailActivity extends AppCompatActivity {
         editText_addressline = (EditText) findViewById(R.id.EditText_Address);
         btnUpdate = (Button) findViewById(R.id.button_updateprofile);
         progressBar = (ProgressBar) findViewById(R.id.progressBar_updateinformation);
+    }
 
-
+    private void setWidget()
+    {
         configValueController = ConfigValueController.getInstance(this);
         usersController = UsersController.getInstance(this,progressBar);
         userDetailsController = UserDetailsController.getInstance(this,progressBar);
@@ -91,9 +99,11 @@ public class UpdateUserDetailActivity extends AppCompatActivity {
         editText_job.setText(userDetail.getUserDetailJob());
         editText_phone.setText(userDetail.getUserDetailPhone());
         editText_birthDay.setText(new SimpleDateFormat("MM/dd/yyyy").format(userDetail.getUserDetailBirthDay()));
+    }
 
+    private void addListener()
+    {
         configValueController.getGenders(spinner_gender);
-
         spinner_gender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -107,7 +117,6 @@ public class UpdateUserDetailActivity extends AppCompatActivity {
         });
 
         configValueController.getCountry(spinner_country);
-
         spinner_country.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {

@@ -18,8 +18,17 @@ public class SingUpSuccessActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.singup_success);
 
-        btnReturn = (Button) findViewById(R.id.btn_return);
+        getWidget();
+        addListener();
+    }
 
+    private void addListener()
+    {
+        btnReturn = (Button) findViewById(R.id.btn_return);
+    }
+
+    private void getWidget()
+    {
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -27,6 +36,5 @@ public class SingUpSuccessActivity extends AppCompatActivity {
                 finish();
             }
         });
-
     }
 }

@@ -20,6 +20,7 @@
             android:id="@+id/iv_step1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
             android:background="@drawable/step3_homestay" />
 
         <TextView

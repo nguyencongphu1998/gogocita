@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.gogocita.admin.dto.Upload;
 import com.gogocita.admin.entity.PartnerServiceImage;
 import com.gogocita.admin.gogocita.R;
 import com.squareup.picasso.Picasso;

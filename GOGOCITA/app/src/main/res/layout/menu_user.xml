@@ -30,6 +30,7 @@
             android:layout_marginLeft="@dimen/edit_margin_left"
             >
             <Button
+                android:id="@+id/btn_dashboard"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="10dp"
@@ -56,13 +57,15 @@
             android:orientation="horizontal"
             android:layout_marginLeft="@dimen/edit_margin_left"
             >
+
             <Button
-                android:layout_width="25dp"
+                android:id="@+id/btn_myprofile"
+                android:layout_width="24dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="10dp"
-                android:onClick="myProfile"
                 android:background="@drawable/round_button"
                 android:gravity="center_vertical|center_horizontal"
+                android:onClick="myProfile"
                 android:textColor="#fff" />
 
             <TextView
@@ -84,13 +87,15 @@
             android:orientation="horizontal"
             android:layout_marginLeft="@dimen/edit_margin_left"
             >
+
             <Button
-                android:layout_width="25dp"
+                android:id="@+id/btn_updatemyprofile"
+                android:layout_width="21dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="10dp"
-                android:onClick="updateMyProfile"
                 android:background="@drawable/round_button"
                 android:gravity="center_vertical|center_horizontal"
+                android:onClick="updateMyProfile"
                 android:textColor="#fff" />
 
             <TextView
@@ -113,6 +118,7 @@
 
             >
             <Button
+                android:id="@+id/btncreatemyservice"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="10dp"
@@ -139,8 +145,10 @@
             android:orientation="horizontal"
             android:layout_marginLeft="@dimen/edit_margin_left"
             >
+
             <Button
-                android:layout_width="25dp"
+                android:id="@+id/btn_seecalender"
+                android:layout_width="24dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="10dp"
 
@@ -167,14 +175,16 @@
             android:orientation="horizontal"
             android:layout_marginLeft="@dimen/edit_margin_left"
             >
+
             <Button
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:id="@+id/btn_changpassword"
+                android:layout_width="24dp"
+                android:layout_height="21dp"
                 android:layout_marginLeft="10dp"
                 android:background="@drawable/round_button"
                 android:gravity="center_vertical|center_horizontal"
-                android:textColor="#fff"
-                android:onClick="changePassword"/>
+                android:onClick="changePassword"
+                android:textColor="#fff" />
 
             <TextView
                 android:layout_marginLeft="45dp"
@@ -193,8 +203,10 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginLeft="@dimen/edit_margin_left">
+
             <Button
-                android:layout_width="25dp"
+                android:id="@+id/btn_history"
+                android:layout_width="18dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="10dp"
 
@@ -220,6 +232,7 @@
             android:orientation="horizontal"
             android:layout_marginLeft="@dimen/edit_margin_left">
             <Button
+                android:id="@+id/btn_signout"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="10dp"

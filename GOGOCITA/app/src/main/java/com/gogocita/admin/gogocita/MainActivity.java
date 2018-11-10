@@ -1,4 +1,4 @@
-package com.gogocita.admin;
+package com.gogocita.admin.gogocita;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayShowTitleEnabled(true);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -40,25 +40,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.idItem1) {
-            Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.idItem2) {
-            Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.idItem3) {
-            Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.idItem4) {
-            Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.idItem5) {
-            Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.idItem6) {
-            Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.idItem7) {
-            Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
-        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

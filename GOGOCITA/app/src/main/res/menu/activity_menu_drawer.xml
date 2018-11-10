@@ -1,44 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_height="match_parent"
-    android:layout_width="match_parent">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/idItem1"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Thêm báo" />
+        <item
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Thêm chuyên mục" />
+        <item
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Sửa báo đã chọn" />
+        <item
+            android:icon="@drawable/ic_menu_send"
+            android:title="Chọn kích thước chữ" />
 
-            android:title="Item1" />
-        <item
-            android:id="@+id/idItem2"
-
-            android:title="Item1" />
-        <item
-            android:id="@+id/idItem3"
-            android:title="Item1" />
-        <item
-            android:id="@+id/idItem4"
-            android:title="Item1" />
-        <item
-            android:id="@+id/idItem5"
-            android:title="Item1" />
     </group>
 
-    <item android:title="Section2">
-        <menu>
 
-            <item
-                android:id="@+id/idItem6"
-                android:title="Item6"/>
+    <item android:title="Báo khác">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_k14"
+                    android:icon="@drawable/ic_menu_gallery"
+                    android:title="Kenh14" />
+                <item
+                    android:id="@+id/nav_vietnamnet"
+                    android:icon="@drawable/ic_menu_send"
+                    android:title="Vietnamnet" />
+                <item
+                    android:id="@+id/nav_zing"
+                    android:icon="@drawable/zingsmall"
+                    android:title="Zing" />
+                <item
+                    android:id="@+id/nav_yan"
+                    android:icon="@drawable/yansmall"
+                    android:title="Yan.vn" />
+            </group>
         </menu>
     </item>
 
-    <item android:title="Section3">
-        <menu>
 
-            <item
-                android:id="@+id/idItem7"
-                android:title="Item7"/>
-        </menu>
-    </item>
 
 </menu>

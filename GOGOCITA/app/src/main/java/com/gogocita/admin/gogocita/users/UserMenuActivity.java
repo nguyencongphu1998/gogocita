@@ -57,11 +57,6 @@ public class UserMenuActivity extends AppCompatActivity{
         finish();
     }
 
-    public void gotoDashboard(View v){
-        startActivity(new Intent(this,ServicesActivity.class));
-        finish();
-    }
-
     public void myProfile(View v){
         progressBar.setVisibility(View.VISIBLE);
         userDetailsController.getUserDetail(UserDetailActivity.class);

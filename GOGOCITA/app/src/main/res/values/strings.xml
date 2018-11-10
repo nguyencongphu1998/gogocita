@@ -32,5 +32,7 @@
     <string name="Sign_out">Sign out</string>
     <string name="Creat_my_service">Creat my service</string>
     <string name="See_calendar">See calendar</string>
+    <string name="navigation_drawer_open" />
+    <string name="navigation_drawer_close" />
 
 </resources>

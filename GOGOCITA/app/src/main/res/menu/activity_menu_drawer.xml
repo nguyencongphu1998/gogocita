@@ -5,40 +5,50 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Thêm báo" />
+            android:icon="@drawable/dashboard"
+            android:title="Dash board" />
+    </group>
+    <item android:title="My information">
+        <menu>
+    <group android:checkableBehavior="single">
         <item
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Thêm chuyên mục" />
+            android:icon="@drawable/profile"
+            android:title="My profile" />
         <item
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Sửa báo đã chọn" />
-        <item
-            android:icon="@drawable/ic_menu_send"
-            android:title="Chọn kích thước chữ" />
+            android:icon="@drawable/edit"
+            android:title="Update my profile" />
+
 
     </group>
+        </menu>
+    </item>
 
 
-    <item android:title="Báo khác">
+    <item android:title="Services">
         <menu>
             <group android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_k14"
-                    android:icon="@drawable/ic_menu_gallery"
-                    android:title="Kenh14" />
+                    android:icon="@drawable/createservice"
+                    android:title="Create my service" />
                 <item
-                    android:id="@+id/nav_vietnamnet"
-                    android:icon="@drawable/ic_menu_send"
-                    android:title="Vietnamnet" />
+                    android:icon="@drawable/calendar"
+                    android:title="See calendar" />
                 <item
-                    android:id="@+id/nav_zing"
-                    android:icon="@drawable/zingsmall"
-                    android:title="Zing" />
+                    android:icon="@drawable/history"
+                    android:title="History" />
+                </group>
+        </menu>
+    </item>
+
+    <item android:title="Setting">
+        <menu>
+            <group android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_yan"
-                    android:icon="@drawable/yansmall"
-                    android:title="Yan.vn" />
+                    android:icon="@drawable/changepass"
+                    android:title="Change password" />
+                <item
+                    android:icon="@drawable/signout"
+                    android:title="Sign out" />
             </group>
         </menu>
     </item>

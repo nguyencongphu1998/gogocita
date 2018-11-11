@@ -34,9 +34,8 @@
             android:layout_below="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="15dp"
-            android:stretchColumns="0,1"
-            >
+            android:layout_margin="16dp"
+            android:stretchColumns="0,1">
             <TableRow>
                 <TextView
                     android:text="UPDATE YOUR PROFILE"
@@ -49,96 +48,95 @@
                     android:id="@+id/EditText_Firstname"
                     android:hint="First name"
                     android:inputType="text"
-                    android:textSize="18sp"/>
+                    android:textSize="20sp"/>
                 <EditText
                     android:id="@+id/EditText_Lastname"
                     android:inputType="text"
                     android:hint="Last name"
-                    android:textSize="18sp"/>
+                    android:textSize="20sp"/>
             </TableRow>
             <TableRow>
                 <EditText
                     android:id="@+id/EditText_Birthday"
                     android:inputType="date"
                     android:hint="Birthday"
-                    android:textSize="18sp"/>
+                    android:textSize="20sp"/>
             </TableRow>
             <TableRow>
                 <EditText
                     android:id="@+id/EditText_Handphone"
                     android:inputType="phone"
                     android:hint="Handphone"
-                    android:textSize="18sp"/>
+                    android:textSize="20sp"/>
             </TableRow>
             <TableRow>
                 <EditText
                     android:hint="Male/Female"
                     android:enabled="false"
-                    android:textSize="18sp"/>
+                    android:textSize="20sp"/>
 
                 <Spinner
                     android:id="@+id/spinner_Gender"
                     android:layout_height="match_parent"
-                    android:textSize="18sp"></Spinner>
+                    android:textSize="20sp"></Spinner>
             </TableRow>
             <TableRow>
                 <EditText
                     android:id="@+id/EditText_Job"
                     android:inputType="text"
                     android:hint="Your job"
-                    android:textSize="18sp"/>
+                    android:textSize="20sp"/>
             </TableRow>
             <TableRow>
                 <EditText
                     android:id="@+id/EditText_IdentityCard"
                     android:inputType="number"
                     android:hint="Identity card number"
-                    android:textSize="18sp"/>
+                    android:textSize="20sp"/>
             </TableRow>
             <TableRow>
                 <EditText
                     android:id="@+id/EditText_Address"
                     android:hint="Address"
-                    android:textSize="18sp"/>
+                    android:textSize="20sp"/>
             </TableRow>
             <TableRow>
                 <EditText
                     android:enabled="false"
                     android:hint="Your district"
-                    android:textSize="18sp"/>
+                    android:textSize="20sp"/>
 
                 <Spinner
                     android:id="@+id/spinner_District"
                     android:layout_height="match_parent"
-                    android:textSize="18sp"></Spinner>
+                    android:textSize="20sp"></Spinner>
             </TableRow>
             <TableRow>
                 <EditText
                     android:enabled="false"
                     android:hint="Your city"
-                    android:textSize="18sp"/>
-
+                    android:textSize="20sp"/>
                 <Spinner
                     android:id="@+id/spinner_City"
                     android:layout_height="match_parent"
-                    android:textSize="18sp"></Spinner>
+                    android:textSize="20sp"></Spinner>
             </TableRow>
             <TableRow>
                 <EditText
                     android:enabled="false"
                     android:hint="Your nationality"
-                    android:textSize="18sp"/>
+                    android:textSize="20sp"/>
 
                 <Spinner
                     android:id="@+id/spinner_Nationality"
                     android:layout_height="match_parent"
-                    android:textSize="18sp"></Spinner>
+                    android:textSize="20sp"></Spinner>
             </TableRow>
             <Button
                 android:id="@+id/button_updateprofile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#ff586c"
+                android:background="@drawable/button_bg_rounded_corners"
                 android:text="UPDATE"
                 android:textSize="20sp"
                 android:textColor="#ffffff"

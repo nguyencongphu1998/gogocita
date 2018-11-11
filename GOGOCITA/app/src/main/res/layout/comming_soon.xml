@@ -18,14 +18,27 @@
             android:text="COMMING SOON"
             android:textSize="35sp"
             android:textStyle="bold"
-            android:gravity="center_vertical|center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/bt_goback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_bg_rounded_corners"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/edit_margin_bottom"
+            android:layout_marginRight="@dimen/edit_margin_right"
+            android:layout_marginLeft="@dimen/edit_margin_left"
             android:textColor="@color/white"
-            />
+            android:text="Go back"
+            android:onClick="goToDashBoard"
+            android:textSize="@dimen/text_size_large" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="280dp"
-            android:layout_marginBottom="@dimen/edit_margin_bottom"
+            android:layout_alignParentBottom="true"
             android:layout_marginRight="@dimen/edit_margin_right"
             android:layout_marginLeft="@dimen/edit_margin_left"
             android:id="@+id/tv"
@@ -33,20 +46,6 @@
             android:text="We will develop this functionally as quickly as possible"
             android:textSize="20sp"
             android:gravity="center_vertical|center_horizontal"
-            android:textColor="@color/grey" />
-        <Button
-            android:id="@+id/bt_goback"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/edit_margin_top"
-            android:layout_below="@+id/tv"
-            android:layout_marginBottom="@dimen/edit_margin_bottom"
-            android:layout_marginRight="@dimen/edit_margin_right"
-            android:layout_marginLeft="@dimen/edit_margin_left"
-            android:background="@drawable/border_button"
-            android:textColor="@color/white"
-            android:text="Go back"
-            android:textSize="@dimen/text_size_large"
-            />
+            android:textColor="@color/grey"/>
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

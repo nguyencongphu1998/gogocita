@@ -48,7 +48,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CommingSoonActivity">
+        <activity android:name=".ComingSoonActivity">
             <intent-filter>
                 <action android:name="android.intent.action.CALL" />
                 <category android:name="android.intent.category.LAUNCHER" />

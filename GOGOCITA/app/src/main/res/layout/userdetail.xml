@@ -44,190 +44,246 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:stretchColumns="0,1">
-
             <TableRow>
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="120dp"
                     android:layout_height="40dp"
                     android:layout_weight="1"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:text="First name"
                     android:textStyle="bold" />
-
                 <TextView
                     android:id="@+id/textview_firstname"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:gravity="left"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="10dp"
+                    android:layout_height="40dp"
                     android:textColor="#ff586c"
-                    android:textSize="20dp"
+                    android:background="@drawable/text_bg"
+                    android:textSize="20sp"
                     android:layout_weight="1" />
             </TableRow>
-            <TableRow>
+            <TableRow
+                android:layout_marginTop="10dp">
                 <TextView
+                    android:layout_width="120dp"
                     android:layout_height="40dp"
-                    android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:inputType="text"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:text="Last name"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textview_lastname"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:textSize="20dp"
+                    android:layout_width="match_parent"
+                    android:gravity="left"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="10dp"
+                    android:layout_height="40dp"
                     android:textColor="#ff586c"
+                    android:background="@drawable/text_bg"
+                    android:textSize="20sp"
                     android:layout_weight="1" />
             </TableRow>
-            <TableRow>
+            <TableRow
+                android:layout_marginTop="10dp">
                 <TextView
+                    android:layout_width="120dp"
                     android:layout_height="40dp"
-                    android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:text="BirthDay"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textview_birthday"
-                    android:layout_width="0dp"
-                    android:textSize="20dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:gravity="left"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="10dp"
+                    android:layout_height="40dp"
                     android:textColor="#ff586c"
+                    android:background="@drawable/text_bg"
+                    android:textSize="20sp"
                     android:layout_weight="1" />
             </TableRow>
-            <TableRow>
+            <TableRow
+                android:layout_marginTop="10dp">
                 <TextView
+                    android:layout_width="120dp"
                     android:layout_height="40dp"
-                    android:layout_width="0dp"
-                    android:textSize="20dp"
                     android:layout_weight="1"
+                    android:textSize="20sp"
                     android:text="Phone"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textview_phone"
-                    android:layout_width="0dp"
-                    android:textSize="20dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:gravity="left"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="10dp"
+                    android:layout_height="40dp"
                     android:textColor="#ff586c"
+                    android:background="@drawable/text_bg"
+                    android:textSize="20sp"
                     android:layout_weight="1" />
             </TableRow>
-            <TableRow>
+            <TableRow
+                android:layout_marginTop="10dp">
                 <TextView
+                    android:layout_width="120dp"
                     android:layout_height="40dp"
-                    android:layout_width="0dp"
-                    android:textSize="20dp"
                     android:layout_weight="1"
+                    android:textSize="20sp"
                     android:text="Gender"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textview_gender"
-                    android:layout_width="0dp"
-                    android:textSize="20dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:gravity="left"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="10dp"
+                    android:layout_height="40dp"
                     android:textColor="#ff586c"
+                    android:background="@drawable/text_bg"
+                    android:textSize="20sp"
                     android:layout_weight="1" />
             </TableRow>
-            <TableRow>
+            <TableRow
+                android:layout_marginTop="10dp">
                 <TextView
+                    android:layout_width="120dp"
                     android:layout_height="40dp"
-                    android:layout_width="0dp"
-                    android:textSize="20dp"
                     android:layout_weight="1"
+                    android:textSize="20sp"
                     android:text="Job"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textview_job"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:textSize="20dp"
-                    android:textColor="#ff586c"
-                    android:layout_weight="1" />
-            </TableRow>
-            <TableRow>
-                <TextView
+                    android:layout_width="match_parent"
+                    android:gravity="left"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="10dp"
                     android:layout_height="40dp"
-                    android:textSize="20dp"
-                    android:layout_width="0dp"
+                    android:textColor="#ff586c"
+                    android:background="@drawable/text_bg"
+                    android:textSize="20sp"
+                    android:layout_weight="1"/>
+            </TableRow>
+            <TableRow
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
                     android:layout_weight="1"
+                    android:textSize="20sp"
                     android:text="Identity Card"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textview_idnumber"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:textSize="20dp"
+                    android:layout_width="match_parent"
+                    android:gravity="left"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="10dp"
+                    android:layout_height="40dp"
                     android:textColor="#ff586c"
+                    android:background="@drawable/text_bg"
+                    android:textSize="20sp"
                     android:layout_weight="1" />
             </TableRow>
-            <TableRow>
+            <TableRow
+                android:layout_marginTop="10dp">
                 <TextView
+                    android:layout_width="120dp"
                     android:layout_height="40dp"
-                    android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:text="Address"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textview_address"
-                    android:layout_width="0dp"
-                    android:textSize="20dp"
+                    android:layout_width="match_parent"
+                    android:gravity="left"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="10dp"
+                    android:layout_height="40dp"
                     android:textColor="#ff586c"
-                    android:layout_height="match_parent"
+                    android:background="@drawable/text_bg"
+                    android:textSize="20sp"
                     android:layout_weight="1" />
             </TableRow>
-            <TableRow>
+            <TableRow
+                android:layout_marginTop="10dp">
                 <TextView
+                    android:layout_width="120dp"
                     android:layout_height="40dp"
-                    android:layout_width="0dp"
-                    android:textSize="20dp"
                     android:layout_weight="1"
+                    android:textSize="20sp"
                     android:text="Country"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textview_country"
-                    android:layout_width="0dp"
-                    android:textSize="20dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:gravity="left"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="10dp"
+                    android:layout_height="40dp"
                     android:textColor="#ff586c"
+                    android:background="@drawable/text_bg"
+                    android:textSize="20sp"
                     android:layout_weight="1" />
             </TableRow>
-            <TableRow>
+            <TableRow
+                android:layout_marginTop="10dp">
                 <TextView
+                    android:layout_width="120dp"
                     android:layout_height="40dp"
-                    android:textSize="20dp"
-                    android:layout_width="0dp"
                     android:layout_weight="1"
+                    android:textSize="20sp"
                     android:text="City"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textview_city"
-                    android:layout_width="0dp"
-                    android:textSize="20dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:gravity="left"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="10dp"
+                    android:layout_height="40dp"
                     android:textColor="#ff586c"
+                    android:background="@drawable/text_bg"
+                    android:textSize="20sp"
                     android:layout_weight="1" />
             </TableRow>
-            <TableRow>
+            <TableRow
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp">
                 <TextView
+                    android:layout_width="120dp"
                     android:layout_height="40dp"
-                    android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:text="District"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textview_district"
-                    android:layout_width="0dp"
-                    android:textSize="20dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:gravity="left"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="10dp"
+                    android:layout_height="40dp"
                     android:textColor="#ff586c"
+                    android:background="@drawable/text_bg"
+                    android:textSize="20sp"
                     android:layout_weight="1" />
             </TableRow>
             <Button
                 android:id="@+id/button_updateuser"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="#ff586c"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:background="@drawable/button_bg_rounded_corners"
                 android:text="Update"
                 />
         </TableLayout>

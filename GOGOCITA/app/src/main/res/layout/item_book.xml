@@ -6,7 +6,9 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:orientation="horizontal"
-       android:weightSum="5">
+       android:weightSum="5"
+       android:layout_marginTop="20dp"
+       android:layout_margin="16dp">
 
        <TextView
            android:id="@+id/tv_position"
@@ -14,14 +16,14 @@
            android:layout_height="80dp"
            android:layout_weight="1"
            android:gravity="center"
-           android:background="@color/pink"
+           android:background="@drawable/text_bg"
            android:text="1"
-           android:textSize="@dimen/text_size_small"
+           android:textSize="20sp"
            android:textStyle="bold"
-           android:textColor="@color/white" />
+           android:textColor="@color/black" />
 
        <LinearLayout
-           android:layout_width="wrap_content"
+           android:layout_width="80dp"
            android:layout_height="80dp"
            android:layout_marginLeft="15dp"
            android:layout_weight="4"
@@ -33,13 +35,15 @@
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:layout_weight="1"
-               android:text="Nguyen A" />
+               android:text="Nguyen A"
+               android:textSize="18sp"/>
 
            <TextView
                android:id="@+id/tv_datestart"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:layout_weight="1"
+               android:textSize="17sp"
                android:text="Check in: 02/12/2018" />
 
            <TextView
@@ -47,6 +51,7 @@
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:layout_weight="1"
+               android:textSize="17sp"
                android:text="Check out: 03/12/1018" />
        </LinearLayout>
    </LinearLayout>

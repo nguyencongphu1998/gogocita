@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.gogocita.admin.gogocita.CommingSoonActivity;
+import com.gogocita.admin.gogocita.ComingSoonActivity;
 import com.gogocita.admin.gogocita.R;
 
 public class ServiceOptionActivity extends AppCompatActivity{
@@ -19,7 +19,7 @@ public class ServiceOptionActivity extends AppCompatActivity{
 
     public void btnTourisGuid(View v)
     {
-        startActivity(new Intent(getApplicationContext(),CommingSoonActivity.class));
+        startActivity(new Intent(getApplicationContext(),ComingSoonActivity.class));
     }
 
     public void btnHomeStay(View v)

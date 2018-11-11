@@ -106,11 +106,13 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
                 nextStep1();
                 break;
             case R.id.btn_seecalender:
+                comingSoon();
                 break;
             case R.id.btn_changpassword:
                 changePassword();
                 break;
             case R.id.btn_history:
+                comingSoon();
                 break;
             case R.id.btn_signout:
                 showAlertDialog();
@@ -156,6 +158,11 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
 
     public void changePassword(){
         startActivity(new Intent(this, ChangePasswordActivity.class));
+        finish();
+    }
+
+    public void comingSoon(){
+        startActivity(new Intent(this, ComingSoonActivity.class));
         finish();
     }
 

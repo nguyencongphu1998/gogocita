@@ -58,8 +58,15 @@ public class CreateNewServiceActivity extends BaseMenuActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(this,Step4Activity.class));
-        finish();
+        if(currentPartnerService == null)
+        {
+            startActivity(new Intent(this,Step4Activity.class));
+            finish();
+        }
+        else {
+            startActivity(new Intent(this,ServicesActivity.class));
+            finish();
+        }
     }
 
     public void uploadImage(View v)

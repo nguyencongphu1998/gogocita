@@ -71,13 +71,13 @@ public class ServiceController {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 PartnerService model = dataSnapshot.child(user.getUid()).getValue(PartnerService.class);
                 if(model == null){
-                    progressBar.setVisibility(View.GONE);
+                    //progressBar.setVisibility(View.GONE);
                     Intent intent = new Intent(activity,Step1Activity.class);
                     activity.startActivity(intent);
                 }else {
                     Intent intent = new Intent(activity,activityClass);
                     intent.putExtra(EntityName.PartnerServices,model);
-                    progressBar.setVisibility(View.GONE);
+                    //progressBar.setVisibility(View.GONE);
                     activity.startActivity(intent);
                 }
             }

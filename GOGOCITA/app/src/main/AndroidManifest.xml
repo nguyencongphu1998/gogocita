@@ -9,17 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity android:name=".service.ServicesActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.CALL" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".users.LoginActivity">
             <intent-filter>
-                <action android:name="android.intent.action.CALL" />
+                <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -54,19 +54,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".users.UpdateUserDetailActivity">
+        <activity android:name=".users.UpdateUserDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.CALL" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".users.UserDetailActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.CALL" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".users.UserMenuActivity">
+        <activity android:name=".users.UserDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.CALL" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -96,13 +92,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".service.CreateNewServiceActivity">
+        <activity android:name=".service.CreateNewServiceActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.CALL" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".users.ChangePasswordActivity">
+        <activity android:name=".users.ChangePasswordActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.CALL" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -114,25 +112,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".service.ServicesActivity">
+        <activity android:name=".service.ServiceImagesActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.CALL" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".service.ServiceImagesActivity">
+        <activity android:name=".service.UploadServiceImageActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.CALL" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".service.UploadServiceImageActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.CALL" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".service.ServiceDetailActivity">
+        <activity android:name=".service.ServiceDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.CALL" />
                 <category android:name="android.intent.category.LAUNCHER" />

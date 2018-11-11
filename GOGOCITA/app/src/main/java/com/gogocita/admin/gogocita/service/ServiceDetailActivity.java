@@ -14,27 +14,20 @@ import android.widget.TextView;
 import com.gogocita.admin.constant.EntityName;
 import com.gogocita.admin.constant.ServiceConvinience;
 import com.gogocita.admin.entity.PartnerService;
+import com.gogocita.admin.gogocita.BaseMenuActivity;
 import com.gogocita.admin.gogocita.R;
 import com.squareup.picasso.Picasso;
 
-public class ServiceDetailActivity extends AppCompatActivity {
+public class ServiceDetailActivity extends BaseMenuActivity {
     private TextView serviceName,serviceDesc,serviceEvalution,serviceVote;
     private EditText serviceAddress;
     private ImageView serviceCoverPhoto;
     private Button btnbook;
     private CheckBox serviceWifi,serviceBreakfast,serviceSwimming,serviceAc;
     private PartnerService partnerService;
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_homestay);
-        init();
-        getWidget();
-        setWidget();
-        addListener();
-    }
 
-    private void getWidget()
+    @Override
+    protected void getWidget()
     {
         serviceCoverPhoto = (ImageView) findViewById(R.id.image_contenofhomestay_avatar);
         btnbook = (Button) findViewById(R.id.btn_contenofhomestay_book);
@@ -47,7 +40,9 @@ public class ServiceDetailActivity extends AppCompatActivity {
         serviceSwimming = (CheckBox) findViewById(R.id.cb_contenofhomestay_swimmingpool);
         serviceAc = (CheckBox) findViewById(R.id.cb_contenofhomestay_ac);;
     }
-    private void setWidget()
+
+    @Override
+    protected void setWidget()
     {
         Picasso.with(this)
                 .load(partnerService.getPartnerserviceCoverPhotoLink())
@@ -84,14 +79,21 @@ public class ServiceDetailActivity extends AppCompatActivity {
         }
     }
 
-    private void init()
+    @Override
+    protected void init()
     {
         Intent intent = getIntent();
         partnerService = (PartnerService) intent.getSerializableExtra(EntityName.PartnerServices);
     }
 
-    private void addListener()
+    @Override
+    protected void addListener()
     {
 
+    }
+
+    @Override
+    protected void setContentView() {
+        setContentView(R.layout.content_homestay);
     }
 }

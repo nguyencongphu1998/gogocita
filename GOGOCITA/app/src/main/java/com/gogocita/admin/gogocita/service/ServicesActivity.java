@@ -1,9 +1,7 @@
 package com.gogocita.admin.gogocita.service;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -12,22 +10,17 @@ import android.widget.ProgressBar;
 import com.gogocita.admin.constant.EntityName;
 import com.gogocita.admin.controllers.service.ServiceController;
 import com.gogocita.admin.entity.PartnerService;
+import com.gogocita.admin.gogocita.BaseMenuActivity;
 import com.gogocita.admin.gogocita.R;
 
-public class ServicesActivity extends AppCompatActivity {
+public class ServicesActivity extends BaseMenuActivity{
     private ListView listView;
     private ProgressBar progressBar;
     private ServiceController serviceController;
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_service);
-        init();
-        setData();
-        addListener();
-    }
+    public Toolbar toolbar;
 
-    private void addListener() {
+    @Override
+    protected void addListener() {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -38,16 +31,29 @@ public class ServicesActivity extends AppCompatActivity {
         });
     }
 
-    private void init()
+    @Override
+    protected void init()
+    {
+
+    }
+
+    @Override
+    protected void setWidget()
+    {
+        serviceController = ServiceController.getInstance(this,progressBar);
+
+        serviceController.getAllServices(listView,this);
+    }
+
+    @Override
+    protected void getWidget()
     {
         listView = (ListView) findViewById(R.id.list_service);
         progressBar = (ProgressBar) findViewById(R.id.progressBar_services);
     }
 
-    private void setData()
-    {
-        serviceController = ServiceController.getInstance(this,progressBar);
-
-        serviceController.getAllServices(listView,this);
+    @Override
+    protected void setContentView(){
+        setContentView(R.layout.list_service);
     }
 }

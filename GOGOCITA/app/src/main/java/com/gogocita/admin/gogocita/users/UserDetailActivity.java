@@ -1,27 +1,24 @@
 package com.gogocita.admin.gogocita.users;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.gogocita.admin.constant.EntityName;
 import com.gogocita.admin.controllers.user.UserDetailsController;
-import com.gogocita.admin.controllers.user.UsersController;
 import com.gogocita.admin.entity.UserDetail;
+import com.gogocita.admin.gogocita.BaseMenuActivity;
 import com.gogocita.admin.gogocita.R;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.gogocita.admin.gogocita.service.ServicesActivity;
+
 
 import java.text.SimpleDateFormat;
 
 
-public class UserDetailActivity extends AppCompatActivity {
+public class UserDetailActivity extends BaseMenuActivity {
     private TextView tv_firstName;
     private TextView tv_lastName;
     private TextView tv_birthDay;
@@ -37,24 +34,16 @@ public class UserDetailActivity extends AppCompatActivity {
     private Button btnUpdate;
     private ProgressBar progressBar;
     private UserDetail userDetail;
+
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.userdetail);
-
-        init();
-        getWidget();
-        setWidget();
-        addListener();
-    }
-
-    private void init()
+    protected void init()
     {
         Intent intent = getIntent();
         userDetail = (UserDetail) intent.getSerializableExtra(EntityName.UserDetails);
     }
 
-    private void getWidget()
+    @Override
+    protected void getWidget()
     {
         progressBar = findViewById(R.id.progressBar_userDetail);
         btnUpdate = (Button) findViewById(R.id.button_updateuser);
@@ -71,7 +60,8 @@ public class UserDetailActivity extends AppCompatActivity {
         tv_district = (TextView) findViewById(R.id.textview_district);
     }
 
-    private void setWidget()
+    @Override
+    protected void setWidget()
     {
         userDetailsController = UserDetailsController.getInstance(this,progressBar);
         tv_firstName.setText(userDetail.getUserDetailFirstName());
@@ -87,7 +77,8 @@ public class UserDetailActivity extends AppCompatActivity {
         tv_district.setText(userDetail.getUserDetailAddressDistrict());
     }
 
-    private void addListener()
+    @Override
+    protected void addListener()
     {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,9 +89,18 @@ public class UserDetailActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void setContentView() {
+        setContentView(R.layout.userdetail);
+    }
+
+    @Override
     public void onBackPressed() {
-        startActivity(new Intent(this,UserMenuActivity.class));
+        startActivity(new Intent(this,ServicesActivity.class));
         finish();
     }
 
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
 }

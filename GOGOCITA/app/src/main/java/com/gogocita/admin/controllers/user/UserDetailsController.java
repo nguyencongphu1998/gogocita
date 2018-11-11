@@ -78,7 +78,6 @@ public class UserDetailsController {
                 }else {
                     Intent intent = new Intent(activity,activityClass);
                     intent.putExtra(EntityName.UserDetails,model);
-                    progressBar.setVisibility(View.GONE);
                     activity.startActivity(intent);
                 }
             }

@@ -2,13 +2,13 @@ package com.gogocita.admin.gogocita.service;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.gogocita.admin.gogocita.CommingSoonActivity;
 import com.gogocita.admin.gogocita.R;
-import com.gogocita.admin.gogocita.users.UserMenuActivity;
 
 public class ServiceOptionActivity extends AppCompatActivity{
     @Override
@@ -24,6 +24,14 @@ public class ServiceOptionActivity extends AppCompatActivity{
 
     public void btnHomeStay(View v)
     {
-        startActivity(new Intent(getApplicationContext(),UserMenuActivity.class));
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                startActivity(new Intent(getApplicationContext(),ServicesActivity.class));
+            }
+            }, 1000);
     }
 }

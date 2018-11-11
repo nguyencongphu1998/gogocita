@@ -1,8 +1,7 @@
 package com.gogocita.admin.gogocita.users;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -19,13 +18,14 @@ import com.gogocita.admin.controllers.user.UsersController;
 import com.gogocita.admin.entity.ConfigValue;
 import com.gogocita.admin.entity.Location;
 import com.gogocita.admin.entity.UserDetail;
+import com.gogocita.admin.gogocita.BaseMenuActivity;
 import com.gogocita.admin.gogocita.R;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class UpdateUserDetailActivity extends AppCompatActivity {
+public class UpdateUserDetailActivity extends BaseMenuActivity {
     private ProgressBar progressBar;
     private Spinner spinner_gender;
     private Spinner spinner_country;
@@ -53,17 +53,14 @@ public class UpdateUserDetailActivity extends AppCompatActivity {
     private UsersController usersController;
     private UserDetailsController userDetailsController;
     private FirebaseUser user = null;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.userdetail_update);
 
-        getWidget();
-        setWidget();
-        addListener();
+    @Override
+    protected void init() {
+
     }
 
-    private void getWidget()
+    @Override
+    protected void getWidget()
     {
         spinner_gender = (Spinner) findViewById(R.id.spinner_Gender);
         spinner_country = (Spinner) findViewById(R.id.spinner_Nationality);
@@ -80,7 +77,8 @@ public class UpdateUserDetailActivity extends AppCompatActivity {
         progressBar = (ProgressBar) findViewById(R.id.progressBar_updateinformation);
     }
 
-    private void setWidget()
+    @Override
+    protected void setWidget()
     {
         configValueController = ConfigValueController.getInstance(this);
         usersController = UsersController.getInstance(this,progressBar);
@@ -101,7 +99,8 @@ public class UpdateUserDetailActivity extends AppCompatActivity {
         editText_birthDay.setText(new SimpleDateFormat("MM/dd/yyyy").format(userDetail.getUserDetailBirthDay()));
     }
 
-    private void addListener()
+    @Override
+    protected void addListener()
     {
         configValueController.getGenders(spinner_gender);
         spinner_gender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -192,5 +191,10 @@ public class UpdateUserDetailActivity extends AppCompatActivity {
                 userDetailsController.updateOrInsert(userDetail);
             }
         });
+    }
+
+    @Override
+    protected void setContentView() {
+        setContentView(R.layout.userdetail_update);
     }
 }

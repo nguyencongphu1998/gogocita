@@ -11,6 +11,7 @@ import java.util.Map;
 public class PartnerServiceDate extends GenerateId{
     private String partnerServiceDateID;
     private String fk_PartnerServiceID;
+    private String fk_CustomerID;
     private String status;
     private Date partnerServiceDateFrom;
     private Date partnerServiceDateTo;
@@ -19,22 +20,32 @@ public class PartnerServiceDate extends GenerateId{
     public PartnerServiceDate() {
     }
 
-    public PartnerServiceDate(String partnerServiceDateID, String fk_PartnerServiceID, String status, Date partnerServiceDateFrom, Date partnerServiceDateTo, String partnerServiceDateStatus) {
+    public PartnerServiceDate(String partnerServiceDateID, String fk_PartnerServiceID, String fk_CustomerID,  String status, Date partnerServiceDateFrom, Date partnerServiceDateTo, String partnerServiceDateStatus) {
         this.partnerServiceDateID = partnerServiceDateID;
         this.fk_PartnerServiceID = fk_PartnerServiceID;
         this.status = status;
         this.partnerServiceDateFrom = partnerServiceDateFrom;
         this.partnerServiceDateTo = partnerServiceDateTo;
         this.partnerServiceDateStatus = partnerServiceDateStatus;
+        this.fk_CustomerID = fk_CustomerID;
     }
 
-    public PartnerServiceDate(String fk_PartnerServiceID, Date partnerServiceDateFrom, Date partnerServiceDateTo, String partnerServiceDateStatus) {
+    public PartnerServiceDate(String fk_PartnerServiceID, String fk_CustomerID, Date partnerServiceDateFrom, Date partnerServiceDateTo, String partnerServiceDateStatus) {
         this.partnerServiceDateID = generateId(EntityName.PartnerServiceDates);
         this.fk_PartnerServiceID = fk_PartnerServiceID;
         this.status = EntityStatus.Alive;
         this.partnerServiceDateFrom = partnerServiceDateFrom;
         this.partnerServiceDateTo = partnerServiceDateTo;
         this.partnerServiceDateStatus = partnerServiceDateStatus;
+        this.fk_CustomerID = fk_CustomerID;
+    }
+
+    public String getFk_CustomerID() {
+        return fk_CustomerID;
+    }
+
+    public void setFk_CustomerID(String fk_CustomerID) {
+        this.fk_CustomerID = fk_CustomerID;
     }
 
     public String getPartnerServiceDateID() {

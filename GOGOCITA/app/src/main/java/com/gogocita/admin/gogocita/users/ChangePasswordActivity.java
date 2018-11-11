@@ -1,9 +1,7 @@
 package com.gogocita.admin.gogocita.users;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -12,24 +10,23 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.gogocita.admin.controllers.user.UsersController;
+import com.gogocita.admin.gogocita.BaseMenuActivity;
 import com.gogocita.admin.gogocita.R;
+import com.gogocita.admin.gogocita.service.ServicesActivity;
 
-public class ChangePasswordActivity extends AppCompatActivity {
+public class ChangePasswordActivity extends BaseMenuActivity {
     private EditText inputNewPassword, inputReNewPassword;
     private ProgressBar progressBar;
     private Button btnResetPassword;
     private UsersController usersController;
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.changepassword);
 
-        getWidget();
-        setWidget();
-        addListener();
+    @Override
+    protected void init() {
+
     }
 
-    private void getWidget()
+    @Override
+    protected void getWidget()
     {
         inputNewPassword = (EditText) findViewById(R.id.editView_password);
         inputReNewPassword = (EditText) findViewById(R.id.editView_repassword);
@@ -37,12 +34,14 @@ public class ChangePasswordActivity extends AppCompatActivity {
         btnResetPassword = (Button) findViewById(R.id.btn_resetpassword);
     }
 
-    private void setWidget()
+    @Override
+    protected void setWidget()
     {
         usersController = UsersController.getInstance(ChangePasswordActivity.this ,progressBar);
     }
 
-    private void addListener()
+    @Override
+    protected void addListener()
     {
         btnResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,8 +68,13 @@ public class ChangePasswordActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void setContentView() {
+        setContentView(R.layout.changepassword);
+    }
+
+    @Override
     public void onBackPressed() {
-        startActivity(new Intent(this,UserMenuActivity.class));
+        startActivity(new Intent(this,ServicesActivity.class));
         finish();
     }
 }

@@ -1,9 +1,6 @@
 package com.gogocita.admin.gogocita.service;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
@@ -24,10 +21,11 @@ import com.gogocita.admin.controllers.service.ServiceController;
 import com.gogocita.admin.controllers.user.UsersController;
 import com.gogocita.admin.entity.Location;
 import com.gogocita.admin.entity.PartnerService;
+import com.gogocita.admin.gogocita.BaseMenuActivity;
 import com.gogocita.admin.gogocita.R;
 import com.google.firebase.auth.FirebaseUser;
 
-public class CreateNewServiceActivity extends AppCompatActivity{
+public class CreateNewServiceActivity extends BaseMenuActivity {
     private EditText edtServiceName;
     private RadioButton rdbServiceTypeVilla;
     private RadioButton rdbServiceTypeGroundHouse;
@@ -57,17 +55,6 @@ public class CreateNewServiceActivity extends AppCompatActivity{
     private String cityName;
     private String districtName;
     private static PartnerService currentPartnerService;
-
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.create_new_service);
-
-        init();
-        getWidget();
-        setWidget();
-    }
 
     @Override
     public void onBackPressed() {
@@ -166,7 +153,8 @@ public class CreateNewServiceActivity extends AppCompatActivity{
         btnUpload.setEnabled(true);
     }
 
-    private void init()
+    @Override
+    protected void init()
     {
         configValueController = ConfigValueController.getInstance(this);
         usersController = UsersController.getInstance(this,progressBar);
@@ -176,7 +164,8 @@ public class CreateNewServiceActivity extends AppCompatActivity{
         user = usersController.getUser();
     }
 
-    private void getWidget()
+    @Override
+    protected void getWidget()
     {
         edtServiceDesc = (EditText) findViewById(R.id.edt_createservice_desciption);
         edtServiceName = (EditText) findViewById(R.id.edt_createservice_name);
@@ -198,7 +187,20 @@ public class CreateNewServiceActivity extends AppCompatActivity{
         cbBreakfast = (CheckBox) findViewById(R.id.checkbox_freebreakfast);
     }
 
-    private void setWidget()
+    @Override
+    protected void addListener()
+    {
+
+    }
+
+    @Override
+    protected void setContentView()
+    {
+        setContentView(R.layout.create_new_service);
+    }
+
+    @Override
+    protected void setWidget()
     {
         Intent intent = getIntent();
         PartnerService partnerService = (PartnerService) intent.getSerializableExtra(EntityName.PartnerServices);

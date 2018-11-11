@@ -11,12 +11,10 @@ import com.gogocita.admin.constant.EntityName;
 import com.gogocita.admin.entity.User;
 import com.gogocita.admin.entity.UserDetail;
 import com.gogocita.admin.gogocita.service.ServiceOptionActivity;
+import com.gogocita.admin.gogocita.service.ServicesActivity;
 import com.gogocita.admin.gogocita.users.ForgetPasswordAccessMail;
 import com.gogocita.admin.gogocita.users.LoginActivity;
 import com.gogocita.admin.gogocita.users.SingUpSuccessActivity;
-import com.gogocita.admin.gogocita.users.UpdateUserDetailActivity;
-import com.gogocita.admin.gogocita.users.UserDetailActivity;
-import com.gogocita.admin.gogocita.users.UserMenuActivity;
 import com.gogocita.admin.helper.QueryFirebase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -78,7 +76,7 @@ public class UsersController {
                     activity.startActivity(new Intent(activity, LoginActivity.class));
                     activity.finish();
                 }else {
-                    activity.startActivity(new Intent(activity, UserMenuActivity.class));
+                    activity.startActivity(new Intent(activity, ServicesActivity.class));
                     activity.finish();
                 }
             }

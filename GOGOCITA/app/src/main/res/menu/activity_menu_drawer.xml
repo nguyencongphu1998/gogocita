@@ -5,21 +5,22 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/btn_dashboard"
             android:icon="@drawable/dashboard"
             android:title="Dash board" />
     </group>
     <item android:title="My information">
         <menu>
-    <group android:checkableBehavior="single">
-        <item
-            android:icon="@drawable/profile"
-            android:title="My profile" />
-        <item
-            android:icon="@drawable/edit"
-            android:title="Update my profile" />
-
-
-    </group>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/btn_myprofile"
+                    android:icon="@drawable/profile"
+                    android:title="My profile" />
+                <item
+                    android:id="@+id/btn_updatemyprofile"
+                    android:icon="@drawable/edit"
+                    android:title="Update my profile" />
+            </group>
         </menu>
     </item>
 
@@ -28,12 +29,15 @@
         <menu>
             <group android:checkableBehavior="single">
                 <item
+                    android:id="@+id/btncreatemyservice"
                     android:icon="@drawable/createservice"
-                    android:title="Create my service" />
+                    android:title="My service" />
                 <item
+                    android:id="@+id/btn_seecalender"
                     android:icon="@drawable/calendar"
                     android:title="See calendar" />
                 <item
+                    android:id="@+id/btn_history"
                     android:icon="@drawable/history"
                     android:title="History" />
                 </group>
@@ -44,15 +48,14 @@
         <menu>
             <group android:checkableBehavior="single">
                 <item
+                    android:id="@+id/btn_changpassword"
                     android:icon="@drawable/changepass"
                     android:title="Change password" />
                 <item
+                    android:id="@+id/btn_signout"
                     android:icon="@drawable/signout"
                     android:title="Sign out" />
             </group>
         </menu>
     </item>
-
-
-
 </menu>

@@ -1,208 +1,235 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.gogocita.admin.gogocita.users.UserDetailActivity">
-    <ProgressBar
-        android:id="@+id/progressBar_userDetail"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="20dp"
-        android:visibility="gone" />
-    <TableLayout
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:stretchColumns="0,1">
-        <TableRow>
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:textSize="20dp"
-                android:text="First name"
-                android:textStyle="bold" />
+        android:orientation="vertical"
+        tools:context="com.gogocita.admin.gogocita.users.UserDetailActivity">
+        <ProgressBar
+            android:id="@+id/progressBar_userDetail"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone" />
 
-            <TextView
-                android:id="@+id/textview_firstname"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:textColor="#ff586c"
-                android:textSize="20dp"
-                android:layout_weight="1" />
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_height="40dp"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:inputType="text"
-                android:textSize="20dp"
-                android:text="Last name"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/textview_lastname"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:textSize="20dp"
-                android:textColor="#ff586c"
-                android:layout_weight="1" />
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_height="40dp"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:textSize="20dp"
-                android:text="BirthDay"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/textview_birthday"
-                android:layout_width="0dp"
-                android:textSize="20dp"
-                android:layout_height="match_parent"
-                android:textColor="#ff586c"
-                android:layout_weight="1" />
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_height="40dp"
-                android:layout_width="0dp"
-                android:textSize="20dp"
-                android:layout_weight="1"
-                android:text="Phone"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/textview_phone"
-                android:layout_width="0dp"
-                android:textSize="20dp"
-                android:layout_height="match_parent"
-                android:textColor="#ff586c"
-                android:layout_weight="1" />
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_height="40dp"
-                android:layout_width="0dp"
-                android:textSize="20dp"
-                android:layout_weight="1"
-                android:text="Gender"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/textview_gender"
-                android:layout_width="0dp"
-                android:textSize="20dp"
-                android:layout_height="match_parent"
-                android:textColor="#ff586c"
-                android:layout_weight="1" />
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_height="40dp"
-                android:layout_width="0dp"
-                android:textSize="20dp"
-                android:layout_weight="1"
-                android:text="Job"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/textview_job"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:textSize="20dp"
-                android:textColor="#ff586c"
-                android:layout_weight="1" />
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_height="40dp"
-                android:textSize="20dp"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:text="Identity Card"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/textview_idnumber"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:textSize="20dp"
-                android:textColor="#ff586c"
-                android:layout_weight="1" />
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_height="40dp"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:textSize="20dp"
-                android:text="Address"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/textview_address"
-                android:layout_width="0dp"
-                android:textSize="20dp"
-                android:textColor="#ff586c"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_height="40dp"
-                android:layout_width="0dp"
-                android:textSize="20dp"
-                android:layout_weight="1"
-                android:text="Country"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/textview_country"
-                android:layout_width="0dp"
-                android:textSize="20dp"
-                android:layout_height="match_parent"
-                android:textColor="#ff586c"
-                android:layout_weight="1" />
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_height="40dp"
-                android:textSize="20dp"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:text="City"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/textview_city"
-                android:layout_width="0dp"
-                android:textSize="20dp"
-                android:layout_height="match_parent"
-                android:textColor="#ff586c"
-                android:layout_weight="1" />
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_height="40dp"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:textSize="20dp"
-                android:text="District"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/textview_district"
-                android:layout_width="0dp"
-                android:textSize="20dp"
-                android:layout_height="match_parent"
-                android:textColor="#ff586c"
-                android:layout_weight="1" />
-        </TableRow>
-        <Button
-            android:id="@+id/button_updateuser"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="#ff586c"
-            android:text="Update"
-            />
-    </TableLayout>
-</RelativeLayout>
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        <TableLayout
+            android:layout_below="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:stretchColumns="0,1">
+            <TableRow>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:text="First name"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textview_firstname"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:textColor="#ff586c"
+                    android:textSize="20dp"
+                    android:layout_weight="1" />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_height="40dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:inputType="text"
+                    android:textSize="20dp"
+                    android:text="Last name"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/textview_lastname"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:textSize="20dp"
+                    android:textColor="#ff586c"
+                    android:layout_weight="1" />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_height="40dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:text="BirthDay"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/textview_birthday"
+                    android:layout_width="0dp"
+                    android:textSize="20dp"
+                    android:layout_height="match_parent"
+                    android:textColor="#ff586c"
+                    android:layout_weight="1" />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_height="40dp"
+                    android:layout_width="0dp"
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:text="Phone"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/textview_phone"
+                    android:layout_width="0dp"
+                    android:textSize="20dp"
+                    android:layout_height="match_parent"
+                    android:textColor="#ff586c"
+                    android:layout_weight="1" />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_height="40dp"
+                    android:layout_width="0dp"
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:text="Gender"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/textview_gender"
+                    android:layout_width="0dp"
+                    android:textSize="20dp"
+                    android:layout_height="match_parent"
+                    android:textColor="#ff586c"
+                    android:layout_weight="1" />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_height="40dp"
+                    android:layout_width="0dp"
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:text="Job"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/textview_job"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:textSize="20dp"
+                    android:textColor="#ff586c"
+                    android:layout_weight="1" />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_height="40dp"
+                    android:textSize="20dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Identity Card"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/textview_idnumber"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:textSize="20dp"
+                    android:textColor="#ff586c"
+                    android:layout_weight="1" />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_height="40dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:text="Address"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/textview_address"
+                    android:layout_width="0dp"
+                    android:textSize="20dp"
+                    android:textColor="#ff586c"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_height="40dp"
+                    android:layout_width="0dp"
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:text="Country"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/textview_country"
+                    android:layout_width="0dp"
+                    android:textSize="20dp"
+                    android:layout_height="match_parent"
+                    android:textColor="#ff586c"
+                    android:layout_weight="1" />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_height="40dp"
+                    android:textSize="20dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="City"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/textview_city"
+                    android:layout_width="0dp"
+                    android:textSize="20dp"
+                    android:layout_height="match_parent"
+                    android:textColor="#ff586c"
+                    android:layout_weight="1" />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_height="40dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:text="District"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/textview_district"
+                    android:layout_width="0dp"
+                    android:textSize="20dp"
+                    android:layout_height="match_parent"
+                    android:textColor="#ff586c"
+                    android:layout_weight="1" />
+            </TableRow>
+            <Button
+                android:id="@+id/button_updateuser"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#ff586c"
+                android:text="Update"
+                />
+        </TableLayout>
+    </RelativeLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/activity_menu_drawer"/>
+</android.support.v4.widget.DrawerLayout>

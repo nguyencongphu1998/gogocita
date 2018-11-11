@@ -7,8 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.gogocita.admin.gogocita.R;
-import com.gogocita.admin.gogocita.users.LoginActivity;
-import com.gogocita.admin.gogocita.users.UserMenuActivity;
 
 public class Step1Activity extends AppCompatActivity {
     @Override
@@ -23,7 +21,7 @@ public class Step1Activity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(this,UserMenuActivity.class));
+        startActivity(new Intent(this, ServicesActivity.class));
         finish();
     }
 }

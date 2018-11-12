@@ -30,6 +30,7 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
     private UserDetailsController userDetailsController;
     private ServiceController serviceController;
     public Toolbar toolbar;
+    public ProgressBar progressBar;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,8 +44,8 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
 
     private void getMenu()
     {
-        userDetailsController = UserDetailsController.getInstance(this,null);
-        serviceController = ServiceController.getInstance(this,null);
+        userDetailsController = UserDetailsController.getInstance(this,progressBar);
+        serviceController = ServiceController.getInstance(this,progressBar);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

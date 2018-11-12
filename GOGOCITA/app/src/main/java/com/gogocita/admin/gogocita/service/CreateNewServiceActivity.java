@@ -39,7 +39,6 @@ public class CreateNewServiceActivity extends BaseMenuActivity {
     private EditText edtServiceAddress;
     private Button btnCreate;
     private Button btnUpload;
-    private ProgressBar progressBar;
     private CheckBox cbAc;
     private CheckBox cbSwimming;
     private CheckBox cbWifi;
@@ -163,6 +162,7 @@ public class CreateNewServiceActivity extends BaseMenuActivity {
     @Override
     protected void init()
     {
+        progressBar = (ProgressBar) findViewById(R.id.progressBar_createNewService);
         configValueController = ConfigValueController.getInstance(this);
         usersController = UsersController.getInstance(this,progressBar);
         serviceController = ServiceController.getInstance(this,progressBar);
@@ -187,7 +187,6 @@ public class CreateNewServiceActivity extends BaseMenuActivity {
         spCountry = (Spinner) findViewById(R.id.spinner_Nationality);
         btnCreate = (Button) findViewById(R.id.btn_createnewservice_complete);
         btnUpload = (Button) findViewById(R.id.btn_uploadimage);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar_createNewService);
         cbAc = (CheckBox)  findViewById(R.id.checkbox_ac);
         cbSwimming = (CheckBox) findViewById(R.id.checkbox_swimmingpool);
         cbWifi = (CheckBox) findViewById(R.id.checkbox_wifi);

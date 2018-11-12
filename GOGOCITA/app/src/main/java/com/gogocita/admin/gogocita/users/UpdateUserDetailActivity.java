@@ -26,7 +26,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class UpdateUserDetailActivity extends BaseMenuActivity {
-    private ProgressBar progressBar;
     private Spinner spinner_gender;
     private Spinner spinner_country;
     private Spinner spinner_city;

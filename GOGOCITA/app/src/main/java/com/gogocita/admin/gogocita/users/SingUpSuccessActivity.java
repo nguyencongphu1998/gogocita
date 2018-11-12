@@ -23,11 +23,6 @@ public class SingUpSuccessActivity extends AppCompatActivity {
 
     private void addListener()
     {
-        btnReturn = (Button) findViewById(R.id.btn_return);
-    }
-
-    private void getWidget()
-    {
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,5 +30,10 @@ public class SingUpSuccessActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void getWidget()
+    {
+        btnReturn = (Button) findViewById(R.id.btn_return);
     }
 }

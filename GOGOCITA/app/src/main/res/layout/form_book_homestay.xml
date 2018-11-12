@@ -51,7 +51,9 @@
                             android:textColor="@color/black"/>
                         <EditText
                             android:id="@+id/et_date_checkin"
-                            android:enabled="true"
+                            android:focusable="false"
+                            android:cursorVisible="false"
+                            android:enabled="false"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
 
@@ -72,11 +74,14 @@
                             android:textColor="@color/black"/>
                         <EditText
                             android:id="@+id/et_date_checkout"
-                            android:enabled="true"
+                            android:focusable="false"
+                            android:cursorVisible="false"
+                            android:enabled="false"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
 
                         <ImageButton
+                            android:clickable="false"
                             android:id="@+id/btn_calander_checkout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -99,6 +104,9 @@
                             android:textSize="20sp"
                             android:textStyle="bold"/>
                         <EditText
+                            android:focusable="false"
+                            android:cursorVisible="false"
+                            android:enabled="false"
                             android:id="@+id/et_homestay"
                             android:layout_span="11"
                             android:textSize="20sp"
@@ -113,6 +121,9 @@
                             android:textColor="@color/black"
                             android:textStyle="bold"/>
                         <EditText
+                            android:focusable="false"
+                            android:cursorVisible="false"
+                            android:enabled="false"
                             android:id="@+id/et_price"
                             android:layout_span="5"
                             android:textSize="20sp"
@@ -146,10 +157,12 @@
                         android:textStyle="bold" />
                     <EditText
                         android:id="@+id/et_total"
+                        android:focusable="false"
+                        android:cursorVisible="false"
+                        android:enabled="false"
                         android:layout_weight="3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="900 VND"
                         android:textSize="18sp"
                         android:gravity="center"/>
                 </LinearLayout>

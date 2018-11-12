@@ -94,6 +94,7 @@ public class ServiceDetailActivity extends BaseMenuActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ServiceBookActivity.class);
+                intent.putExtra(EntityName.PartnerServices,partnerService);
                 startActivity(intent);
             }
         });

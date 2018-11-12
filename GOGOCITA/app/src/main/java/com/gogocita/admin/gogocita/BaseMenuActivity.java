@@ -114,6 +114,9 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
             case R.id.btn_history:
                 comingSoon();
                 break;
+            case R.id.btn_aboutus:
+                aboutUs();
+                break;
             case R.id.btn_signout:
                 showAlertDialog();
                 break;
@@ -164,6 +167,10 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
     public void comingSoon(){
         startActivity(new Intent(this, ComingSoonActivity.class));
         finish();
+    }
+
+    public void aboutUs(){
+        startActivity(new Intent(this, AboutUsActivity.class));
     }
 
     public void updateMyProfile(){

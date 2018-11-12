@@ -48,6 +48,11 @@
         <menu>
             <group android:checkableBehavior="single">
                 <item
+                    android:id="@+id/btn_aboutus"
+                    android:icon="@drawable/about"
+                    android:title="About us" />
+
+                <item
                     android:id="@+id/btn_changpassword"
                     android:icon="@drawable/changepass"
                     android:title="Change password" />

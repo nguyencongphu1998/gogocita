@@ -1,151 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
-        <LinearLayout
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="FORM BOOK"
-                android:layout_gravity= "center_horizontal|center_vertical"
-                android:textStyle="bold"
-                android:textSize="22sp"/>
-            <TableLayout
-                android:stretchColumns="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TableRow
-                    android:layout_marginTop="10dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Check in"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:textColor="@color/black"/>
-                    <EditText
-                        android:id="@+id/et_date_checkin"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <ImageButton
-                        android:id="@+id/btn_calander_checkin"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/calendar1" />
-                </TableRow>
-                <TableRow
-                    android:layout_marginTop="5dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Check in"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:textColor="@color/black"/>
-                    <EditText
-                        android:id="@+id/et_date_checkout"
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <ImageButton
-                        android:id="@+id/btn_calander_checkout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/calendar1" />
-                </TableRow>
-            </TableLayout>
-
-            <TableLayout
-                android:layout_marginTop="5dp"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:gravity="center"
-                android:stretchColumns="*">
-
-                <TableRow>
-                    <TextView
-                        android:layout_span="4"
-                        android:text="Homestay"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold"/>
-                    <EditText
-                        android:id="@+id/et_homestay"
-                        android:layout_span="11"
-                        android:textSize="20sp"
-                        android:text="Name of homestay"/>
-                </TableRow>
-                <TableRow
-                    android:layout_marginTop="5dp">
-                    <TextView
-                        android:layout_span="4"
-                        android:text="Price: "
-                        android:textSize="20sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"/>
-                    <EditText
-                        android:id="@+id/et_price"
-                        android:layout_span="5"
-                        android:text="450000"
-                        android:textSize="20sp"
-                        android:gravity="center"/>
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_span="6"
-                        android:textSize="20sp"
-                        android:text="VND/room/night"
-                        android:textColor="@color/black" />
-                </TableRow>
-            </TableLayout>
-            <View
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray"/>
             <LinearLayout
-                android:layout_marginTop="10dp"
+                android:layout_below="@id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="4">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:layout_weight="1"
-                    android:text="Total: "
                     android:textColor="@color/black"
-                    android:textStyle="bold" />
-                <EditText
-                    android:id="@+id/et_total"
-                    android:layout_weight="3"
-                    android:layout_width="wrap_content"
+                    android:text="FORM BOOK"
+                    android:layout_gravity= "center_horizontal|center_vertical"
+                    android:textStyle="bold"
+                    android:textSize="22sp"/>
+                <TableLayout
+                    android:stretchColumns="1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="900 VND"
-                    android:textSize="18sp"
-                    android:gravity="center"/>
+                    android:orientation="horizontal">
+                    <TableRow
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Check in"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"/>
+                        <EditText
+                            android:id="@+id/et_date_checkin"
+                            android:enabled="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <ImageButton
+                            android:id="@+id/btn_calander_checkin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/calendar1" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_marginTop="5dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Check in"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"/>
+                        <EditText
+                            android:id="@+id/et_date_checkout"
+                            android:enabled="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <ImageButton
+                            android:id="@+id/btn_calander_checkout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/calendar1" />
+                    </TableRow>
+                </TableLayout>
+
+                <TableLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:stretchColumns="*">
+
+                    <TableRow>
+                        <TextView
+                            android:layout_span="4"
+                            android:text="Homestay"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold"/>
+                        <EditText
+                            android:id="@+id/et_homestay"
+                            android:layout_span="11"
+                            android:textSize="20sp"
+                            android:text="Name of homestay"/>
+                    </TableRow>
+                    <TableRow
+                        android:layout_marginTop="5dp">
+                        <TextView
+                            android:layout_span="4"
+                            android:text="Price: "
+                            android:textSize="20sp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"/>
+                        <EditText
+                            android:id="@+id/et_price"
+                            android:layout_span="5"
+                            android:textSize="20sp"
+                            android:gravity="center"/>
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_span="6"
+                            android:textSize="20sp"
+                            android:text="VND/room/night"
+                            android:textColor="@color/black" />
+                    </TableRow>
+                </TableLayout>
+                <View
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"/>
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:text="Total: "
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                    <EditText
+                        android:id="@+id/et_total"
+                        android:layout_weight="3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="900 VND"
+                        android:textSize="18sp"
+                        android:gravity="center"/>
+                </LinearLayout>
+
             </LinearLayout>
 
-        </LinearLayout>
+            <Button
+                android:id="@+id/btn_booknow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_bg_rounded_corners"
+                android:layout_alignParentBottom="true"
+                android:text="BOOK NOW"
+                android:textColor="@color/white"
+                android:padding="16dp"
+                android:textSize="20sp"/>
 
+    </RelativeLayout>
 
-
-        <Button
-            android:id="@+id/btn-booknow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_bg_rounded_corners"
-            android:layout_alignParentBottom="true"
-            android:text="BOOK NOW"
-            android:textColor="@color/white"
-            android:textSize="20sp"/>
-
-</RelativeLayout>
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/activity_menu_drawer"/>
+</android.support.v4.widget.DrawerLayout>

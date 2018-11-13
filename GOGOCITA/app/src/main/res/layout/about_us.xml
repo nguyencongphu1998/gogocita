@@ -21,9 +21,12 @@
         android:textColor="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="18sp"
         android:text="Team GOGOCITA có 4 thành viên đến từ lớp 16T2. Hướng đến việc góp phần phát triển ngành du lịch lữ hành. GOGOCITA ra đời với 2 mục đích, thứ nhất là kết nối dịch vụ Homestay với nhu cầu khách du lịch, thứ hai là tạo ra những chuyến du lịch miễn phí mà hướng dẫn viên chính là các bạn SV. Team GOGOCITA hy vọng ứng dụng này sẽ góp phần vào sự phát triển của ngành du lịch.
 "/>
     <TableLayout
+        android:id="@+id/content2"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:layout_below="@id/content1"
         android:layout_width="match_parent"
@@ -34,14 +37,14 @@
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="18sp"
                 android:text="Cong Phu"
                 android:layout_gravity="center"/>
             <TextView
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="18sp"
                 android:text="Head of Backend"
                 android:layout_gravity="left"
                 />
@@ -51,14 +54,14 @@
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="18sp"
                 android:layout_gravity="center"
                 android:text="Gia Huy"/>
             <TextView
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="18sp"
                 android:layout_gravity="left"
                 android:text="Head of Frontend"
                 />
@@ -69,14 +72,14 @@
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="18sp"
                 android:layout_gravity="center"
                 android:text="Yen Nhi"/>
             <TextView
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="18sp"
                 android:text="Operator"
                 android:layout_gravity="left"
                 />
@@ -101,6 +104,26 @@
 
         </TableRow>
     </TableLayout>
+    <TextView
+        android:id="@+id/content3"
+        android:layout_below="@+id/content2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
+        android:text="Contact us: teamgogocita@gmail.com"/>
+    <TextView
+        android:id="@+id/content4"
+        android:layout_below="@+id/content3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
+        android:text="THANK YOU!"/>
 
 
 </RelativeLayout>

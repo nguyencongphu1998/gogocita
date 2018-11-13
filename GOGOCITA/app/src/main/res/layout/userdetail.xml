@@ -40,7 +40,7 @@
             android:layout_below="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="60dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:stretchColumns="0,1">

@@ -8,32 +8,37 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
 import com.gogocita.admin.constant.EntityName;
+import com.gogocita.admin.controllers.service.ServiceBookController;
 import com.gogocita.admin.entity.PartnerService;
+import com.gogocita.admin.entity.PartnerServiceBook;
 import com.gogocita.admin.gogocita.BaseMenuActivity;
-import com.gogocita.admin.gogocita.ComingSoonActivity;
 import com.gogocita.admin.gogocita.R;
-import com.google.api.client.util.DateTime;
+import com.google.firebase.auth.FirebaseAuth;
+
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 public class ServiceBookActivity extends BaseMenuActivity {
-    EditText edt_CalanderCheckIn;
-    EditText edt_CalanderCheckOut;
-    ImageButton btn_CalanderCheckIn;
-    ImageButton btn_CalanderCheckOut;
-    EditText et_nameOfHomeStay;
-    EditText et_priceOfHomeStay;
-    EditText et_total;
-    Button btn_book;
-    Date checkin;
-    Date checkout;
-    PartnerService partnerService;
+    private EditText edt_CalanderCheckIn;
+    private EditText edt_CalanderCheckOut;
+    private ImageButton btn_CalanderCheckIn;
+    private ImageButton btn_CalanderCheckOut;
+    private EditText et_nameOfHomeStay;
+    private EditText et_priceOfHomeStay;
+    private EditText et_total;
+    private Button btn_book;
+    private Date checkin;
+    private Date checkout;
+    private PartnerService partnerService;
+    private ServiceBookController serviceBookController;
+    private boolean isCurBook = false;
 
     @Override
     protected void init()
@@ -47,6 +52,7 @@ public class ServiceBookActivity extends BaseMenuActivity {
     {
         et_nameOfHomeStay.setText(partnerService.getPartnerServiceName());
         et_priceOfHomeStay.setText(partnerService.getPartnerServicePrice() + "");
+        serviceBookController = ServiceBookController.getInstance(this,progressBar);
     }
 
     @Override
@@ -60,6 +66,7 @@ public class ServiceBookActivity extends BaseMenuActivity {
         et_priceOfHomeStay = (EditText) findViewById(R.id.et_price);
         et_total = (EditText) findViewById(R.id.et_total);
         btn_book = (Button) findViewById(R.id.btn_booknow);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar_serviceBooks);
     }
 
     @Override
@@ -85,9 +92,22 @@ public class ServiceBookActivity extends BaseMenuActivity {
         btn_book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                startActivity(new Intent(getApplicationContext(),ComingSoonActivity.class));
-                finish();
+                if(!isCurBook){
+                    progressBar.setVisibility(View.VISIBLE);
+                    if(edt_CalanderCheckIn.getText().length() > 0 && edt_CalanderCheckOut.getText().length() > 0)
+                    {
+                        PartnerServiceBook partnerServiceBook = new PartnerServiceBook(
+                                partnerService.getPartnerServiceID(),
+                                partnerService.getFk_PartnerID(),
+                                FirebaseAuth.getInstance().getUid(),
+                                checkin,
+                                checkout);
+                        serviceBookController.updateOrInsert(partnerServiceBook);
+                        isCurBook = true;
+                    }
+                }else {
+                    Toast.makeText(getApplicationContext(),"Bạn vừa mới đặt phòng xong mà!!!",Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
@@ -103,6 +123,7 @@ public class ServiceBookActivity extends BaseMenuActivity {
                 if(checkout.getTime() < checkin.getTime())
                 {
                     Toast.makeText(getApplicationContext(),"Chọn ngày không hợp lệ",Toast.LENGTH_SHORT).show();
+                    edt_CalanderCheckOut.setText("");
                 }
                 else {
                     Calendar c1 = Calendar.getInstance();

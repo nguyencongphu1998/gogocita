@@ -28,14 +28,6 @@ public abstract class FirebaseListAdapter<T> extends BaseAdapter {
     private ChildEventListener listener;
 
 
-    /**
-     * @param ref The Firebase location to watch for data changes. Can also be a slice of a location, using some
-     *            combination of <code>limit()</code>, <code>startAt()</code>, and <code>endAt()</code>,
-     * @param modelClass Firebase will marshall the data at a location into an instance of a class that you provide
-     * @param layout This is the layout used to represent a single list item. You will be responsible for populating an
-     *               instance of the corresponding view with the data from an instance of modelClass.
-     * @param context
-     */
     public FirebaseListAdapter(Query ref, Class<T> modelClass, int layout, Context context) {
         this.ref = ref;
         this.modelClass = modelClass;
@@ -70,14 +62,19 @@ public abstract class FirebaseListAdapter<T> extends BaseAdapter {
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
                 // One of the models changed. Replace it in our list and name mapping
                 String modelName = dataSnapshot.getKey();
                 T oldModel = modelNames.get(modelName);
                 T newModel = dataSnapshot.getValue(FirebaseListAdapter.this.modelClass);
-                int index = models.indexOf(oldModel);
 
-                models.set(index , newModel);
+                int index = models.indexOf(oldModel);
+                if(index > 0)
+                {
+                    models.set(index , newModel);
+                }else {
+                    models.add(newModel);
+                }
+
                 modelNames.put(modelName, newModel);
 
                 notifyChanged();

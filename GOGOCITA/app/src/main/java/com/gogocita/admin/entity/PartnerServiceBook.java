@@ -1,0 +1,124 @@
+package com.gogocita.admin.entity;
+
+import com.gogocita.admin.constant.EntityStatus;
+import com.gogocita.admin.constant.EntityName;
+import com.gogocita.admin.constant.PartnerServiceDateStatus;
+import com.google.firebase.database.Exclude;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+public class PartnerServiceBook extends GenerateId{
+    private String partnerServiceBookID;
+    private String fk_PartnerServiceID;
+    private String fk_PartnerID;
+    private String fk_CustomerID;
+    private String status;
+    private Date partnerServiceBookFrom;
+    private Date partnerServiceBookTo;
+    private String partnerServiceBookStatus;
+
+    public PartnerServiceBook() {
+    }
+
+    public PartnerServiceBook(String partnerServiceDateID,String fk_PartnerID, String fk_PartnerServiceID, String fk_CustomerID, String status, Date partnerServiceDateFrom, Date partnerServiceDateTo, String partnerServiceDateStatus) {
+        this.partnerServiceBookID = partnerServiceDateID;
+        this.fk_PartnerID = fk_PartnerID;
+        this.fk_PartnerServiceID = fk_PartnerServiceID;
+        this.status = status;
+        this.partnerServiceBookFrom = partnerServiceDateFrom;
+        this.partnerServiceBookTo = partnerServiceDateTo;
+        this.partnerServiceBookStatus = partnerServiceDateStatus;
+        this.fk_CustomerID = fk_CustomerID;
+    }
+
+    public PartnerServiceBook(String fk_PartnerServiceID, String fk_PartnerID, String fk_CustomerID, Date partnerServiceDateFrom, Date partnerServiceDateTo) {
+        this.partnerServiceBookID = generateId(EntityName.PartnerServiceBooks);
+        this.fk_PartnerServiceID = fk_PartnerServiceID;
+        this.fk_PartnerID = fk_PartnerID;
+        this.status = EntityStatus.Alive;
+        this.partnerServiceBookFrom = partnerServiceDateFrom;
+        this.partnerServiceBookTo = partnerServiceDateTo;
+        this.partnerServiceBookStatus = PartnerServiceDateStatus.Pending;
+        this.fk_CustomerID = fk_CustomerID;
+    }
+
+    public String getFk_CustomerID() {
+        return fk_CustomerID;
+    }
+
+    public void setFk_CustomerID(String fk_CustomerID) {
+        this.fk_CustomerID = fk_CustomerID;
+    }
+
+    public String getPartnerServiceBookID() {
+        return partnerServiceBookID;
+    }
+
+    public void setPartnerServiceBookID(String partnerServiceDateID) {
+        this.partnerServiceBookID = partnerServiceDateID;
+    }
+
+    public String getFk_PartnerServiceID() {
+        return fk_PartnerServiceID;
+    }
+
+    public void setFk_PartnerServiceID(String fk_PartnerServiceID) {
+        this.fk_PartnerServiceID = fk_PartnerServiceID;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Date getPartnerServiceBookFrom() {
+        return partnerServiceBookFrom;
+    }
+
+    public void setPartnerServiceBookFrom(Date partnerServiceBookFrom) {
+        this.partnerServiceBookFrom = partnerServiceBookFrom;
+    }
+
+    public Date getPartnerServiceBookTo() {
+        return partnerServiceBookTo;
+    }
+
+    public void setPartnerServiceBookTo(Date partnerServiceDateTo) {
+        this.partnerServiceBookTo = partnerServiceDateTo;
+    }
+
+    public String getPartnerServiceBookStatus() {
+        return partnerServiceBookStatus;
+    }
+
+    public void setPartnerServiceBookStatus(String partnerServiceDateStatus) {
+        this.partnerServiceBookStatus = partnerServiceDateStatus;
+    }
+
+    @Exclude
+    public Map<String, Object> toMapUpdate() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("fK_PartnerServiceID", fk_PartnerServiceID);
+        result.put("fK_PartnerID", fk_PartnerID);
+        result.put("fk_CustomerID", fk_CustomerID);
+        result.put("status", status);
+        result.put("partnerServiceBookFrom", partnerServiceBookFrom);
+        result.put("partnerServiceBookTo", partnerServiceBookTo);
+        result.put("partnerServiceBookStatus", partnerServiceBookStatus);
+
+        return result;
+    }
+
+    @Exclude
+    public Map<String, Object> toMapDelete() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("status", EntityStatus.Delete);
+
+        return result;
+    }
+}

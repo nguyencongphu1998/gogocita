@@ -17,10 +17,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.gogocita.admin.controllers.service.ServiceBookController;
 import com.gogocita.admin.controllers.service.ServiceController;
 import com.gogocita.admin.controllers.user.UserDetailsController;
 import com.gogocita.admin.controllers.user.UsersController;
+import com.gogocita.admin.gogocita.service.BooksActiviry;
 import com.gogocita.admin.gogocita.service.CreateNewServiceActivity;
+import com.gogocita.admin.gogocita.service.ServiceBookActivity;
 import com.gogocita.admin.gogocita.service.ServicesActivity;
 import com.gogocita.admin.gogocita.users.ChangePasswordActivity;
 import com.gogocita.admin.gogocita.users.UpdateUserDetailActivity;
@@ -107,7 +110,14 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
                 nextStep1();
                 break;
             case R.id.btn_seecalender:
-                comingSoon();
+                item.setActionView(new ProgressBar(this));
+                item.getActionView().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        seecalender();
+                    }
+                },1000);
                 break;
             case R.id.btn_changpassword:
                 changePassword();
@@ -153,6 +163,11 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
 
     public void gotoDashboard(){
         startActivity(new Intent(this, ServicesActivity.class));
+        finish();
+    }
+
+    public void seecalender(){
+        startActivity(new Intent(this, BooksActiviry.class));
         finish();
     }
 

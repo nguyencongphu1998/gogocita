@@ -25,6 +25,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class ServiceController {
@@ -122,7 +123,14 @@ public class ServiceController {
 
 
             @Override
-            protected List modifyArrayAdapter(List models) {
+            protected List modifyArrayAdapter(List models)
+            {
+//                for (PartnerService i : (List<PartnerService>)models)
+//                {
+//                    if(i.getFk_LocationCityID().equals("Bến Tre")){
+//                        models.remove(i);
+//                    }
+//                }
                 return models;
             }
         };

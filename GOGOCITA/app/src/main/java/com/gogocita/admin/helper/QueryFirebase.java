@@ -1,28 +1,12 @@
 package com.gogocita.admin.helper;
 
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-
-import com.gogocita.admin.entity.ConfigValue;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.GenericTypeIndicator;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
+import com.google.firebase.database.Query;
+
 import java.util.Map;
 
-import static android.view.View.combineMeasuredStates;
-import static com.facebook.login.widget.ProfilePictureView.TAG;
 
 public class QueryFirebase<T>{
     private DatabaseReference mDatabase;
@@ -70,11 +54,7 @@ public class QueryFirebase<T>{
         Query query = mDatabase;
 
         if(orderByChild != null){
-            query = query.orderByChild(orderByChild);
-        }
-
-        if(orderByChild != null){
-            query = query.equalTo(equalTo);
+            query = query.orderByChild(orderByChild).equalTo(equalTo);
         }
 
         return query;

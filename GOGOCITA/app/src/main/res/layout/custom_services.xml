@@ -89,10 +89,10 @@
         android:layout_width="match_parent"
         android:layout_height="115dp"
         android:background="#ededed"
-        android:padding="16dp">
+        android:padding="13dp">
         <TextView
             android:id="@+id/tv_listservice_description"
-            android:textSize="16sp"
+            android:textSize="15sp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Lorem isum Lorem isum Lorem isum Lorem isum Lorem isum"/>

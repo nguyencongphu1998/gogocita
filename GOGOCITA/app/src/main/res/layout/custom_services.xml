@@ -14,8 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="NAME OF HOMESTAY"
-        android:textSize="25sp"
-        android:padding="16dp"
+        android:textSize="20sp"
+        android:padding="10dp"
         />
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
         android:orientation="horizontal"
         android:weightSum="3"
         android:background="@color/pink"
-        android:padding="16dp">
+        android:padding="6dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4.5"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:layout_marginLeft="5dp"
                 android:textColor="@color/white"/>
         </LinearLayout>
@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="122"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:layout_marginLeft="5dp"
                 android:textColor="@color/white"/>
         </LinearLayout>
@@ -80,14 +80,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="15"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:layout_marginLeft="5dp"
                 android:textColor="@color/white"/>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="115dp"
         android:background="#ededed"
         android:padding="16dp">
         <TextView

@@ -94,11 +94,11 @@ public class ServiceController {
         FirebaseListAdapter<PartnerService> serviceAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(null,null,null),PartnerService.class,R.layout.custom_services,context) {
             @Override
             protected void populateView(ViewHolder vh, Object model) {
-                if(((PartnerService)model).getPartnerServiceDesc().length() < 200)
+                if(((PartnerService)model).getPartnerServiceDesc().length() < 170)
                 {
                     vh.getTextViewServiceDescription().setText(((PartnerService)model).getPartnerServiceDesc());
                 }else {
-                    vh.getTextViewServiceDescription().setText(((PartnerService)model).getPartnerServiceDesc().substring(0 , 200) + "...");
+                    vh.getTextViewServiceDescription().setText(((PartnerService)model).getPartnerServiceDesc().substring(0 , 170) + "...");
                 }
 
                 vh.getTextViewServiceName().setText(((PartnerService)model).getPartnerServiceName());

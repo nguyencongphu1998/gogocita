@@ -34,6 +34,7 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
     private ServiceController serviceController;
     public Toolbar toolbar;
     public ProgressBar progressBar;
+    private static final int  timeDelayMiliSeconds= 1000;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,7 +85,7 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
                     public void run() {
                         gotoDashboard();
                     }
-                }, 1000);
+                }, timeDelayMiliSeconds);
                 break;
             case R.id.btn_myprofile:
                 item.setActionView(new ProgressBar(this));
@@ -94,7 +95,7 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
                     public void run() {
                         myProfile();
                     }
-                }, 1000);
+                }, timeDelayMiliSeconds);
                 break;
             case R.id.btn_updatemyprofile:
                 item.setActionView(new ProgressBar(this));
@@ -104,7 +105,7 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
                     public void run() {
                         updateMyProfile();
                     }
-                }, 1000);
+                }, timeDelayMiliSeconds);
                 break;
             case R.id.btncreatemyservice:
                 nextStep1();
@@ -117,7 +118,7 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
                     public void run() {
                         seecalender();
                     }
-                },1000);
+                },timeDelayMiliSeconds);
                 break;
             case R.id.btn_changpassword:
                 changePassword();

@@ -8,14 +8,17 @@
     <color name="black">#454545</color>
     <color name="grey">#e6e6e6</color>
     <color name="white">#ffffff</color>
-    <color name="colorRed">#ff586c</color>
     <color name="colorWhite">#ffffff</color>
     <color name="color555555">#555555</color>
     <color name="color9098a2">#9098a2</color>
     <color name="coloraaaaaa">#aaaaaa</color>
     <color name="color454545">#454545</color>
-
+    <color name="colorfb">#004d99</color>
+    <color name="colorgg">#cc0000</color>
     <color name="md_teal_500_primary">#009688</color>
     <color name="md_teal_700">#00796B</color>
     <color name="md_teal_900">#004D40</color>
+    <color name="pending">#ff8533</color>
+    <color name="cancel">#ff3333</color>
+    <color name="confirm">#00ff99</color>
 </resources>

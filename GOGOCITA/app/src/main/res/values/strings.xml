@@ -35,6 +35,9 @@
     <string name="login_with">Login with</string>
     <string name="facebook">Facebook</string>
     <string name="gmail">Gmail</string>
+    <string name="login_facebook">Login with Facebook</string>
+    <string name="login_gmail">Login with Gmail</string>
+
     <string name="navigation_drawer_open" />
     <string name="navigation_drawer_close" />
 

@@ -40,6 +40,8 @@
 
     <string name="navigation_drawer_open" />
     <string name="navigation_drawer_close" />
+    <string name="nameofhomestay">NAMEOFHOMESTAY</string>
+    <string name="cancel">Cancel</string>
 
 
 

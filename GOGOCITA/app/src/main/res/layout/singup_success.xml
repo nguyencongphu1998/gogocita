@@ -5,7 +5,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="@dimen/margin_standard">
 
         <ImageView
             android:id="@+id/imageView_success"
@@ -20,10 +21,6 @@
             android:textStyle="bold"
             android:gravity="center_horizontal|center_vertical"
             android:layout_below="@+id/imageView_success"
-            android:layout_marginTop="@dimen/edit_margin_top"
-            android:layout_marginBottom="@dimen/edit_margin_bottom"
-            android:layout_marginRight="@dimen/edit_margin_right"
-            android:layout_marginLeft="@dimen/edit_margin_left"
             android:textSize="20dp"
             android:textColor="@color/black"
             />
@@ -33,9 +30,6 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:gravity="center_horizontal|center_vertical"
-            android:layout_marginBottom="@dimen/edit_margin_bottom"
-            android:layout_marginRight="@dimen/edit_margin_right"
-            android:layout_marginLeft="@dimen/edit_margin_left"
             android:background="@drawable/border_button"
             android:layout_below="@+id/tv_success"
             android:layout_marginTop="150dp"

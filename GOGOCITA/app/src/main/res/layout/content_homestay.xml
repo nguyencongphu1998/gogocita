@@ -25,11 +25,11 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:weightSum="10">
-            <ImageView
-                android:id="@+id/image_contenofhomestay_avatar"
+            <AdapterViewFlipper
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:background="@drawable/bghomestay"/>
+                android:layout_height="250dp"
+                android:id="@+id/avf_serviceDetail_images">
+            </AdapterViewFlipper>
             <ScrollView
                 android:layout_weight="9"
                 android:layout_width="match_parent"

@@ -150,7 +150,7 @@ public class UploadServiceImageActivity extends BaseMenuActivity {
     protected void setWidget()
     {
         serviceImageController = ServiceImageController.getInstance(this,progressBar);
-        configValueController.getServiceImageTypes(spinner_imageType);
+        configValueController.getServiceImageTypes(spinner_imageType,false);
     }
 
     @Override

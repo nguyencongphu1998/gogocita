@@ -84,7 +84,7 @@ public class ServiceImagesActivity extends BaseMenuActivity implements ImageAdap
         configValueController = ConfigValueController.getInstance(this);
 
         spinner_Type = findViewById(R.id.spinner_Type);
-        configValueController.getServiceImageTypes(spinner_Type);
+        configValueController.getServiceImageTypes(spinner_Type,true);
 
         Intent intent = getIntent();
         serviceId =  intent.getStringExtra(EntityName.PartnerServices);

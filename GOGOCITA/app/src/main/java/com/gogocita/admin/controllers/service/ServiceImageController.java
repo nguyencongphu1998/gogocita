@@ -5,15 +5,22 @@ import android.net.Uri;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.view.View;
+import android.widget.AdapterViewFlipper;
+import android.widget.CheckedTextView;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.gogocita.admin.constant.EntityName;
 import com.gogocita.admin.constant.ServiceImageType;
+import com.gogocita.admin.entity.ConfigValue;
 import com.gogocita.admin.entity.PartnerService;
 import com.gogocita.admin.entity.PartnerServiceImage;
+import com.gogocita.admin.gogocita.R;
+import com.gogocita.admin.helper.FirebaseListAdapter;
 import com.gogocita.admin.helper.ImageAdapter;
 import com.gogocita.admin.helper.QueryFirebase;
+import com.gogocita.admin.helper.ViewHolder;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,6 +33,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -54,7 +62,7 @@ public class ServiceImageController {
     }
 
     public void updateOrInsert(PartnerServiceImage partnerServiceImage){
-        queryFirebase.UpdateChildren(partnerServiceImage.toMapUpdate(),new String[]{partnerServiceImage.getFk_PartnerServiceID(),partnerServiceImage.getPartnerServiceImageType()},partnerServiceImage.getPartnerServiceImageID());
+        queryFirebase.UpdateChildren(partnerServiceImage.toMapUpdate(),new String[]{partnerServiceImage.getFk_PartnerServiceID()},partnerServiceImage.getPartnerServiceImageID());
     }
 
     public void uploadImage(Uri imageUri, final PartnerServiceImage image, String fileExtension, StorageTask uploadTask)
@@ -85,6 +93,7 @@ public class ServiceImageController {
 
                             PartnerService partnerServiceToUpdate = new PartnerService();
                             partnerServiceToUpdate.setPartnerserviceCoverPhotoLink(taskSnapshot.getDownloadUrl().toString());
+                            partnerServiceToUpdate.setPartnerserviceCoverPhotoID(image.getPartnerServiceImageID());
                             serviceController.updateCoverPhoto(partnerServiceToUpdate,FirebaseAuth.getInstance().getUid());
                         }
                         else
@@ -116,7 +125,8 @@ public class ServiceImageController {
         FirebaseDatabase.getInstance()
                 .getReference(EntityName.PartnerServiceImages)
                 .child(serviceId)
-                .child(imageType)
+                .orderByChild("partnerServiceImageType")
+                .equalTo(imageType)
                 .addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -148,10 +158,40 @@ public class ServiceImageController {
             public void onSuccess(Void aVoid) {
                 FirebaseDatabase.getInstance()
                         .getReference(EntityName.PartnerServiceImages)
+                        .child(partnerServiceImage.getFk_PartnerServiceID())
                         .child(partnerServiceImage.getPartnerServiceImageID()).removeValue();
                 Toast.makeText(activity, "Image is deleted", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
+    public void getAllImages(AdapterViewFlipper adapterViewFlipper, String serviceId)
+    {
+        queryFirebase = QueryFirebase.getInstance(EntityName.PartnerServiceImages);
+        FirebaseListAdapter<PartnerServiceImage> partnerServiceImageAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(new String[]{serviceId},null,null),PartnerServiceImage.class, R.layout.custom_servicedetail_image,activity) {
+            @Override
+            protected void populateView(ViewHolder vh, Object model) {
+                Picasso.with(activity)
+                        .load(((PartnerServiceImage)model).getPartnerServiceImageLink())
+                        .placeholder(R.mipmap.ic_launcher)
+                        .fit()
+                        .centerCrop()
+                        .into(vh.getImageViewContentOfHomeStay());
+            }
+
+            @Override
+            protected void setViewHolder(ViewHolder vh, View v) {
+                vh.setImageViewContentOfHomeStay((ImageView) v.findViewById(R.id.imv_contentofhomestay_image));
+            }
+
+            @Override
+            protected List modifyArrayAdapter(List models) {
+                return models;
+            }
+        };
+
+        adapterViewFlipper.setAdapter(partnerServiceImageAdapter);
+        adapterViewFlipper.setFlipInterval(2000);
+        adapterViewFlipper.setAutoStart(true);
+    }
 }

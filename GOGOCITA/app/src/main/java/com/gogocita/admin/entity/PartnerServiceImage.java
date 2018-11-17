@@ -10,7 +10,7 @@ import java.util.Map;
 public class PartnerServiceImage extends GenerateId{
     private String partnerServiceImageID;
     private String status;
-    private String fk_PartnerServiceID;
+    private String fK_PartnerServiceID;
     private String partnerServiceImageLink;
     private String partnerServiceImageType;
     private String partnerServiceImageDesc;
@@ -21,7 +21,7 @@ public class PartnerServiceImage extends GenerateId{
     public PartnerServiceImage(String status, String fk_PartnerServiceID, String partnerServiceImageLink, String partnerServiceImageType, String partnerServiceImageDesc) {
         this.partnerServiceImageID = partnerServiceImageID;
         this.status = status;
-        this.fk_PartnerServiceID = fk_PartnerServiceID;
+        this.fK_PartnerServiceID = fk_PartnerServiceID;
         this.partnerServiceImageLink = partnerServiceImageLink;
         this.partnerServiceImageType = partnerServiceImageType;
         this.partnerServiceImageDesc = partnerServiceImageDesc;
@@ -30,7 +30,7 @@ public class PartnerServiceImage extends GenerateId{
     public PartnerServiceImage(String fk_PartnerServiceID, String partnerServiceImageLink, String partnerServiceImageType, String partnerServiceImageDesc) {
         this.partnerServiceImageID = generateId(EntityName.PartnerServiceImages);
         this.status = EntityStatus.Alive;
-        this.fk_PartnerServiceID = fk_PartnerServiceID;
+        this.fK_PartnerServiceID = fk_PartnerServiceID;
         this.partnerServiceImageLink = partnerServiceImageLink;
         this.partnerServiceImageType = partnerServiceImageType;
         this.partnerServiceImageDesc = partnerServiceImageDesc;
@@ -53,11 +53,11 @@ public class PartnerServiceImage extends GenerateId{
     }
 
     public String getFk_PartnerServiceID() {
-        return fk_PartnerServiceID;
+        return fK_PartnerServiceID;
     }
 
     public void setFk_PartnerServiceID(String fk_PartnerServiceID) {
-        this.fk_PartnerServiceID = fk_PartnerServiceID;
+        this.fK_PartnerServiceID = fk_PartnerServiceID;
     }
 
     public String getPartnerServiceImageLink() {
@@ -89,7 +89,7 @@ public class PartnerServiceImage extends GenerateId{
         HashMap<String, Object> result = new HashMap<>();
         result.put("status", status);
         result.put("partnerServiceImageID", partnerServiceImageID);
-        result.put("fK_PartnerServiceID", fk_PartnerServiceID);
+        result.put("fK_PartnerServiceID", fK_PartnerServiceID);
         result.put("partnerServiceImageLink", partnerServiceImageLink);
         result.put("partnerServiceImageType", partnerServiceImageType);
         result.put("partnerServiceImageDesc", partnerServiceImageDesc);

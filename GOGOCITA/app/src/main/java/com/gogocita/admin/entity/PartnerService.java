@@ -26,6 +26,7 @@ public class PartnerService extends GenerateId implements Serializable{
     private String partnerServiceConvinience;
     private String partnerserviceType;
     private String partnerserviceCoverPhotoLink;
+    private String partnerserviceCoverPhotoID;
 
     public PartnerService() {
     }
@@ -68,6 +69,14 @@ public class PartnerService extends GenerateId implements Serializable{
         this.partnerServiceDiscount = partnerServiceDiscount;
         this.partnerServiceConvinience = partnerServiceConvinience;
         this.partnerserviceType = serviceType;
+    }
+
+    public String getPartnerserviceCoverPhotoID() {
+        return partnerserviceCoverPhotoID;
+    }
+
+    public void setPartnerserviceCoverPhotoID(String partnerserviceCoverPhotoID) {
+        this.partnerserviceCoverPhotoID = partnerserviceCoverPhotoID;
     }
 
     public String getPartnerServiceID() {
@@ -241,6 +250,7 @@ public class PartnerService extends GenerateId implements Serializable{
     public Map<String, Object> toMapUpdateCoverPhoto() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("partnerserviceCoverPhotoLink", partnerserviceCoverPhotoLink);
+        result.put("partnerserviceCoverPhotoID", partnerserviceCoverPhotoID);
 
         return result;
     }

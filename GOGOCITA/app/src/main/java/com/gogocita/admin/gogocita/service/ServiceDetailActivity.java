@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterViewFlipper;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 import com.gogocita.admin.constant.EntityName;
 import com.gogocita.admin.constant.ServiceConvinience;
+import com.gogocita.admin.controllers.service.ServiceImageController;
 import com.gogocita.admin.entity.PartnerService;
 import com.gogocita.admin.gogocita.BaseMenuActivity;
 import com.gogocita.admin.gogocita.R;
@@ -22,15 +24,16 @@ import com.squareup.picasso.Picasso;
 public class ServiceDetailActivity extends BaseMenuActivity {
     private TextView serviceName,serviceDesc,serviceEvalution,serviceVote;
     private EditText serviceAddress;
-    private ImageView serviceCoverPhoto;
     private Button btnbook;
     private CheckBox serviceWifi,serviceBreakfast,serviceSwimming,serviceAc;
+    private AdapterViewFlipper avf_images;
     private PartnerService partnerService;
+    private ServiceImageController serviceImageController;
 
     @Override
     protected void getWidget()
     {
-        serviceCoverPhoto = (ImageView) findViewById(R.id.image_contenofhomestay_avatar);
+        avf_images = (AdapterViewFlipper) findViewById(R.id.avf_serviceDetail_images);
         btnbook = (Button) findViewById(R.id.btn_contenofhomestay_book);
         serviceDesc = (TextView) findViewById(R.id.tv_contenofhomestay_desc);
         serviceEvalution = (TextView) findViewById(R.id.tv_contenofhomestay_evaluation);
@@ -39,18 +42,14 @@ public class ServiceDetailActivity extends BaseMenuActivity {
         serviceWifi = (CheckBox) findViewById(R.id.cb_contenofhomestay_wifi);
         serviceBreakfast = (CheckBox) findViewById(R.id.cb_contenofhomestay_freebreakfast);
         serviceSwimming = (CheckBox) findViewById(R.id.cb_contenofhomestay_swimmingpool);
-        serviceAc = (CheckBox) findViewById(R.id.cb_contenofhomestay_ac);;
+        serviceAc = (CheckBox) findViewById(R.id.cb_contenofhomestay_ac);
+        serviceImageController = ServiceImageController.getInstance(this,null);
     }
 
     @Override
     protected void setWidget()
     {
-        Picasso.with(this)
-                .load(partnerService.getPartnerserviceCoverPhotoLink())
-                .placeholder(R.mipmap.ic_launcher)
-                .fit()
-                .centerCrop()
-                .into(serviceCoverPhoto);
+        serviceImageController.getAllImages(avf_images,partnerService.getPartnerServiceID());
         serviceDesc.setText(partnerService.getPartnerServiceDesc());
         serviceEvalution.setText(partnerService.getPartnerServiceEvalution() +"");
         serviceName.setText(partnerService.getPartnerServiceName());

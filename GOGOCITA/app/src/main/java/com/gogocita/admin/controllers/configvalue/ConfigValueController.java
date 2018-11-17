@@ -8,6 +8,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.gogocita.admin.constant.EntityName;
+import com.gogocita.admin.constant.ServiceImageType;
 import com.gogocita.admin.entity.ConfigValue;
 import com.gogocita.admin.entity.Location;
 import com.gogocita.admin.gogocita.R;
@@ -37,7 +38,7 @@ public class ConfigValueController {
         return configValueController;
     }
 
-    public void getServiceImageTypes(Spinner spinner_serviceImageType){
+    public void getServiceImageTypes(Spinner spinner_serviceImageType, final boolean check){
         queryFirebase = QueryFirebase.getInstance(EntityName.ConfigValues);
         FirebaseListAdapter<ConfigValue> genderAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(null,"configValueGroup","PartnerServiceImageType"),ConfigValue.class, R.layout.custom_spinner,context) {
             @Override
@@ -52,6 +53,12 @@ public class ConfigValueController {
 
             @Override
             protected List modifyArrayAdapter(List models) {
+                if(check){
+                    for (ConfigValue i : (List<ConfigValue>) models) {
+                        if(i.getConfigValueKey().equals(ServiceImageType.coverPhoto))
+                            models.remove(i);
+                    }
+                }
                 return models;
             }
         };

@@ -11,21 +11,22 @@ import java.util.Map;
 
 public class PartnerServiceBook extends GenerateId{
     private String partnerServiceBookID;
-    private String fk_PartnerServiceID;
-    private String fk_PartnerID;
+    private String fK_PartnerServiceID;
+    private String fK_PartnerID;
     private String fk_CustomerID;
     private String status;
     private Date partnerServiceBookFrom;
     private Date partnerServiceBookTo;
     private String partnerServiceBookStatus;
+    private PartnerService partnerService;
 
     public PartnerServiceBook() {
     }
 
     public PartnerServiceBook(String partnerServiceDateID,String fk_PartnerID, String fk_PartnerServiceID, String fk_CustomerID, String status, Date partnerServiceDateFrom, Date partnerServiceDateTo, String partnerServiceDateStatus) {
         this.partnerServiceBookID = partnerServiceDateID;
-        this.fk_PartnerID = fk_PartnerID;
-        this.fk_PartnerServiceID = fk_PartnerServiceID;
+        this.fK_PartnerID = fk_PartnerID;
+        this.fK_PartnerServiceID = fk_PartnerServiceID;
         this.status = status;
         this.partnerServiceBookFrom = partnerServiceDateFrom;
         this.partnerServiceBookTo = partnerServiceDateTo;
@@ -35,13 +36,37 @@ public class PartnerServiceBook extends GenerateId{
 
     public PartnerServiceBook(String fk_PartnerServiceID, String fk_PartnerID, String fk_CustomerID, Date partnerServiceDateFrom, Date partnerServiceDateTo) {
         this.partnerServiceBookID = generateId(EntityName.PartnerServiceBooks);
-        this.fk_PartnerServiceID = fk_PartnerServiceID;
-        this.fk_PartnerID = fk_PartnerID;
+        this.fK_PartnerServiceID = fk_PartnerServiceID;
+        this.fK_PartnerID = fk_PartnerID;
         this.status = EntityStatus.Alive;
         this.partnerServiceBookFrom = partnerServiceDateFrom;
         this.partnerServiceBookTo = partnerServiceDateTo;
         this.partnerServiceBookStatus = PartnerServiceDateStatus.Pending;
         this.fk_CustomerID = fk_CustomerID;
+    }
+
+    public String getfK_PartnerServiceID() {
+        return fK_PartnerServiceID;
+    }
+
+    public void setfK_PartnerServiceID(String fK_PartnerServiceID) {
+        this.fK_PartnerServiceID = fK_PartnerServiceID;
+    }
+
+    public String getfK_PartnerID() {
+        return fK_PartnerID;
+    }
+
+    public void setfK_PartnerID(String fK_PartnerID) {
+        this.fK_PartnerID = fK_PartnerID;
+    }
+
+    public PartnerService getPartnerService() {
+        return partnerService;
+    }
+
+    public void setPartnerService(PartnerService partnerService) {
+        this.partnerService = partnerService;
     }
 
     public String getFk_CustomerID() {
@@ -58,14 +83,6 @@ public class PartnerServiceBook extends GenerateId{
 
     public void setPartnerServiceBookID(String partnerServiceDateID) {
         this.partnerServiceBookID = partnerServiceDateID;
-    }
-
-    public String getFk_PartnerServiceID() {
-        return fk_PartnerServiceID;
-    }
-
-    public void setFk_PartnerServiceID(String fk_PartnerServiceID) {
-        this.fk_PartnerServiceID = fk_PartnerServiceID;
     }
 
     public String getStatus() {
@@ -103,8 +120,8 @@ public class PartnerServiceBook extends GenerateId{
     @Exclude
     public Map<String, Object> toMapUpdate() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("fK_PartnerServiceID", fk_PartnerServiceID);
-        result.put("fK_PartnerID", fk_PartnerID);
+        result.put("fK_PartnerServiceID", fK_PartnerServiceID);
+        result.put("fK_PartnerID", fK_PartnerID);
         result.put("fk_CustomerID", fk_CustomerID);
         result.put("status", status);
         result.put("partnerServiceBookFrom", partnerServiceBookFrom);

@@ -7,6 +7,7 @@ import android.widget.ProgressBar;
 import com.gogocita.admin.controllers.service.ServiceBookController;
 import com.gogocita.admin.gogocita.BaseMenuActivity;
 import com.gogocita.admin.gogocita.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class BooksActiviry extends BaseMenuActivity {
     private Button btnReturn;
@@ -21,7 +22,7 @@ public class BooksActiviry extends BaseMenuActivity {
     @Override
     protected void setWidget() {
         serviceBookController = ServiceBookController.getInstance(this,null);
-        serviceBookController.getAllServiceBooks(lvBook,this);
+        serviceBookController.getAllServiceBooks(lvBook,this, FirebaseAuth.getInstance().getUid());
     }
 
     @Override

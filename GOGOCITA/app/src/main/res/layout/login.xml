@@ -8,128 +8,140 @@
     tools:context=".users.LoginActivity"
     android:padding="@dimen/padding_standard"
     android:background="@color/colorWhite">
-        <ProgressBar
-            android:id="@+id/progressBar_login"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerInParent="true"
-            android:layout_marginBottom="20dp"
-            android:visibility="gone" />
 
-        <ImageView
-            android:id="@+id/iv_logo"
-            android:layout_width="match_parent"
+    <ProgressBar
+        android:id="@+id/progressBar_login"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="20dp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/img_login" />
+    <EditText
+        android:id="@+id/et_user_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_logo"
+        android:layout_marginLeft="@dimen/margin_st5"
+        android:layout_marginRight="@dimen/margin_st5"
+        android:layout_marginTop="@dimen/margin_st1"
+        android:hint="@string/User_name"
+        android:textSize="@dimen/text_h4"
+        android:inputType="textEmailAddress" />
+    <EditText
+        android:id="@+id/et_password_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_user_login"
+        android:layout_marginLeft="@dimen/margin_st5"
+        android:layout_marginRight="@dimen/margin_st5"
+        android:layout_marginTop="@dimen/margin_st1"
+        android:hint="@string/Password"
+        android:textSize="@dimen/text_h4"
+        android:inputType="textPassword" />
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_password_login"
+        android:layout_marginTop="@dimen/margin_st1"
+        android:layout_marginLeft="@dimen/margin_st5"
+        android:layout_marginRight="@dimen/margin_st5"
+        android:textSize="@dimen/text_h3"
+        android:textColor="#ffffff"
+        android:background="@drawable/border_button"
+        android:text="@string/Login"
+        android:textAllCaps="false" />
+    <TextView
+        android:id="@+id/tv_forgot_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h5"
+        android:layout_below="@+id/btn_login"
+        android:layout_marginTop="@dimen/margin_st1"
+        android:layout_marginLeft="@dimen/margin_st5"
+        android:layout_marginRight="@dimen/margin_st5"
+        android:text="@string/Forgot_password"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_h5"
+        android:onClick="forgotPassword" />
+    <LinearLayout
+        android:id="@+id/ln_creat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_forgot_password"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="@dimen/margin_st5"
+        android:paddingRight="@dimen/margin_st5">
+        <TextView
+            android:id="@+id/tv_dont"
+            android:layout_width="wrap_content"
+            android:layout_weight="3"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/img_login" />
-        <EditText
-            android:id="@+id/et_user_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/iv_logo"
-            android:layout_marginLeft="@dimen/margin_st5"
-            android:layout_marginRight="@dimen/margin_st5"
-            android:layout_marginTop="@dimen/margin_st1"
-            android:hint="@string/User_name"
-            android:textSize="@dimen/text_h4"
-            android:inputType="textEmailAddress" />
-        <EditText
-            android:id="@+id/et_password_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/et_user_login"
-            android:layout_marginLeft="@dimen/margin_st5"
-            android:layout_marginRight="@dimen/margin_st5"
-            android:layout_marginTop="@dimen/margin_st1"
-            android:hint="@string/Password"
-            android:textSize="@dimen/text_h4"
-            android:inputType="textPassword" />
+            android:textSize="@dimen/text_h6"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="Don't have an account?"
+            android:layout_alignParentBottom="true"/>
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/create_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:text="Create"
+            android:textSize="@dimen/text_h5"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/border_button_create"
+            android:onClick="btn_create" />
+    </LinearLayout>
+    <LinearLayout
+
+        android:id="@+id/ln_login_with"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ln_creat"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:weightSum="2">
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/btn_fb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/et_password_login"
             android:layout_marginTop="@dimen/margin_st1"
             android:layout_marginLeft="@dimen/margin_st5"
+            android:layout_marginRight="5dp"
+            android:textSize="@dimen/text_h3"
+            android:textColor="#ffffff"
+            android:background="@drawable/border_button_facebook"
+            android:text="@string/facebook"
+            android:textAllCaps="false" />
+        <Button
+            android:id="@+id/btn_gmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/margin_st1"
+            android:layout_marginLeft="5dp"
             android:layout_marginRight="@dimen/margin_st5"
             android:textSize="@dimen/text_h3"
             android:textColor="#ffffff"
-            android:background="@drawable/border_button"
-            android:text="@string/Login"
+            android:background="@drawable/border_button_gmail"
+            android:text="@string/gmail"
             android:textAllCaps="false" />
-        <TextView
-            android:id="@+id/tv_forgot_password"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/h5"
-            android:layout_below="@+id/btn_login"
-            android:layout_marginTop="@dimen/margin_st1"
-            android:layout_marginLeft="@dimen/margin_st5"
-            android:layout_marginRight="@dimen/margin_st5"
-            android:text="@string/Forgot_password"
-            android:textAlignment="center"
-            android:textSize="@dimen/text_h5"
-            android:onClick="forgotPassword" />
-        <LinearLayout
-            android:id="@+id/ln_creat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_forgot_password"
-            android:orientation="horizontal"
-            android:layout_centerHorizontal="true"
-            android:paddingLeft="@dimen/margin_st5"
-            android:paddingRight="@dimen/margin_st5">
-            <TextView
-                android:id="@+id/tv_dont"
-                android:layout_width="wrap_content"
-                android:layout_weight="3"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/text_h6"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:text="Don't have an account?"
-                android:layout_alignParentBottom="true"/>
-            <Button
-                android:id="@+id/create_account"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
-                android:layout_weight="1"
-                android:textAllCaps="false"
-                android:text="Create"
-                android:textSize="@dimen/text_h5"
-                android:textColor="@color/colorWhite"
-                android:background="@drawable/border_button_create"
-                android:onClick="btn_create" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginBottom="@dimen/margin_st5"
-            android:id="@+id/ln_login_with"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:orientation="vertical"
-            android:layout_centerHorizontal="true" >
-            <TextView
-                android:id="@+id/tv_login_facebook"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textSize="@dimen/text_h4"
-                android:textColor="@color/com_facebook_blue"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:text="@string/login_facebook" />
-            <TextView
-                android:id="@+id/tv_login_gmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textColor="@color/colorgg"
-                android:text="@string/login_gmail"
-                android:textSize="@dimen/text_h4" />
-        </LinearLayout>
-    </RelativeLayout>
+
+    </LinearLayout>
+</RelativeLayout>
 
 
 

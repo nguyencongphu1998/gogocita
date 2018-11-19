@@ -11,8 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gogocita.admin.constant.EntityName;
+import com.gogocita.admin.dto.FilterServicesDto;
 import com.gogocita.admin.entity.PartnerService;
-import com.gogocita.admin.entity.UserDetail;
 import com.gogocita.admin.gogocita.R;
 import com.gogocita.admin.gogocita.service.Step1Activity;
 import com.gogocita.admin.helper.FirebaseListAdapter;
@@ -25,7 +25,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
-import java.util.Iterator;
+import java.util.Comparator;
 import java.util.List;
 
 public class ServiceController {
@@ -90,7 +90,7 @@ public class ServiceController {
         });
     }
 
-    public void getAllServices(ListView listView, final Context context){
+    public void getAllServices(ListView listView, final Context context, final FilterServicesDto dto){
         QueryFirebase<PartnerService> queryFirebase = QueryFirebase.getInstance(EntityName.PartnerServices);
         FirebaseListAdapter<PartnerService> serviceAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(null,null,null),PartnerService.class,R.layout.custom_services,context) {
             @Override
@@ -117,7 +117,6 @@ public class ServiceController {
                 vh.setTextViewServiceName((TextView) v.findViewById(R.id.tv_listservice_name));
                 vh.setTextViewServiceDescription((TextView) v.findViewById(R.id.tv_listservice_description));
                 vh.setTextViewServiceEvalution((TextView) v.findViewById(R.id.tv_listservice_evalution));
-                vh.setTextViewServiceEvalution((TextView) v.findViewById(R.id.tv_listservice_evalution));
                 vh.setImageViewServiceCoverPhoto((ImageView) v.findViewById(R.id.iv_listservice_coverphoto));
             }
 
@@ -125,12 +124,40 @@ public class ServiceController {
             @Override
             protected List modifyArrayAdapter(List models)
             {
-//                for (PartnerService i : (List<PartnerService>)models)
-//                {
-//                    if(i.getFk_LocationCityID().equals("Bến Tre")){
-//                        models.remove(i);
-//                    }
-//                }
+                if(dto != null){
+                    for (PartnerService i : (List<PartnerService>)models)
+                    {
+                        if(!dto.getCity().equals("")){
+                            if(!i.getFk_LocationCityID().equals(dto.getCity())){
+                                models.remove(i);
+                            }
+                        }
+                    }
+
+                    if(dto.getEvalutionSort().equals("asc")){
+                        models.sort(new Comparator<PartnerService>() {
+                            @Override
+                            public int compare(PartnerService m1, PartnerService m2) {
+                                if(m1.getPartnerServiceEvalution() == m2.getPartnerServiceEvalution()){
+                                    return 0;
+                                }
+                                return m1.getPartnerServiceEvalution() > m2.getPartnerServiceEvalution() ? -1 : 1;
+                            }
+                        });
+                    }
+
+                    if(dto.getEvalutionSort().equals("desc")){
+                        models.sort(new Comparator<PartnerService>() {
+                            @Override
+                            public int compare(PartnerService m1, PartnerService m2) {
+                                if(m1.getPartnerServiceEvalution() == m2.getPartnerServiceEvalution()){
+                                    return 0;
+                                }
+                                return m1.getPartnerServiceEvalution() < m2.getPartnerServiceEvalution() ? -1 : 1;
+                            }
+                        });
+                    }
+                }
                 return models;
             }
         };

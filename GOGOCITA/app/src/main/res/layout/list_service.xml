@@ -52,6 +52,7 @@
                         android:layout_gravity="center"
                         android:gravity="center"/>
                     <Spinner
+                        android:id="@+id/spinner_search_city"
                         android:layout_gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -72,6 +73,7 @@
                         android:layout_weight="1"
                         android:layout_gravity="center"/>
                     <ImageButton
+                        android:id="@+id/btn_search_asc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:src="@drawable/sort"
@@ -94,6 +96,7 @@
                         android:layout_weight="1"
                         android:layout_gravity="center"/>
                     <ImageButton
+                        android:id="@+id/btn_search_desc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:src="@drawable/sort"

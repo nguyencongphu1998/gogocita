@@ -159,5 +159,29 @@ public class ConfigValueController {
         spinner_city.setAdapter(locationCityAdapter);
     }
 
+    public void getCity(Spinner spinner_city){
+        queryFirebase = QueryFirebase.getInstance(EntityName.Locations);
+        FirebaseListAdapter<Location> locationCountryAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(null,"locationType","City"),Location.class,R.layout.custom_spinner,context) {
+            @Override
+            protected void populateView(ViewHolder vh, Object model) {
+                vh.getCheckedTextViewSpinner().setText(((Location)model).getLocationName());
+            }
+
+            @Override
+            protected void setViewHolder(ViewHolder vh, View v) {
+                vh.setCheckedTextViewSpinner((CheckedTextView) v.findViewById(R.id.checktextviewspnner));
+            }
+
+
+            @Override
+            protected List modifyArrayAdapter(List models) {
+                models.add(0, new Location("","City","----Tất cả----"));
+                return models;
+            }
+        };
+
+        spinner_city.setAdapter(locationCountryAdapter);
+    }
+
 
 }

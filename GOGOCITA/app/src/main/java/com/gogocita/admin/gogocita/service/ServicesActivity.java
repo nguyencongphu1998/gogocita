@@ -12,6 +12,7 @@ import com.gogocita.admin.constant.EntityName;
 import com.gogocita.admin.constant.FilterSort;
 import com.gogocita.admin.controllers.configvalue.ConfigValueController;
 import com.gogocita.admin.controllers.service.ServiceController;
+import com.gogocita.admin.controllers.user.UsersController;
 import com.gogocita.admin.dto.FilterServicesDto;
 import com.gogocita.admin.entity.Location;
 import com.gogocita.admin.entity.PartnerService;
@@ -27,6 +28,7 @@ public class ServicesActivity extends BaseMenuActivity{
     private Spinner spinnerCity;
     private Spinner spinnerCountry;
     private ServiceController serviceController;
+    private UsersController usersController;
     private ConfigValueController configValueController;
     private FilterServicesDto filterDto;
 
@@ -100,6 +102,7 @@ public class ServicesActivity extends BaseMenuActivity{
     {
         filterDto = new FilterServicesDto();
         configValueController = ConfigValueController.getInstance(getApplicationContext());
+        usersController = UsersController.getInstance(this,progressBar);
     }
 
     @Override
@@ -127,5 +130,12 @@ public class ServicesActivity extends BaseMenuActivity{
     @Override
     protected void setContentView(){
         setContentView(R.layout.list_service);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        usersController.checkAuthorizeLogin();
     }
 }

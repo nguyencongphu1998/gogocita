@@ -7,22 +7,25 @@ import android.support.annotation.NonNull;
 import android.widget.Toast;
 import android.view.View;
 
+import com.facebook.AccessToken;
 import com.gogocita.admin.constant.EntityName;
 import com.gogocita.admin.entity.User;
 import com.gogocita.admin.entity.UserDetail;
 import com.gogocita.admin.gogocita.service.ServiceOptionActivity;
-import com.gogocita.admin.gogocita.service.ServicesActivity;
 import com.gogocita.admin.gogocita.users.ForgetPasswordAccessMail;
 import com.gogocita.admin.gogocita.users.LoginActivity;
 import com.gogocita.admin.gogocita.users.SingUpSuccessActivity;
 import com.gogocita.admin.helper.QueryFirebase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import android.widget.ProgressBar;
+
 
 
 public class UsersController {
@@ -51,36 +54,16 @@ public class UsersController {
             usersController.progressBar = progressBar;
             usersController.activity = activity;
         }
-
-        usersController.activity = activity;
         return usersController;
-    }
-
-    public void checkAuthorize()
-    {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user == null) {
-            activity.startActivity(new Intent(activity, LoginActivity.class));
-            activity.finish();
-        }
-
     }
 
     public void checkAuthorizeLogin()
     {
-        FirebaseAuth.AuthStateListener authListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user == null) {
-                    activity.startActivity(new Intent(activity, LoginActivity.class));
-                    activity.finish();
-                }else {
-                    activity.startActivity(new Intent(activity, ServicesActivity.class));
-                    activity.finish();
-                }
-            }
-        };
+        FirebaseUser user = auth.getCurrentUser();
+        if (user == null) {
+            activity.startActivity(new Intent(activity, LoginActivity.class));
+            activity.finish();
+        }
     }
 
     public void singUp(final String email, final String password, String repassword,final String userType)
@@ -187,6 +170,32 @@ public class UsersController {
             Toast.makeText(activity, "Enter email!", Toast.LENGTH_SHORT).show();
             progressBar.setVisibility(View.GONE);
         }
+    }
+
+    public void handleFacebookAccessToken(AccessToken token) {
+
+        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        auth.signInWithCredential(credential)
+                .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            user = auth.getCurrentUser();
+                            QueryFirebase<User> queryFirebase = QueryFirebase.getInstance(com.gogocita.admin.constant.EntityName.Users);
+                            queryFirebase.Insert(new User(user.getUid(),user.getEmail(),"") ,user.getUid());
+
+                            QueryFirebase<UserDetail> queryFirebaseUserDetail = QueryFirebase.getInstance(EntityName.UserDetails);
+                            queryFirebaseUserDetail.Insert(new UserDetail(user.getUid(),user.getEmail()),user.getUid());
+
+                            activity.startActivity(new Intent(activity,SingUpSuccessActivity.class));
+                            activity.finish();
+
+                        } else {
+                            Toast.makeText(activity, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
     public void signOut()

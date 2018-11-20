@@ -167,7 +167,6 @@ public class CreateNewServiceActivity extends BaseMenuActivity {
         usersController = UsersController.getInstance(this,progressBar);
         serviceController = ServiceController.getInstance(this,progressBar);
 
-        usersController.checkAuthorize();
         user = usersController.getUser();
     }
 

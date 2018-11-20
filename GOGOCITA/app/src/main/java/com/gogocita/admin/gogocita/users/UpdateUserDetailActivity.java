@@ -83,7 +83,6 @@ public class UpdateUserDetailActivity extends BaseMenuActivity {
         usersController = UsersController.getInstance(this,progressBar);
         userDetailsController = UserDetailsController.getInstance(this,progressBar);
 
-        usersController.checkAuthorize();
         user = usersController.getUser();
 
         Intent intent = getIntent();

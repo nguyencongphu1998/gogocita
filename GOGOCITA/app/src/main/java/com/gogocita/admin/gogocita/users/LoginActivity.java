@@ -10,6 +10,13 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.gogocita.admin.controllers.user.UsersController;
 import com.gogocita.admin.gogocita.R;
 
@@ -17,11 +24,15 @@ public class LoginActivity extends AppCompatActivity {
     private EditText inputEmail;
     private EditText inputPassword;
     private Button btnLogin;
+    private LoginButton loginFace;
     private ProgressBar progressBar;
     private UsersController usersController;
+    private CallbackManager callbackManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
         setContentView(R.layout.login);
 
         getWidget();
@@ -35,12 +46,12 @@ public class LoginActivity extends AppCompatActivity {
         inputEmail = (EditText) findViewById(R.id.et_user_login);
         progressBar = (ProgressBar) findViewById(R.id.progressBar_login);
         inputPassword = (EditText) findViewById(R.id.et_password_login);
+        loginFace = findViewById(R.id.btn_fb);
     }
 
     private void setWidget()
     {
         usersController = UsersController.getInstance(LoginActivity.this ,progressBar);
-        usersController.checkAuthorizeLogin();
     }
 
     private void addListener()
@@ -62,6 +73,26 @@ public class LoginActivity extends AppCompatActivity {
                 usersController.singIn(inputEmail.getText().toString(),inputPassword.getText().toString());
             }
         });
+
+         callbackManager = CallbackManager.Factory.create();
+
+        loginFace.setReadPermissions("email", "public_profile");
+        loginFace.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                usersController.handleFacebookAccessToken(loginResult.getAccessToken());
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+
+            }
+        });
     }
 
     public void btn_create(View v){
@@ -73,5 +104,13 @@ public class LoginActivity extends AppCompatActivity {
     public void forgotPassword(View v){
         startActivity(new Intent(this, ForgetPasswordActivity.class));
         finish();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Pass the activity result back to the Facebook SDK
+        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 }

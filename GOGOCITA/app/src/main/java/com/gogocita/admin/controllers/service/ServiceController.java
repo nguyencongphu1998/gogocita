@@ -127,6 +127,15 @@ public class ServiceController {
                 if(dto != null){
                     for (PartnerService i : (List<PartnerService>)models)
                     {
+                        if(!dto.getCountry().equals("")){
+                            if(!i.getFk_LocationCountryID().equals(dto.getCountry())){
+                                models.remove(i);
+                            }
+                        }
+                    }
+
+                    for (PartnerService i : (List<PartnerService>)models)
+                    {
                         if(!dto.getCity().equals("")){
                             if(!i.getFk_LocationCityID().equals(dto.getCity())){
                                 models.remove(i);

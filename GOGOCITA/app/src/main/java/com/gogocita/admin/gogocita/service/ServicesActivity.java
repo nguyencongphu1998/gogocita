@@ -23,7 +23,9 @@ public class ServicesActivity extends BaseMenuActivity{
     private ProgressBar progressBar;
     private ImageButton btnDesc;
     private ImageButton btnAsc;
+    private ImageButton btnReset;
     private Spinner spinnerCity;
+    private Spinner spinnerCountry;
     private ServiceController serviceController;
     private ConfigValueController configValueController;
     private FilterServicesDto filterDto;
@@ -56,15 +58,38 @@ public class ServicesActivity extends BaseMenuActivity{
             }
         });
 
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterDto = new FilterServicesDto();
+                serviceController.getAllServices(listView,getApplicationContext(), filterDto);
+            }
+        });
+
+        spinnerCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                filterDto.setCountry(((Location) spinnerCountry.getSelectedItem()).getLocationName());
+                serviceController.getAllServices(listView,getApplicationContext(), filterDto);
+
+                configValueController.getCitys(((Location) spinnerCountry.getSelectedItem()).getLocationID(),spinnerCity);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         spinnerCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 filterDto.setCity(((Location) spinnerCity.getSelectedItem()).getLocationName());
                 serviceController.getAllServices(listView,getApplicationContext(), filterDto);
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
+            public void onNothingSelected(AdapterView<?> parent) {
 
             }
         });
@@ -84,7 +109,7 @@ public class ServicesActivity extends BaseMenuActivity{
 
         serviceController.getAllServices(listView,this, filterDto);
 
-        configValueController.getCity(spinnerCity);
+        configValueController.getCountry(spinnerCountry);
     }
 
     @Override
@@ -93,8 +118,10 @@ public class ServicesActivity extends BaseMenuActivity{
         listView = (ListView) findViewById(R.id.list_service);
         progressBar = (ProgressBar) findViewById(R.id.progressBar_services);
         spinnerCity = (Spinner) findViewById(R.id.spinner_search_city);
+        spinnerCountry = (Spinner) findViewById(R.id.spinner_search_country);
         btnAsc = (ImageButton) findViewById(R.id.btn_search_asc);
         btnDesc = (ImageButton) findViewById(R.id.btn_search_desc);
+        btnReset = (ImageButton) findViewById(R.id.btn_search_reset);
     }
 
     @Override

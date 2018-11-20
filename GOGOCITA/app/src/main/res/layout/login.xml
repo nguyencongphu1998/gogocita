@@ -22,63 +22,65 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:background="@drawable/img_login" />
-    <EditText
-        android:id="@+id/et_user_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:background="@drawable/img_login"
+        android:padding="@dimen/margin_standard"/>
+    <LinearLayout
+        android:id="@+id/login"
         android:layout_below="@id/iv_logo"
-        android:layout_marginLeft="@dimen/margin_st5"
-        android:layout_marginRight="@dimen/margin_st5"
-        android:layout_marginTop="@dimen/margin_st1"
-        android:hint="@string/User_name"
-        android:textSize="@dimen/text_h4"
-        android:inputType="textEmailAddress" />
-    <EditText
-        android:id="@+id/et_password_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/et_user_login"
-        android:layout_marginLeft="@dimen/margin_st5"
-        android:layout_marginRight="@dimen/margin_st5"
-        android:layout_marginTop="@dimen/margin_st1"
-        android:hint="@string/Password"
-        android:textSize="@dimen/text_h4"
-        android:inputType="textPassword" />
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/et_password_login"
-        android:layout_marginTop="@dimen/margin_st1"
-        android:layout_marginLeft="@dimen/margin_st5"
-        android:layout_marginRight="@dimen/margin_st5"
-        android:textSize="@dimen/text_h3"
-        android:textColor="#ffffff"
-        android:background="@drawable/border_button"
-        android:text="@string/Login"
-        android:textAllCaps="false" />
-    <TextView
-        android:id="@+id/tv_forgot_password"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/h5"
-        android:layout_below="@+id/btn_login"
-        android:layout_marginTop="@dimen/margin_st1"
-        android:layout_marginLeft="@dimen/margin_st5"
-        android:layout_marginRight="@dimen/margin_st5"
-        android:text="@string/Forgot_password"
-        android:textAlignment="center"
-        android:textSize="@dimen/text_h5"
-        android:onClick="forgotPassword" />
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/margin_standard"
+        android:paddingRight="@dimen/margin_standard"
+        >
+        <EditText
+            android:id="@+id/et_user_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_st1"
+            android:hint="@string/User_name"
+            android:textSize="@dimen/text_h4"
+            android:inputType="textEmailAddress" />
+        <EditText
+            android:id="@+id/et_password_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_user_login"
+            android:layout_marginTop="@dimen/margin_st1"
+            android:hint="@string/Password"
+            android:textSize="@dimen/text_h4"
+            android:inputType="textPassword" />
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_password_login"
+            android:layout_marginTop="@dimen/h7"
+            android:textSize="@dimen/text_h3"
+            android:textColor="#ffffff"
+            android:background="@drawable/border_button"
+            android:text="@string/Login"
+            android:textAllCaps="false" />
+        <TextView
+            android:id="@+id/tv_forgot_password"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/h5"
+            android:layout_below="@+id/btn_login"
+            android:layout_marginTop="@dimen/margin_st1"
+            android:text="@string/Forgot_password"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_h5"
+            android:onClick="forgotPassword" />
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/ln_creat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_forgot_password"
+        android:layout_below="@+id/login"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
-        android:paddingLeft="@dimen/margin_st5"
-        android:paddingRight="@dimen/margin_st5">
+        android:paddingLeft="@dimen/margin_standard"
+        android:paddingRight="@dimen/margin_standard">
         <TextView
             android:id="@+id/tv_dont"
             android:layout_width="wrap_content"
@@ -104,14 +106,12 @@
             android:onClick="btn_create" />
     </LinearLayout>
     <LinearLayout
-
         android:id="@+id/ln_login_with"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ln_creat"
-        android:orientation="horizontal"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_standard"
         android:weightSum="2">
         <Button
             android:layout_weight="1"
@@ -119,9 +119,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_st1"
-            android:layout_marginLeft="@dimen/margin_st5"
-            android:layout_marginRight="5dp"
-            android:textSize="@dimen/text_h3"
+            android:textSize="@dimen/text_h5"
             android:textColor="#ffffff"
             android:background="@drawable/border_button_facebook"
             android:text="@string/facebook"
@@ -132,14 +130,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginTop="@dimen/margin_st1"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="@dimen/margin_st5"
-            android:textSize="@dimen/text_h3"
+            android:textSize="@dimen/text_h5"
             android:textColor="#ffffff"
             android:background="@drawable/border_button_gmail"
             android:text="@string/gmail"
             android:textAllCaps="false" />
-
     </LinearLayout>
 </RelativeLayout>
 

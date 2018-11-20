@@ -33,8 +33,8 @@
     <string name="Creat_my_service">Creat my service</string>
     <string name="See_calendar">See calendar</string>
     <string name="login_with">Login with</string>
-    <string name="facebook">Facebook</string>
-    <string name="gmail">Gmail</string>
+    <string name="facebook">Login with Facebook</string>
+    <string name="gmail">Login with Google+</string>
     <string name="login_facebook">Login with Facebook</string>
     <string name="login_gmail">Login with Gmail</string>
 

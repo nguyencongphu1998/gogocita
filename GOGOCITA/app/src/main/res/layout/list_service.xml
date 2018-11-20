@@ -30,7 +30,7 @@
             android:background="@color/colorWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:stretchColumns="0,1"
+            android:stretchColumns="0"
             android:padding="@dimen/margin_st1">
             <TableRow>
                 <LinearLayout
@@ -42,7 +42,7 @@
                     android:weightSum="2"
                     android:gravity="center"
                     android:layout_marginTop="3dp"
-                    android:layout_marginRight="2dp">
+                    android:layout_marginRight="@dimen/h10">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -58,6 +58,61 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"></Spinner>
                 </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/sort_asc"
+                    android:layout_toRightOf="@+id/area_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/h10">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ASC"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"/>
+                    <ImageButton
+                        android:background="@drawable/text_bg"
+                        android:id="@+id/btn_search_asc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/sort"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:padding="4dp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/sort_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/h10"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="DESC"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"/>
+                    <ImageButton
+                        android:background="@drawable/text_bg"
+                        android:id="@+id/btn_search_desc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/sort"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:padding="4dp"/>
+                </LinearLayout>
+            </TableRow>
+            <TableRow
+                android:layout_marginTop="@dimen/h11">
                 <LinearLayout
                     android:id="@+id/area_search2"
                     android:layout_width="match_parent"
@@ -67,7 +122,7 @@
                     android:weightSum="2"
                     android:gravity="center"
                     android:layout_marginTop="3dp"
-                    android:layout_marginRight="2dp">
+                    android:layout_marginRight="@dimen/h10">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -83,65 +138,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"></Spinner>
                 </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/sort_asc"
-                    android:layout_toRightOf="@+id/area_search"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="2dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="ASC"
-                        android:layout_weight="1"
-                        android:layout_gravity="center"/>
-                    <ImageButton
-                        android:background="@drawable/text_bg"
-                        android:id="@+id/btn_search_asc"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/sort"
-                        android:layout_weight="1"
-                        android:layout_gravity="center"
-                        android:padding="6dp"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/sort_desc"
-                    android:layout_toRightOf="@+id/sort_asc"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="2dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="DESC"
-                        android:layout_weight="1"
-                        android:layout_gravity="center"/>
-                    <ImageButton
-                        android:background="@drawable/text_bg"
-                        android:id="@+id/btn_search_desc"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/sort"
-                        android:layout_weight="1"
-                        android:layout_gravity="center"
-                        android:padding="6dp"/>
-                </LinearLayout>
                 <ImageButton
                     android:id="@+id/btn_search_reset"
                     android:background="@drawable/text_bg"
-                    android:padding="6dp"
+                    android:padding="4dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:src="@drawable/reset"
-                    android:layout_gravity="center"/>
+                    android:layout_gravity="right"
+                    android:layout_marginRight="@dimen/h10"/>
 
             </TableRow>
         </TableLayout>

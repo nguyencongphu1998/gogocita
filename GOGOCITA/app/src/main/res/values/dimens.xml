@@ -22,4 +22,6 @@
     <dimen name="h7">20dp</dimen>
     <dimen name="h8">15dp</dimen>
     <dimen name="h9">10dp</dimen>
+    <dimen name="h10">2dp</dimen>
+    <dimen name="h11">5dp</dimen>
 </resources>

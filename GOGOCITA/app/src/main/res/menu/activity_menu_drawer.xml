@@ -8,10 +8,6 @@
             android:id="@+id/btn_dashboard"
             android:icon="@drawable/dashboard"
             android:title="Dash board" />
-        <item
-            android:id="@+id/btn_search"
-            android:icon="@drawable/search"
-            android:title="Quick search" />
     </group>
     <item android:title="My information">
         <menu>
@@ -27,8 +23,6 @@
             </group>
         </menu>
     </item>
-
-
     <item android:title="Services">
         <menu>
             <group android:checkableBehavior="single">

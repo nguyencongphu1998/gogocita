@@ -26,6 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
 public class ServiceController {
@@ -125,20 +126,21 @@ public class ServiceController {
             protected List modifyArrayAdapter(List models)
             {
                 if(dto != null){
-                    for (PartnerService i : (List<PartnerService>)models)
-                    {
-                        if(!dto.getCountry().equals("")){
-                            if(!i.getFk_LocationCountryID().equals(dto.getCountry())){
-                                models.remove(i);
+
+                    if(!dto.getCountry().equals("")){
+                        for (Iterator<PartnerService> iterator = models.iterator(); iterator.hasNext(); ) {
+                            PartnerService value = iterator.next();
+                            if(!value.getFk_LocationCountryID().equals(dto.getCountry())){
+                                iterator.remove();
                             }
                         }
                     }
 
-                    for (PartnerService i : (List<PartnerService>)models)
-                    {
-                        if(!dto.getCity().equals("")){
-                            if(!i.getFk_LocationCityID().equals(dto.getCity())){
-                                models.remove(i);
+                    if(!dto.getCity().equals("")){
+                        for (Iterator<PartnerService> iterator = models.iterator(); iterator.hasNext(); ) {
+                            PartnerService value = iterator.next();
+                            if(!value.getFk_LocationCityID().equals(dto.getCity())){
+                                iterator.remove();
                             }
                         }
                     }

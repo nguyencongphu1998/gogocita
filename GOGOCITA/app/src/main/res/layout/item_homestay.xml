@@ -104,6 +104,7 @@
                 android:background="@color/confirm"
                 android:textColor="@color/white"
                 android:text="Confirm"
+                android:visibility="gone"
                 android:layout_margin="4dp" />
             <Button
                 android:id="@+id/btn_cancel"
@@ -113,6 +114,7 @@
                 android:background="@color/cancel"
                 android:textColor="@color/white"
                 android:text="cancel"
+                android:visibility="gone"
                 android:layout_margin="4dp" />
         </LinearLayout>
             <TextView

@@ -21,6 +21,7 @@ import com.gogocita.admin.controllers.user.UserDetailsController;
 import com.gogocita.admin.controllers.user.UsersController;
 import com.gogocita.admin.gogocita.service.BooksActiviry;
 import com.gogocita.admin.gogocita.service.CreateNewServiceActivity;
+import com.gogocita.admin.gogocita.service.HistoryOrdersActivity;
 import com.gogocita.admin.gogocita.service.ServicesActivity;
 import com.gogocita.admin.gogocita.users.ChangePasswordActivity;
 import com.gogocita.admin.gogocita.users.UpdateUserDetailActivity;
@@ -121,7 +122,14 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
                 changePassword();
                 break;
             case R.id.btn_history:
-                comingSoon();
+                item.setActionView(new ProgressBar(this));
+                item.getActionView().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        history();
+                    }
+                },timeDelayMiliSeconds);
                 break;
             case R.id.btn_aboutus:
                 aboutUs();
@@ -165,6 +173,11 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
     }
 
     public void seecalender(){
+        startActivity(new Intent(this, HistoryOrdersActivity.class));
+        finish();
+    }
+
+    public void history(){
         startActivity(new Intent(this, BooksActiviry.class));
         finish();
     }

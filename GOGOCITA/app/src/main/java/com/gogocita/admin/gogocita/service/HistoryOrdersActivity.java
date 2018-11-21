@@ -11,7 +11,7 @@ import com.gogocita.admin.gogocita.BaseMenuActivity;
 import com.gogocita.admin.gogocita.R;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class BooksActiviry extends BaseMenuActivity {
+public class HistoryOrdersActivity extends BaseMenuActivity {
     private Button btnReturn;
     private ListView lvBook;
     private ProgressBar progressBar;
@@ -23,8 +23,8 @@ public class BooksActiviry extends BaseMenuActivity {
 
     @Override
     protected void setWidget() {
-        serviceBookController = ServiceBookController.getInstance(this,progressBar);
-        serviceBookController.getAllServiceBooks(lvBook,this, FirebaseAuth.getInstance().getUid());
+        serviceBookController = ServiceBookController.getInstance(this,null);
+        serviceBookController.getAllServiceBooksOfHomeStay(lvBook,this, FirebaseAuth.getInstance().getUid());
     }
 
     @Override

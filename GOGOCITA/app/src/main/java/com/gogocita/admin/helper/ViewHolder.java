@@ -1,5 +1,6 @@
 package com.gogocita.admin.helper;
 
+import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -18,9 +19,27 @@ public class ViewHolder {
     private TextView textViewBookStatus;
     private TextView textViewBookAddress;
     private LinearLayout linearLayoutBook;
+    private Button btnConfirm;
+    private Button btnCancel;
 
     public ViewHolder(){
 
+    }
+
+    public Button getBtnConfirm() {
+        return btnConfirm;
+    }
+
+    public void setBtnConfirm(Button btnConfirm) {
+        this.btnConfirm = btnConfirm;
+    }
+
+    public Button getBtnCancel() {
+        return btnCancel;
+    }
+
+    public void setBtnCancel(Button btnCancel) {
+        this.btnCancel = btnCancel;
     }
 
     public LinearLayout getLinearLayoutBook() {

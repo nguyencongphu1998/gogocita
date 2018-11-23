@@ -21,4 +21,5 @@
     <color name="pending">#ff8533</color>
     <color name="cancel">#ff3333</color>
     <color name="confirm">#00ff99</color>
+    <color name="colorededed">#ededed</color>
 </resources>

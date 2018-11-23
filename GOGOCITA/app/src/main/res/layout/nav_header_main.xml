@@ -12,21 +12,22 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/h20"
         android:src="@drawable/avatarbig"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Name of user"
-        android:textSize="20sp"
+        android:text="@string/User_name"
+        android:textSize="@dimen/t20"
         android:textColor="@color/white"
+        android:layout_marginTop="@dimen/h5"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/coloraaaaaa"
-        android:textSize="18sp"
+        android:textSize="@dimen/t18"
         android:gravity="center"
-        android:text="Email of user"/>
+        android:text="@string/email"/>
 </LinearLayout>

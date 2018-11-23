@@ -5,7 +5,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/margin_st5">
+        android:layout_margin="@dimen/standard">
         <LinearLayout
             android:id="@+id/layout_createservice"
             android:layout_width="match_parent"
@@ -19,11 +19,11 @@
             <TextView
                 android:id="@+id/tv_createservice"
                 android:layout_below="@+id/imv_check"
-                android:layout_marginTop="@dimen/margin_standard"
+                android:layout_marginTop="@dimen/standard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Great! Your creat your service successful"
-                android:textSize="@dimen/text_size_small"
+                android:text="@string/creatsv"
+                android:textSize="@dimen/t18"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:layout_centerHorizontal="true"
@@ -33,18 +33,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/layout_createservice">
-
             <Button
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="@dimen/h50"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/border_button"
-                android:text="RETURN DASHBOARD"
+                android:text="@string/returndash"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_size_small"
-                />
+                android:textSize="@dimen/t20" />
         </LinearLayout>
-
     </RelativeLayout>
-
 </android.support.constraint.ConstraintLayout>

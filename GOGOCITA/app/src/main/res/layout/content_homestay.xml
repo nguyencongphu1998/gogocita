@@ -8,18 +8,15 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -27,7 +24,7 @@
             android:weightSum="10">
             <AdapterViewFlipper
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="@dimen/h250"
                 android:id="@+id/avf_serviceDetail_images">
             </AdapterViewFlipper>
             <ScrollView
@@ -41,74 +38,74 @@
                     android:orientation="vertical">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="@dimen/h40"
                         android:background="@color/pink"
                         android:weightSum="3"
                         android:layout_gravity="center"
                         android:gravity="center">
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="60dp"
+                            android:layout_height="@dimen/h60"
                             android:layout_weight="1"
-                            android:layout_marginLeft="30dp"
-                            android:layout_marginRight="30dp">
+                            android:layout_marginLeft="@dimen/h30"
+                            android:layout_marginRight="@dimen/h30">
                             <ImageView
                                 android:layout_width="wrap_content"
-                                android:layout_height="60dp"
+                                android:layout_height="@dimen/h60"
                                 android:src="@drawable/rate"
-                                android:layout_marginRight="3dp"/>
+                                android:layout_marginRight="@dimen/h3"/>
                             <TextView
                                 android:id="@+id/tv_contenofhomestay_evaluation"
                                 android:layout_width="wrap_content"
-                                android:layout_height="60dp"
-                                android:text="4.5"
+                                android:layout_height="@dimen/h60"
+                                android:text="@string/rate"
                                 android:textColor="@color/white"
-                                android:textSize="20sp"
+                                android:textSize="@dimen/t20"
                                 android:layout_gravity="center"
                                 android:gravity="center"
-                                android:layout_marginLeft="3dp"/>
+                                android:layout_marginLeft="@dimen/h3"/>
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginRight="20dp">
+                            android:layout_marginLeft="@dimen/h20"
+                            android:layout_marginRight="@dimen/h20">
                             <ImageView
                                 android:layout_width="wrap_content"
-                                android:layout_height="50dp"
+                                android:layout_height="@dimen/h40"
                                 android:src="@drawable/heart"
-                                android:layout_marginRight="3dp"/>
+                                android:layout_marginRight="@dimen/h3"/>
                             <TextView
                                 android:layout_width="wrap_content"
-                                android:layout_height="50dp"
-                                android:text="120"
+                                android:layout_height="@dimen/h50"
+                                android:text="@string/love"
                                 android:textColor="@color/white"
-                                android:textSize="20sp"
+                                android:textSize="@dimen/t20"
                                 android:layout_gravity="center"
                                 android:gravity="center"
-                                android:layout_marginLeft="3dp"/>
+                                android:layout_marginLeft="@dimen/h3"/>
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:layout_marginLeft="30dp"
-                            android:layout_marginRight="30dp">
+                            android:layout_marginLeft="@dimen/h30"
+                            android:layout_marginRight="@dimen/h30">
                             <ImageView
                                 android:layout_width="wrap_content"
-                                android:layout_height="50dp"
+                                android:layout_height="@dimen/h45"
                                 android:src="@drawable/comment"
-                                android:layout_marginRight="3dp"/>
+                                android:layout_marginRight="@dimen/h3"/>
                             <TextView
                                 android:layout_width="wrap_content"
-                                android:layout_height="60dp"
-                                android:text="15"
+                                android:layout_height="@dimen/h60"
+                                android:text="@string/comment"
                                 android:textColor="@color/white"
-                                android:textSize="20sp"
+                                android:textSize="@dimen/t20"
                                 android:layout_gravity="center"
                                 android:gravity="center"
-                                android:layout_marginLeft="3dp"/>
+                                android:layout_marginLeft="@dimen/h3"/>
                         </LinearLayout>
                     </LinearLayout>
                     <TextView
@@ -116,31 +113,31 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical|center_horizontal"
-                        android:padding="12dp"
-                        android:text="NAME OF HOMESTAY"
+                        android:padding="@dimen/h12"
+                        android:text="@string/nameofhomestay"
                         android:textColor="@color/black"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/t20"
                         android:textStyle="bold" />
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/grey"
-                        android:padding="16dp">
+                        android:padding="@dimen/h16">
                         <TextView
                             android:id="@+id/tv_contenofhomestay_desc"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here"
+                            android:text="@string/contenthomestay"
                             android:textColor="@color/black"
-                            android:textSize="16sp"/>
+                            android:textSize="@dimen/t16"/>
                     </LinearLayout>
                     <EditText
                         android:id="@+id/tv_contenofhomestay_address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:text="Address"
+                        android:layout_marginLeft="@dimen/h16"
+                        android:layout_marginRight="@dimen/h16"
+                        android:text="@string/address"
                         android:enabled="false"
                         android:textColorHint="@color/black" />
                     <LinearLayout
@@ -148,54 +145,52 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="@dimen/h20"
+                        android:layout_marginRight="@dimen/h20"
                         android:weightSum="2">
                         <CheckBox
                             android:id="@+id/cb_contenofhomestay_wifi"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Wifi" />
+                            android:text="@string/wifi" />
                         <CheckBox
                             android:id="@+id/cb_contenofhomestay_freebreakfast"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Free breakfast" />
+                            android:text="@string/freebreakfast" />
                     </LinearLayout>
                     <LinearLayout
                         android:id="@+id/layout_facility2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="@dimen/h20"
+                        android:layout_marginRight="@dimen/h20"
+                        android:layout_marginBottom="@dimen/h5"
                         android:weightSum="2">
                         <CheckBox
                             android:id="@+id/cb_contenofhomestay_ac"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="AC" />
+                            android:text="@string/ac" />
                         <CheckBox
                             android:id="@+id/cb_contenofhomestay_swimmingpool"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Swimming pool" />
+                            android:text="@string/swimmingpool" />
                     </LinearLayout>
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/black"
                         android:gravity="center"
                         android:orientation="horizontal"
-                        android:padding="16dp"
+                        android:padding="@dimen/h16"
                         android:weightSum="3">
-
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -229,24 +224,23 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/margin_st2"
+                            android:layout_marginLeft="@dimen/h16"
                             android:gravity="center"
                             android:orientation="vertical"
                             android:layout_weight="1">
-
                             <TextView
                                 android:id="@+id/tv_servicedetail_vote"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="22"
+                                android:text="@string/comment"
                                 android:textColor="@color/white"
-                                android:textSize="35sp" />
+                                android:textSize="@dimen/h35" />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Votes"
+                                android:text="@string/votes"
                                 android:textColor="@color/white"
-                                android:textSize="18sp" />
+                                android:textSize="@dimen/t18" />
                         </LinearLayout>
                     </LinearLayout>
                     <LinearLayout
@@ -264,21 +258,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:gravity="center"
-                >
+                android:gravity="center">
                 <Button
                     android:id="@+id/btn_contenofhomestay_book"
                     android:layout_width="match_parent"
-                    android:layout_height="65dp"
-                    android:text="BOOK NOW"
-                    android:textSize="20sp"
+                    android:layout_height="@dimen/h80"
+                    android:text="@string/booknow"
+                    android:textSize="@dimen/h20"
                     android:background="@color/pink"
                     android:textColor="@color/white"
                     android:gravity="center"/>
             </RelativeLayout>
         </LinearLayout>
     </RelativeLayout>
-
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
@@ -287,6 +279,4 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_menu_drawer"/>
-
-
 </android.support.v4.widget.DrawerLayout>

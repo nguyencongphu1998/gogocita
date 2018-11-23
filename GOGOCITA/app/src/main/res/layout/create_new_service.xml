@@ -12,17 +12,15 @@
         android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
-
         <LinearLayout
             android:layout_below="@+id/toolbar"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/standard"
             android:weightSum="10"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -30,16 +28,15 @@
             android:orientation="vertical">
             <ProgressBar
                 android:id="@+id/progressBar_createNewService"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/h100"
+                android:layout_height="@dimen/h100"
                 android:layout_centerInParent="true"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="@dimen/h20"
                 android:visibility="gone" />
-
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="@dimen/h20"
                 android:layout_weight="9"
                 android:scrollbars="vertical">
                 <LinearLayout
@@ -51,25 +48,25 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="CREATE YOUR SERVICE"
+                        android:text="@string/creatyoursv"
                         android:textColor="@color/black"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/t20"
                         android:textStyle="bold" />
                     <EditText
                         android:id="@+id/edt_createservice_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Name"
+                        android:hint="@string/name"
                         android:inputType="text"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/t18"
                         android:textColorHint="@color/black" />
                     <EditText
                         android:id="@+id/edt_createservice_type"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Type"
+                        android:hint="@string/type"
                         android:enabled="true"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/t18"
                         android:textColorHint="@color/black" />
                     <RadioGroup
                         android:id="@+id/radioGroup_Type"
@@ -85,80 +82,72 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:checked="true"
-                            android:text="Ground house" />
+                            android:text="@string/groundhouse" />
                         <RadioButton
                             android:id="@+id/radioButton_villa"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Villa"
-
-
-                            />
+                            android:text="@string/villa" />
                         <RadioButton
                             android:id="@+id/radioButton_bungalow"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Bungalow" />
+                            android:text="@string/bungalow" />
                     </RadioGroup>
                     <RelativeLayout
                         android:id="@+id/layout_district"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp"
-                        android:layout_marginRight="4dp"
-                        android:layout_marginTop="7dp"
-                        >
+                        android:layout_marginLeft="@dimen/h4"
+                        android:layout_marginRight="@dimen/h4"
+                        android:layout_marginTop="@dimen/h7">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="District"
                             android:textColor="@color/black"
-                            android:textSize="18sp"/>
+                            android:textSize="@dimen/t18"/>
                         <Spinner
                             android:id="@+id/spinner_District"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"></Spinner>
                     </RelativeLayout>
-
                     <RelativeLayout
                         android:id="@+id/layout_city"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp"
-                        android:layout_marginRight="4dp"
-                        android:layout_marginTop="7dp"
+                        android:layout_marginLeft="@dimen/h4"
+                        android:layout_marginRight="@dimen/h4"
+                        android:layout_marginTop="@dimen/h7"
                         android:orientation="horizontal">
-
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="City"
-                            android:textSize="18sp"
+                            android:text="@string/city"
+                            android:textSize="@dimen/t18"
                             android:textColor="@color/black" />
-
                         <Spinner
                             android:id="@+id/spinner_City"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"></Spinner>
                     </RelativeLayout>
-
                     <RelativeLayout
                         android:id="@+id/layout_country"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp"
-                        android:layout_marginRight="4dp"
-                        android:layout_marginTop="7dp"
+                        android:layout_marginLeft="@dimen/h4"
+                        android:layout_marginRight="@dimen/h4"
+                        android:layout_marginTop="@dimen/h7"
                         android:orientation="horizontal">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="18sp"
-                            android:text="Country"
+                            android:textSize="@dimen/t18"
+                            android:text="@string/country"
                             android:textColor="@color/black" />
                         <Spinner
                             android:id="@+id/spinner_Nationality"
@@ -170,45 +159,41 @@
                         android:id="@+id/edt_createservice_address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Address"
+                        android:hint="@string/address"
                         android:textColorHint="@color/black" />
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
+                        android:layout_height="@dimen/h150"
                         android:background="@color/grey"
-                        android:layout_marginTop="7dp"
-                        android:padding="8dp">
+                        android:layout_marginTop="@dimen/h7"
+                        android:padding="@dimen/h8">
                         <EditText
                             android:id="@+id/edt_createservice_desciption"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/grey"
-                            android:hint="Desciption..."
+                            android:hint="@string/desc"
                             android:textColor="@color/black" />
                     </LinearLayout>
-                        android:id="@+id/edt_factility"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Convinience" />
                     <LinearLayout
                         android:id="@+id/layout_facility"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:layout_marginTop="7dp"
+                        android:layout_marginTop="@dimen/h7"
                         android:weightSum="2">
                         <CheckBox
                             android:id="@+id/checkbox_wifi"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Wifi" />
+                            android:text="@string/wifi" />
                         <CheckBox
                             android:id="@+id/checkbox_freebreakfast"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Free breakfast" />
+                            android:text="@string/freebreakfast" />
                     </LinearLayout>
                     <LinearLayout
                         android:id="@+id/layout_facility2"
@@ -221,13 +206,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="AC" />
+                            android:text="@string/ac" />
                         <CheckBox
                             android:id="@+id/checkbox_swimmingpool"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Swimming pool" />
+                            android:text="@string/swimmingpool" />
                     </LinearLayout>
                     <Button
                         android:id="@+id/btn_uploadimage"
@@ -236,21 +221,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/layout_facility2"
-                        android:text="Upload image"
+                        android:text="@string/uploadimage"
                         android:textColor="@color/pink"
-                        android:textSize="15sp" />
+                        android:textSize="@dimen/t15" />
                     <TableLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:stretchColumns="1"
-                        android:padding="2dp">
+                        android:padding="@dimen/h2">
                         <TableRow>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Price: "
+                                android:text="@string/price"
                                 android:textColor="@color/black"
-                                android:textSize="18sp"/>
+                                android:textSize="@dimen/t18"/>
                             <EditText
                                 android:id="@+id/edt_createservice_price"
                                 android:layout_width="match_parent"
@@ -260,9 +245,9 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="VND/room/night"
+                                android:text="@string/price1"
                                 android:textColor="@color/black"
-                                android:textSize="18sp"/>
+                                android:textSize="@dimen/t18"/>
                         </TableRow>
                     </TableLayout>
                 </LinearLayout>
@@ -275,13 +260,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/pink"
-            android:text="COMPLETE"
+            android:text="@string/complete"
             android:onClick="createdService"
             android:gravity="center"
             android:textColor="@color/white"
-            android:textSize="20sp"/>
+            android:textSize="@dimen/t20"/>
     </RelativeLayout>
-
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
@@ -290,5 +274,4 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_menu_drawer"/>
-
 </android.support.v4.widget.DrawerLayout>

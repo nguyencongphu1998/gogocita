@@ -2,31 +2,30 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="@dimen/standard"
     android:background="@drawable/bgabout">
     <TextView
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/h20"
         android:id="@+id/title_about"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/aboutus"
         android:textStyle="bold"
-        android:textSize="23sp"
+        android:textSize="@dimen/t23"
         android:textColor="@color/white"
         android:gravity="center"/>
     <TextView
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="@dimen/h25"
         android:id="@+id/content1"
         android:layout_below="@+id/title_about"
         android:textColor="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Team GOGOCITA có 4 thành viên đến từ lớp 16T2. Hướng đến việc góp phần phát triển ngành du lịch lữ hành. GOGOCITA ra đời với 2 mục đích, thứ nhất là kết nối dịch vụ Homestay với nhu cầu khách du lịch, thứ hai là tạo ra những chuyến du lịch miễn phí mà hướng dẫn viên chính là các bạn SV. Team GOGOCITA hy vọng ứng dụng này sẽ góp phần vào sự phát triển của ngành du lịch.
-"/>
+        android:textSize="@dimen/t18"
+        android:text="@string/contentabout"/>
     <TableLayout
         android:id="@+id/content2"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/h15"
         android:gravity="center"
         android:layout_below="@id/content1"
         android:layout_width="match_parent"
@@ -37,71 +36,64 @@
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:text="Cong Phu"
+                android:textSize="@dimen/t18"
+                android:text="@string/CongPhu"
                 android:layout_gravity="center"/>
             <TextView
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:text="Head of Backend"
-                android:layout_gravity="left"
-                />
+                android:textSize="@dimen/t18"
+                android:text="@string/headbackend"
+                android:layout_gravity="left" />
         </TableRow>
         <TableRow>
             <TextView
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="@dimen/t18"
                 android:layout_gravity="center"
-                android:text="Gia Huy"/>
+                android:text="@string/GiaHuy"/>
             <TextView
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="@dimen/t18"
                 android:layout_gravity="left"
-                android:text="Head of Frontend"
-                />
-
+                android:text="@string/headfrontend" />
         </TableRow>
         <TableRow>
             <TextView
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="@dimen/t18"
                 android:layout_gravity="center"
-                android:text="Yen Nhi"/>
+                android:text="@string/YenNhi"/>
             <TextView
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:text="Operator"
-                android:layout_gravity="left"
-                />
-
+                android:textSize="@dimen/t18"
+                android:text="@string/op"
+                android:layout_gravity="left" />
         </TableRow>
         <TableRow>
             <TextView
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="@dimen/t18"
                 android:layout_gravity="center"
-                android:text="Van Hoang"/>
+                android:text="@string/VanHoang"/>
             <TextView
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="@dimen/t18"
                 android:layout_gravity="left"
-                android:text="Operator"
-                />
-
+                android:text="@string/op" />
         </TableRow>
     </TableLayout>
     <TextView
@@ -110,20 +102,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textSize="17sp"
+        android:textSize="@dimen/t17"
         android:gravity="center"
-        android:layout_marginTop="40dp"
-        android:text="Contact us: teamgogocita@gmail.com"/>
+        android:layout_marginTop="@dimen/h20"
+        android:text="@string/contactus"/>
     <TextView
         android:id="@+id/content4"
         android:layout_below="@+id/content3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textSize="17sp"
+        android:textSize="@dimen/t18"
         android:gravity="center"
-        android:layout_marginTop="40dp"
-        android:text="THANK YOU!"/>
-
-
+        android:layout_marginTop="@dimen/h20"
+        android:text="@string/thanks"/>
 </RelativeLayout>

@@ -1,0 +1,164 @@
+<resources>
+    <string name="app_name">GOGOCITA</string>
+    <string name="User_name">Tên tài khoản</string>
+    <string name="Password">Mật khẩu</string>
+    <string name="Login">Đăng nhập</string>
+    <string name="Forgot_password">Quên mật khẩu? </string>
+    <string name="Dont_have_an_account">"Không có tài khoản ?"</string>
+    <string name="Ready_to_creat_your_services">Sẳn sàn tạo dịch vụ</string>
+    <string name="Now_you_will_creat_your_services">Now you will creat your service.\n
+            Customer will see your service \n on dashboard and choose\n service if they want</string>
+    <string name="Next">Next</string>
+    <string name="Fill_the_form">Điền vào form</string>
+    <string name="Please_fill_all_information"> Please fill all information on the form.\n
+        It is very important, customers will\n
+        read your information before they\n
+        choose your services.
+    </string>
+    <string name="Create_your_properties">Creat your properties</string>
+    <string name="If_your_home_stay">If your homestay has many type\n
+    of room. You can creat them add\n
+    description carefully. Customers\n
+    will have more choices.</string>
+    <string name="Complete">Hoàn thành! Khách hàng sẽ đến với bạn</string>
+    <string name="Customer_will_use">Customer will use our app to find\n
+    you. Let prepare your rooms and\n
+    wait for the first one.</string>
+    <string name="Dashboard">Dashboard</string>
+    <string name="My_profile">Thông tin của tôi</string>
+    <string name="Update_my_profile">Cập nhật thông tin</string>
+    <string name="Change_password">Đổi mật khẩu</string>
+    <string name="History">Lịch sử</string>
+    <string name="Sign_out">Đăng xuất</string>
+    <string name="Creat_my_service">Tạo dịch vụ của tôi</string>
+    <string name="See_calendar">Lịch</string>
+    <string name="login_with">Đăng nhập với</string>
+    <string name="facebook">Đăng nhập với Facebook</string>
+    <string name="gmail">Đăng nhập với Google+</string>
+    <string name="login_facebook">Đăng nhập với Facebook</string>
+    <string name="login_gmail">Đăng nhập với Gmail</string>
+    <string name="nameofhomestay">TÊN HOMESTAY</string>
+    <string name="cancel">Thoát</string>
+    <string name="checkin">Ngày đến</string>
+    <string name="checkout">Ngày đi</string>
+    <string name="aboutus">Team gogogita</string>
+    <string name="CongPhu">Công Phú</string>
+    <string name="GiaHuy">Gia Huy</string>
+    <string name="VanHoang">Văn Hoàng</string>
+    <string name="YenNhi">Yến Nhi</string>
+    <string name="headbackend">Head of Backend</string>
+    <string name="headfrontend">Head of Frontend</string>
+    <string name="op">Operator</string>
+    <string name="contactus">Email team: teamgogocita@gmail.com</string>
+    <string name="thanks">CẢM ƠN!</string>
+    <string name="changepass">ĐỔI MẬT KHẨU</string>
+    <string name="enternewpass">Nhập mật khẩu mới</string>
+    <string name="reenternewpass">Nhập lại mật khẩu mơi</string>
+    <string name="resetpass">Reset mật khẩu</string>
+    <string name="comingsoon">COMMING SOON</string>
+    <string name="contentcomingsoon">We will develop this functionally as quickly as possible</string>
+    <string name="rate">4.5</string>
+    <string name="love">120</string>
+    <string name="comment">15</string>
+    <string name="contenthomestay">Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here. Content of Homestay here</string>
+    <string name="wifi">Wifi</string>
+    <string name="freebreakfast">Free breakfast</string>
+    <string name="swimmingpool">Swimming pool</string>
+    <string name="ac">AC</string>
+    <string name="votes">Votes</string>
+    <string name="booknow">BOOK NOW</string>
+    <string name="creatsv">Great! Your creat your service successful</string>
+    <string name="returndash">RETURN DASHBOARD</string>
+    <string name="creatyoursv">TẠO DỊCH VỤ CỦA BẠN</string>
+    <string name="name">Tên</string>
+    <string name="groundhouse">Ground house</string>
+    <string name="villa">Villa</string>
+    <string name="bungalow">Bungalow</string>
+    <string name="city">Thành phố</string>
+    <string name="country">Quốc gia</string>
+    <string name="desc">Mô tả</string>
+    <string name="convinience">Tiện ích</string>
+    <string name="uploadimage">Upload image</string>
+    <string name="price">"Giá: "</string>
+    <string name="price1">VND/room/night</string>
+    <string name="complete">HOÀN THÀNH</string>
+    <string name="feedback">FEEDBACK</string>
+    <string name="contentfeedback">Thanks for using our service, please give us feedback to improve our service. Thanks!</string>
+    <string name="yourfeedback">Your feedback</string>
+    <string name="send">GỬI</string>
+    <string name="sendfeedback">Your feedback had been sent</string>
+    <string name="forgotpass">QUÊN MẬT KHẨU</string>
+    <string name="ctforgotpass">Please enter your email and we will send an OTP number</string>
+    <string name="email">Email</string>
+    <string name="acesssmail">Acess your email to reser passwork</string>
+    <string name="returntologin">Trở về để đăng nhập</string>
+    <string name="formbook">FORM BOOK</string>
+    <string name="date">02/12/2018</string>
+    <string name="status">Status</string>
+    <string name="phone">0123456789</string>
+    <string name="confirm">Xác nhận</string>
+    <string name="asc">ASC</string>
+    <string name="des">DESC</string>
+    <string name="listbook">Danh sách book</string>
+    <string name="donthavaacc">Bạn có tài khoản chưa ?</string>
+    <string name="signup">ĐĂNG KÍ</string>
+    <string name="youremail">Email</string>
+    <string name="youare">You Are</string>
+    <string name="repeatpass">Nhập lại mật khẩu</string>
+    <string name="app_id">254453971900808</string>
+    <string name="go_back">Trở về</string>
+    <string name="create">Tạo</string>
+    <string name="my_calendar">Danh sách book của homestay</string>
+    <string name="check_in">Ngày bắt đầu</string>
+    <string name="days">* ngày</string>
+    <string name="check_out">Ngày kết thúc</string>
+    <string name="customer">Khách hàng:</string>
+    <string name="age">Tuổi</string>
+    <string name="nationality">Quốc tịch:</string>
+    <string name="total">Tổng:</string>
+    <string name="see_the_information_of_customner">Xem thông tin khách hàng</string>
+    <string name="tour_guider">Tour Guider</string>
+    <string name="get_started">"Bắt đầu "</string>
+    <string name="homestay">Homestay</string>
+    <string name="upload">upload</string>
+    <string name="terms_and_conditions">Điều khoản dịch vụ</string>
+    <string name="sign_up">Đăng kí</string>
+    <string name="return_dashboard">Return Dashboard</string>
+    <string name="description">Mô tả</string>
+    <string name="show_uploads">Show Uploads</string>
+    <string name="your_information">THÔNG TIN CỦA BẠN</string>
+    <string name="first_name">Tên</string>
+    <string name="last_name">Họ</string>
+    <string name="birthday">Sinh Nhật</string>
+    <string name="gender">Giới tính</string>
+    <string name="job">Công việc</string>
+    <string name="identity_card">CMND</string>
+    <string name="district">Huyện</string>
+    <string name="update_your_profile">CẬP NHẬT HỒ SƠ CỦA BẠN</string>
+    <string name="handphone">SĐT</string>
+    <string name="male_female">Nam/Nữ</string>
+    <string name="identity_card_number">CMND</string>
+    <string name="your_city">Thành phố</string>
+    <string name="your_nationality">Quốc tịch</string>
+    <string name="update">CẬP NHẬT</string>
+    <string name="sign_out">Đăng xuât</string>
+    <string name="type">Loại</string>
+    <string name="contentabout">Team GOGOCITA có 4 thành viên đến từ lớp 16T2. Hướng đến việc góp phần phát triển ngành du lịch lữ hành. GOGOCITA ra đời với 2 mục đích, thứ nhất là kết nối dịch vụ Homestay với nhu cầu khách du lịch, thứ hai là tạo ra những chuyến du lịch miễn phí mà hướng dẫn viên chính là các bạn SV. Team GOGOCITA hy vọng ứng dụng này sẽ góp phần vào sự phát triển của ngành du lịch.></string>
+    <string name="do_you_want_signout" translatable="false">Bạn có muốn đăng xuất không ?</string>
+    <string name="yes">CÓ</string>
+    <string name="no">KHÔNG</string>
+    <string name="address">Địa chỉ</string>
+    <string name="dash_board" translatable="false">Dash board</string>
+    <string name="my_information" translatable="false">Thông tin của tôi</string>
+    <string name="my_profile" translatable="false">Hồ sơ </string>
+    <string name="update_my_profile" translatable="false">Cập nhật hồ sơ </string>
+    <string name="services" translatable="false">Dịch vụ</string>
+    <string name="my_service" translatable="false">Dịch vụ của tôi</string>
+    <string name="see_calendar" translatable="false">Danh sách book của homestay</string>
+    <string name="history" translatable="false">Lịch sử</string>
+    <string name="setting" translatable="false">Cài đặt</string>
+    <string name="about_us" translatable="false" >Thông tin team gogocita</string>
+    <string name="change_password" translatable="false">Đổi mật khẩu</string>
+    <string name="change_language" translatable="false"> Đổi ngôn ngữ</string>
+
+</resources>

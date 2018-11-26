@@ -33,7 +33,7 @@
             android:background="@drawable/border_button"
             android:layout_below="@+id/tv_success"
             android:layout_marginTop="150dp"
-            android:text="Return Dashboard"
+            android:text="@string/return_dashboard"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_large"
             />

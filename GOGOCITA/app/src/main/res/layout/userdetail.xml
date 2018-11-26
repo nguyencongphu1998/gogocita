@@ -30,7 +30,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="YOUR INFORMATION"
+            android:text="@string/your_information"
             android:textColor="@color/black"
             android:textSize="23sp"
             android:layout_marginTop="70dp"
@@ -50,7 +50,7 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:textSize="20sp"
-                    android:text="First name"
+                    android:text="@string/first_name"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textview_firstname"
@@ -71,7 +71,7 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:textSize="20sp"
-                    android:text="Last name"
+                    android:text="@string/last_name"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textview_lastname"
@@ -92,7 +92,7 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:textSize="20sp"
-                    android:text="BirthDay"
+                    android:text="@string/birthday"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textview_birthday"
@@ -113,7 +113,7 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:textSize="20sp"
-                    android:text="Phone"
+                    android:text="@string/phone"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textview_phone"
@@ -134,7 +134,7 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:textSize="20sp"
-                    android:text="Gender"
+                    android:text="@string/gender"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textview_gender"
@@ -155,7 +155,7 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:textSize="20sp"
-                    android:text="Job"
+                    android:text="@string/job"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textview_job"
@@ -176,7 +176,7 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:textSize="20sp"
-                    android:text="Identity Card"
+                    android:text="@string/identity_card"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textview_idnumber"
@@ -197,7 +197,7 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:textSize="20sp"
-                    android:text="Address"
+                    android:text="@string/address"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textview_address"
@@ -218,7 +218,7 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:textSize="20sp"
-                    android:text="Country"
+                    android:text="@string/country"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textview_country"
@@ -239,7 +239,7 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:textSize="20sp"
-                    android:text="City"
+                    android:text="@string/city"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textview_city"
@@ -261,7 +261,7 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:textSize="20sp"
-                    android:text="District"
+                    android:text="@string/district"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textview_district"

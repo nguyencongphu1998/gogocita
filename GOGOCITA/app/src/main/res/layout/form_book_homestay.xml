@@ -108,7 +108,7 @@
                             android:enabled="false"
                             android:id="@+id/et_homestay"
                             android:layout_span="11"
-                            android:textSize="@dimen/t20"
+                            android:textSize="@dimen/t17"
                             android:text="@string/nameofhomestay"/>
                     </TableRow>
                     <TableRow
@@ -130,7 +130,7 @@
                         <TextView
                             android:layout_height="wrap_content"
                             android:layout_span="6"
-                            android:textSize="@dimen/t20"
+                            android:textSize="@dimen/t18"
                             android:text="@string/price1"
                             android:textColor="@color/black" />
                     </TableRow>
@@ -177,12 +177,5 @@
                 android:padding="@dimen/h16"
                 android:textSize="@dimen/t20"/>
     </RelativeLayout>
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_menu_drawer"/>
+
 </android.support.v4.widget.DrawerLayout>

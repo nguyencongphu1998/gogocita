@@ -123,6 +123,7 @@
                 android:layout_height="@dimen/h45"
                 android:id="@+id/tv_status"
                 android:text="@string/status"
+                android:layout_marginTop="@dimen/h5"
                 android:textColor="@color/white"
                 android:background="@color/confirm"
                 android:gravity="center"

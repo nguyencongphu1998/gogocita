@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="standard">16dp</dimen>
+    <dimen name="h40am">-40dp</dimen>
     <dimen name="h50am">-50dp</dimen>
+    <dimen name="h60am">-60dp</dimen>
     <dimen name="h1">1dp</dimen>
     <dimen name="h2">2dp</dimen>
     <dimen name="h3">3dp</dimen>
@@ -26,6 +28,7 @@
     <dimen name="h80">80dp</dimen>
     <dimen name="h100">100dp</dimen>
     <dimen name="h115">115dp</dimen>
+    <dimen name="h120">120dp</dimen>
     <dimen name="h150">150dp</dimen>
     <dimen name="h200">200dp</dimen>
     <dimen name="h250">250dp</dimen>

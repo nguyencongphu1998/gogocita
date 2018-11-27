@@ -7,57 +7,61 @@
         <item
             android:id="@+id/btn_dashboard"
             android:icon="@drawable/dashboard"
-            android:title="Dash board" />
+            android:title="@string/dash_board" />
     </group>
-    <item android:title="My information">
+    <item android:title="@string/my_information">
         <menu>
             <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/btn_myprofile"
                     android:icon="@drawable/profile"
-                    android:title="My profile" />
+                    android:title="@string/my_profile" />
                 <item
                     android:id="@+id/btn_updatemyprofile"
                     android:icon="@drawable/edit"
-                    android:title="Update my profile" />
+                    android:title="@string/update_my_profile" />
             </group>
         </menu>
     </item>
-    <item android:title="Services">
+    <item android:title="@string/services">
         <menu>
             <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/btncreatemyservice"
                     android:icon="@drawable/createservice"
-                    android:title="My service" />
+                    android:title="@string/my_service" />
                 <item
                     android:id="@+id/btn_seecalender"
                     android:icon="@drawable/calendar"
-                    android:title="See calendar" />
+                    android:title="@string/see_calendar" />
                 <item
                     android:id="@+id/btn_history"
                     android:icon="@drawable/history"
-                    android:title="History" />
+                    android:title="@string/history" />
                 </group>
         </menu>
     </item>
 
-    <item android:title="Setting">
+    <item android:title="@string/setting">
         <menu>
             <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/btn_aboutus"
                     android:icon="@drawable/about"
-                    android:title="About us" />
+                    android:title="@string/about_us" />
 
                 <item
                     android:id="@+id/btn_changpassword"
                     android:icon="@drawable/changepass"
-                    android:title="Change password" />
+                    android:title="@string/change_password" />
+                <item
+                    android:id="@+id/btn_changelanguage"
+                    android:icon="@drawable/changepass"
+                    android:title="@string/change_language" />
                 <item
                     android:id="@+id/btn_signout"
                     android:icon="@drawable/signout"
-                    android:title="Sign out" />
+                    android:title="@string/sign_out" />
             </group>
         </menu>
     </item>

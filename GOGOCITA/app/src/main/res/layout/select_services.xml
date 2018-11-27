@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
                 android:gravity="center"
-                android:text="Tour Guider"
+                android:text="@string/tour_guider"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
 
@@ -44,7 +44,7 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/button_bg_rounded_corners"
                 android:onClick="btnTourisGuid"
-                android:text="Get started"
+                android:text="@string/get_started"
                 android:textColor="@color/white" />
 
         </LinearLayout>
@@ -72,7 +72,7 @@
                 android:id="@+id/textview_title2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Homestay"
+                android:text="@string/homestay"
                 android:textColor="@color/white"
                 android:gravity="center"
                 android:textSize="25sp"

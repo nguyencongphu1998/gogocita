@@ -98,7 +98,7 @@
             android:layout_alignParentTop="true"
             android:layout_weight="1"
             android:textAllCaps="false"
-            android:text="Create"
+            android:text="@string/create"
             android:textSize="@dimen/t16"
             android:textColor="@color/colorWhite"
             android:background="@drawable/border_button_create"

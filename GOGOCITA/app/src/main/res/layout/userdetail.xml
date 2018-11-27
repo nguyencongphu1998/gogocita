@@ -31,7 +31,7 @@
             android:id="@+id/titleinfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="YOUR INFORMATION"
+            android:text="@string/your_information"
             android:textColor="@color/black"
             android:textSize="@dimen/t23"
             android:layout_marginTop="@dimen/h60"

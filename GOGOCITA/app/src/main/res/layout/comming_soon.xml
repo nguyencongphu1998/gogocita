@@ -30,7 +30,7 @@
             android:layout_marginRight="@dimen/standard"
             android:layout_marginLeft="@dimen/standard"
             android:textColor="@color/white"
-            android:text="Go back"
+            android:text="@string/go_back"
             android:onClick="goToDashBoard"
             android:textSize="@dimen/t20" />
         <TextView

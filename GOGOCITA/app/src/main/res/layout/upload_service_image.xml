@@ -41,7 +41,7 @@
                     android:id="@+id/TextView_Type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Type"
+                    android:text="@string/type"
                     android:textSize="20dp"/>
                 <Spinner
                     android:id="@+id/spinner_uploadimages_type"
@@ -55,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/line1"
-                android:hint="Description"
+                android:hint="@string/description"
                 android:textSize="20dp"/>
 
             <ImageView
@@ -82,7 +82,7 @@
                 android:background="@drawable/upload"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:text="Upload" />
+                android:text="@string/upload" />
 
             <TextView
                 android:id="@+id/textView_uploadimages_showuploads"
@@ -93,7 +93,7 @@
                 android:layout_marginStart="25dp"
                 android:layout_toEndOf="@+id/button_uploadimages_upload"
                 android:gravity="center"
-                android:text="Show Uploads"
+                android:text="@string/show_uploads"
                 android:textSize="16sp" />
         </RelativeLayout>
     </LinearLayout>

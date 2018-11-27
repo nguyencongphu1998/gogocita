@@ -3,6 +3,8 @@ package com.gogocita.admin.gogocita;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -21,11 +23,12 @@ import com.gogocita.admin.controllers.user.UserDetailsController;
 import com.gogocita.admin.controllers.user.UsersController;
 import com.gogocita.admin.gogocita.service.BooksActiviry;
 import com.gogocita.admin.gogocita.service.CreateNewServiceActivity;
-import com.gogocita.admin.gogocita.service.HistoryOrdersActivity;
 import com.gogocita.admin.gogocita.service.ServicesActivity;
 import com.gogocita.admin.gogocita.users.ChangePasswordActivity;
 import com.gogocita.admin.gogocita.users.UpdateUserDetailActivity;
 import com.gogocita.admin.gogocita.users.UserDetailActivity;
+
+import java.util.Locale;
 
 public abstract class BaseMenuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private UserDetailsController userDetailsController;
@@ -36,6 +39,7 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        loadLocale();
         setContentView();
         init();
         getWidget();
@@ -121,15 +125,11 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
             case R.id.btn_changpassword:
                 changePassword();
                 break;
+            case R.id.btn_changelanguage:
+                showAlertLangguageDialog();
+                break;
             case R.id.btn_history:
-                item.setActionView(new ProgressBar(this));
-                item.getActionView().postDelayed(new Runnable() {
-
-                    @Override
-                    public void run() {
-                        history();
-                    }
-                },timeDelayMiliSeconds);
+                comingSoon();
                 break;
             case R.id.btn_aboutus:
                 aboutUs();
@@ -143,20 +143,56 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    public void showAlertLangguageDialog()
+    {
+        final String[] listItems = {"Viet Nam", "English"};
+        AlertDialog.Builder mBuilder1 = new AlertDialog.Builder(BaseMenuActivity.this);
+        mBuilder1.setTitle("GOGOCITA");
+        mBuilder1.setSingleChoiceItems(listItems, -1, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+                if(i == 0){
+                    setLocale("vi");
+                    recreate();
+                }else{
+                    setLocale("en");
+                    recreate();
+                }
+            }
+        });
+        AlertDialog alertDialog = mBuilder1.create();
+        alertDialog.show();
+
+    }
+    private void setLocale(String lang){
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration configuration = new Configuration();
+        configuration.locale= locale;
+        getBaseContext().getResources().updateConfiguration(configuration,getBaseContext().getResources().getDisplayMetrics());
+        SharedPreferences.Editor editor = getSharedPreferences("",MODE_PRIVATE).edit();
+        editor.putString("My lang",lang);
+        editor.apply();
+    }
+    public  void loadLocale(){
+        SharedPreferences preferences = getSharedPreferences("",MODE_PRIVATE);
+        String language = preferences.getString("My lang","");
+        setLocale(language);
+    }
 
     public void showAlertDialog()
     {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("GOGOCITA");
-        builder.setMessage("Do you want signout?");
+        builder.setMessage(getString(R.string.do_you_want_signout));
         builder.setCancelable(false);
-        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 singOut();
             }
         });
-        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 builder.setCancelable(true);
@@ -173,11 +209,6 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
     }
 
     public void seecalender(){
-        startActivity(new Intent(this, HistoryOrdersActivity.class));
-        finish();
-    }
-
-    public void history(){
         startActivity(new Intent(this, BooksActiviry.class));
         finish();
     }

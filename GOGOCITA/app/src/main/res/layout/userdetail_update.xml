@@ -40,7 +40,7 @@
                 android:stretchColumns="0,1">
                 <TableRow>
                     <TextView
-                        android:text="UPDATE YOUR PROFILE"
+                        android:text="@string/update_your_profile"
                         android:gravity="center"
                         android:layout_span="2"
                         android:textSize="@dimen/t20"/>
@@ -48,7 +48,7 @@
                 <TableRow>
                     <EditText
                         android:id="@+id/EditText_Firstname"
-                        android:hint="First name"
+                        android:hint="@string/first_name"
                         android:inputType="text"
                         android:textSize="@dimen/t20"/>
                     <EditText
@@ -73,7 +73,7 @@
                 </TableRow>
                 <TableRow>
                     <EditText
-                        android:hint="Male/Female"
+                        android:hint="@string/male_female"
                         android:enabled="false"
                         android:textSize="@dimen/t20"/>
 
@@ -107,7 +107,6 @@
                         android:enabled="false"
                         android:hint="Your district"
                         android:textSize="@dimen/t20"/>
-
                     <Spinner
                         android:id="@+id/spinner_District"
                         android:layout_height="match_parent"
@@ -144,7 +143,6 @@
                     android:textColor="@color/white"
                     android:layout_marginTop="@dimen/h30"/>
             </TableLayout>
-
         </ScrollView>
        </RelativeLayout>
 

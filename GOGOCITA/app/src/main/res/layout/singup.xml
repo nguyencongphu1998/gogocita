@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:padding="@dimen/h15"
+        android:layout_margin="@dimen/h5"
         android:gravity="center"
         android:text="@string/signup"
         android:textColor="#454545"
@@ -30,21 +30,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textView_signup"
-        android:layout_marginHorizontal="25sp"
+        android:layout_marginHorizontal="@dimen/standard"
         android:inputType="textEmailAddress"
         android:hint="@string/youremail"
-        android:textColor="#454545"
-        android:textSize="@dimen/t18"
-        />
+        android:textColor="@color/black"
+        android:textSize="@dimen/t18" />
     <EditText
         android:id="@+id/editView_youare"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editView_email"
-        android:layout_marginHorizontal="@dimen/h25"
-        android:layout_marginTop="@dimen/h10"
+        android:layout_marginHorizontal="@dimen/standard"
+        android:layout_marginTop="@dimen/h2"
         android:hint="@string/youare"
-        android:textColor="#555555"
+        android:textColor="@color/black"
         android:textSize="@dimen/t18"
         android:enabled="false"
         />
@@ -53,7 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editView_youare"
-        android:layout_marginTop="@dimen/h15"
+        android:layout_marginTop="@dimen/h5"
         android:gravity="center">
         <RadioButton
             android:id="@+id/radioButton_customer"
@@ -81,16 +80,15 @@
             android:text="Touris Guider"
             android:textSize="@dimen/t17" />
     </RadioGroup>
-
     <EditText
         android:id="@+id/editView_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/h25"
+        android:layout_marginHorizontal="@dimen/standard"
         android:inputType="textPassword"
         android:layout_below="@id/radioGroup_usertype"
         android:hint="@string/Password"
-        android:textColor="#555555"
+        android:textColor="@color/black"
         android:textSize="@dimen/t18"
         />
     <EditText
@@ -99,46 +97,44 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editView_password"
         android:inputType="textPassword"
-        android:layout_marginHorizontal="@dimen/h25"
+        android:layout_marginHorizontal="@dimen/standard"
         android:hint="@string/repeatpass"
-        android:textColor="#555555"
+        android:textColor="@color/black"
         android:textSize="@dimen/t18"
-        android:layout_marginTop="@dimen/h10"/>
+        android:layout_marginTop="@dimen/h5"/>
     <TextView
         android:id="@+id/textView_conditions"
         android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:layout_marginHorizontal="25sp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/standard"
         android:layout_below="@id/editView_repassword"
-        android:layout_marginTop="15dp"
-        android:background="#aaaaaa"
-        android:padding="25sp"
-        android:text="@string/terms_and_conditions"
+        android:layout_marginTop="@dimen/h5"
+        android:background="@drawable/text_bg"
+        android:padding="@dimen/h15"
+        android:text="Terms and conditions ....."
         android:textAlignment="center"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
+        android:textSize="@dimen/t18" />
     <CheckBox
         android:id="@+id/checkbox_conditions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textView_conditions"
-        android:layout_marginHorizontal="25sp"
-        android:layout_marginTop="10sp"
-        android:padding="15sp"
+        android:layout_marginLeft="@dimen/standard"
+        android:layout_marginRight="@dimen/standard"
+        android:layout_marginTop="@dimen/h1"
+        android:padding="@dimen/standard"
         android:text="Accept Terms and conditions"
-        android:textColor="#9098a2"
+        android:textColor="@color/black"
         />
-
     <Button
         android:id="@+id/button_singup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:background="#ff586c"
+        android:background="@color/pink"
         android:padding="18sp"
-        android:text="@string/sign_up"
+        android:text="@string/signup"
         android:textColor="#ffffff"
         android:textSize="18sp" />
 </RelativeLayout>

@@ -42,7 +42,7 @@
                     android:weightSum="2"
                     android:gravity="center"
                     android:layout_marginTop="@dimen/h3"
-                    android:layout_marginRight="@dimen/h10">
+                    android:layout_marginRight="@dimen/h3">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
                     android:orientation="horizontal"
                     android:weightSum="2"
                     android:layout_gravity="center"
-                    android:layout_marginRight="@dimen/h10">
+                    android:layout_marginRight="@dimen/h3">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
                     android:orientation="horizontal"
                     android:weightSum="2"
                     android:layout_gravity="center"
-                    android:layout_marginRight="@dimen/h10"
+                    android:layout_marginRight="@dimen/h3"
                     >
                     <TextView
                         android:layout_width="match_parent"
@@ -112,7 +112,7 @@
                 </LinearLayout>
             </TableRow>
             <TableRow
-                android:layout_marginTop="@dimen/h15">
+                android:layout_marginTop="@dimen/h3">
                 <LinearLayout
                     android:id="@+id/area_search2"
                     android:layout_width="match_parent"
@@ -122,7 +122,7 @@
                     android:weightSum="2"
                     android:gravity="center"
                     android:layout_marginTop="@dimen/h3"
-                    android:layout_marginRight="@dimen/h10">
+                    android:layout_marginRight="@dimen/h3">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -146,7 +146,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/reset"
                     android:layout_gravity="right"
-                    android:layout_marginRight="@dimen/h10"/>
+                    android:layout_marginRight="@dimen/h3"/>
             </TableRow>
         </TableLayout>
         <ListView

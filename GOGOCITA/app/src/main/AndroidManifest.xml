@@ -14,7 +14,7 @@
             android:screenOrientation="locked"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.CALL" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -133,7 +133,7 @@
         <activity android:name=".service.ServiceOptionActivity"
             android:screenOrientation="locked">
             <intent-filter>
-                <action android:name="android.intent.action.CALL" />
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

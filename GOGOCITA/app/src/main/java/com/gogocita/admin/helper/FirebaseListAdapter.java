@@ -158,7 +158,7 @@ public abstract class FirebaseListAdapter<T> extends BaseAdapter {
 
             // set up the ViewHolder
             viewHolder = new ViewHolder();
-            setViewHolder(viewHolder,view);
+            getViewHolder(viewHolder,view);
 
             // store the holder with the view
             view.setTag(viewHolder);
@@ -167,11 +167,13 @@ public abstract class FirebaseListAdapter<T> extends BaseAdapter {
         }
         T model = models.get(i);
         // Call out to subclass to marshall this model into the provided view
-        populateView(viewHolder, model);
+        setViewHolder(viewHolder, model);
+        addListener(viewHolder, model);
         return view;
     }
 
-    protected abstract void populateView(ViewHolder vh, T model);
-    protected abstract void setViewHolder(ViewHolder vh,View v);
+    protected abstract void getViewHolder(ViewHolder vh,View v);
+    protected abstract void setViewHolder(ViewHolder vh, T model);
+    protected abstract void addListener(ViewHolder vh, T model);
     protected abstract List<T> modifyArrayAdapter(List<T> models); //Used for modifying the model list before populating
 }

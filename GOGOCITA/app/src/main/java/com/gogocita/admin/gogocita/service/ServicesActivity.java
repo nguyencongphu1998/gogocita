@@ -28,7 +28,6 @@ public class ServicesActivity extends BaseMenuActivity{
     private Spinner spinnerCity;
     private Spinner spinnerCountry;
     private ServiceController serviceController;
-    private UsersController usersController;
     private ConfigValueController configValueController;
     private FilterServicesDto filterDto;
 
@@ -102,7 +101,6 @@ public class ServicesActivity extends BaseMenuActivity{
     {
         filterDto = new FilterServicesDto();
         configValueController = ConfigValueController.getInstance(getApplicationContext());
-        usersController = UsersController.getInstance(this,progressBar);
     }
 
     @Override
@@ -130,12 +128,5 @@ public class ServicesActivity extends BaseMenuActivity{
     @Override
     protected void setContentView(){
         setContentView(R.layout.list_service);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        usersController.checkAuthorizeLogin();
     }
 }

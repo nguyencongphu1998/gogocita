@@ -1,5 +1,6 @@
 package com.gogocita.admin.gogocita;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,7 +17,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.gogocita.admin.controllers.service.ServiceController;
 import com.gogocita.admin.controllers.user.UserDetailsController;
@@ -28,14 +31,19 @@ import com.gogocita.admin.gogocita.service.ServicesActivity;
 import com.gogocita.admin.gogocita.users.ChangePasswordActivity;
 import com.gogocita.admin.gogocita.users.UpdateUserDetailActivity;
 import com.gogocita.admin.gogocita.users.UserDetailActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Locale;
 
 public abstract class BaseMenuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private UserDetailsController userDetailsController;
+    private UsersController usersController;
     private ServiceController serviceController;
     public Toolbar toolbar;
     public ProgressBar progressBar;
+    private TextView tv_userName;
+    private TextView tv_userEmail;
     private static final int  timeDelayMiliSeconds= 1000;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -52,6 +60,8 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
     private void getMenu()
     {
         userDetailsController = UserDetailsController.getInstance(this,progressBar);
+        usersController = UsersController.getInstance(this,progressBar);
+
         serviceController = ServiceController.getInstance(this,progressBar);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -65,13 +75,15 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        setHeaderView(navigationView);
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.activity_menu_drawer, menu);
-        return true;
+    private void setHeaderView(NavigationView navigationView){
+        View headerView = navigationView.inflateHeaderView(R.layout.nav_header_main);
+        tv_userEmail = (TextView) headerView.findViewById(R.id.menu_email);
+        tv_userName = (TextView) headerView.findViewById(R.id.menu_userName);
+        userDetailsController.getShortUserDetail(tv_userName,tv_userEmail,null,FirebaseAuth.getInstance().getUid());
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -151,6 +163,7 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
     public void showAlertLangguageDialog()
     {
         final String[] listItems = {"Viet Nam", "English"};
@@ -172,6 +185,7 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
         alertDialog.show();
 
     }
+
     private void setLocale(String lang){
         Locale locale = new Locale(lang);
         Locale.setDefault(locale);
@@ -182,6 +196,7 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
         editor.putString("My lang",lang);
         editor.apply();
     }
+
     public  void loadLocale(){
         SharedPreferences preferences = getSharedPreferences("",MODE_PRIVATE);
         String language = preferences.getString("My lang","");
@@ -255,6 +270,13 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
     public void singOut(){
         UsersController usersController = UsersController.getInstance(this,null);
         usersController.signOut();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        usersController.checkAuthorizeLogin();
     }
 
     protected abstract void init();

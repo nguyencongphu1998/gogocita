@@ -16,6 +16,7 @@ import com.gogocita.admin.constant.EntityName;
 import com.gogocita.admin.controllers.configvalue.ConfigValueController;
 import com.gogocita.admin.entity.ConfigValue;
 import com.gogocita.admin.entity.Location;
+import com.gogocita.admin.entity.PartnerServiceBook;
 import com.gogocita.admin.entity.UserDetail;
 import com.gogocita.admin.gogocita.R;
 import com.gogocita.admin.gogocita.users.UpdateUserDetailActivity;
@@ -44,6 +45,7 @@ public class UserDetailsController {
     {
         this.activity = activity;
         this.progressBar = progressBar;
+        user = FirebaseAuth.getInstance().getCurrentUser();
     }
 
     public static UserDetailsController getInstance(Activity activity,ProgressBar progressBar){
@@ -67,7 +69,6 @@ public class UserDetailsController {
 
     public void getUserDetail(final Class activityClass){
         QueryFirebase queryFirebase = QueryFirebase.getInstance(EntityName.UserDetails);
-        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         queryFirebase.getReferenceToSearch(null,"fk_UserID",user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -87,5 +88,36 @@ public class UserDetailsController {
 
             }
         });
+    }
+
+    public void getShortUserDetail(final TextView name, final TextView email, final TextView phone, final String userId){
+        if(userId != null){
+            QueryFirebase queryFirebase = QueryFirebase.getInstance(EntityName.UserDetails);
+            queryFirebase.getReferenceToSearch(null,"fk_UserID",userId).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    UserDetail userDetail = dataSnapshot.child(userId).getValue(UserDetail.class);
+                    if(userDetail == null){
+                        Toast.makeText(activity,"Error!!!",Toast.LENGTH_SHORT).show();
+                    }else {
+                        if(name != null){
+                            name.setText(userDetail.getUserDetailFirstName() + " " + userDetail.getUserDetailLastName());
+                        }
+
+                        if(email != null){
+                            email.setText(userDetail.getUserDetailEmail());
+                        }
+
+                        if(phone != null){
+                            phone.setText(userDetail.getUserDetailPhone());
+                        }
+                    }
+                }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
     }
 }

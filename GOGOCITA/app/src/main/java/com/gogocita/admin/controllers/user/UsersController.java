@@ -204,6 +204,4 @@ public class UsersController {
         activity.startActivity(new Intent(activity,LoginActivity.class));
         activity.finish();
     }
-
-
 }

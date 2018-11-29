@@ -1,11 +1,14 @@
 package com.gogocita.admin.gogocita.users;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
@@ -22,7 +25,9 @@ import com.gogocita.admin.gogocita.BaseMenuActivity;
 import com.gogocita.admin.gogocita.R;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class UpdateUserDetailActivity extends BaseMenuActivity {
@@ -45,6 +50,7 @@ public class UpdateUserDetailActivity extends BaseMenuActivity {
     private String cityName;
     private String districtName;
     private Button btnUpdate;
+    private ImageButton btn_CalanderCheckIn;
 
     private ListView listView;
 
@@ -63,6 +69,7 @@ public class UpdateUserDetailActivity extends BaseMenuActivity {
     {
         spinner_gender = (Spinner) findViewById(R.id.spinner_Gender);
         spinner_country = (Spinner) findViewById(R.id.spinner_Nationality);
+        btn_CalanderCheckIn = (ImageButton) findViewById(R.id.btn_calander_checkin);
         spinner_city = (Spinner) findViewById(R.id.spinner_City);
         spinner_distric = (Spinner) findViewById(R.id.spinner_District);
         editText_firstName = (EditText) findViewById(R.id.EditText_Firstname);
@@ -155,6 +162,13 @@ public class UpdateUserDetailActivity extends BaseMenuActivity {
             }
         });
 
+        btn_CalanderCheckIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                datePicker(editText_birthDay);
+            }
+        });
+
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,22 +184,27 @@ public class UpdateUserDetailActivity extends BaseMenuActivity {
                 }
 
 
-                UserDetail userDetail = new UserDetail(
-                        user.getUid(),
-                        editText_lastName.getText().toString(),
-                        editText_firstName.getText().toString(),
-                        new Date(editText_birthDay.getText().toString()),
-                        editText_phone.getText().toString(),
-                        gender,
-                        editText_job.getText().toString(),
-                        editText_idNumber.getText().toString(),
-                        user.getEmail(),
-                        null,
-                        editText_addressline.getText().toString(),
-                        countryName,
-                        cityName,
-                        districtName,
-                        true);
+                UserDetail userDetail = null;
+                try {
+                    userDetail = new UserDetail(
+                            user.getUid(),
+                            editText_lastName.getText().toString(),
+                            editText_firstName.getText().toString(),
+                            new SimpleDateFormat("dd/MM/yyyy").parse(editText_birthDay.getText().toString()),
+                            editText_phone.getText().toString(),
+                            gender,
+                            editText_job.getText().toString(),
+                            editText_idNumber.getText().toString(),
+                            user.getEmail(),
+                            null,
+                            editText_addressline.getText().toString(),
+                            countryName,
+                            cityName,
+                            districtName,
+                            true);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
                 userDetailsController.updateOrInsert(userDetail);
             }
         });
@@ -194,5 +213,20 @@ public class UpdateUserDetailActivity extends BaseMenuActivity {
     @Override
     protected void setContentView() {
         setContentView(R.layout.userdetail_update);
+    }
+
+    private void datePicker(final EditText edt){
+        final Calendar cal = Calendar.getInstance();
+        final int date = cal.get(Calendar.DATE);
+        int month = cal.get(Calendar.MONTH);
+        int year = cal.get(Calendar.YEAR);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                cal.set(year,month,dayOfMonth);
+                edt.setText(cal.get(Calendar.DATE) + "/" +(cal.get(Calendar.MONTH)+1) +"/"+ cal.get(Calendar.YEAR));
+            }
+        },year,month,date);
+        datePickerDialog.show();
     }
 }

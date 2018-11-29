@@ -57,12 +57,20 @@
                         android:hint="Last name"
                         android:textSize="@dimen/t20"/>
                 </TableRow>
-                <TableRow>
+                <TableRow
+                    android:stretchColumns="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
                     <EditText
                         android:id="@+id/EditText_Birthday"
                         android:inputType="date"
+                        android:enabled="false"
                         android:hint="Birthday"
                         android:textSize="@dimen/t20"/>
+                    <ImageButton
+                        android:id="@+id/btn_calander_checkin"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/calendar1" />
                 </TableRow>
                 <TableRow>
                     <EditText
@@ -76,7 +84,6 @@
                         android:hint="@string/male_female"
                         android:enabled="false"
                         android:textSize="@dimen/t20"/>
-
                     <Spinner
                         android:id="@+id/spinner_Gender"
                         android:layout_height="match_parent"
@@ -152,6 +159,5 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_menu_drawer"/>
 </android.support.v4.widget.DrawerLayout>

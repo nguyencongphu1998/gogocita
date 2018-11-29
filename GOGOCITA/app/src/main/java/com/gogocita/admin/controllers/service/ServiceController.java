@@ -95,7 +95,15 @@ public class ServiceController {
         QueryFirebase<PartnerService> queryFirebase = QueryFirebase.getInstance(EntityName.PartnerServices);
         FirebaseListAdapter<PartnerService> serviceAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(null,null,null),PartnerService.class,R.layout.custom_services,context) {
             @Override
-            protected void populateView(ViewHolder vh, Object model) {
+            protected void getViewHolder(ViewHolder vh, View v) {
+                vh.setTextViewServiceName((TextView) v.findViewById(R.id.tv_listservice_name));
+                vh.setTextViewServiceDescription((TextView) v.findViewById(R.id.tv_listservice_description));
+                vh.setTextViewServiceEvalution((TextView) v.findViewById(R.id.tv_listservice_evalution));
+                vh.setImageViewServiceCoverPhoto((ImageView) v.findViewById(R.id.iv_listservice_coverphoto));
+            }
+
+            @Override
+            protected void setViewHolder(ViewHolder vh, Object model) {
                 if(((PartnerService)model).getPartnerServiceDesc().length() < 170)
                 {
                     vh.getTextViewServiceDescription().setText(((PartnerService)model).getPartnerServiceDesc());
@@ -114,13 +122,9 @@ public class ServiceController {
             }
 
             @Override
-            protected void setViewHolder(ViewHolder vh, View v) {
-                vh.setTextViewServiceName((TextView) v.findViewById(R.id.tv_listservice_name));
-                vh.setTextViewServiceDescription((TextView) v.findViewById(R.id.tv_listservice_description));
-                vh.setTextViewServiceEvalution((TextView) v.findViewById(R.id.tv_listservice_evalution));
-                vh.setImageViewServiceCoverPhoto((ImageView) v.findViewById(R.id.iv_listservice_coverphoto));
-            }
+            protected void addListener(ViewHolder vh, Object model) {
 
+            }
 
             @Override
             protected List modifyArrayAdapter(List models)

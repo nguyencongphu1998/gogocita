@@ -7,14 +7,18 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.gogocita.admin.controllers.user.UserDetailsController;
+import com.gogocita.admin.controllers.user.UsersController;
 import com.gogocita.admin.gogocita.ComingSoonActivity;
 import com.gogocita.admin.gogocita.R;
 
 public class ServiceOptionActivity extends AppCompatActivity{
+    private UsersController usersController;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_services);
+        usersController = UsersController.getInstance(this,null);
     }
 
     public void btnTourisGuid(View v)
@@ -33,5 +37,12 @@ public class ServiceOptionActivity extends AppCompatActivity{
                 startActivity(new Intent(getApplicationContext(),ServicesActivity.class));
             }
             }, 1000);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        usersController.checkAuthorizeLogin();
     }
 }

@@ -170,7 +170,12 @@ public class ServiceImageController {
         queryFirebase = QueryFirebase.getInstance(EntityName.PartnerServiceImages);
         FirebaseListAdapter<PartnerServiceImage> partnerServiceImageAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(new String[]{serviceId},null,null),PartnerServiceImage.class, R.layout.custom_servicedetail_image,activity) {
             @Override
-            protected void populateView(ViewHolder vh, Object model) {
+            protected void getViewHolder(ViewHolder vh, View v) {
+                vh.setImageViewContentOfHomeStay((ImageView) v.findViewById(R.id.imv_contentofhomestay_image));
+            }
+
+            @Override
+            protected void setViewHolder(ViewHolder vh, Object model) {
                 Picasso.with(activity)
                         .load(((PartnerServiceImage)model).getPartnerServiceImageLink())
                         .placeholder(R.mipmap.ic_launcher)
@@ -180,8 +185,8 @@ public class ServiceImageController {
             }
 
             @Override
-            protected void setViewHolder(ViewHolder vh, View v) {
-                vh.setImageViewContentOfHomeStay((ImageView) v.findViewById(R.id.imv_contentofhomestay_image));
+            protected void addListener(ViewHolder vh, Object model) {
+
             }
 
             @Override

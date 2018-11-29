@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.gogocita.admin.constant.EntityName;
 import com.gogocita.admin.constant.PartnerServiceDateStatus;
+import com.gogocita.admin.controllers.user.UserDetailsController;
 import com.gogocita.admin.entity.PartnerService;
 import com.gogocita.admin.entity.PartnerServiceBook;
 import com.gogocita.admin.entity.UserDetail;
@@ -23,6 +24,7 @@ import com.gogocita.admin.gogocita.service.ServiceDetailActivity;
 import com.gogocita.admin.helper.FirebaseListAdapter;
 import com.gogocita.admin.helper.QueryFirebase;
 import com.gogocita.admin.helper.ViewHolder;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -33,6 +35,7 @@ import java.util.List;
 public class ServiceBookController {
     private QueryFirebase queryFirebase;
     private static ServiceBookController serviceBookController = null;
+    private UserDetailsController userDetailsController;
     private Activity activity;
     private ProgressBar progressBar;
 
@@ -40,6 +43,7 @@ public class ServiceBookController {
     {
         this.activity = activity;
         this.progressBar = progressBar;
+        this.userDetailsController = UserDetailsController.getInstance(activity,progressBar);
     }
 
     public static ServiceBookController getInstance(Activity activity, ProgressBar progressBar){
@@ -64,7 +68,18 @@ public class ServiceBookController {
         QueryFirebase<PartnerServiceBook> queryFirebase = QueryFirebase.getInstance(EntityName.PartnerServiceBooks);
         FirebaseListAdapter<PartnerServiceBook> serviceAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(null,"fk_CustomerID",customerID),PartnerServiceBook.class,R.layout.item_customer,context) {
             @Override
-            protected void populateView(final ViewHolder vh, final Object model) {
+            protected void getViewHolder(ViewHolder vh, View v) {
+                vh.setTextViewBookStatus((TextView) v.findViewById(R.id.tv_book_status));
+                vh.setTextViewBookAddress((TextView) v.findViewById(R.id.tv_book_address));
+                vh.setTextViewBookCheckIn((TextView) v.findViewById(R.id.tv_book_checkin));
+                vh.setTextViewBookCheckOut((TextView) v.findViewById(R.id.tv_book_checkout));
+                vh.setTextViewBookNameOfHomeStay((TextView) v.findViewById(R.id.tv_book_nameofhomestay));
+                vh.setLinearLayoutBook((LinearLayout) v.findViewById(R.id.backgroud_book));
+                vh.setBtnCancel((Button) v.findViewById(R.id.btn_cancel));
+            }
+
+            @Override
+            protected void setViewHolder(final ViewHolder vh, final Object model) {
                 QueryFirebase queryFirebase = QueryFirebase.getInstance(EntityName.PartnerServices);
                 queryFirebase.getReferenceToSearch(null,"partnerServiceID",((PartnerServiceBook) model).getfK_PartnerServiceID()).addValueEventListener(new ValueEventListener() {
                     @Override
@@ -98,6 +113,10 @@ public class ServiceBookController {
                 }else {
                     vh.getTextViewBookStatus().setBackgroundResource(R.color.confirm);
                 }
+            }
+
+            @Override
+            protected void addListener(final ViewHolder vh,final Object model) {
 
                 vh.getTextViewBookNameOfHomeStay().setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -115,18 +134,6 @@ public class ServiceBookController {
                     }
                 });
             }
-
-            @Override
-            protected void setViewHolder(ViewHolder vh, View v) {
-                vh.setTextViewBookStatus((TextView) v.findViewById(R.id.tv_book_status));
-                vh.setTextViewBookAddress((TextView) v.findViewById(R.id.tv_book_address));
-                vh.setTextViewBookCheckIn((TextView) v.findViewById(R.id.tv_book_checkin));
-                vh.setTextViewBookCheckOut((TextView) v.findViewById(R.id.tv_book_checkout));
-                vh.setTextViewBookNameOfHomeStay((TextView) v.findViewById(R.id.tv_book_nameofhomestay));
-                vh.setLinearLayoutBook((LinearLayout) v.findViewById(R.id.backgroud_book));
-                vh.setBtnCancel((Button) v.findViewById(R.id.btn_cancel));
-            }
-
 
             @Override
             protected List modifyArrayAdapter(List models)
@@ -160,24 +167,20 @@ public class ServiceBookController {
         QueryFirebase<PartnerServiceBook> queryFirebase = QueryFirebase.getInstance(EntityName.PartnerServiceBooks);
         FirebaseListAdapter<PartnerServiceBook> serviceAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(null,"fK_PartnerID",customerID),PartnerServiceBook.class,R.layout.item_homestay,context) {
             @Override
-            protected void populateView(final ViewHolder vh, final Object model) {
-                QueryFirebase queryFirebase = QueryFirebase.getInstance(EntityName.UserDetails);
-                queryFirebase.getReferenceToSearch(null,"fk_UserID",((PartnerServiceBook) model).getFk_CustomerID()).addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        UserDetail userDetail = dataSnapshot.child(((PartnerServiceBook) model).getFk_CustomerID()).getValue(UserDetail.class);
-                        if(userDetail == null){
-                            Toast.makeText(activity,"Error!!!",Toast.LENGTH_SHORT).show();
-                        }else {
-                            vh.getTextViewBookNameOfHomeStay().setText(userDetail.getUserDetailFirstName() + " " + userDetail.getUserDetailLastName());
-                            vh.getTextViewBookAddress().setText(userDetail.getUserDetailPhone());
-                        }
-                    }
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
+            protected void getViewHolder(ViewHolder vh, View v) {
+                vh.setTextViewBookStatus((TextView) v.findViewById(R.id.tv_status));
+                vh.setTextViewBookAddress((TextView) v.findViewById(R.id.tv_phonenumberofcustomer));
+                vh.setTextViewBookCheckIn((TextView) v.findViewById(R.id.tv_checkin));
+                vh.setTextViewBookCheckOut((TextView) v.findViewById(R.id.tv_checkout));
+                vh.setTextViewBookNameOfHomeStay((TextView) v.findViewById(R.id.tv_nameofcustomer));
+                vh.setBtnCancel((Button) v.findViewById(R.id.btn_cancel));
+                vh.setBtnConfirm((Button) v.findViewById(R.id.btn_confirm));
+            }
 
-                    }
-                });
+            @Override
+            protected void setViewHolder(final ViewHolder vh, final Object model) {
+
+                userDetailsController.getShortUserDetail(vh.getTextViewBookNameOfHomeStay(),null,vh.getTextViewBookAddress(),((PartnerServiceBook) model).getFk_CustomerID());
 
                 vh.getTextViewBookStatus().setText(((PartnerServiceBook) model).getPartnerServiceBookStatus());
                 vh.getTextViewBookCheckIn().setText(new SimpleDateFormat("MM-dd-yyyy").format(((PartnerServiceBook) model).getPartnerServiceBookFrom()));
@@ -191,7 +194,10 @@ public class ServiceBookController {
                 }else {
                     vh.getTextViewBookStatus().setBackgroundResource(R.color.confirm);
                 }
+            }
 
+            @Override
+            protected void addListener(final ViewHolder vh, final Object model) {
                 vh.getBtnConfirm().setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -207,16 +213,6 @@ public class ServiceBookController {
                 });
             }
 
-            @Override
-            protected void setViewHolder(ViewHolder vh, View v) {
-                vh.setTextViewBookStatus((TextView) v.findViewById(R.id.tv_status));
-                vh.setTextViewBookAddress((TextView) v.findViewById(R.id.tv_phonenumberofcustomer));
-                vh.setTextViewBookCheckIn((TextView) v.findViewById(R.id.tv_checkin));
-                vh.setTextViewBookCheckOut((TextView) v.findViewById(R.id.tv_checkout));
-                vh.setTextViewBookNameOfHomeStay((TextView) v.findViewById(R.id.tv_nameofcustomer));
-                vh.setBtnCancel((Button) v.findViewById(R.id.btn_cancel));
-                vh.setBtnConfirm((Button) v.findViewById(R.id.btn_confirm));
-            }
             @Override
             protected List modifyArrayAdapter(List models)
             {

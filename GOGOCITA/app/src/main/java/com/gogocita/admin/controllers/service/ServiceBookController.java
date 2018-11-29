@@ -18,6 +18,7 @@ import com.gogocita.admin.constant.PartnerServiceDateStatus;
 import com.gogocita.admin.controllers.user.UserDetailsController;
 import com.gogocita.admin.entity.PartnerService;
 import com.gogocita.admin.entity.PartnerServiceBook;
+import com.gogocita.admin.entity.PartnerServiceFeedback;
 import com.gogocita.admin.entity.UserDetail;
 import com.gogocita.admin.gogocita.R;
 import com.gogocita.admin.gogocita.service.ServiceDetailActivity;
@@ -36,6 +37,7 @@ public class ServiceBookController {
     private QueryFirebase queryFirebase;
     private static ServiceBookController serviceBookController = null;
     private UserDetailsController userDetailsController;
+    private ServiceFeedbackController serviceFeedbackController;
     private Activity activity;
     private ProgressBar progressBar;
 
@@ -43,7 +45,6 @@ public class ServiceBookController {
     {
         this.activity = activity;
         this.progressBar = progressBar;
-        this.userDetailsController = UserDetailsController.getInstance(activity,progressBar);
     }
 
     public static ServiceBookController getInstance(Activity activity, ProgressBar progressBar){
@@ -53,6 +54,9 @@ public class ServiceBookController {
             serviceBookController.progressBar = progressBar;
             serviceBookController.activity = activity;
         }
+
+        serviceBookController.userDetailsController = UserDetailsController.getInstance(activity,progressBar);
+        serviceBookController.serviceFeedbackController = ServiceFeedbackController.getInstance(activity,progressBar);
         return serviceBookController;
     }
 
@@ -144,25 +148,6 @@ public class ServiceBookController {
         listView.setAdapter(serviceAdapter);
     }
 
-    private void getServiceDetail(final String serviceID){
-        QueryFirebase queryFirebase = QueryFirebase.getInstance(EntityName.PartnerServices);
-        queryFirebase.getReferenceToSearch(null,"partnerServiceID",serviceID).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                PartnerService model = dataSnapshot.getValue(PartnerService.class);
-                if(model == null){
-                    Toast.makeText(activity,"Error!!!",Toast.LENGTH_SHORT).show();
-                }else {
-
-                }
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }
-
     public void getAllServiceBooksOfHomeStay(ListView listView, Context context, String customerID){
         QueryFirebase<PartnerServiceBook> queryFirebase = QueryFirebase.getInstance(EntityName.PartnerServiceBooks);
         FirebaseListAdapter<PartnerServiceBook> serviceAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(null,"fK_PartnerID",customerID),PartnerServiceBook.class,R.layout.item_homestay,context) {
@@ -226,9 +211,12 @@ public class ServiceBookController {
     public void updateStatusbook(PartnerServiceBook partnerServiceBook){
         QueryFirebase<PartnerServiceBook> queryFirebase = QueryFirebase.getInstance(EntityName.PartnerServiceBooks);
         queryFirebase.Update(partnerServiceBook.toMapUpdate(),partnerServiceBook.getPartnerServiceBookID());
+        if(partnerServiceBook.getPartnerServiceBookStatus().equals(PartnerServiceDateStatus.Confirm)){
+            serviceFeedbackController.updateOrInsert(new PartnerServiceFeedback(partnerServiceBook.getfK_PartnerServiceID(),partnerServiceBook.getFk_CustomerID(),partnerServiceBook.getPartnerServiceBookID(),0,"",false));
+        }
     }
 
-    public void showAlertDialog(final PartnerServiceBook partnerServiceBook, final String status, final Button cancel, final  Button confirm)
+    private void showAlertDialog(final PartnerServiceBook partnerServiceBook, final String status, final Button cancel, final  Button confirm)
     {
         final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setTitle("GOGOCITA");

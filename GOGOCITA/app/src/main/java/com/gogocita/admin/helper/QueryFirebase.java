@@ -25,10 +25,10 @@ public class QueryFirebase<T>{
         if (queryFirebase == null) {
             queryFirebase = new QueryFirebase(entityName);
         }
-
-        if (queryFirebase.entityName != entityName){
-            queryFirebase = new QueryFirebase(entityName);
+        else {
+            queryFirebase.entityName = entityName;
         }
+
         return queryFirebase;
     }
 

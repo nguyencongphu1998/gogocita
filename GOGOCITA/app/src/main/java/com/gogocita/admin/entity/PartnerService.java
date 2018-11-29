@@ -27,11 +27,12 @@ public class PartnerService extends GenerateId implements Serializable{
     private String partnerserviceType;
     private String partnerserviceCoverPhotoLink;
     private String partnerserviceCoverPhotoID;
+    private int partnerserviceFeedbackAmount;
 
     public PartnerService() {
     }
 
-    public PartnerService(String partnerServiceID, String status, String fk_PartnerID, String partnerServiceName, int partnerServiceEvalution, String partnerServiceAddressLine, String fk_LocationCountryID, String fk_LocationCityID, String fk_LocationDistrictID, boolean partnerServiceIsActive, String fk_EmployeeID, String partnerServiceDesc, double partnerServicePrice, float partnerServiceDiscount, String partnerServiceConvinience,String serviceType)
+    public PartnerService(String partnerServiceID, String status, String fk_PartnerID, String partnerServiceName, int partnerServiceEvalution, String partnerServiceAddressLine, String fk_LocationCountryID, String fk_LocationCityID, String fk_LocationDistrictID, boolean partnerServiceIsActive, String fk_EmployeeID, String partnerServiceDesc, double partnerServicePrice, float partnerServiceDiscount, String partnerServiceConvinience,String serviceType,int partnerserviceFeedbackAmount)
     {
         this.partnerServiceID = partnerServiceID;
         this.status = status;
@@ -49,6 +50,7 @@ public class PartnerService extends GenerateId implements Serializable{
         this.partnerServiceDiscount = partnerServiceDiscount;
         this.partnerServiceConvinience = partnerServiceConvinience;
         this.partnerserviceType = serviceType;
+        this.partnerserviceFeedbackAmount = partnerserviceFeedbackAmount;
     }
 
     public PartnerService(String fk_PartnerID, String partnerServiceName, int partnerServiceEvalution, String partnerServiceAddressLine, String fk_LocationCountryID, String fk_LocationCityID, String fk_LocationDistrictID, boolean partnerServiceIsActive, String fk_EmployeeID, String partnerServiceDesc, double partnerServicePrice, float partnerServiceDiscount, String partnerServiceConvinience,String serviceType)
@@ -69,6 +71,7 @@ public class PartnerService extends GenerateId implements Serializable{
         this.partnerServiceDiscount = partnerServiceDiscount;
         this.partnerServiceConvinience = partnerServiceConvinience;
         this.partnerserviceType = serviceType;
+        this.partnerserviceFeedbackAmount = 0;
     }
 
     public String getPartnerserviceCoverPhotoID() {
@@ -215,6 +218,14 @@ public class PartnerService extends GenerateId implements Serializable{
         this.partnerserviceCoverPhotoLink = partnerserviceCoverPhotoLink;
     }
 
+    public int getPartnerserviceFeedbackAmount() {
+        return partnerserviceFeedbackAmount;
+    }
+
+    public void setPartnerserviceFeedbackAmount(int partnerserviceFeedbackAmount) {
+        this.partnerserviceFeedbackAmount = partnerserviceFeedbackAmount;
+    }
+
     public String getServiceType() {
         return partnerserviceType;
     }
@@ -251,6 +262,15 @@ public class PartnerService extends GenerateId implements Serializable{
         HashMap<String, Object> result = new HashMap<>();
         result.put("partnerserviceCoverPhotoLink", partnerserviceCoverPhotoLink);
         result.put("partnerserviceCoverPhotoID", partnerserviceCoverPhotoID);
+
+        return result;
+    }
+
+    @Exclude
+    public Map<String, Object> toMapUpdateEvalution() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("partnerserviceFeedbackAmount", partnerserviceFeedbackAmount);
+        result.put("partnerServiceEvalution", partnerServiceEvalution);
 
         return result;
     }

@@ -100,6 +100,7 @@ public class ServiceController {
                 vh.setTextViewServiceDescription((TextView) v.findViewById(R.id.tv_listservice_description));
                 vh.setTextViewServiceEvalution((TextView) v.findViewById(R.id.tv_listservice_evalution));
                 vh.setImageViewServiceCoverPhoto((ImageView) v.findViewById(R.id.iv_listservice_coverphoto));
+                vh.setTextViewServiceCommentAmount((TextView) v.findViewById(R.id.tv_listservice_comment));
             }
 
             @Override
@@ -113,6 +114,7 @@ public class ServiceController {
 
                 vh.getTextViewServiceName().setText(((PartnerService)model).getPartnerServiceName());
                 vh.getTextViewServiceEvalution().setText(((PartnerService)model).getPartnerServiceEvalution() +"");
+                vh.getTextViewServiceCommentAmount().setText(((PartnerService)model).getPartnerserviceFeedbackAmount() +"");
                 Picasso.with(context)
                         .load(((PartnerService)model).getPartnerserviceCoverPhotoLink())
                         .placeholder(R.mipmap.ic_launcher)
@@ -178,5 +180,31 @@ public class ServiceController {
         };
 
         listView.setAdapter(serviceAdapter);
+    }
+
+    public void updateEvalution(final int evalution,String partnerServiceId){
+        final QueryFirebase queryFirebase = QueryFirebase.getInstance(EntityName.PartnerServices);
+        queryFirebase.getReferenceToSearch(null,"partnerServiceID",partnerServiceId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot i: dataSnapshot.getChildren()) {
+                    PartnerService partnerService = i.getValue(PartnerService.class);
+                    if(partnerService == null){
+                        Toast.makeText(activity,"Error!!!",Toast.LENGTH_SHORT).show(); break;
+                    }else {
+                        partnerService.setPartnerserviceFeedbackAmount(partnerService.getPartnerserviceFeedbackAmount() + 1);
+                        partnerService.setPartnerServiceEvalution(evalution);
+                        queryFirebase.Update(partnerService.toMapUpdateEvalution(),partnerService.getPartnerServiceID());
+
+                        Toast.makeText(activity,"Send feedback successfully!!!",Toast.LENGTH_SHORT).show();
+                        break;
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 }

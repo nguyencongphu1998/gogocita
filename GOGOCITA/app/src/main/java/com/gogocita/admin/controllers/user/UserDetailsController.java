@@ -45,7 +45,6 @@ public class UserDetailsController {
     {
         this.activity = activity;
         this.progressBar = progressBar;
-        user = FirebaseAuth.getInstance().getCurrentUser();
     }
 
     public static UserDetailsController getInstance(Activity activity,ProgressBar progressBar){
@@ -55,6 +54,8 @@ public class UserDetailsController {
             userDetailController.progressBar = progressBar;
             userDetailController.activity = activity;
         }
+
+        userDetailController.user = FirebaseAuth.getInstance().getCurrentUser();
         return userDetailController;
     }
 

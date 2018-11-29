@@ -11,6 +11,7 @@ public class ViewHolder {
     private TextView textViewServiceName;
     private TextView textViewServiceEvalution;
     private TextView textViewServiceDescription;
+    private TextView textViewServiceCommentAmount;
     private ImageView imageViewServiceCoverPhoto;
     private ImageView imageViewContentOfHomeStay;
     private TextView textViewBookNameOfHomeStay;
@@ -24,6 +25,14 @@ public class ViewHolder {
 
     public ViewHolder(){
 
+    }
+
+    public TextView getTextViewServiceCommentAmount() {
+        return textViewServiceCommentAmount;
+    }
+
+    public void setTextViewServiceCommentAmount(TextView textViewServiceCommentAmout) {
+        this.textViewServiceCommentAmount = textViewServiceCommentAmout;
     }
 
     public Button getBtnConfirm() {

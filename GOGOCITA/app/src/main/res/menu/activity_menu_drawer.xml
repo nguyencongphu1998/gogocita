@@ -38,6 +38,14 @@
                     android:id="@+id/btn_history"
                     android:icon="@drawable/history"
                     android:title="@string/history" />
+                <item
+                    android:id="@+id/btn_feedback_customer"
+                    android:icon="@drawable/fbcus"
+                    android:title="Feedback" />
+                <item
+                    android:id="@+id/btn_see_feedback_homestay"
+                    android:icon="@drawable/fbhs"
+                    android:title="See my feedback" />
                 </group>
         </menu>
     </item>
@@ -56,7 +64,7 @@
                     android:title="@string/change_password" />
                 <item
                     android:id="@+id/btn_changelanguage"
-                    android:icon="@drawable/changepass"
+                    android:icon="@drawable/lang"
                     android:title="@string/change_language" />
                 <item
                     android:id="@+id/btn_signout"

@@ -1,6 +1,5 @@
 package com.gogocita.admin.gogocita;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,7 +14,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -27,12 +25,13 @@ import com.gogocita.admin.controllers.user.UsersController;
 import com.gogocita.admin.gogocita.service.BooksActiviry;
 import com.gogocita.admin.gogocita.service.CreateNewServiceActivity;
 import com.gogocita.admin.gogocita.service.HistoryOrdersActivity;
+import com.gogocita.admin.gogocita.service.ServiceFeedbackCustomerActivity;
+import com.gogocita.admin.gogocita.service.ServiceFeedbackPartnerActivity;
 import com.gogocita.admin.gogocita.service.ServicesActivity;
 import com.gogocita.admin.gogocita.users.ChangePasswordActivity;
 import com.gogocita.admin.gogocita.users.UpdateUserDetailActivity;
 import com.gogocita.admin.gogocita.users.UserDetailActivity;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Locale;
 
@@ -151,6 +150,26 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
                     }
                 }, timeDelayMiliSeconds);
                 break;
+            case R.id.btn_feedback_customer:
+                item.setActionView(new ProgressBar(this));
+                item.getActionView().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        feedback();
+                    }
+                }, timeDelayMiliSeconds);
+                break;
+            case R.id.btn_see_feedback_homestay:
+                item.setActionView(new ProgressBar(this));
+                item.getActionView().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        feedbackOfHomestay();
+                    }
+                }, timeDelayMiliSeconds);
+                break;
             case R.id.btn_aboutus:
                 aboutUs();
                 break;
@@ -163,6 +182,16 @@ public abstract class BaseMenuActivity extends AppCompatActivity implements Navi
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    private void feedback(){
+        startActivity(new Intent(this, ServiceFeedbackCustomerActivity.class));
+        finish();
+    };
+
+    private void feedbackOfHomestay(){
+        startActivity(new Intent(this, ServiceFeedbackPartnerActivity.class));
+        finish();
+    };
 
     public void showAlertLangguageDialog()
     {

@@ -4,18 +4,23 @@ import com.gogocita.admin.constant.EntityName;
 import com.gogocita.admin.constant.EntityStatus;
 import com.google.firebase.database.Exclude;
 
+import java.io.Serializable;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PartnerServiceFeedback extends GenerateId{
+public class PartnerServiceFeedback extends GenerateId implements Serializable {
     private String pSFID;
     private String status;
     private String fk_PartnerServiceID;
     private String fk_CustomerID;
     private String fk_PartnerServiceBookID;
+    private String fk_PartnerID;
     private int pSFEvalution;
     private String pSFContent;
     private boolean pSFIsSend;
+    private Date pSFEFrom;
+    private Date pSFETo;
 
     public PartnerServiceFeedback() {
     }
@@ -31,7 +36,7 @@ public class PartnerServiceFeedback extends GenerateId{
         this.fk_PartnerServiceBookID = fk_PartnerServiceBookID;
     }
 
-    public PartnerServiceFeedback(String fk_PartnerServiceID, String fk_CustomerID, String fk_PartnerServiceBookID, int pSFEvalution, String pSFContent, boolean isSend) {
+    public PartnerServiceFeedback(String fk_PartnerServiceID, String fk_CustomerID, String fk_PartnerServiceBookID, int pSFEvalution, String pSFContent, boolean isSend, Date pSFEFrom, Date pSFETo, String fk_PartnerID) {
         this.pSFID = generateId(EntityName.PartnerServiceFeedbacks);
         this.status = EntityStatus.Alive;
         this.fk_PartnerServiceID = fk_PartnerServiceID;
@@ -40,6 +45,33 @@ public class PartnerServiceFeedback extends GenerateId{
         this.pSFContent = pSFContent;
         this.pSFIsSend = isSend;
         this.fk_PartnerServiceBookID = fk_PartnerServiceBookID;
+        this.pSFEFrom = pSFEFrom;
+        this.pSFETo = pSFETo;
+        this.fk_PartnerID = fk_PartnerID;
+    }
+
+    public String getFk_PartnerID() {
+        return fk_PartnerID;
+    }
+
+    public void setFk_PartnerID(String fk_PartnerID) {
+        this.fk_PartnerID = fk_PartnerID;
+    }
+
+    public Date getpSFEFrom() {
+        return pSFEFrom;
+    }
+
+    public void setpSFEFrom(Date pSFEFrom) {
+        this.pSFEFrom = pSFEFrom;
+    }
+
+    public Date getpSFETo() {
+        return pSFETo;
+    }
+
+    public void setpSFETo(Date pSFETo) {
+        this.pSFETo = pSFETo;
     }
 
     public String getFk_PartnerServiceBookID() {
@@ -116,6 +148,9 @@ public class PartnerServiceFeedback extends GenerateId{
         result.put("pSFContent", pSFContent);
         result.put("pSFIsSend", pSFIsSend);
         result.put("fk_PartnerServiceBookID", fk_PartnerServiceBookID);
+        result.put("pSFEFrom", pSFEFrom);
+        result.put("pSFETo", pSFETo);
+        result.put("fk_PartnerID", fk_PartnerID);
 
         return result;
     }

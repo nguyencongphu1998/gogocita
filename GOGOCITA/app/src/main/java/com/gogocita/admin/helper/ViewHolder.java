@@ -19,6 +19,7 @@ public class ViewHolder {
     private TextView textViewBookCheckOut;
     private TextView textViewBookStatus;
     private TextView textViewBookAddress;
+    private TextView textViewFeedbackContent;
     private LinearLayout linearLayoutBook;
     private Button btnConfirm;
     private Button btnCancel;
@@ -33,6 +34,14 @@ public class ViewHolder {
 
     public void setTextViewServiceCommentAmount(TextView textViewServiceCommentAmout) {
         this.textViewServiceCommentAmount = textViewServiceCommentAmout;
+    }
+
+    public TextView getTextViewFeedbackContent() {
+        return textViewFeedbackContent;
+    }
+
+    public void setTextViewFeedbackContent(TextView textViewFeedbackContent) {
+        this.textViewFeedbackContent = textViewFeedbackContent;
     }
 
     public Button getBtnConfirm() {

@@ -13,7 +13,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_book_nameofhomestay"
+            android:id="@+id/tv_feedback_nameofhomestay"
             android:text="@string/nameofhomestay"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_book_address"
+            android:id="@+id/tv_feedback_address"
             android:text="@string/address"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -49,7 +49,7 @@
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/tv_book_checkin"
+                android:id="@+id/tv_feedback_checkin"
                 android:text="@string/date"
                 android:textColor="@color/black"
                 android:textSize="@dimen/t15"/>
@@ -74,20 +74,10 @@
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/tv_book_checkout"
+                android:id="@+id/tv_feedback_checkout"
                 android:text="@string/date"
                 android:textColor="@color/black"
                 android:textSize="@dimen/h15"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Send Feedback"
-                android:background="@color/pink"
-                android:textColor="@color/white"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

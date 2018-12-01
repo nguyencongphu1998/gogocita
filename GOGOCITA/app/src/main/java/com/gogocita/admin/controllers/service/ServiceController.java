@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
@@ -182,9 +183,10 @@ public class ServiceController {
         listView.setAdapter(serviceAdapter);
     }
 
-    public void updateEvalution(final int evalution,String partnerServiceId){
+    public void updateEvalution(final int evalution, final String partnerServiceId){
         final QueryFirebase queryFirebase = QueryFirebase.getInstance(EntityName.PartnerServices);
-        queryFirebase.getReferenceToSearch(null,"partnerServiceID",partnerServiceId).addValueEventListener(new ValueEventListener() {
+        final Query query = queryFirebase.getReferenceToSearch(null,"partnerServiceID",partnerServiceId);
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot i: dataSnapshot.getChildren()) {
@@ -194,9 +196,11 @@ public class ServiceController {
                     }else {
                         partnerService.setPartnerserviceFeedbackAmount(partnerService.getPartnerserviceFeedbackAmount() + 1);
                         partnerService.setPartnerServiceEvalution(evalution);
-                        queryFirebase.Update(partnerService.toMapUpdateEvalution(),partnerService.getPartnerServiceID());
+                        queryFirebase.Update(partnerService.toMapUpdateEvalution(),partnerService.getFk_PartnerID());
 
+                        progressBar.setVisibility(View.GONE);
                         Toast.makeText(activity,"Send feedback successfully!!!",Toast.LENGTH_SHORT).show();
+                        query.removeEventListener(this);
                         break;
                     }
                 }

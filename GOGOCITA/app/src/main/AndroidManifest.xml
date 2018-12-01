@@ -153,6 +153,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".service.ServiceFeedbackCustomerActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.CALL" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".service.CreateFeedbackActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.CALL" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".service.ServiceFeedbackPartnerActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.CALL" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".service.ServiceDetailActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="locked">

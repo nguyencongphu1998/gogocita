@@ -18,7 +18,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <TextView
-                    android:id="@+id/tv_nameofcustomer"
+                    android:id="@+id/tv_feedback_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/User_name"
@@ -28,9 +28,9 @@
                     android:layout_marginRight="@dimen/standard"
                     android:textSize="@dimen/t20" />
                 <TextView
+                    android:id="@+id/tv_feedback_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tv_phonenumberofcustomer"
                     android:text="@string/phone"
                     android:layout_marginTop="@dimen/h5"
                     android:layout_marginLeft="@dimen/standard"
@@ -57,7 +57,7 @@
                         android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tv_checkin"
+                        android:id="@+id/tv_feedback_checkin"
                         android:text="@string/date"
                         android:textColor="@color/black"
                         android:textSize="@dimen/t20"/>
@@ -83,7 +83,7 @@
                         android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tv_checkout"
+                        android:id="@+id/tv_feedback_checkout"
                         android:textColor="@color/black"
                         android:textSize="@dimen/t20"
                         android:text="@string/date"/>
@@ -96,6 +96,7 @@
             android:orientation="horizontal"
             android:padding="@dimen/h10">
             <TextView
+                android:id="@+id/tv_feedback_content"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/h100"
                 android:background="@color/colorWhite"

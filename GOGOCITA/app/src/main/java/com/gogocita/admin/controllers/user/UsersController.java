@@ -98,8 +98,6 @@ public class UsersController {
 
     public void singIn(String email, final String password)
     {
-        checkAuthorizeLogin();
-
         progressBar.setVisibility(View.VISIBLE);
 
         auth.signInWithEmailAndPassword(email, password)

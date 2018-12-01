@@ -19,13 +19,11 @@ import com.gogocita.admin.controllers.user.UserDetailsController;
 import com.gogocita.admin.entity.PartnerService;
 import com.gogocita.admin.entity.PartnerServiceBook;
 import com.gogocita.admin.entity.PartnerServiceFeedback;
-import com.gogocita.admin.entity.UserDetail;
 import com.gogocita.admin.gogocita.R;
 import com.gogocita.admin.gogocita.service.ServiceDetailActivity;
 import com.gogocita.admin.helper.FirebaseListAdapter;
 import com.gogocita.admin.helper.QueryFirebase;
 import com.gogocita.admin.helper.ViewHolder;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -212,7 +210,7 @@ public class ServiceBookController {
         QueryFirebase<PartnerServiceBook> queryFirebase = QueryFirebase.getInstance(EntityName.PartnerServiceBooks);
         queryFirebase.Update(partnerServiceBook.toMapUpdate(),partnerServiceBook.getPartnerServiceBookID());
         if(partnerServiceBook.getPartnerServiceBookStatus().equals(PartnerServiceDateStatus.Confirm)){
-            serviceFeedbackController.updateOrInsert(new PartnerServiceFeedback(partnerServiceBook.getfK_PartnerServiceID(),partnerServiceBook.getFk_CustomerID(),partnerServiceBook.getPartnerServiceBookID(),0,"",false));
+            serviceFeedbackController.updateOrInsert(new PartnerServiceFeedback(partnerServiceBook.getfK_PartnerServiceID(),partnerServiceBook.getFk_CustomerID(),partnerServiceBook.getPartnerServiceBookID(),0,"",false,partnerServiceBook.getPartnerServiceBookFrom(),partnerServiceBook.getPartnerServiceBookTo(), partnerServiceBook.getfK_PartnerID()));
         }
     }
 

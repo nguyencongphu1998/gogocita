@@ -8,11 +8,17 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="@dimen/h100"
+        android:layout_height="@dimen/h100"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/h20"
+        android:visibility="gone" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -23,8 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="@dimen/standard"
-            android:weightSum="20">
+            android:padding="@dimen/standard">
             <TextView
                 android:id="@+id/a"
                 android:layout_width="match_parent"
@@ -34,30 +39,23 @@
                 android:gravity="center"
                 android:layout_marginTop="@dimen/h20"
                 android:textStyle="bold"
-                android:layout_weight="1"/>
-
+                />
             <TextView
                 android:id="@+id/b"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/a"
-                android:layout_weight="1"
                 android:text="@string/contentfeedback" />
             <RelativeLayout
                 android:layout_below="@+id/b"
                 android:id="@+id/c"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/h250"
                 android:padding="@dimen/h16"
-                android:layout_weight="17"
-                android:background="@drawable/text_bg">
-                <ProgressBar
-                    android:id="@+id/progressBar"
-                    android:layout_width="@dimen/h100"
-                    android:layout_height="@dimen/h100"
-                    android:layout_centerInParent="true"
-                    android:layout_marginBottom="@dimen/h20"
-                    android:visibility="gone" />
+                android:background="@drawable/text_bg"
+                android:layout_marginTop="@dimen/h10"
+                android:layout_marginBottom="@dimen/h10">
+
                 <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -68,22 +66,18 @@
                         android:hint="@string/yourfeedback"/>
                 </ScrollView>
             </RelativeLayout>
-            <LinearLayout
+            <Button
                 android:layout_below="@+id/c"
+                android:id="@+id/btn_feedback_send"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
-                <Button
-                    android:id="@+id/btn_feedback_send"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/send"
-                    android:textSize="@dimen/t20"
-                    android:textColor="@color/white"
-                    android:background="@drawable/button_bg_rounded_corners"
-                    />
-            </LinearLayout>
+                android:text="@string/send"
+                android:textSize="@dimen/t20"
+                android:textColor="@color/white"
+                android:background="@drawable/button_bg_rounded_corners"
+                />
         </LinearLayout>
+
     </LinearLayout>
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"

@@ -67,10 +67,15 @@
                         android:enabled="false"
                         android:hint="@string/birthday"
                         android:textSize="@dimen/t20"/>
-                    <ImageButton
-                        android:id="@+id/btn_calander_checkin"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/calendar1" />
+                    <LinearLayout
+                        android:layout_gravity="center">
+                        <ImageButton
+                            android:id="@+id/btn_calander_checkin"
+                            android:layout_height="match_parent"
+                            android:layout_width="wrap_content"
+                            android:background="@drawable/calendar1" />
+                    </LinearLayout>
+
                 </TableRow>
                 <TableRow>
                     <EditText

@@ -38,8 +38,6 @@
     <string name="login_facebook">Login with Facebook</string>
     <string name="login_gmail">Login with Gmail</string>
     <string name="contentabout">Team GOGOCITA có 4 thành viên đến từ lớp 16T2. Hướng đến việc góp phần phát triển ngành du lịch lữ hành. GOGOCITA ra đời với 2 mục đích, thứ nhất là kết nối dịch vụ Homestay với nhu cầu khách du lịch, thứ hai là tạo ra những chuyến du lịch miễn phí mà hướng dẫn viên chính là các bạn SV. Team GOGOCITA hy vọng ứng dụng này sẽ góp phần vào sự phát triển của ngành du lịch.></string>
-    <string name="navigation_drawer_open" />
-    <string name="navigation_drawer_close" />
     <string name="nameofhomestay">NAME OF HOMESTAY</string>
     <string name="cancel">Cancel</string>
     <string name="checkin">Check in</string>
@@ -98,7 +96,6 @@
     <string name="formbook">FORM BOOK</string>
     <string name="date">02/12/2018</string>
     <string name="status">Status</string>
-    <string name="phone">Phone</string>
     <string name="confirm">Confirm</string>
     <string name="asc">ASC</string>
     <string name="des">DESC</string>
@@ -130,13 +127,6 @@
     <string name="description">Description</string>
     <string name="show_uploads">Show Uploads</string>
     <string name="your_information">YOUR INFORMATION</string>
-    <string name="first_name">First name</string>
-    <string name="last_name">Last name</string>
-    <string name="birthday">BirthDay</string>
-    <string name="gender">Gender</string>
-    <string name="job">Job</string>
-    <string name="identity_card">Identity Card</string>
-    <string name="district">District</string>
     <string name="update_your_profile">UPDATE YOUR PROFILE</string>
     <string name="handphone">Handphone</string>
     <string name="male_female">Male/Female</string>
@@ -149,19 +139,31 @@
     <string name="do_you_want_signout">Do you want sign out?</string>
     <string name="no">NO</string>
     <string name="yes">YES</string>
-    <string name="address" translatable="false">address</string>
-    <string name="dash_board" translatable="false">Dash board</string>
-    <string name="my_information" translatable="false">My information</string>
-    <string name="my_profile" translatable="false">My profile</string>
-    <string name="update_my_profile" translatable="false">Update my profile</string>
-    <string name="services" translatable="false">Services</string>
-    <string name="my_service" translatable="false">My service</string>
-    <string name="see_calendar" translatable="false">See calendar</string>
-    <string name="history" translatable="false">History</string>
-    <string name="setting" translatable="false">Setting</string>
-    <string name="about_us" translatable="false" >About us</string>
-    <string name="change_password" translatable="false">Change password</string>
-    <string name="change_language" translatable="false">Change language</string>
+    <string name="address">address</string>
+    <string name="dash_board">Dash board</string>
+    <string name="my_information">My information</string>
+    <string name="my_profile">My profile</string>
+    <string name="update_my_profile">Update my profile</string>
+    <string name="services">Services</string>
+    <string name="my_service">My service</string>
+    <string name="see_calendar">See calendar</string>
+    <string name="history">History</string>
+    <string name="setting">Setting</string>
+    <string name="about_us">About us</string>
+    <string name="change_password">Change password</string>
+    <string name="change_language">Change language</string>
     <string name="your_district">Your district</string>
     <string name="your_job">Your job</string>
+    <string name="phone">phone</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="birthday">Birthday</string>
+    <string name="gender">Gender</string>
+    <string name="job">Job</string>
+    <string name="identity_card">Identity card</string>
+    <string name="district">District</string>
+    <string name="navigation_drawer_open" />
+    <string name="navigation_drawer_close" />
+
+
 </resources>

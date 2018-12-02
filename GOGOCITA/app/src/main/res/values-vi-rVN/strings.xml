@@ -4,11 +4,11 @@
     <string name="Password">Mật khẩu</string>
     <string name="Login">Đăng nhập</string>
     <string name="Forgot_password">Quên mật khẩu? </string>
-    <string name="Dont_have_an_account">"Không có tài khoản ?"</string>
+    <string name="Dont_have_an_account">"Tạo tài khoản mới"</string>
     <string name="Ready_to_creat_your_services">Sẳn sàn tạo dịch vụ</string>
     <string name="Now_you_will_creat_your_services">Now you will creat your service.\n
             Customer will see your service \n on dashboard and choose\n service if they want</string>
-    <string name="Next">Next</string>
+    <string name="Next">Tiếp theo</string>
     <string name="Fill_the_form">Điền vào form</string>
     <string name="Please_fill_all_information"> Please fill all information on the form.\n
         It is very important, customers will\n
@@ -38,7 +38,7 @@
     <string name="login_facebook">Đăng nhập với Facebook</string>
     <string name="login_gmail">Đăng nhập với Gmail</string>
     <string name="nameofhomestay">TÊN HOMESTAY</string>
-    <string name="cancel">Thoát</string>
+    <string name="cancel">Hủy</string>
     <string name="checkin">Ngày đến</string>
     <string name="checkout">Ngày đi</string>
     <string name="aboutus">Team gogogita</string>
@@ -67,7 +67,7 @@
     <string name="ac">AC</string>
     <string name="votes">Votes</string>
     <string name="booknow">BOOK NOW</string>
-    <string name="creatsv">Great! Your creat your service successful</string>
+    <string name="creatsv">Dịch vụ của bạn được tạo thành công</string>
     <string name="returndash">RETURN DASHBOARD</string>
     <string name="creatyoursv">TẠO DỊCH VỤ CỦA BẠN</string>
     <string name="name">Tên</string>
@@ -78,9 +78,9 @@
     <string name="country">Quốc gia</string>
     <string name="desc">Mô tả</string>
     <string name="convinience">Tiện ích</string>
-    <string name="uploadimage">Upload image</string>
+    <string name="uploadimage">Upload ảnh</string>
     <string name="price">"Giá: "</string>
-    <string name="price1">VND/room/night</string>
+    <string name="price1">VND/phòng/đêm</string>
     <string name="complete">HOÀN THÀNH</string>
     <string name="feedback">FEEDBACK</string>
     <string name="contentfeedback">Thanks for using our service, please give us feedback to improve our service. Thanks!</string>
@@ -88,20 +88,19 @@
     <string name="send">GỬI</string>
     <string name="sendfeedback">Your feedback had been sent</string>
     <string name="forgotpass">QUÊN MẬT KHẨU</string>
-    <string name="ctforgotpass">Please enter your email and we will send an OTP number</string>
+    <string name="ctforgotpass">Vui lòng nhập email và chúng tôi sẽ gửi 1 mã xác minh cho bạn</string>
     <string name="email">Email</string>
     <string name="acesssmail">Acess your email to reser passwork</string>
     <string name="returntologin">Trở về để đăng nhập</string>
     <string name="formbook">FORM BOOK</string>
     <string name="date">02/12/2018</string>
     <string name="status">Status</string>
-    <string name="phone">0123456789</string>
     <string name="confirm">Xác nhận</string>
     <string name="asc">ASC</string>
     <string name="des">DESC</string>
     <string name="listbook">Danh sách book</string>
-    <string name="donthavaacc">Bạn có tài khoản chưa ?</string>
-    <string name="signup">ĐĂNG KÍ</string>
+    <string name="donthavaacc">Tạo tài khoản mới ?</string>
+    <string name="signup">ĐĂNG KÝ TÀI KHOẢN</string>
     <string name="youremail">Email</string>
     <string name="youare">You Are</string>
     <string name="repeatpass">Nhập lại mật khẩu</string>
@@ -109,9 +108,9 @@
     <string name="go_back">Trở về</string>
     <string name="create">Tạo</string>
     <string name="my_calendar">Danh sách book của homestay</string>
-    <string name="check_in">Ngày bắt đầu</string>
+    <string name="check_in">Ngày đến</string>
     <string name="days">* ngày</string>
-    <string name="check_out">Ngày kết thúc</string>
+    <string name="check_out">Ngày đi</string>
     <string name="customer">Khách hàng:</string>
     <string name="age">Tuổi</string>
     <string name="nationality">Quốc tịch:</string>
@@ -122,18 +121,11 @@
     <string name="homestay">Homestay</string>
     <string name="upload">upload</string>
     <string name="terms_and_conditions">Điều khoản dịch vụ</string>
-    <string name="sign_up">Đăng kí</string>
+    <string name="sign_up">Đăng ký</string>
     <string name="return_dashboard">Return Dashboard</string>
     <string name="description">Mô tả</string>
     <string name="show_uploads">Show Uploads</string>
     <string name="your_information">THÔNG TIN CỦA BẠN</string>
-    <string name="first_name">Tên</string>
-    <string name="last_name">Họ</string>
-    <string name="birthday">Sinh Nhật</string>
-    <string name="gender">Giới tính</string>
-    <string name="job">Công việc</string>
-    <string name="identity_card">CMND</string>
-    <string name="district">Huyện</string>
     <string name="update_your_profile">CẬP NHẬT HỒ SƠ CỦA BẠN</string>
     <string name="handphone">SĐT</string>
     <string name="male_female">Nam/Nữ</string>
@@ -141,7 +133,7 @@
     <string name="your_city">Thành phố</string>
     <string name="your_nationality">Quốc tịch</string>
     <string name="update">CẬP NHẬT</string>
-    <string name="sign_out">Đăng xuât</string>
+    <string name="sign_out">Đăng xuất</string>
     <string name="type">Loại</string>
     <string name="contentabout">Team GOGOCITA có 4 thành viên đến từ lớp 16T2. Hướng đến việc góp phần phát triển ngành du lịch lữ hành. GOGOCITA ra đời với 2 mục đích, thứ nhất là kết nối dịch vụ Homestay với nhu cầu khách du lịch, thứ hai là tạo ra những chuyến du lịch miễn phí mà hướng dẫn viên chính là các bạn SV. Team GOGOCITA hy vọng ứng dụng này sẽ góp phần vào sự phát triển của ngành du lịch.></string>
     <string name="do_you_want_signout" translatable="false">Bạn có muốn đăng xuất không ?</string>
@@ -160,5 +152,16 @@
     <string name="about_us" translatable="false" >Thông tin team gogocita</string>
     <string name="change_password" translatable="false">Đổi mật khẩu</string>
     <string name="change_language" translatable="false"> Đổi ngôn ngữ</string>
+    <string name="your_district">Huyện</string>
+    <string name="your_job">Công việc</string>
+    <string name="phone">Điện thoại</string>
+    <string name="gender">Giới tính</string>
+    <string name="job">Công việc</string>
+    <string name="first_name">Tên</string>
+    <string name="last_name">Họ</string>
+    <string name="birthday">Ngày sinh</string>
+    <string name="identity_card">CMND</string>
+    <string name="district">Huyện</string>
+
 
 </resources>

@@ -54,7 +54,7 @@
                     <EditText
                         android:id="@+id/EditText_Lastname"
                         android:inputType="text"
-                        android:hint="Last name"
+                        android:hint="@string/last_name"
                         android:textSize="@dimen/t20"/>
                 </TableRow>
                 <TableRow
@@ -65,7 +65,7 @@
                         android:id="@+id/EditText_Birthday"
                         android:inputType="date"
                         android:enabled="false"
-                        android:hint="Birthday"
+                        android:hint="@string/birthday"
                         android:textSize="@dimen/t20"/>
                     <ImageButton
                         android:id="@+id/btn_calander_checkin"
@@ -76,7 +76,7 @@
                     <EditText
                         android:id="@+id/EditText_Handphone"
                         android:inputType="phone"
-                        android:hint="Handphone"
+                        android:hint="@string/handphone"
                         android:textSize="@dimen/t20"/>
                 </TableRow>
                 <TableRow>
@@ -93,26 +93,26 @@
                     <EditText
                         android:id="@+id/EditText_Job"
                         android:inputType="text"
-                        android:hint="Your job"
+                        android:hint="@string/your_job"
                         android:textSize="@dimen/t20"/>
                 </TableRow>
                 <TableRow>
                     <EditText
                         android:id="@+id/EditText_IdentityCard"
                         android:inputType="number"
-                        android:hint="Identity card number"
+                        android:hint="@string/identity_card"
                         android:textSize="@dimen/t20"/>
                 </TableRow>
                 <TableRow>
                     <EditText
                         android:id="@+id/EditText_Address"
-                        android:hint="Address"
+                        android:hint="@string/address"
                         android:textSize="@dimen/t20"/>
                 </TableRow>
                 <TableRow>
                     <EditText
                         android:enabled="false"
-                        android:hint="Your district"
+                        android:hint="@string/your_district"
                         android:textSize="@dimen/t20"/>
                     <Spinner
                         android:id="@+id/spinner_District"
@@ -122,7 +122,7 @@
                 <TableRow>
                     <EditText
                         android:enabled="false"
-                        android:hint="Your city"
+                        android:hint="@string/your_city"
                         android:textSize="@dimen/t20"/>
                     <Spinner
                         android:id="@+id/spinner_City"
@@ -132,7 +132,7 @@
                 <TableRow>
                     <EditText
                         android:enabled="false"
-                        android:hint="Your nationality"
+                        android:hint="@string/your_nationality"
                         android:textSize="@dimen/t20"/>
 
                     <Spinner
@@ -145,7 +145,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_bg_rounded_corners"
-                    android:text="UPDATE"
+                    android:text="@string/update"
                     android:textSize="@dimen/t20"
                     android:textColor="@color/white"
                     android:layout_marginTop="@dimen/h30"/>

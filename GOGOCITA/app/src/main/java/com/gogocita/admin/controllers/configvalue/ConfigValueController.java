@@ -23,6 +23,9 @@ public class ConfigValueController {
     private QueryFirebase queryFirebase;
     private static ConfigValueController configValueController = null;
     private Context context;
+    private FirebaseListAdapter<Location> locationCityAdapter;
+    private FirebaseListAdapter<Location> locationDistrictAdapter;
+    FirebaseListAdapter<ConfigValue> genderAdapter;
 
     private ConfigValueController(Context context)
     {
@@ -77,7 +80,7 @@ public class ConfigValueController {
 
     public void getGenders(Spinner spinner_gender){
         queryFirebase = QueryFirebase.getInstance(EntityName.ConfigValues);
-        FirebaseListAdapter<ConfigValue> genderAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(null,"configValueGroup","GenderType"),ConfigValue.class, R.layout.custom_spinner,context) {
+        genderAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(null,"configValueGroup","GenderType"),ConfigValue.class, R.layout.custom_spinner,context) {
 
             @Override
             protected void getViewHolder(ViewHolder vh, View v) {
@@ -137,7 +140,7 @@ public class ConfigValueController {
 
     public void getDistricts(String countryId,String cityId,Spinner spinner_distric){
         queryFirebase = QueryFirebase.getInstance(EntityName.Locations);
-        FirebaseListAdapter<Location> locationDistrictAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(new String[]{countryId,cityId},"locationType","District"),Location.class,R.layout.custom_spinner,context) {
+        locationDistrictAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(new String[]{countryId,cityId},"locationType","District"),Location.class,R.layout.custom_spinner,context) {
 
             @Override
             protected void getViewHolder(ViewHolder vh, View v) {
@@ -167,7 +170,7 @@ public class ConfigValueController {
 
     public void getCitys(String countryId,Spinner spinner_city){
         queryFirebase = QueryFirebase.getInstance(EntityName.Locations);
-        FirebaseListAdapter<Location> locationCityAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(new String[]{countryId},"locationType","City"),Location.class,R.layout.custom_spinner,context) {
+        locationCityAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(new String[]{countryId},"locationType","City"),Location.class,R.layout.custom_spinner,context) {
 
             @Override
             protected void getViewHolder(ViewHolder vh, View v) {
@@ -189,7 +192,33 @@ public class ConfigValueController {
                 return models;
             }
         };
-
         spinner_city.setAdapter(locationCityAdapter);
+    }
+
+    public void selectLocationCityItem(String value, Spinner spinner){
+        for(int i = 0; i < locationCityAdapter.getCount(); i++){
+            if(((Location)locationCityAdapter.getItem(i)).getLocationName().equals(value))
+            {
+                spinner.setSelection(i);
+            }
+        }
+    }
+
+    public void selectLocationCountryItem(String value, Spinner spinner){
+        for(int i = 0; i < locationDistrictAdapter.getCount(); i++){
+            if(((Location)locationDistrictAdapter.getItem(i)).getLocationName().equals(value))
+            {
+                spinner.setSelection(i);
+            }
+        }
+    }
+
+    public void selectGenderItem(String value, Spinner spinner){
+        for(int i = 0; i < genderAdapter.getCount(); i++){
+            if(((ConfigValue)genderAdapter.getItem(i)).getConfigValueText().equals(value))
+            {
+                spinner.setSelection(i);
+            }
+        }
     }
 }

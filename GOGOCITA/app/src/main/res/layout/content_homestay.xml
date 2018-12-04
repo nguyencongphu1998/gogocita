@@ -98,6 +98,7 @@
                                 android:src="@drawable/comment"
                                 android:layout_marginRight="@dimen/h3"/>
                             <TextView
+                                android:id="@+id/tv_servicedetail_vote1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="@dimen/h60"
                                 android:text="@string/comment"
@@ -191,36 +192,14 @@
                         android:orientation="horizontal"
                         android:padding="@dimen/h16"
                         android:weightSum="3">
-                        <ImageView
-                            android:layout_width="wrap_content"
+                        <RatingBar
+                            android:id="@+id/rating_bar_container"
+                            android:layout_width="268dp"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/avatarbig"
-                            android:layout_weight="1"/>
-                        <ImageView
-                            android:id="@+id/tv_servicedetail_start1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/star" />
-                        <ImageView
-                            android:id="@+id/tv_servicedetail_start2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/star" />
-                        <ImageView
-                            android:id="@+id/tv_servicedetail_start3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/star" />
-                        <ImageView
-                            android:id="@+id/tv_servicedetail_start4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/star" />
-                        <ImageView
-                            android:id="@+id/tv_servicedetail_start5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/starhalf" />
+                            android:layout_weight="2"
+                            android:numStars="5"
+                            android:rating="4"
+                            android:stepSize="1.0" />
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -247,6 +226,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <ListView
+                            android:id="@+id/lv_feedback"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/white">
@@ -277,5 +257,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:menu="@menu/activity_menu_drawer"/>
+        app:menu="@menu/activity_menu_drawer"
+        android:visibility="gone"/>
 </android.support.v4.widget.DrawerLayout>

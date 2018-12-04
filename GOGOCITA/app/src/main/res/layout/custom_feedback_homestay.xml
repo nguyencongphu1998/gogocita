@@ -21,7 +21,6 @@
                     android:stretchColumns="1">
                     <TableRow>
                         <TextView
-                            android:id="@+id/tv_feedback_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Name"
@@ -29,14 +28,20 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/t20" />
                         <TextView
+                            android:id="@+id/tv_feedback_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/t20"
                             android:text="@string/User_name" />
+                        <TextView
+                            android:id="@+id/tv_feedback_evalution"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/t20"
+                            android:text="132456 sao" />
                     </TableRow>
                     <TableRow>
                         <TextView
-                            android:id="@+id/tv_feedback_phone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Phone"
@@ -44,6 +49,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/t20"/>
                         <TextView
+                            android:id="@+id/tv_feedback_phone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/t20"

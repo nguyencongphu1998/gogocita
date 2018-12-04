@@ -5,8 +5,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,11 +20,13 @@ import com.gogocita.admin.gogocita.R;
 import com.gogocita.admin.helper.FirebaseListAdapter;
 import com.gogocita.admin.helper.QueryFirebase;
 import com.gogocita.admin.helper.ViewHolder;
+import com.google.api.client.util.DateTime;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class ServiceFeedbackController {
@@ -86,6 +90,7 @@ public class ServiceFeedbackController {
                 vh.setTextViewBookCheckIn((TextView) v.findViewById(R.id.tv_feedback_checkin));
                 vh.setTextViewBookCheckOut((TextView) v.findViewById(R.id.tv_feedback_checkout));
                 vh.setTextViewBookNameOfHomeStay((TextView) v.findViewById(R.id.tv_feedback_nameofhomestay));
+                vh.setImageViewFeedbackNew((ImageView) v.findViewById(R.id.image_feedback_new));
             }
 
             @Override
@@ -114,6 +119,9 @@ public class ServiceFeedbackController {
 
                 vh.getTextViewBookCheckIn().setText(new SimpleDateFormat("MM-dd-yyyy").format(((PartnerServiceFeedback) model).getpSFEFrom()));
                 vh.getTextViewBookCheckOut().setText(new SimpleDateFormat("MM-dd-yyyy").format(((PartnerServiceFeedback) model).getpSFETo()));
+                if(((PartnerServiceFeedback) model).ispSFIsSend()){
+                    vh.getImageViewFeedbackNew().setVisibility(View.GONE);
+                }
 
             }
 
@@ -125,6 +133,12 @@ public class ServiceFeedbackController {
             @Override
             protected List modifyArrayAdapter(List models)
             {
+                for (PartnerServiceFeedback i: (List<PartnerServiceFeedback>)models)
+                {
+                    if(i.getpSFETo().getTime() < System.currentTimeMillis()){
+                        models.remove(i);
+                    }
+                }
                 return models;
             }
         };
@@ -142,6 +156,7 @@ public class ServiceFeedbackController {
                 vh.setTextViewBookCheckOut((TextView) v.findViewById(R.id.tv_feedback_checkout));
                 vh.setTextViewBookNameOfHomeStay((TextView) v.findViewById(R.id.tv_feedback_name));
                 vh.setTextViewFeedbackContent((TextView) v.findViewById(R.id.tv_feedback_content));
+                vh.setTextViewFeedbackEvalution((TextView) v.findViewById(R.id.tv_feedback_evalution));
             }
 
             @Override
@@ -162,6 +177,7 @@ public class ServiceFeedbackController {
                 vh.getTextViewBookCheckIn().setText(new SimpleDateFormat("MM-dd-yyyy").format(((PartnerServiceFeedback) model).getpSFEFrom()));
                 vh.getTextViewBookCheckOut().setText(new SimpleDateFormat("MM-dd-yyyy").format(((PartnerServiceFeedback) model).getpSFETo()));
                 vh.getTextViewFeedbackContent().setText(((PartnerServiceFeedback) model).getpSFContent());
+                vh.getTextViewFeedbackEvalution().setText(((PartnerServiceFeedback) model).getpSFEvalution()+"");
 
             }
 
@@ -173,6 +189,62 @@ public class ServiceFeedbackController {
             @Override
             protected List modifyArrayAdapter(List models)
             {
+                for (PartnerServiceFeedback i: (List<PartnerServiceFeedback>)models)
+                {
+                    if(!i.ispSFIsSend()){
+                        models.remove(i);
+                    }
+                }
+                return models;
+            }
+        };
+        listView.setAdapter(serviceAdapter);
+    }
+
+    public void getAllFeedbackServices(ListView listView, Context context, String serviceID){
+        QueryFirebase<PartnerServiceFeedback> queryFirebase = QueryFirebase.getInstance(EntityName.PartnerServiceFeedbacks);
+        FirebaseListAdapter<PartnerServiceFeedback> serviceAdapter = new FirebaseListAdapter(queryFirebase.getReferenceToSearch(null,"fk_PartnerServiceID",serviceID),PartnerServiceFeedback.class,R.layout.custom_feedback_content,context) {
+            @Override
+            protected void getViewHolder(ViewHolder vh, View v) {
+                vh.setRatingBar((RatingBar) v.findViewById(R.id.rating_bar_container));
+                vh.setTextViewBookNameOfHomeStay((TextView) v.findViewById(R.id.tv_feedback_name));
+                vh.setTextViewFeedbackContent((TextView) v.findViewById(R.id.tv_feedback_content));
+            }
+
+            @Override
+            protected void setViewHolder(final ViewHolder vh, final Object model) {
+
+                QueryFirebase queryFirebase = QueryFirebase.getInstance(EntityName.UserDetails);
+                queryFirebase.getReferenceToSearch(null,"fk_UserID",((PartnerServiceFeedback) model).getFk_CustomerID()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        userDetailsController.getShortUserDetail(vh.getTextViewBookNameOfHomeStay(),null,null,((PartnerServiceFeedback) model).getFk_PartnerID());
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+                vh.getTextViewFeedbackContent().setText(((PartnerServiceFeedback) model).getpSFContent());
+                vh.getRatingBar().setRating(((PartnerServiceFeedback) model).getpSFEvalution());
+
+            }
+
+            @Override
+            protected void addListener(final ViewHolder vh, final Object model) {
+
+            }
+
+            @Override
+            protected List modifyArrayAdapter(List models)
+            {
+                for (PartnerServiceFeedback i: (List<PartnerServiceFeedback>)models)
+                {
+                    if(!i.ispSFIsSend()){
+                        models.remove(i);
+                    }
+                }
                 return models;
             }
         };
@@ -200,6 +272,5 @@ public class ServiceFeedbackController {
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
-
     }
 }

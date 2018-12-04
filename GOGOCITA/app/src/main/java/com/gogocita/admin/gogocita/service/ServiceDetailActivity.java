@@ -1,34 +1,36 @@
 package com.gogocita.admin.gogocita.service;
 
 import android.content.Intent;
-import android.media.Image;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterViewFlipper;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.gogocita.admin.constant.EntityName;
 import com.gogocita.admin.constant.ServiceConvinience;
+import com.gogocita.admin.controllers.service.ServiceFeedbackController;
 import com.gogocita.admin.controllers.service.ServiceImageController;
 import com.gogocita.admin.entity.PartnerService;
 import com.gogocita.admin.gogocita.BaseMenuActivity;
 import com.gogocita.admin.gogocita.R;
-import com.squareup.picasso.Picasso;
+
 
 public class ServiceDetailActivity extends BaseMenuActivity {
-    private TextView serviceName,serviceDesc,serviceEvalution,serviceVote;
+    private TextView serviceName,serviceDesc,serviceEvalution,serviceVote,serviceVote1;
     private EditText serviceAddress;
     private Button btnbook;
     private CheckBox serviceWifi,serviceBreakfast,serviceSwimming,serviceAc;
+    private RatingBar ratingBar;
+    private ListView lv_Feedback;
     private AdapterViewFlipper avf_images;
     private PartnerService partnerService;
     private ServiceImageController serviceImageController;
+    private ServiceFeedbackController serviceFeedbackController;
 
     @Override
     protected void getWidget()
@@ -38,12 +40,17 @@ public class ServiceDetailActivity extends BaseMenuActivity {
         serviceDesc = (TextView) findViewById(R.id.tv_contenofhomestay_desc);
         serviceEvalution = (TextView) findViewById(R.id.tv_contenofhomestay_evaluation);
         serviceName = (TextView) findViewById(R.id.tv_contenofhomestay_name);
+        serviceVote = (TextView) findViewById(R.id.tv_servicedetail_vote);
+        serviceVote1 = (TextView) findViewById(R.id.tv_servicedetail_vote1);
         serviceAddress = (EditText) findViewById(R.id.tv_contenofhomestay_address);
         serviceWifi = (CheckBox) findViewById(R.id.cb_contenofhomestay_wifi);
         serviceBreakfast = (CheckBox) findViewById(R.id.cb_contenofhomestay_freebreakfast);
         serviceSwimming = (CheckBox) findViewById(R.id.cb_contenofhomestay_swimmingpool);
         serviceAc = (CheckBox) findViewById(R.id.cb_contenofhomestay_ac);
+        ratingBar = (RatingBar) findViewById(R.id.rating_bar_container);
+        lv_Feedback = (ListView) findViewById(R.id.lv_feedback);
         serviceImageController = ServiceImageController.getInstance(this,null);
+        serviceFeedbackController = ServiceFeedbackController.getInstance(this,null);
     }
 
     @Override
@@ -51,8 +58,11 @@ public class ServiceDetailActivity extends BaseMenuActivity {
     {
         serviceImageController.getAllImages(avf_images,partnerService.getPartnerServiceID());
         serviceDesc.setText(partnerService.getPartnerServiceDesc());
-        serviceEvalution.setText(partnerService.getPartnerServiceEvalution() +"");
+        serviceEvalution.setText(partnerService.getPartnerServiceEvalution() + "");
         serviceName.setText(partnerService.getPartnerServiceName());
+        serviceVote.setText(partnerService.getPartnerserviceFeedbackAmount() + "");
+        serviceVote1.setText(partnerService.getPartnerserviceFeedbackAmount() + "");
+        ratingBar.setRating((int) partnerService.getPartnerServiceEvalution());
         serviceAddress.setText(partnerService.getPartnerServiceAddressLine()
                 + " , " + partnerService.getFk_LocationDistrictID()
                 + " , " + partnerService.getFk_LocationCityID()
@@ -77,6 +87,8 @@ public class ServiceDetailActivity extends BaseMenuActivity {
                 }
             }
         }
+
+        serviceFeedbackController.getAllFeedbackServices(lv_Feedback,this,partnerService.getPartnerServiceID());
     }
 
     @Override

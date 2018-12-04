@@ -54,6 +54,8 @@ public class CreateNewServiceActivity extends BaseMenuActivity {
     private String cityName;
     private String districtName;
     private static PartnerService currentPartnerService;
+    private boolean isCheckCity = true;
+    private boolean isCheckDistrict = true;
 
     @Override
     public void onBackPressed() {
@@ -266,6 +268,10 @@ public class CreateNewServiceActivity extends BaseMenuActivity {
             spCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    if(!TextUtils.isEmpty(currentPartnerService.getFk_LocationCityID()) && isCheckCity){
+                        configValueController.selectLocationCityItem(currentPartnerService.getFk_LocationCityID(),spCity);
+                        isCheckCity = false;
+                    }
                     cityId = ((Location) spCity.getSelectedItem()).getLocationID();
                     cityName = ((Location) spCity.getSelectedItem()).getLocationName();
                     configValueController.getDistricts(countryId,cityId,spDistrict);
@@ -280,6 +286,10 @@ public class CreateNewServiceActivity extends BaseMenuActivity {
             spDistrict.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    if(!TextUtils.isEmpty(currentPartnerService.getFk_LocationDistrictID()) && isCheckDistrict){
+                        configValueController.selectLocationCountryItem(currentPartnerService.getFk_LocationDistrictID(),spDistrict);
+                        isCheckDistrict = false;
+                    }
                     districtId = ((Location) spDistrict.getSelectedItem()).getLocationID();
                     districtName = ((Location) spDistrict.getSelectedItem()).getLocationName();
                 }

@@ -77,6 +77,7 @@
                         android:layout_gravity="center"
                         android:textStyle="bold"/>
                     <RatingBar
+                        android:id="@+id/rating_bar_container"
                         android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -87,9 +88,6 @@
                 </TableRow>
 
             </TableLayout>
-
-
-
                 <Button
                     android:layout_below="@+id/c"
                     android:id="@+id/btn_feedback_send"

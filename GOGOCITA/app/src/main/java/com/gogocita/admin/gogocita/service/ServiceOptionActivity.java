@@ -7,10 +7,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.gogocita.admin.controllers.user.UserDetailsController;
 import com.gogocita.admin.controllers.user.UsersController;
+
 import com.gogocita.admin.gogocita.ComingSoonActivity;
 import com.gogocita.admin.gogocita.R;
+
 
 public class ServiceOptionActivity extends AppCompatActivity{
     private UsersController usersController;

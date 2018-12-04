@@ -4,6 +4,7 @@ import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 public class ViewHolder {
@@ -14,18 +15,45 @@ public class ViewHolder {
     private TextView textViewServiceCommentAmount;
     private ImageView imageViewServiceCoverPhoto;
     private ImageView imageViewContentOfHomeStay;
+    private ImageView imageViewFeedbackNew;
     private TextView textViewBookNameOfHomeStay;
     private TextView textViewBookCheckIn;
     private TextView textViewBookCheckOut;
     private TextView textViewBookStatus;
     private TextView textViewBookAddress;
     private TextView textViewFeedbackContent;
+    private TextView textViewFeedbackEvalution;
     private LinearLayout linearLayoutBook;
+    private RatingBar ratingBar;
     private Button btnConfirm;
     private Button btnCancel;
 
     public ViewHolder(){
 
+    }
+
+    public RatingBar getRatingBar() {
+        return ratingBar;
+    }
+
+    public void setRatingBar(RatingBar ratingBar) {
+        this.ratingBar = ratingBar;
+    }
+
+    public TextView getTextViewFeedbackEvalution() {
+        return textViewFeedbackEvalution;
+    }
+
+    public void setTextViewFeedbackEvalution(TextView textViewFeedbackEvalution) {
+        this.textViewFeedbackEvalution = textViewFeedbackEvalution;
+    }
+
+    public ImageView getImageViewFeedbackNew() {
+        return imageViewFeedbackNew;
+    }
+
+    public void setImageViewFeedbackNew(ImageView imageViewFeedbackNew) {
+        this.imageViewFeedbackNew = imageViewFeedbackNew;
     }
 
     public TextView getTextViewServiceCommentAmount() {

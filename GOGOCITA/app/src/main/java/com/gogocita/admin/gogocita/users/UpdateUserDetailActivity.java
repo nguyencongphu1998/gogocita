@@ -3,6 +3,7 @@ package com.gogocita.admin.gogocita.users;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -58,10 +59,15 @@ public class UpdateUserDetailActivity extends BaseMenuActivity {
     private UsersController usersController;
     private UserDetailsController userDetailsController;
     private FirebaseUser user = null;
+    private UserDetail userDetail;
+    private boolean isCheckCity = true;
+    private boolean isCheckDistrict = true;
+    private boolean isGender = true;
 
     @Override
     protected void init() {
-
+        Intent intent = getIntent();
+        userDetail = (UserDetail) intent.getSerializableExtra(EntityName.UserDetails);
     }
 
     @Override
@@ -88,13 +94,8 @@ public class UpdateUserDetailActivity extends BaseMenuActivity {
     {
         configValueController = ConfigValueController.getInstance(this);
         usersController = UsersController.getInstance(this,progressBar);
-        userDetailsController = UserDetailsController.getInstance(this,progressBar);
-
         user = usersController.getUser();
-
-        Intent intent = getIntent();
-        UserDetail userDetail = (UserDetail) intent.getSerializableExtra(EntityName.UserDetails);
-
+        userDetailsController = UserDetailsController.getInstance(this,progressBar);
         editText_firstName.setText(userDetail.getUserDetailFirstName());
         editText_lastName.setText(userDetail.getUserDetailLastName());
         editText_addressline.setText(userDetail.getUserDetailAddressLine());
@@ -111,6 +112,10 @@ public class UpdateUserDetailActivity extends BaseMenuActivity {
         spinner_gender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(!TextUtils.isEmpty(userDetail.getUserDetailGender()) && isGender){
+                    configValueController.selectGenderItem(userDetail.getUserDetailGender(),spinner_gender);
+                    isGender = false;
+                }
                 gender = ((ConfigValue) spinner_gender.getSelectedItem()).getConfigValueKey();
             }
 
@@ -138,6 +143,10 @@ public class UpdateUserDetailActivity extends BaseMenuActivity {
         spinner_city.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(!TextUtils.isEmpty(userDetail.getUserDetailAddressCity()) && isCheckCity){
+                    configValueController.selectLocationCityItem(userDetail.getUserDetailAddressCity(),spinner_city);
+                    isCheckCity = false;
+                }
                 cityId = ((Location) spinner_city.getSelectedItem()).getLocationID();
                 cityName = ((Location) spinner_city.getSelectedItem()).getLocationName();
                 configValueController.getDistricts(countryId,cityId,spinner_distric);
@@ -152,6 +161,10 @@ public class UpdateUserDetailActivity extends BaseMenuActivity {
         spinner_distric.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(!TextUtils.isEmpty(userDetail.getUserDetailAddressDistrict()) && isCheckDistrict){
+                    configValueController.selectLocationCountryItem(userDetail.getUserDetailAddressDistrict(),spinner_distric);
+                    isCheckDistrict = false;
+                }
                 districtId = ((Location) spinner_distric.getSelectedItem()).getLocationID();
                 districtName = ((Location) spinner_distric.getSelectedItem()).getLocationName();
             }

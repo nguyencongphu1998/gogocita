@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.gogocita.admin.constant.EntityName;
@@ -19,6 +20,7 @@ public class CreateFeedbackActivity  extends BaseMenuActivity {
     private Button btn_send;
     private static PartnerServiceFeedback partnerServiceFeedback;
     private ServiceFeedbackController serviceFeedbackController;
+    private RatingBar ratingBar;
     @Override
     protected void init() {
         Intent intent = getIntent();
@@ -39,6 +41,7 @@ public class CreateFeedbackActivity  extends BaseMenuActivity {
         edt_content = (EditText) findViewById(R.id.ev_feedback_content);
         btn_send = (Button) findViewById(R.id.btn_feedback_send);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        ratingBar = (RatingBar) findViewById(R.id.rating_bar_container);
         serviceFeedbackController = ServiceFeedbackController.getInstance(this,progressBar);
     }
 
@@ -55,6 +58,7 @@ public class CreateFeedbackActivity  extends BaseMenuActivity {
                 btn_send.setEnabled(false);
                 partnerServiceFeedback.setpSFIsSend(true);
                 partnerServiceFeedback.setpSFContent(edt_content.getText().toString());
+                partnerServiceFeedback.setpSFEvalution((int)ratingBar.getRating());
                 serviceFeedbackController.showAlertDialog(partnerServiceFeedback);
             }
         });

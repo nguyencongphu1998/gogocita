@@ -20,7 +20,8 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/t18"
                 android:layout_gravity="left"/>
-            <ImageButton
+            <ImageView
+                android:id="@+id/image_feedback_new"
                 android:layout_gravity="center"
                 android:padding="@dimen/h0"
                 android:src="@drawable/add_item"/>

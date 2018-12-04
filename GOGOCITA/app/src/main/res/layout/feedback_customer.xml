@@ -25,59 +25,81 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
-        <LinearLayout
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:layout_height="wrap_content"
             android:padding="@dimen/standard">
-            <TextView
+                <TextView
                 android:id="@+id/a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/t20"
                 android:text="@string/feedback"
                 android:gravity="center"
-                android:layout_marginTop="@dimen/h20"
                 android:textStyle="bold"
                 />
-            <TextView
-                android:id="@+id/b"
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/a"
-                android:text="@string/contentfeedback" />
-            <RelativeLayout
-                android:layout_below="@+id/b"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/a"
+                    android:text="@string/contentfeedback" />
+            </TableRow>
+            <LinearLayout
                 android:id="@+id/c"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/h250"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/h200"
                 android:padding="@dimen/h16"
                 android:background="@drawable/text_bg"
                 android:layout_marginTop="@dimen/h10"
                 android:layout_marginBottom="@dimen/h10">
-
-                <ScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <EditText
-                        android:id="@+id/ev_feedback_content"
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <EditText
+                            android:id="@+id/ev_feedback_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="@string/yourfeedback"/>
+                    </ScrollView>
+            </LinearLayout>
+            <TableLayout>
+                <TableRow>
+                    <TextView
+                        android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/yourfeedback"/>
-                </ScrollView>
-            </RelativeLayout>
-            <Button
-                android:layout_below="@+id/c"
-                android:id="@+id/btn_feedback_send"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/send"
-                android:textSize="@dimen/t20"
-                android:textColor="@color/white"
-                android:background="@drawable/button_bg_rounded_corners"
-                />
-        </LinearLayout>
+                        android:text="RATE FOR US"
+                        android:textSize="@dimen/t18"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"/>
+                    <RatingBar
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:rating="4"
+                        android:stepSize="1.0"
+                        android:numStars="5"
+                        />
+                </TableRow>
 
+            </TableLayout>
+
+
+
+                <Button
+                    android:layout_below="@+id/c"
+                    android:id="@+id/btn_feedback_send"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/send"
+                    android:textSize="@dimen/t20"
+                    android:textColor="@color/white"
+                    android:background="@drawable/button_bg_rounded_corners" />
+        </TableLayout>
     </LinearLayout>
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"

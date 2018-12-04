@@ -2,24 +2,29 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
+    <TableLayout
         android:id="@+id/backgroud_book"
         android:background="@drawable/text_bg"
-        android:layout_margin="@dimen/standard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="@dimen/standard">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_feedback_nameofhomestay"
-            android:text="@string/nameofhomestay"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_marginLeft="@dimen/standard"
-            android:layout_marginRight="@dimen/standard"
-            android:textSize="@dimen/t18" />
+        android:padding="@dimen/standard"
+        android:layout_margin="@dimen/standard"
+        android:stretchColumns="0">
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_feedback_nameofhomestay"
+                android:text="@string/nameofhomestay"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/t18"
+                android:layout_gravity="left"/>
+            <ImageButton
+                android:layout_gravity="center"
+                android:padding="@dimen/h0"
+                android:src="@drawable/add_item"/>
+        </TableRow>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -27,15 +32,11 @@
             android:text="@string/address"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:layout_marginLeft="@dimen/standard"
-            android:layout_marginRight="@dimen/standard"
-            android:textSize="@dimen/t16"/>
+            android:textSize="@dimen/t18"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginLeft="@dimen/standard"
-            android:layout_marginRight="@dimen/standard"
             android:weightSum="2">
             <TextView
                 android:layout_weight="1"
@@ -44,7 +45,7 @@
                 android:text="@string/checkin"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                android:textSize="@dimen/t15"/>
+                android:textSize="@dimen/t18"/>
             <TextView
                 android:layout_weight="1"
                 android:layout_width="match_parent"
@@ -52,14 +53,12 @@
                 android:id="@+id/tv_feedback_checkin"
                 android:text="@string/date"
                 android:textColor="@color/black"
-                android:textSize="@dimen/t15"/>
+                android:textSize="@dimen/t18"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginLeft="@dimen/standard"
-            android:layout_marginRight="@dimen/standard"
             android:layout_marginBottom="@dimen/standard"
             android:weightSum="2">
             <TextView
@@ -69,7 +68,7 @@
                 android:text="@string/checkout"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                android:textSize="@dimen/t15"/>
+                android:textSize="@dimen/t18"/>
             <TextView
                 android:layout_weight="1"
                 android:layout_width="match_parent"
@@ -77,33 +76,7 @@
                 android:id="@+id/tv_feedback_checkout"
                 android:text="@string/date"
                 android:textColor="@color/black"
-                android:textSize="@dimen/h15"/>
+                android:textSize="@dimen/t18"/>
         </LinearLayout>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/feedback"
-            android:textSize="@dimen/t18"
-            android:layout_margin="@dimen/h10"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/standard"
-            android:paddingRight="@dimen/standard"
-            android:paddingBottom="@dimen/standard"
-            android:orientation="horizontal"
-            android:weightSum="3">
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="RATE FOR US"
-                android:textStyle="bold"
-                android:textSize="@dimen/t16"/>
-            <Spinner
-                android:layout_weight="2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"></Spinner>
-        </LinearLayout>
-    </LinearLayout>
+    </TableLayout>
 </LinearLayout>

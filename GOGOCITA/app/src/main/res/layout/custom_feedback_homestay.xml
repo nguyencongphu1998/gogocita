@@ -7,101 +7,100 @@
         android:layout_margin="@dimen/standard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="@dimen/standard">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <TextView
-                    android:id="@+id/tv_feedback_name"
+                <TableLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/User_name"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="@dimen/standard"
-                    android:layout_marginRight="@dimen/standard"
-                    android:textSize="@dimen/t20" />
-                <TextView
-                    android:id="@+id/tv_feedback_phone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/phone"
-                    android:layout_marginTop="@dimen/h5"
-                    android:layout_marginLeft="@dimen/standard"
-                    android:layout_marginRight="@dimen/standard"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/t18" />
-                <LinearLayout
-                    android:layout_marginTop="@dimen/h5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/standard"
-                    android:layout_marginRight="@dimen/standard"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-                    <TextView
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/checkin"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/t20"/>
-                    <TextView
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tv_feedback_checkin"
-                        android:text="@string/date"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/t20"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_marginTop="@dimen/h5"
-                    android:layout_weight="5"
-                    android:weightSum="2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/standard"
-                    android:layout_marginRight="@dimen/standard"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/checkout"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/t20"/>
-                    <TextView
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tv_feedback_checkout"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/t20"
-                        android:text="@string/date"/>
-                </LinearLayout>
-            </LinearLayout>
+                    android:paddingTop="@dimen/standard"
+                    android:paddingRight="@dimen/standard"
+                    android:paddingLeft="@dimen/standard"
+                    android:stretchColumns="1">
+                    <TableRow>
+                        <TextView
+                            android:id="@+id/tv_feedback_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Name"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/t20" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/t20"
+                            android:text="@string/User_name" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:id="@+id/tv_feedback_phone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Phone"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/t20"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/t20"
+                            android:text="@string/phone" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/checkin"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/t20" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_feedback_checkin"
+                            android:text="@string/date"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/t20"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/checkout"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/t20"
+                            android:layout_marginRight="@dimen/h5"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_feedback_checkout"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/t20"
+                            android:text="@string/date"/>
+                    </TableRow>
+                </TableLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/h200"
             android:orientation="horizontal"
             android:padding="@dimen/h10">
-            <TextView
-                android:id="@+id/tv_feedback_content"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/h100"
-                android:background="@color/colorWhite"
-                android:text="@string/feedback"
-                android:padding="@dimen/h5"/>
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite">
+                <TextView
+                    android:id="@+id/tv_feedback_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/feedback"
+                    android:padding="@dimen/h5"/>
+            </ScrollView>
+
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

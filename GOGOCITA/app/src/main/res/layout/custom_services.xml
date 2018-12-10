@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/content_bg"
+    android:layout_marginBottom="@dimen/h7">
     <ImageView
         android:id="@+id/iv_listservice_coverphoto"
         android:layout_width="match_parent"
@@ -15,18 +17,21 @@
         android:layout_height="wrap_content"
         android:text="@string/nameofhomestay"
         android:textSize="@dimen/t20"
-        android:padding="@dimen/h10" />
+        android:padding="@dimen/h10"
+        android:background="@color/white"
+        android:textStyle="bold"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="3"
+        android:weightSum="2"
         android:background="@color/pink"
         android:padding="@dimen/h10">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:gravity="center"
             android:layout_weight="1">
             <ImageView
                 android:layout_width="wrap_content"
@@ -47,28 +52,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_weight="1"
-            android:layout_gravity="center"
             android:gravity="center">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/heart"
-                android:layout_marginRight="@dimen/h5"/>
-            <TextView
-                android:id="@+id/tv_listservice_heart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/love"
-                android:textSize="@dimen/t20"
-                android:layout_marginLeft="@dimen/h5"
-                android:textColor="@color/white"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:gravity="right">
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -87,7 +71,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/h115"
-        android:background="@color/colorededed"
+        android:background="@color/white"
         android:padding="@dimen/h13">
         <TextView
             android:id="@+id/tv_listservice_description"

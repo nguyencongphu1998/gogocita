@@ -145,17 +145,18 @@
                         android:layout_height="match_parent"
                         android:textSize="@dimen/t20"></Spinner>
                 </TableRow>
-                <Button
-                    android:id="@+id/button_updateprofile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/button_bg_rounded_corners"
-                    android:text="@string/update"
-                    android:textSize="@dimen/t20"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="@dimen/h30"/>
             </TableLayout>
         </ScrollView>
+        <Button
+            android:id="@+id/button_updateprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/pink"
+            android:text="@string/update"
+            android:textSize="@dimen/t20"
+            android:textColor="@color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/h30"/>
        </RelativeLayout>
 
     <android.support.design.widget.NavigationView

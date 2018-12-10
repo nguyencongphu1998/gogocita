@@ -40,7 +40,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/h40"
                         android:background="@color/pink"
-                        android:weightSum="3"
+                        android:weightSum="2"
                         android:layout_gravity="center"
                         android:gravity="center">
                         <LinearLayout
@@ -48,7 +48,9 @@
                             android:layout_height="@dimen/h60"
                             android:layout_weight="1"
                             android:layout_marginLeft="@dimen/h30"
-                            android:layout_marginRight="@dimen/h30">
+                            android:layout_marginRight="@dimen/h30"
+                            android:layout_gravity="center"
+                            android:gravity="center">
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="@dimen/h60"
@@ -65,33 +67,15 @@
                                 android:gravity="center"
                                 android:layout_marginLeft="@dimen/h3"/>
                         </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="@dimen/h20"
-                            android:layout_marginRight="@dimen/h20">
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="@dimen/h40"
-                                android:src="@drawable/heart"
-                                android:layout_marginRight="@dimen/h3"/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="@dimen/h50"
-                                android:text="@string/love"
-                                android:textColor="@color/white"
-                                android:textSize="@dimen/t20"
-                                android:layout_gravity="center"
-                                android:gravity="center"
-                                android:layout_marginLeft="@dimen/h3"/>
-                        </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginLeft="@dimen/h30"
-                            android:layout_marginRight="@dimen/h30">
+                            android:layout_marginRight="@dimen/h30"
+                            android:layout_gravity="center"
+                            android:gravity="center">
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="@dimen/h45"
@@ -191,22 +175,22 @@
                         android:gravity="center"
                         android:orientation="horizontal"
                         android:padding="@dimen/h16"
-                        android:weightSum="3">
+                        android:weightSum="5">
                         <RatingBar
                             android:id="@+id/rating_bar_container"
-                            android:layout_width="268dp"
+                            android:layout_width="140dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="2"
+                            android:layout_weight="3"
                             android:numStars="5"
-                            android:rating="4"
-                            android:stepSize="1.0" />
+                            android:rating="3"
+                            android:stepSize="1" />
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/h16"
                             android:gravity="center"
                             android:orientation="vertical"
-                            android:layout_weight="1">
+                            android:layout_weight="2">
                             <TextView
                                 android:id="@+id/tv_servicedetail_vote"
                                 android:layout_width="wrap_content"
@@ -224,6 +208,26 @@
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:paddingLeft="@dimen/h80"
+                        android:paddingRight="@dimen/h80"
+                        android:paddingTop="@dimen/h10"
+                        android:paddingBottom="@dimen/h10">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/feedback"
+                            android:padding="@dimen/h5"
+                            android:gravity="center"
+                            android:textSize="@dimen/t16"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:background="@drawable/text_bg"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <ListView
                             android:id="@+id/lv_feedback"
@@ -238,7 +242,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:gravity="center">
+                android:gravity="center"
+                android:layout_weight="1">
                 <Button
                     android:id="@+id/btn_contenofhomestay_book"
                     android:layout_width="match_parent"

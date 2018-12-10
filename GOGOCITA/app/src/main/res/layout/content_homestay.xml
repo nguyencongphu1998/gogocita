@@ -263,5 +263,5 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:menu="@menu/activity_menu_drawer"
-        android:visibility="gone"/>
+        android:visibility="visible"/>
 </android.support.v4.widget.DrawerLayout>

@@ -27,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 public class ServiceFeedbackController {
@@ -133,10 +134,10 @@ public class ServiceFeedbackController {
             @Override
             protected List modifyArrayAdapter(List models)
             {
-                for (PartnerServiceFeedback i: (List<PartnerServiceFeedback>)models)
-                {
-                    if(i.getpSFETo().getTime() < System.currentTimeMillis()){
-                        models.remove(i);
+                for (Iterator<PartnerServiceFeedback> iterator = models.iterator(); iterator.hasNext(); ) {
+                    PartnerServiceFeedback value = iterator.next();
+                    if(value.getpSFETo().getTime() < System.currentTimeMillis()){
+                        iterator.remove();
                     }
                 }
                 return models;
@@ -189,10 +190,10 @@ public class ServiceFeedbackController {
             @Override
             protected List modifyArrayAdapter(List models)
             {
-                for (PartnerServiceFeedback i: (List<PartnerServiceFeedback>)models)
-                {
-                    if(!i.ispSFIsSend()){
-                        models.remove(i);
+                for (Iterator<PartnerServiceFeedback> iterator = models.iterator(); iterator.hasNext(); ) {
+                    PartnerServiceFeedback value = iterator.next();
+                    if(!value.ispSFIsSend()){
+                        iterator.remove();
                     }
                 }
                 return models;
@@ -239,10 +240,10 @@ public class ServiceFeedbackController {
             @Override
             protected List modifyArrayAdapter(List models)
             {
-                for (PartnerServiceFeedback i: (List<PartnerServiceFeedback>)models)
-                {
-                    if(!i.ispSFIsSend()){
-                        models.remove(i);
+                for (Iterator<PartnerServiceFeedback> iterator = models.iterator(); iterator.hasNext(); ) {
+                    PartnerServiceFeedback value = iterator.next();
+                    if(!value.ispSFIsSend()){
+                        iterator.remove();
                     }
                 }
                 return models;

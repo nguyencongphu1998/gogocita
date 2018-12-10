@@ -112,8 +112,10 @@ public class ServiceBookController {
                     vh.getBtnCancel().setVisibility(View.VISIBLE);
                 }else if(((PartnerServiceBook) model).getPartnerServiceBookStatus().equals(PartnerServiceDateStatus.Cancel)){
                     vh.getTextViewBookStatus().setBackgroundResource(R.color.cancel);
+                    vh.getBtnCancel().setVisibility(View.GONE);
                 }else {
                     vh.getTextViewBookStatus().setBackgroundResource(R.color.confirm);
+                    vh.getBtnCancel().setVisibility(View.GONE);
                 }
             }
 
@@ -174,8 +176,12 @@ public class ServiceBookController {
                     vh.getBtnConfirm().setVisibility(View.VISIBLE);
                 }else if(((PartnerServiceBook) model).getPartnerServiceBookStatus().equals(PartnerServiceDateStatus.Cancel)){
                     vh.getTextViewBookStatus().setBackgroundResource(R.color.cancel);
+                    vh.getBtnCancel().setVisibility(View.GONE);
+                    vh.getBtnConfirm().setVisibility(View.GONE);
                 }else {
                     vh.getTextViewBookStatus().setBackgroundResource(R.color.confirm);
+                    vh.getBtnCancel().setVisibility(View.GONE);
+                    vh.getBtnConfirm().setVisibility(View.GONE);
                 }
             }
 

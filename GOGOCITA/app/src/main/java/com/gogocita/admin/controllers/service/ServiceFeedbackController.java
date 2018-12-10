@@ -136,7 +136,7 @@ public class ServiceFeedbackController {
             {
                 for (Iterator<PartnerServiceFeedback> iterator = models.iterator(); iterator.hasNext(); ) {
                     PartnerServiceFeedback value = iterator.next();
-                    if(value.getpSFETo().getTime() < System.currentTimeMillis()){
+                    if(value.getpSFETo().getTime() > System.currentTimeMillis()){
                         iterator.remove();
                     }
                 }

@@ -92,7 +92,7 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/h200"
+            android:layout_height="@dimen/h150"
             android:orientation="horizontal"
             android:padding="@dimen/h10">
             <ScrollView
@@ -106,7 +106,6 @@
                     android:text="@string/feedback"
                     android:padding="@dimen/h5"/>
             </ScrollView>
-
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

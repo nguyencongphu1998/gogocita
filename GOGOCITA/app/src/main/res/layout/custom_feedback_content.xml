@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="@dimen/h300"
+    android:layout_height="@dimen/h200"
     android:padding="@dimen/h10"
     android:orientation="vertical">
     <LinearLayout
@@ -16,14 +16,14 @@
             android:text="@string/User_name"
             android:background="@drawable/text_bg"
             android:textSize="@dimen/t15"
+            android:layout_gravity="center"
             android:padding="@dimen/h10"
-            android:layout_marginBottom="@dimen/h2"
             android:layout_weight="1"/>
         <RatingBar
             android:id="@+id/rating_bar_container"
-            android:layout_width="wrap_content"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:rating="4"
+            android:rating="3"
             android:stepSize="1.0"
             android:numStars="5"
             android:layout_weight="1" />

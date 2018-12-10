@@ -8,7 +8,6 @@
     tools:context=".users.LoginActivity"
     android:padding="@dimen/standard"
     android:background="@color/colorWhite">
-
     <ProgressBar
         android:id="@+id/progressBar_login"
         android:layout_width="@dimen/h100"
@@ -36,17 +35,19 @@
             android:id="@+id/et_user_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/h1"
+            android:layout_marginTop="@dimen/h10"
             android:hint="@string/User_name"
             android:textSize="@dimen/t18"
+            android:textStyle="bold"
             android:inputType="textEmailAddress" />
         <EditText
             android:id="@+id/et_password_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/et_user_login"
-            android:layout_marginTop="@dimen/h1"
+            android:layout_marginTop="@dimen/h7"
             android:hint="@string/Password"
+            android:textStyle="bold"
             android:textSize="@dimen/t18"
             android:inputType="textPassword" />
         <Button
@@ -54,18 +55,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/et_password_login"
-            android:layout_marginTop="@dimen/h7"
+            android:layout_marginTop="@dimen/h15"
             android:textSize="@dimen/t20"
             android:textColor="#ffffff"
             android:background="@drawable/border_button"
             android:text="@string/Login"
+            android:textStyle="bold"
             android:textAllCaps="false" />
         <TextView
             android:id="@+id/tv_forgot_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btn_login"
-            android:layout_marginTop="@dimen/h5"
+            android:layout_marginTop="@dimen/h10"
             android:text="@string/Forgot_password"
             android:textAlignment="center"
             android:textSize="@dimen/t16"
@@ -79,23 +81,19 @@
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
         android:paddingLeft="@dimen/standard"
-        android:paddingRight="@dimen/standard">
+        android:paddingRight="@dimen/standard"
+        android:layout_marginTop="@dimen/h10">
         <TextView
             android:id="@+id/tv_dont"
             android:layout_width="wrap_content"
             android:layout_weight="3"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/t15"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:text="@string/donthavaacc"
-            android:layout_alignParentBottom="true"/>
+            android:textSize="@dimen/t16"
+            android:text="@string/donthavaacc" />
         <Button
             android:id="@+id/create_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
             android:layout_weight="1"
             android:textAllCaps="false"
             android:text="@string/create"
@@ -114,12 +112,21 @@
         android:paddingRight="@dimen/standard"
         android:layout_marginTop="@dimen/h10"
         android:weightSum="2">
-        <com.facebook.login.widget.LoginButton
-            android:id="@+id/btn_fb"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_centerHorizontal="true" />
+            android:padding="@dimen/h10"
+            android:layout_marginTop="@dimen/h5"
+            android:background="@drawable/border_button_facebook">
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/btn_fb"
+                android:textSize="@dimen/t18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_centerHorizontal="true" />
+        </LinearLayout>
+
     </LinearLayout>
 </RelativeLayout>
 

@@ -177,6 +177,7 @@
                         android:padding="@dimen/h16"
                         android:weightSum="5">
                         <RatingBar
+                            android:isIndicator="true"
                             android:id="@+id/rating_bar_container"
                             android:layout_width="140dp"
                             android:layout_height="wrap_content"
@@ -229,12 +230,12 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <ListView
+                        <com.gogocita.admin.helper.NonScrollListView
                             android:id="@+id/lv_feedback"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/white">
-                        </ListView>
+                        </com.gogocita.admin.helper.NonScrollListView>
                     </LinearLayout>
                 </LinearLayout>
             </ScrollView>
@@ -262,6 +263,5 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:menu="@menu/activity_menu_drawer"
-        android:visibility="visible"/>
+        app:menu="@menu/activity_menu_drawer"/>
 </android.support.v4.widget.DrawerLayout>

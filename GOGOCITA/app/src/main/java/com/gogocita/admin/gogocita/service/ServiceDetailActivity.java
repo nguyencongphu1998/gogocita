@@ -6,8 +6,6 @@ import android.widget.AdapterViewFlipper;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -18,6 +16,7 @@ import com.gogocita.admin.controllers.service.ServiceImageController;
 import com.gogocita.admin.entity.PartnerService;
 import com.gogocita.admin.gogocita.BaseMenuActivity;
 import com.gogocita.admin.gogocita.R;
+import com.gogocita.admin.helper.NonScrollListView;
 
 
 public class ServiceDetailActivity extends BaseMenuActivity {
@@ -26,7 +25,7 @@ public class ServiceDetailActivity extends BaseMenuActivity {
     private Button btnbook;
     private CheckBox serviceWifi,serviceBreakfast,serviceSwimming,serviceAc;
     private RatingBar ratingBar;
-    private ListView lv_Feedback;
+    private NonScrollListView lv_Feedback;
     private AdapterViewFlipper avf_images;
     private PartnerService partnerService;
     private ServiceImageController serviceImageController;
@@ -48,7 +47,7 @@ public class ServiceDetailActivity extends BaseMenuActivity {
         serviceSwimming = (CheckBox) findViewById(R.id.cb_contenofhomestay_swimmingpool);
         serviceAc = (CheckBox) findViewById(R.id.cb_contenofhomestay_ac);
         ratingBar = (RatingBar) findViewById(R.id.rating_bar_container);
-        lv_Feedback = (ListView) findViewById(R.id.lv_feedback);
+        lv_Feedback = (NonScrollListView) findViewById(R.id.lv_feedback);
         serviceImageController = ServiceImageController.getInstance(this,null);
         serviceFeedbackController = ServiceFeedbackController.getInstance(this,null);
     }

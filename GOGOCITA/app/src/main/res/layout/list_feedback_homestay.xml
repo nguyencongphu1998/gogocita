@@ -18,13 +18,12 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
-
         <TextView
             android:layout_below="@id/toolbar"
             android:id="@+id/a"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SEE FEEDBACK FROM CUSTOMER"
+            android:text="@string/seefbfromcus"
             android:gravity="center"
             android:textSize="@dimen/t20"
             android:textStyle="bold"/>
@@ -33,7 +32,7 @@
             android:layout_below="@id/a"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Here are feedback from customer. Let improve your service. Goodluck!"
+            android:text="@string/seefbfromcusct"
             android:gravity="center"
             android:textSize="@dimen/t16"/>
         <ListView

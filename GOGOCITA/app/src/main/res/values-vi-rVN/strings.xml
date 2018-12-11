@@ -162,6 +162,11 @@
     <string name="birthday">Ngày sinh</string>
     <string name="identity_card">CMND</string>
     <string name="district">Huyện</string>
+    <string name="sendfb">XEM PHẢN HỒI</string>
+    <string name="sendfbcus">Send feedback to homestay to improve the service quality</string>
+    <string name="rateforus">RATE FOR US</string>
+    <string name="seefbfromcus">XEM PHẢN HỒI TỪ KHÁCH</string>
+    <string name="seefbfromcusct">Here are feedback from customer. Let improve your service. Goodluck!</string>
 
 
 </resources>

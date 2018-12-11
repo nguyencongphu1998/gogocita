@@ -22,7 +22,7 @@
         <RatingBar
             android:isIndicator="true"
             android:id="@+id/rating_bar_container"
-            android:layout_width="180dp"
+            android:layout_width="@dimen/h180"
             android:layout_height="wrap_content"
             android:rating="3"
             android:stepSize="1.0"

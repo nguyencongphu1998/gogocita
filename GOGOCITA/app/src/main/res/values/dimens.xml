@@ -30,7 +30,9 @@
     <dimen name="h100">100dp</dimen>
     <dimen name="h115">115dp</dimen>
     <dimen name="h120">120dp</dimen>
+    <dimen name="h140">140dp</dimen>
     <dimen name="h150">150dp</dimen>
+    <dimen name="h180">180dp</dimen>
     <dimen name="h200">200dp</dimen>
     <dimen name="h250">250dp</dimen>
     <dimen name="h300">300dp</dimen>

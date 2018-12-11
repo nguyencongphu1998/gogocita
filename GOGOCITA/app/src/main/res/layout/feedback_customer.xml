@@ -72,7 +72,7 @@
                         android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="RATE FOR US"
+                        android:text="@string/rateforus"
                         android:textSize="@dimen/t18"
                         android:layout_gravity="center"
                         android:textStyle="bold"/>

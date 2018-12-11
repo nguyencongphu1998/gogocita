@@ -167,6 +167,7 @@
     <string name="rateforus">RATE FOR US</string>
     <string name="seefbfromcus">XEM PHẢN HỒI TỪ KHÁCH</string>
     <string name="seefbfromcusct">Here are feedback from customer. Let improve your service. Goodluck!</string>
-
+    <string name="navigation_drawer_open" />
+    <string name="navigation_drawer_close" />
 
 </resources>

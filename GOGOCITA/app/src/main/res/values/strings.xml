@@ -162,12 +162,13 @@
     <string name="job">Job</string>
     <string name="identity_card">Identity card</string>
     <string name="district">District</string>
+    <string name="navigation_drawer_open" />
+    <string name="navigation_drawer_close" />
     <string name="sendfb">SEND FEEDBACK</string>
     <string name="sendfbcus">Send feedback to homestay to improve the service quality</string>
     <string name="rateforus">RATE FOR US</string>
     <string name="seefbfromcus">SEE FEEDBACK FROM CUSTOMER</string>
     <string name="seefbfromcusct">Here are feedback from customer. Let improve your service. Goodluck!</string>
-
 
 
 </resources>
